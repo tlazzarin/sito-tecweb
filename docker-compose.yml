@@ -2,7 +2,7 @@ services:
   database:
     image: mariadb
     environment:
-      - MARIADB_ROOT_PASSWORD=r
+      - MARIADB_ROOT_PASSWORD=rr
       - MARIADB_USER=u
       - MARIADB_PASSWORD=p
       - MARIADB_DATABASE=tecwebdb
