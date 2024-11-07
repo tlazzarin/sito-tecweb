@@ -15,4 +15,4 @@ jobs:
       - name: Portainer Service Webhook
         uses: newarifrh/portainer-service-webhook@v1
         with:
-          webhook_url: ${{ secrets.WEBHOOK_URL }}
+          webhook_url: ${{ secrets.webhook_url }}
