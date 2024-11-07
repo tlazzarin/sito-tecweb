@@ -1,7 +1,6 @@
 services:
   server-php:
-    build:
-      context: .
+    image: php:8.2-apache
     ports:
       - 80:80
     volumes:
