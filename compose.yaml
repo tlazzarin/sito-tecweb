@@ -19,7 +19,7 @@ services:
       POSTGRES_USER: tlazzari
       POSTGRES_PASSWORD: Aix5Booyeepohfee
     volumes:
-      - pgdata:/var/lib/postgresq/data:rw
+      - pgdata:/var/lib/postgresql/data:rw
   
   pg-admin:
     image: dpage/pgadmin4
