@@ -4,6 +4,6 @@
 2. Inserire tlazzari@mail.it Password: pw
 3. Aggiungere il server se non disponibile: 
 
-Host: host.docker.internal
+db: host.docker.internal
 Port: 3306
 Password: Aix5Booyeepohfee

@@ -14,7 +14,7 @@ services:
     restart: unless-stopped
     shm_size: 128m
     ports:
-      - "3306:5432"
+      - "5432:5432"
     environment:
       POSTGRES_USER: tlazzari
       POSTGRES_PASSWORD: Aix5Booyeepohfee
