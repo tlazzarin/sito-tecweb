@@ -17,7 +17,7 @@ services:
       - "5432:5432"
     environment:
       POSTGRES_USER: tlazzari
-      POSTGRES_PASSWORD: Aix5Booyeepohfee
+      POSTGRES_PASSWORD: 
     volumes:
       - pgdata:/var/lib/postgresql/data:rw
   
