@@ -1,38 +1,36 @@
 services:
-  server-php:
-    image: server-php
-    build: .
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: php-apache
     ports:
       - "80:80"
+    volumes:
+      - ./src:/var/www/html:ro
     depends_on:
       - db
-    volumes:
-      - ./src:/var/www/html
 
   db:
-    image: postgres
-    restart: unless-stopped
-    shm_size: 128m
-    ports:
-      - "5432:5432"
+    image: mariadb:10.6.7
+    container_name: mariadb
     environment:
-      POSTGRES_USER: tlazzari
-      POSTGRES_PASSWORD: Aix5Booyeepohfee
+      - MYSQL_ROOT_HOSTS=%
+      - MYSQL_DATABASE=tlazzari
+      - MYSQL_ALLOW_EMPTY_PASSWORD=1
+    ports:
+      - "3306:3306"  # Verifica che la porta sia configurata correttamente
     volumes:
-      - pgdata:/var/lib/postgresql/data:rw
-  
-  pg-admin:
-    image: dpage/pgadmin4
-    depends_on:
-      - db
+      - mariadb_data:/var/lib/mysql:rw
+  phpmyadmin:
+    image: phpmyadmin
+    environment:
+      PMA_HOST: db
+      MYSQL_ROOT_PASSWORD: root_password
     ports:
       - "8080:80"
-    environment:
-      PGADMIN_DEFAULT_EMAIL: tlazzari@mail.it
-      PGADMIN_DEFAULT_PASSWORD: pw
-    volumes:
-      - pgadmin-data:/var/lib/pgadmin:rw
+    depends_on:
+      - db
 
 volumes:
-  pgdata:
-  pgadmin-data:
+  mariadb_data:
