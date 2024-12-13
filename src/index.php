@@ -1,15 +1,28 @@
-<!DOCTYPE HTML>
+<?php
+    session_start();
+    ?>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>La mia pagina</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
 </head>
 <body>
-<?php echo "Hello world!";
-    require_once "util/connessione.php";
-    use DB\DBAccess;
-    $connessione=new DBAccess();
-    $connessione_ok = $connessione->open_db_conn();
-    if($connessione_ok){
-        echo "connessione ok";
+    <?php
+    $admin=$_SESSION['isAdmin'];
+    echo $admin;
+
+    if(!$admin)
+    {
+        echo "<h1>Hello ".$_SESSION['Username']."</h1>";
     }
-?>
+    else
+    {
+        echo "<h1>Hello</h1>";
+    }
+
+    ?>
+    
 </body>
+</html>

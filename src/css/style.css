@@ -1,0 +1,102 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+html,
+body {
+    font-size: 100%;
+    font-family: "Varela Round", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    margin: auto;
+    max-width: 1024px;
+
+    background-color: rgb(255, 255, 255);
+}
+
+
+
+.formInput {
+    width: 25em;
+    background-color:#E6E6E6;
+    margin: auto;
+    
+    border-radius: 30px;
+}
+
+.formInput fieldset {
+    padding: 2em 3em 2em 3em;
+    border: 2px solid rgb(194, 72, 31);
+    border-radius: 30px;
+}
+
+.styleInput {
+    width: 100%;
+    height: 2em;
+    font-size: larger;
+    text-indent: 0.5em;
+}
+
+.formInput *:not(.ultimoInput):not(option) {
+    margin-bottom: 1em;
+}
+
+.formInput input[type=submit] {
+    display: block;
+
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+
+    height: 2em;
+
+    margin: auto;
+    margin-top: 1.2em;
+}
+
+label:after {
+    content: ": ";
+}
+
+.errorSuggestion {
+    color: rgb(0, 0, 0);
+    font-size: 1em;
+    display: block;
+     margin-top: -1em; 
+}
+
+.button {
+    background-color: rgb(0, 75, 102);
+    color: white;
+    border-radius: 3px;
+    border: none;
+    font-size: large;
+    cursor: pointer;
+
+    width: fit-content;
+}
+
+.button:hover {
+    background-color: rgba(5, 111, 129, 0.993);
+    border: 2px solid rgb(0, 75, 102);
+    color: white;
+}
+
+
+h2 {
+    display: block;
+    font-size: 1.5em;
+    margin-block-start: 0.83em;
+    margin-block-end: 0.83em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+    unicode-bidi: isolate;
+}
+
+#formcontent h2 {
+    text-align: center;
+    margin-bottom: 0.4em;
+    padding-top: 0.4em;
+    
+}

@@ -1,5 +1,5 @@
 <?php
-
+/*
 namespace DB;
 
 class DBAccess
@@ -31,3 +31,4 @@ class DBAccess
         mysqli_close($this->db_conn);
     }
 }
+*/
