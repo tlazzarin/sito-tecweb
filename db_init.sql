@@ -41,12 +41,12 @@ CREATE TABLE `CARATTERISTICA` (
 --
 
 INSERT INTO `CARATTERISTICA` (`nome`, `descrizione`) VALUES
-('bambini', 'Il percorso è facilmente percorribile da bambini.'),
-('escursionisti', 'Il percorso è adatto esclusivamente ad escursionisti esperti.'),
-('ipovedente_cieco', 'Il percorso è percorribile da persone ipovedenti o cieche.'),
-('mobilita_ridotta', 'Il percorso è accessibile da persone con mobilità ridotta.'),
-('passeggini', 'Il percorso è percorribile con un passeggino.'),
-('sedia_a_rotelle', 'Il percorso è accessibile da persone in sedia a rotelle.');
+('bambini', 'Percorso adatto ai bambini.'),
+('escursionisti', 'Percorso adatto esclusivamente ad escursionisti esperti.'),
+('ipovedente_cieco', 'Percorso percorribile da persone ipovedenti o cieche.'),
+('mobilita_ridotta', 'Percorso accessibile da persone con mobilità ridotta.'),
+('passeggini', 'Percorso percorribile con un passeggino.'),
+('sedia_a_rotelle', 'Percorso accessibile da persone in sedia a rotelle.');
 
 -- --------------------------------------------------------
 
