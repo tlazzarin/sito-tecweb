@@ -1,18 +1,174 @@
 * {
     padding: 0;
     margin: 0;
+    
 }
 
 html,
 body {
+    height: 100vh;
+    
     font-size: 100%;
     font-family: "Varela Round", sans-serif;
     font-weight: 400;
     font-style: normal;
-    margin: auto;
-    max-width: 1024px;
 
-    background-color: rgb(255, 255, 255);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+
+    background-color: #fff(255, 255, 255);
+
+    height: 100%;
+}
+
+header{
+    padding: 2em 0 2em 0;
+    background-color: #fff;
+}
+
+.mainPercorso{
+    display: flex;
+    flex: 1;
+}
+
+.left{
+    background-color: #fff;
+    padding: 3em 0 3em 0;
+    flex: 2 2 100px;
+    
+}
+
+main{
+    background: #fff;
+    padding: 3em 0 3em 0;
+    flex: 4 4 150px;
+    display:flex;
+    flex-direction: column;
+}
+
+
+
+
+.wrapper{
+    
+    position: relative;
+    max-width: 25rem;
+    margin: 0 auto;
+}
+
+.mapContainer{
+    padding-top:2rem;
+    display: flex;
+    aspect-ratio: 4/3;
+}
+
+.mapContainer img{
+    border-radius: 0.5rem;
+    flex: 1 0 100%;
+}
+
+.slider{
+    display: flex;
+    aspect-ratio: 4/3;
+    overflow-x: hidden;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth ;
+    border-radius: 0.5rem;
+}
+
+.slider img{
+    flex: 1 0 100%;
+    scroll-snap-align: start;
+}
+
+.slider-nav{
+    display: flex;
+    column-gap: 1rem;
+    position: absolute;
+    bottom: 1.25rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+    
+}
+
+.slider-nav a{
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 50%;
+    background-color: #fff;
+    opacity: 0.75;
+
+    transition: opacity ease 250ms;
+}
+
+.slider-nav a:hover{
+    opacity: 1;
+}
+
+.descrizione{
+    
+    padding: 1em;
+    background-color: #E6E6E6;
+    
+    max-width: 50rem;
+    flex:2;
+    align-self: center;
+    border-radius: 0.5rem;
+}
+
+.indicazioni{
+    margin-top: 4rem;
+    padding: 1rem;
+    background-color: #E6E6E6;
+    
+    max-width: 50rem;
+    flex:1;
+    align-self: center;
+    border-radius: 0.5rem;
+    
+}
+
+.recensioni{
+    display: flex;
+    flex-direction: column;
+    
+    padding: 1em;
+    background-color: #E6E6E6;
+    
+    width: 90%;
+    flex:1;
+    align-self: center;
+    border-radius: 0.5rem;
+    
+}
+
+.recensione{
+    background-color: #fff;
+    margin-top: 2em;
+}
+
+.gpx{
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+    justify-content: space-around;
+    align-items: center;
+}
+
+h4{
+    display: flex;
+    align-self: flex-start;
+    flex-direction: row;
+    padding-bottom: 1rem;
+}
+
+
+
+footer{
+    background-color: salmon;
+    padding: 1em 0 1em 0;
 }
 
 
@@ -65,6 +221,20 @@ label:after {
      margin-top: -1em; 
 }
 
+.button[type=button]
+{
+    display: block;
+
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+
+    height: 2em;
+    text-decoration: underline;
+
+    margin-top: 1.2em;
+
+}
+
 .button {
     background-color: rgb(0, 75, 102);
     color: white;
@@ -83,6 +253,16 @@ label:after {
 }
 
 
+.nomePercorso {
+    align-self: flex-start;
+    margin: 1em;
+}
+
+.descrizionePercorso {
+    
+    margin: 0em 1em 1em 1.3em;
+}
+
 h2 {
     display: block;
     font-size: 1.5em;
@@ -92,6 +272,14 @@ h2 {
     margin-inline-end: 0px;
     font-weight: bold;
     unicode-bidi: isolate;
+}
+
+h3{
+    align-self: flex-start;
+}
+
+p{
+    text-align: start;
 }
 
 #formcontent h2 {

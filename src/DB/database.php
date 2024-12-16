@@ -84,6 +84,38 @@ class Functions extends Constant{
         return $res;
       }
 
+      public function get_percorso($id): response_manager {
+        $query = "SELECT * FROM PERCORSO where id=?";
+        $stmt = $this->connection->prepare($query);
+    
+        $result = array();
+    
+        if ($stmt === false) {
+          return new response_manager($result, $this->connection, "Qualcosa sembra essere andato storto");
+        } else if ($stmt->bind_param('i', $id) === false) {
+          $stmt->close();
+          return new response_manager($result, $this->connection, "Qualcosa sembra essere andato storto");
+        }
+    
+        $stmt->execute();
+        $tmp = $stmt->get_result();
+    
+        $result = array();
+    
+        while ($row = $tmp->fetch_assoc()) {
+          array_push($result, $row);
+        }
+    
+        $res = new response_manager($result, $this->connection, "");
+    
+        if (!$res->ok()) {
+          $res->set_error_message("Nessun Percorso Trovato con questo Nome");
+        }
+    
+        $stmt->close();
+        return $res;
+      }
+
 }
 
 ?>
