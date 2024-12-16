@@ -28,7 +28,7 @@ function load()
   let form =document.getElementById("form");
 
   form.addEventListener("submit",function (event){
-      if(!validationForm())
+      if(!validazioneForm())
       {
           event.preventDefault();
       }

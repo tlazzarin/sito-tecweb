@@ -7,8 +7,7 @@ else{
     require_once "grafica.php";
 
     $paginaHTML=grafica::getPage("registrati.html");
-    $nascita ="1990-01-01";
-    $paginaHTML = str_replace('</nascita>', $nascita, $paginaHTML);
+    
 
     if (isset($_SESSION["error"])) {
         $paginaHTML = str_replace("</alert>", grafica::createAlert("error", $_SESSION["error"]), $paginaHTML);
