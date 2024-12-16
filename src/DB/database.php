@@ -32,7 +32,8 @@ class Functions extends Constant{
         $this->connection->close();
     }
 
-    public function registrati($username, $pass): response_manager {
+    //funzione che inserisce un utente nel database e richiama la funzione di login come output 
+      public function registrati($username, $pass): response_manager {
         $query = "INSERT INTO UTENTE (username,password) VALUES (?,?)";
         $stmt = $this->connection->prepare($query);
         $psw = hash('sha256', $pass);
@@ -53,6 +54,7 @@ class Functions extends Constant{
         return $this->accedi($username, $pass);
       }
 
+      //funzione che controlla che un utente sia presente nel database e permette di accedere
       public function accedi($username, $pass): response_manager {
         $query = "SELECT username, isAdmin FROM UTENTE WHERE username = ? AND password = ?";
         $stmt = $this->connection->prepare($query);
@@ -84,6 +86,7 @@ class Functions extends Constant{
         return $res;
       }
 
+      //trova percorso nel database e restituisce i dati del percorso
       public function get_percorso($id): response_manager {
         $query = "SELECT * FROM PERCORSO where id=?";
         $stmt = $this->connection->prepare($query);
@@ -110,6 +113,39 @@ class Functions extends Constant{
     
         if (!$res->ok()) {
           $res->set_error_message("Nessun Percorso Trovato con questo Nome");
+        }
+    
+        $stmt->close();
+        return $res;
+      }
+
+      //prende tutte le recensioni di un determinato percorso
+      public function get_recensioni($id):response_manager{
+        $query = "SELECT * FROM RECENSIONE where percorso=?";
+        $stmt = $this->connection->prepare($query);
+    
+        $result = array();
+    
+        if ($stmt === false) {
+          return new response_manager($result, $this->connection, "Qualcosa sembra essere andato storto");
+        } else if ($stmt->bind_param('i', $id) === false) {
+          $stmt->close();
+          return new response_manager($result, $this->connection, "Qualcosa sembra essere andato storto");
+        }
+    
+        $stmt->execute();
+        $tmp = $stmt->get_result();
+    
+        $result = array();
+    
+        while ($row = $tmp->fetch_assoc()) {
+          array_push($result, $row);
+        }
+    
+        $res = new response_manager($result, $this->connection, "");
+    
+        if (!$res->ok()) {
+          $res->set_error_message("Nessuna Recensione Trovata con questo Nome");
         }
     
         $stmt->close();

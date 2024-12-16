@@ -24,7 +24,9 @@ body {
 
 header{
     padding: 2em 0 2em 0;
-    background-color: #fff;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    background-color:rgb(194, 72, 31);
 }
 
 .mainPercorso{
@@ -48,13 +50,11 @@ main{
 }
 
 
-
-
 .wrapper{
     
     position: relative;
     max-width: 25rem;
-    margin: 0 auto;
+    margin-left: 5em;
 }
 
 .mapContainer{
@@ -112,7 +112,7 @@ main{
     padding: 1em;
     background-color: #E6E6E6;
     
-    max-width: 50rem;
+    max-width: 80%;
     flex:2;
     align-self: center;
     border-radius: 0.5rem;
@@ -120,10 +120,10 @@ main{
 
 .indicazioni{
     margin-top: 4rem;
-    padding: 1rem;
+    padding: 1em;
     background-color: #E6E6E6;
     
-    max-width: 50rem;
+    max-width: 80%;
     flex:1;
     align-self: center;
     border-radius: 0.5rem;
@@ -137,16 +137,20 @@ main{
     padding: 1em;
     background-color: #E6E6E6;
     
-    width: 90%;
+    width: 85%;
     flex:1;
     align-self: center;
     border-radius: 0.5rem;
-    
+
+    margin-bottom: 2em;
 }
 
 .recensione{
+    padding: 0.7em;
     background-color: #fff;
     margin-top: 2em;
+    margin-bottom: 2em;
+    border-radius: 0.5rem;
 }
 
 .gpx{
@@ -167,7 +171,10 @@ h4{
 
 
 footer{
-    background-color: salmon;
+    background-color: rgb(194, 72, 31);
+
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
     padding: 1em 0 1em 0;
 }
 
@@ -280,6 +287,16 @@ h3{
 
 p{
     text-align: start;
+}
+
+hr{
+    height:8px;
+    background-color: black;
+    border-radius: 0.3em;
+}
+
+.valutazione{
+    margin-top: 1em;
 }
 
 #formcontent h2 {

@@ -15,7 +15,7 @@ let restrizioni = {
     "Inserire una password di almeno 8 caratteri, di cui: uno minuscolo, uno maiuscolo, un numero ed un carattere speciale"
   ],
   "confirm": [
-    "Ripeti Password",
+    "Password",
     /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$.,-;:<>!%*?&_=])[A-Za-z\d@$.,-;:<>!%*?&_=]{8,16}$/,
     "Le due password non coincidono"
   ]
@@ -23,6 +23,7 @@ let restrizioni = {
 
 
 
+//controllo che tutti i campi siano pieni e validi per poter premere il tasto registrati
 function load()
 {
   let form =document.getElementById("form");
@@ -49,16 +50,15 @@ function load()
     }
 }
 
+//imposta il placeholder degli input nella pagina registrati
 function campoDefault(input) {
-  if (input.value == "") {
+  if (input.value == "" && document.title!="Accedi") {
     input.classname = "";
     input.value = restrizioni[input.id][0];
   }
-
-  
-    
 }
 
+//tolgo placholder quando premuto fieldset 
 function campoPerInput(input) {
 if (input.value == restrizioni[input.id][0]) {
     input.classname = "";
@@ -66,6 +66,7 @@ if (input.value == restrizioni[input.id][0]) {
 }
 }
 
+//controllo validazione campo e aggiunta consiglio su come riempire campo
 function validazioneCampo(input) {
   var parent = input.parentNode;
 
@@ -86,6 +87,8 @@ function validazioneCampo(input) {
   return true;
 }
 
+
+//controllo che password e conferma siano ugali
 function confirmPass() {
   const password = document.querySelector('input[name=password]');
   const confirm = document.querySelector('input[name=conferma]');
@@ -96,6 +99,7 @@ function confirmPass() {
   return false;
 }
 
+//aggiunta dell' error suggestion
 function mostraErrore(input) {
   var parent = input.parentNode;
   var errore = document.createElement("strong");
@@ -104,6 +108,8 @@ function mostraErrore(input) {
   parent.appendChild(errore);
 }
 
+
+//controllo di tutti gli input nella form
 function validazioneForm() {
   for (var key in restrizioni) {
     var input = document.getElementById(key);
