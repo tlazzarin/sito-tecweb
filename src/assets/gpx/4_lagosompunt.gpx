@@ -1,0 +1,646 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<gpx version="1.1" creator="outdooractive - http://www.outdooractive.com" xmlns="http://www.topografix.com/GPX/1/1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd" xmlns:oa="http://www.outdooractive.com/GPX/Extensions/1">
+  <metadata>
+    <name>Lago Sompunt</name>
+    <author>
+      <name>Gaia Pistori - Community</name>
+    </author>
+    <link href="https://www.outdooractive.com/r/306357849"/>
+    <time>2024-12-03T08:30:56.474Z</time>
+    <extensions>
+      <oa:oaCategory>hikingTourTrail</oa:oaCategory>
+    </extensions>
+  </metadata>
+  <trk>
+    <name>Lago Sompunt</name>
+    <type>hikingTourTrail</type>
+    <trkseg>
+      <trkpt lat="46.598033" lon="11.900095">
+        <ele>1364.2</ele>
+        <name>Strada Sompunt, Badia - Abtei</name>
+        <extensions>
+          <oa:mapZoom>16</oa:mapZoom>
+        </extensions>
+      </trkpt>
+      <trkpt lat="46.598044" lon="11.90005">
+        <ele>1364.3</ele>
+      </trkpt>
+      <trkpt lat="46.598073" lon="11.89994">
+        <ele>1364.2</ele>
+      </trkpt>
+      <trkpt lat="46.598087" lon="11.899846">
+        <ele>1364.2</ele>
+      </trkpt>
+      <trkpt lat="46.598073" lon="11.899683">
+        <ele>1364.4</ele>
+      </trkpt>
+      <trkpt lat="46.598053" lon="11.899712">
+        <ele>1364.6</ele>
+      </trkpt>
+      <trkpt lat="46.598032" lon="11.899739">
+        <ele>1364.7</ele>
+      </trkpt>
+      <trkpt lat="46.597619" lon="11.899791">
+        <ele>1369.6</ele>
+      </trkpt>
+      <trkpt lat="46.597206" lon="11.899844">
+        <ele>1375.1</ele>
+      </trkpt>
+      <trkpt lat="46.597012" lon="11.899595">
+        <ele>1377.9</ele>
+      </trkpt>
+      <trkpt lat="46.596962" lon="11.899575">
+        <ele>1379.0</ele>
+      </trkpt>
+      <trkpt lat="46.596886" lon="11.899548">
+        <ele>1380.0</ele>
+      </trkpt>
+      <trkpt lat="46.596804" lon="11.899485">
+        <ele>1381.8</ele>
+      </trkpt>
+      <trkpt lat="46.596724" lon="11.899403">
+        <ele>1384.3</ele>
+      </trkpt>
+      <trkpt lat="46.596607" lon="11.899403">
+        <ele>1385.4</ele>
+      </trkpt>
+      <trkpt lat="46.596553" lon="11.899382">
+        <ele>1385.6</ele>
+      </trkpt>
+      <trkpt lat="46.596533" lon="11.899368">
+        <ele>1385.7</ele>
+      </trkpt>
+      <trkpt lat="46.596508" lon="11.899364">
+        <ele>1386.0</ele>
+      </trkpt>
+      <trkpt lat="46.596427" lon="11.899379">
+        <ele>1386.4</ele>
+      </trkpt>
+      <trkpt lat="46.596405" lon="11.899372">
+        <ele>1386.7</ele>
+      </trkpt>
+      <trkpt lat="46.596375" lon="11.899369">
+        <ele>1387.1</ele>
+      </trkpt>
+      <trkpt lat="46.59632" lon="11.89937">
+        <ele>1387.5</ele>
+      </trkpt>
+      <trkpt lat="46.596293" lon="11.899363">
+        <ele>1387.8</ele>
+      </trkpt>
+      <trkpt lat="46.596229" lon="11.899372">
+        <ele>1388.4</ele>
+      </trkpt>
+      <trkpt lat="46.596199" lon="11.89938">
+        <ele>1388.9</ele>
+      </trkpt>
+      <trkpt lat="46.596154" lon="11.899385">
+        <ele>1389.6</ele>
+      </trkpt>
+      <trkpt lat="46.596106" lon="11.899398">
+        <ele>1389.9</ele>
+      </trkpt>
+      <trkpt lat="46.596094" lon="11.899404">
+        <ele>1389.9</ele>
+      </trkpt>
+      <trkpt lat="46.59604" lon="11.899422">
+        <ele>1390.2</ele>
+      </trkpt>
+      <trkpt lat="46.596022" lon="11.899425">
+        <ele>1390.2</ele>
+      </trkpt>
+      <trkpt lat="46.595968" lon="11.899369">
+        <ele>1390.6</ele>
+      </trkpt>
+      <trkpt lat="46.595965" lon="11.899368">
+        <ele>1390.6</ele>
+      </trkpt>
+      <trkpt lat="46.596062" lon="11.899162">
+        <ele>1391.8</ele>
+      </trkpt>
+      <trkpt lat="46.596218" lon="11.898928">
+        <ele>1393.7</ele>
+      </trkpt>
+      <trkpt lat="46.596381" lon="11.898649">
+        <ele>1396.6</ele>
+      </trkpt>
+      <trkpt lat="46.596486" lon="11.898408">
+        <ele>1398.5</ele>
+      </trkpt>
+      <trkpt lat="46.596533" lon="11.898303">
+        <ele>1399.8</ele>
+      </trkpt>
+      <trkpt lat="46.59656" lon="11.89826">
+        <ele>1400.4</ele>
+      </trkpt>
+      <trkpt lat="46.596888" lon="11.897909">
+        <ele>1405.1</ele>
+      </trkpt>
+      <trkpt lat="46.59709" lon="11.89774">
+        <ele>1407.8</ele>
+      </trkpt>
+      <trkpt lat="46.597291" lon="11.897571">
+        <ele>1408.9</ele>
+      </trkpt>
+      <trkpt lat="46.597354" lon="11.897381">
+        <ele>1410.2</ele>
+      </trkpt>
+      <trkpt lat="46.597384" lon="11.897292">
+        <ele>1409.9</ele>
+      </trkpt>
+      <trkpt lat="46.597455" lon="11.89723">
+        <ele>1410.1</ele>
+      </trkpt>
+      <trkpt lat="46.597534" lon="11.897189">
+        <ele>1411.8</ele>
+      </trkpt>
+      <trkpt lat="46.597688" lon="11.896927">
+        <ele>1414.8</ele>
+      </trkpt>
+      <trkpt lat="46.597835" lon="11.896796">
+        <ele>1415.2</ele>
+      </trkpt>
+      <trkpt lat="46.598058" lon="11.896608">
+        <ele>1417.3</ele>
+      </trkpt>
+      <trkpt lat="46.598202" lon="11.89634">
+        <ele>1421.0</ele>
+      </trkpt>
+      <trkpt lat="46.598292" lon="11.896029">
+        <ele>1425.3</ele>
+      </trkpt>
+      <trkpt lat="46.598283" lon="11.895737">
+        <ele>1430.3</ele>
+      </trkpt>
+      <trkpt lat="46.598143" lon="11.895238">
+        <ele>1435.5</ele>
+      </trkpt>
+      <trkpt lat="46.598" lon="11.894898">
+        <ele>1437.9</ele>
+      </trkpt>
+      <trkpt lat="46.597857" lon="11.894558">
+        <ele>1441.0</ele>
+      </trkpt>
+      <trkpt lat="46.597851" lon="11.894563">
+        <ele>1441.1</ele>
+        <name>Paracia, Badia - Abtei</name>
+        <extensions>
+          <oa:mapZoom>17</oa:mapZoom>
+        </extensions>
+      </trkpt>
+      <trkpt lat="46.597677" lon="11.894721">
+        <ele>1443.9</ele>
+      </trkpt>
+      <trkpt lat="46.597462" lon="11.894795">
+        <ele>1447.0</ele>
+      </trkpt>
+      <trkpt lat="46.597271" lon="11.894849">
+        <ele>1450.0</ele>
+      </trkpt>
+      <trkpt lat="46.597067" lon="11.894859">
+        <ele>1452.6</ele>
+      </trkpt>
+      <trkpt lat="46.596957" lon="11.894892">
+        <ele>1454.0</ele>
+      </trkpt>
+      <trkpt lat="46.596866" lon="11.894945">
+        <ele>1455.3</ele>
+      </trkpt>
+      <trkpt lat="46.596787" lon="11.895045">
+        <ele>1456.3</ele>
+      </trkpt>
+      <trkpt lat="46.596726" lon="11.895107">
+        <ele>1456.9</ele>
+      </trkpt>
+      <trkpt lat="46.59665" lon="11.895177">
+        <ele>1457.2</ele>
+      </trkpt>
+      <trkpt lat="46.59658" lon="11.895238">
+        <ele>1457.5</ele>
+      </trkpt>
+      <trkpt lat="46.596481" lon="11.895325">
+        <ele>1458.0</ele>
+      </trkpt>
+      <trkpt lat="46.596387" lon="11.895409">
+        <ele>1458.0</ele>
+      </trkpt>
+      <trkpt lat="46.59631" lon="11.895477">
+        <ele>1457.9</ele>
+      </trkpt>
+      <trkpt lat="46.596212" lon="11.895576">
+        <ele>1457.4</ele>
+      </trkpt>
+      <trkpt lat="46.596344" lon="11.895051">
+        <ele>1459.9</ele>
+      </trkpt>
+      <trkpt lat="46.596356" lon="11.894827">
+        <ele>1459.7</ele>
+      </trkpt>
+      <trkpt lat="46.596365" lon="11.894667">
+        <ele>1459.6</ele>
+      </trkpt>
+      <trkpt lat="46.596375" lon="11.894655">
+        <ele>1459.6</ele>
+        <name>Lech da Sompunt, Badia - Abtei</name>
+        <extensions>
+          <oa:mapZoom>16</oa:mapZoom>
+        </extensions>
+      </trkpt>
+      <trkpt lat="46.596365" lon="11.894667">
+        <ele>1459.6</ele>
+      </trkpt>
+      <trkpt lat="46.596356" lon="11.894827">
+        <ele>1459.7</ele>
+      </trkpt>
+      <trkpt lat="46.596344" lon="11.895051">
+        <ele>1459.9</ele>
+      </trkpt>
+      <trkpt lat="46.596212" lon="11.895576">
+        <ele>1457.4</ele>
+      </trkpt>
+      <trkpt lat="46.596168" lon="11.895646">
+        <ele>1456.8</ele>
+      </trkpt>
+      <trkpt lat="46.596097" lon="11.895763">
+        <ele>1457.6</ele>
+      </trkpt>
+      <trkpt lat="46.596032" lon="11.895877">
+        <ele>1458.0</ele>
+      </trkpt>
+      <trkpt lat="46.595981" lon="11.89598">
+        <ele>1456.2</ele>
+      </trkpt>
+      <trkpt lat="46.595927" lon="11.896111">
+        <ele>1455.5</ele>
+      </trkpt>
+      <trkpt lat="46.595878" lon="11.896221">
+        <ele>1455.2</ele>
+      </trkpt>
+      <trkpt lat="46.595808" lon="11.896357">
+        <ele>1455.2</ele>
+      </trkpt>
+      <trkpt lat="46.595741" lon="11.8965">
+        <ele>1454.7</ele>
+      </trkpt>
+      <trkpt lat="46.595672" lon="11.896621">
+        <ele>1453.7</ele>
+      </trkpt>
+      <trkpt lat="46.595618" lon="11.896743">
+        <ele>1452.3</ele>
+      </trkpt>
+      <trkpt lat="46.595574" lon="11.896838">
+        <ele>1451.5</ele>
+      </trkpt>
+      <trkpt lat="46.595525" lon="11.89691">
+        <ele>1450.6</ele>
+      </trkpt>
+      <trkpt lat="46.595479" lon="11.896974">
+        <ele>1449.9</ele>
+      </trkpt>
+      <trkpt lat="46.595425" lon="11.897001">
+        <ele>1449.3</ele>
+      </trkpt>
+      <trkpt lat="46.595361" lon="11.897001">
+        <ele>1448.4</ele>
+      </trkpt>
+      <trkpt lat="46.595272" lon="11.897032">
+        <ele>1447.3</ele>
+      </trkpt>
+      <trkpt lat="46.595195" lon="11.897018">
+        <ele>1446.4</ele>
+      </trkpt>
+      <trkpt lat="46.59513" lon="11.896976">
+        <ele>1445.6</ele>
+      </trkpt>
+      <trkpt lat="46.595069" lon="11.89693">
+        <ele>1444.8</ele>
+      </trkpt>
+      <trkpt lat="46.595016" lon="11.896887">
+        <ele>1444.0</ele>
+      </trkpt>
+      <trkpt lat="46.594938" lon="11.896805">
+        <ele>1443.0</ele>
+      </trkpt>
+      <trkpt lat="46.59487" lon="11.896729">
+        <ele>1442.2</ele>
+      </trkpt>
+      <trkpt lat="46.594801" lon="11.896678">
+        <ele>1441.4</ele>
+      </trkpt>
+      <trkpt lat="46.59473" lon="11.896644">
+        <ele>1440.6</ele>
+      </trkpt>
+      <trkpt lat="46.594707" lon="11.896634">
+        <ele>1440.3</ele>
+      </trkpt>
+      <trkpt lat="46.594646" lon="11.896606">
+        <ele>1439.8</ele>
+      </trkpt>
+      <trkpt lat="46.594556" lon="11.896585">
+        <ele>1439.2</ele>
+      </trkpt>
+      <trkpt lat="46.594482" lon="11.896587">
+        <ele>1438.5</ele>
+      </trkpt>
+      <trkpt lat="46.594436" lon="11.896612">
+        <ele>1438.2</ele>
+      </trkpt>
+      <trkpt lat="46.594414" lon="11.896672">
+        <ele>1438.1</ele>
+      </trkpt>
+      <trkpt lat="46.594406" lon="11.896756">
+        <ele>1437.4</ele>
+      </trkpt>
+      <trkpt lat="46.594417" lon="11.896834">
+        <ele>1437.1</ele>
+      </trkpt>
+      <trkpt lat="46.594435" lon="11.896918">
+        <ele>1436.3</ele>
+      </trkpt>
+      <trkpt lat="46.594449" lon="11.897079">
+        <ele>1435.3</ele>
+      </trkpt>
+      <trkpt lat="46.594454" lon="11.897196">
+        <ele>1434.3</ele>
+      </trkpt>
+      <trkpt lat="46.594458" lon="11.897308">
+        <ele>1433.3</ele>
+      </trkpt>
+      <trkpt lat="46.594448" lon="11.89746">
+        <ele>1432.1</ele>
+      </trkpt>
+      <trkpt lat="46.59443" lon="11.897589">
+        <ele>1431.0</ele>
+      </trkpt>
+      <trkpt lat="46.594404" lon="11.897697">
+        <ele>1430.1</ele>
+      </trkpt>
+      <trkpt lat="46.594364" lon="11.897769">
+        <ele>1429.4</ele>
+      </trkpt>
+      <trkpt lat="46.594308" lon="11.89784">
+        <ele>1428.4</ele>
+      </trkpt>
+      <trkpt lat="46.594222" lon="11.897921">
+        <ele>1427.1</ele>
+      </trkpt>
+      <trkpt lat="46.594128" lon="11.89801">
+        <ele>1425.9</ele>
+      </trkpt>
+      <trkpt lat="46.594037" lon="11.898124">
+        <ele>1424.9</ele>
+      </trkpt>
+      <trkpt lat="46.59396" lon="11.89823">
+        <ele>1424.3</ele>
+      </trkpt>
+      <trkpt lat="46.5939" lon="11.898335">
+        <ele>1423.2</ele>
+      </trkpt>
+      <trkpt lat="46.593842" lon="11.898429">
+        <ele>1422.3</ele>
+      </trkpt>
+      <trkpt lat="46.593782" lon="11.898514">
+        <ele>1421.1</ele>
+      </trkpt>
+      <trkpt lat="46.593831" lon="11.898588">
+        <ele>1420.8</ele>
+      </trkpt>
+      <trkpt lat="46.593882" lon="11.898678">
+        <ele>1418.9</ele>
+      </trkpt>
+      <trkpt lat="46.593937" lon="11.898771">
+        <ele>1416.8</ele>
+      </trkpt>
+      <trkpt lat="46.593956" lon="11.898815">
+        <ele>1415.8</ele>
+      </trkpt>
+      <trkpt lat="46.593973" lon="11.898854">
+        <ele>1414.6</ele>
+      </trkpt>
+      <trkpt lat="46.593976" lon="11.898966">
+        <ele>1411.7</ele>
+      </trkpt>
+      <trkpt lat="46.593978" lon="11.899071">
+        <ele>1409.3</ele>
+      </trkpt>
+      <trkpt lat="46.594012" lon="11.899177">
+        <ele>1407.0</ele>
+      </trkpt>
+      <trkpt lat="46.594092" lon="11.899284">
+        <ele>1404.7</ele>
+      </trkpt>
+      <trkpt lat="46.594286" lon="11.899386">
+        <ele>1402.1</ele>
+      </trkpt>
+      <trkpt lat="46.594319" lon="11.899293">
+        <ele>1402.3</ele>
+      </trkpt>
+      <trkpt lat="46.594332" lon="11.899272">
+        <ele>1402.5</ele>
+        <name>Streda Sompunt, Badia - Abtei</name>
+        <extensions>
+          <oa:mapZoom>16</oa:mapZoom>
+        </extensions>
+      </trkpt>
+      <trkpt lat="46.59437" lon="11.899209">
+        <ele>1403.1</ele>
+      </trkpt>
+      <trkpt lat="46.59447" lon="11.899142">
+        <ele>1403.8</ele>
+      </trkpt>
+      <trkpt lat="46.594827" lon="11.898953">
+        <ele>1409.1</ele>
+      </trkpt>
+      <trkpt lat="46.59486" lon="11.898973">
+        <ele>1409.2</ele>
+      </trkpt>
+      <trkpt lat="46.594878" lon="11.898983">
+        <ele>1409.1</ele>
+      </trkpt>
+      <trkpt lat="46.594891" lon="11.898998">
+        <ele>1408.8</ele>
+      </trkpt>
+      <trkpt lat="46.594901" lon="11.898998">
+        <ele>1408.7</ele>
+      </trkpt>
+      <trkpt lat="46.594929" lon="11.89901">
+        <ele>1408.4</ele>
+      </trkpt>
+      <trkpt lat="46.594947" lon="11.899015">
+        <ele>1408.3</ele>
+      </trkpt>
+      <trkpt lat="46.594979" lon="11.899017">
+        <ele>1408.2</ele>
+      </trkpt>
+      <trkpt lat="46.595035" lon="11.899047">
+        <ele>1406.9</ele>
+      </trkpt>
+      <trkpt lat="46.595087" lon="11.899067">
+        <ele>1405.7</ele>
+      </trkpt>
+      <trkpt lat="46.595137" lon="11.899082">
+        <ele>1404.4</ele>
+      </trkpt>
+      <trkpt lat="46.595167" lon="11.899086">
+        <ele>1404.0</ele>
+      </trkpt>
+      <trkpt lat="46.595206" lon="11.899114">
+        <ele>1403.0</ele>
+      </trkpt>
+      <trkpt lat="46.595231" lon="11.899117">
+        <ele>1402.7</ele>
+      </trkpt>
+      <trkpt lat="46.595279" lon="11.899125">
+        <ele>1402.0</ele>
+      </trkpt>
+      <trkpt lat="46.595337" lon="11.899141">
+        <ele>1401.3</ele>
+      </trkpt>
+      <trkpt lat="46.595355" lon="11.89915">
+        <ele>1401.0</ele>
+      </trkpt>
+      <trkpt lat="46.595388" lon="11.89916">
+        <ele>1400.7</ele>
+      </trkpt>
+      <trkpt lat="46.595403" lon="11.899172">
+        <ele>1400.4</ele>
+      </trkpt>
+      <trkpt lat="46.59546" lon="11.899184">
+        <ele>1400.0</ele>
+      </trkpt>
+      <trkpt lat="46.595486" lon="11.899198">
+        <ele>1399.6</ele>
+      </trkpt>
+      <trkpt lat="46.595528" lon="11.899207">
+        <ele>1399.2</ele>
+      </trkpt>
+      <trkpt lat="46.595596" lon="11.899236">
+        <ele>1398.3</ele>
+      </trkpt>
+      <trkpt lat="46.595618" lon="11.899247">
+        <ele>1397.8</ele>
+      </trkpt>
+      <trkpt lat="46.595654" lon="11.899261">
+        <ele>1397.2</ele>
+      </trkpt>
+      <trkpt lat="46.595714" lon="11.899275">
+        <ele>1396.3</ele>
+      </trkpt>
+      <trkpt lat="46.595752" lon="11.899293">
+        <ele>1395.8</ele>
+      </trkpt>
+      <trkpt lat="46.5958" lon="11.899311">
+        <ele>1394.7</ele>
+      </trkpt>
+      <trkpt lat="46.59583" lon="11.899332">
+        <ele>1393.9</ele>
+      </trkpt>
+      <trkpt lat="46.595873" lon="11.899348">
+        <ele>1392.8</ele>
+      </trkpt>
+      <trkpt lat="46.595926" lon="11.899362">
+        <ele>1391.6</ele>
+      </trkpt>
+      <trkpt lat="46.595965" lon="11.899368">
+        <ele>1390.6</ele>
+      </trkpt>
+      <trkpt lat="46.595968" lon="11.899369">
+        <ele>1390.6</ele>
+      </trkpt>
+      <trkpt lat="46.596022" lon="11.899425">
+        <ele>1390.2</ele>
+      </trkpt>
+      <trkpt lat="46.59604" lon="11.899422">
+        <ele>1390.2</ele>
+      </trkpt>
+      <trkpt lat="46.596094" lon="11.899404">
+        <ele>1389.9</ele>
+      </trkpt>
+      <trkpt lat="46.596106" lon="11.899398">
+        <ele>1389.9</ele>
+      </trkpt>
+      <trkpt lat="46.596154" lon="11.899385">
+        <ele>1389.6</ele>
+      </trkpt>
+      <trkpt lat="46.596199" lon="11.89938">
+        <ele>1388.9</ele>
+      </trkpt>
+      <trkpt lat="46.596229" lon="11.899372">
+        <ele>1388.4</ele>
+      </trkpt>
+      <trkpt lat="46.596293" lon="11.899363">
+        <ele>1387.8</ele>
+      </trkpt>
+      <trkpt lat="46.59632" lon="11.89937">
+        <ele>1387.5</ele>
+      </trkpt>
+      <trkpt lat="46.596375" lon="11.899369">
+        <ele>1387.1</ele>
+      </trkpt>
+      <trkpt lat="46.596405" lon="11.899372">
+        <ele>1386.7</ele>
+      </trkpt>
+      <trkpt lat="46.596427" lon="11.899379">
+        <ele>1386.4</ele>
+      </trkpt>
+      <trkpt lat="46.596508" lon="11.899364">
+        <ele>1386.0</ele>
+      </trkpt>
+      <trkpt lat="46.596533" lon="11.899368">
+        <ele>1385.7</ele>
+      </trkpt>
+      <trkpt lat="46.596553" lon="11.899382">
+        <ele>1385.6</ele>
+      </trkpt>
+      <trkpt lat="46.596607" lon="11.899403">
+        <ele>1385.4</ele>
+      </trkpt>
+      <trkpt lat="46.596724" lon="11.899403">
+        <ele>1384.3</ele>
+      </trkpt>
+      <trkpt lat="46.596804" lon="11.899485">
+        <ele>1381.8</ele>
+      </trkpt>
+      <trkpt lat="46.596886" lon="11.899548">
+        <ele>1380.0</ele>
+      </trkpt>
+      <trkpt lat="46.596962" lon="11.899575">
+        <ele>1379.0</ele>
+      </trkpt>
+      <trkpt lat="46.597012" lon="11.899595">
+        <ele>1377.9</ele>
+      </trkpt>
+      <trkpt lat="46.597206" lon="11.899844">
+        <ele>1375.1</ele>
+      </trkpt>
+      <trkpt lat="46.597619" lon="11.899791">
+        <ele>1369.6</ele>
+      </trkpt>
+      <trkpt lat="46.598032" lon="11.899739">
+        <ele>1364.7</ele>
+      </trkpt>
+      <trkpt lat="46.598053" lon="11.899712">
+        <ele>1364.6</ele>
+      </trkpt>
+      <trkpt lat="46.598073" lon="11.899683">
+        <ele>1364.4</ele>
+      </trkpt>
+      <trkpt lat="46.598087" lon="11.899846">
+        <ele>1364.2</ele>
+      </trkpt>
+      <trkpt lat="46.598073" lon="11.89994">
+        <ele>1364.2</ele>
+      </trkpt>
+      <trkpt lat="46.598044" lon="11.90005">
+        <ele>1364.3</ele>
+      </trkpt>
+      <trkpt lat="46.598033" lon="11.900095">
+        <ele>1364.2</ele>
+        <name>Strada Sompunt, Badia - Abtei</name>
+        <extensions>
+          <oa:mapZoom>16</oa:mapZoom>
+        </extensions>
+      </trkpt>
+    </trkseg>
+  </trk>
+</gpx>
