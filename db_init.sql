@@ -7,7 +7,7 @@ FLUSH PRIVILEGES;
 -- https://www.phpmyadmin.net/
 --
 -- Host: db
--- Creato il: Dic 16, 2024 alle 15:13
+-- Creato il: Dic 17, 2024 alle 15:06
 -- Versione del server: 10.6.7-MariaDB-1:10.6.7+maria~focal
 -- Versione PHP: 8.2.25
 
@@ -180,9 +180,25 @@ CREATE TABLE `RECENSIONE` (
   `utente` varchar(30) COLLATE utf8mb3_unicode_ci NOT NULL,
   `percorso` int(6) NOT NULL,
   `voto` int(1) NOT NULL CHECK (`voto` between 0 and 5),
-  `testo` longtext COLLATE utf8mb3_unicode_ci NOT NULL,
+  `testo` longtext CHARACTER SET utf32 COLLATE utf32_unicode_ci NOT NULL,
   `ultima_modifica` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
+
+--
+-- Dump dei dati per la tabella `RECENSIONE`
+--
+
+INSERT INTO `RECENSIONE` (`utente`, `percorso`, `voto`, `testo`, `ultima_modifica`) VALUES
+('user', 1, 5, 'Bellissimo percorso!!! 👍👍', '2024-12-17 14:17:22'),
+('user', 3, 5, 'Partiamo col dire che l’Escursione tra le Cascate di Fanes è perfetta per chi ama il brivido... e non parlo solo della natura. Prima sfida: trovare parcheggio.\r\nE poi arrivano loro, le cascate. Splendide, eh, nulla da dire, ma per arrivarci devi attraversare un ponticello traballante. Ma tranquilli, una volta arrivato vicino alle cascate sei ricompensato con una doccia gelata a tradimento. Rinfrescante? Sicuramente. Voluta? Non proprio.\r\nE il bello è che mentre ero lì, a contemplare il perché avessi deciso di torturarmi in questo modo, arriva la notizia: la Ferrari ha vinto a Monza! No, dico, LA FERRARI! Non succedeva da così tanto tempo che, per un attimo, ho pensato di aver perso la testa per la stanchezza. Un evento talmente raro che avrebbe meritato un brindisi.\r\nLa prossima volta mi porto una bandiera della Ferrari, così se non ce la faccio posso almeno sventolarla come segno di resa.', '2024-09-01 19:46:49'),
+('user', 4, 3, 'Percorso stupendo peccato per i cervi che mi hanno morso una mano', '2024-12-13 15:15:30'),
+('user', 5, 1, 'Devo argomentare?? No mi dispiace non c’è tempo da perdere qui arrivederci', '2024-12-17 14:58:28'),
+('user', 7, 5, 'Non so esattamente cosa sia successo sul Monte Seceda, ma so che non sono tornato la stessa persona. Sarà stato il panorama mozzafiato, con quelle vette che sembrano dipinte a mano, o il silenzio quasi mistico che ti avvolge a 2.500 metri, ma qualcosa dentro di me è cambiato.', '2024-09-03 16:02:37'),
+('user', 8, 4, 'Bello ma in malga mi hanno fatto pagare la polenta 25 euro.', '2024-12-12 16:24:05'),
+('user2', 1, 3, 'Percorso carino, peccato per la spazzatura lasciata in giro da alcuni incivili. Non penso ci tornerò.', '2024-12-17 14:35:10'),
+('user2', 3, 5, 'Questo percorso mi ha cambiato la vita 🏞', '2024-12-09 10:24:12'),
+('user2', 4, 5, 'Un parco veramente bello dove puoi trovarti con cervi con un mindset importante.\r\nNon pensavo esistessero luoghi di tale bellezza, ma come al solito la metropoli de La Villa non delude mai.\r\nConsigliatissimo.', '2024-12-05 15:51:16'),
+('user2', 6, 3, 'Meh, mediocre.', '2024-12-17 15:02:29');
 
 -- --------------------------------------------------------
 
@@ -203,7 +219,7 @@ CREATE TABLE `UTENTE` (
 INSERT INTO `UTENTE` (`username`, `password`, `isAdmin`) VALUES
 ('admin', 'c7ad44cbad762a5da0a452f9e854fdc1e0e7a52a38015f23f3eab1d80b931dd472634dfac71cd34ebc35d16ab7fb8a90c81f975113d6c7538dc69dd8de9077ec', 1),
 ('user', 'b14361404c078ffd549c03db443c3fede2f3e534d73f78f77301ed97d4a436a9fd9db05ee8b325c0ad36438b43fec8510c204fc1c1edb21d0941c00e9e2c1ce2', 0),
-('utente2', '5c6034da1b7f10a82275a5467974020a3f6f80a67ca6401dd12e3604fc2b5e6bb22073328f7883e77604d06a1cd9118e406c56a441000c4a977f80156c8e18b1', 0);
+('user2', '291116775902b38dd09587ad6235cec503fc14dbf9c09cad761f2e5a5755102eaceb54b95ffd179c22652c3910dbc6ed85ddde7e09eef1ecf3ad219225f509f5', 0);
 
 --
 -- Indici per le tabelle scaricate
