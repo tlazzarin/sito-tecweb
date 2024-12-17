@@ -43,7 +43,7 @@ if(isset($_SESSION["id"])){
         }else{
             if(isset($_POST['aggiungiRecensione']))
             {
-                echo "ciao";
+                
                 //per test
                 $voto=4;
                 $testo=$_POST["testoRecensione"];
