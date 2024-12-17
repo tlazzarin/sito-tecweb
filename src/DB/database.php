@@ -36,7 +36,7 @@ class Functions extends Constant{
       public function registrati($username, $pass): response_manager {
         $query = "INSERT INTO UTENTE (username,password) VALUES (?,?)";
         $stmt = $this->connection->prepare($query);
-        $psw = hash('sha256', $pass);
+        $psw = hash('sha512', $pass);
     
         if ($stmt === false) {
           return new response_manager(array(), $this->connection, "Errore");
@@ -60,7 +60,7 @@ class Functions extends Constant{
         $stmt = $this->connection->prepare($query);
         $result = array();
     
-        $psw = hash('sha256', $pass);
+        $psw = hash('sha512', $pass);
     
         if ($stmt === false) {
           return new response_manager($result, $this->connection, "Errore");
@@ -120,15 +120,16 @@ class Functions extends Constant{
       }
 
       //prende tutte le recensioni di un determinato percorso
-      public function get_recensioni($id):response_manager{
-        $query = "SELECT * FROM RECENSIONE where percorso=?";
+      public function get_recensioni($id,$utente='%'):response_manager{
+
+        $query = "SELECT * FROM RECENSIONE where percorso=? and utente LIKE ?";
         $stmt = $this->connection->prepare($query);
     
         $result = array();
     
         if ($stmt === false) {
           return new response_manager($result, $this->connection, "Qualcosa sembra essere andato storto");
-        } else if ($stmt->bind_param('i', $id) === false) {
+        } else if ($stmt->bind_param('is', $id,$utente) === false) {
           $stmt->close();
           return new response_manager($result, $this->connection, "Qualcosa sembra essere andato storto");
         }
@@ -150,6 +151,29 @@ class Functions extends Constant{
     
         $stmt->close();
         return $res;
+      }
+
+      public function aggiungi_recensione($utente,$id,$voto,$testo):response_manager{
+
+        $query = "INSERT INTO `RECENSIONE` (`utente`, `percorso`, `voto`, `testo`, `ultima_modifica`) VALUES (?, ?, ?, ?, current_timestamp());";
+        $stmt = $this->connection->prepare($query);
+    
+        if ($stmt === false) {
+          return new response_manager(array(), $this->connection, "Errore");
+        } else if ($stmt->bind_param('siis',$utente, $id,$voto,$testo) === false) {
+          $stmt->close();
+          return new response_manager(array(), $this->connection, "Errore");
+        }
+        $response = $stmt->execute();
+    
+        $stmt->close();
+    
+        if (!$response) {
+          return new response_manager(array(), $this->connection, "Errore");
+        }
+
+        return $this->get_recensioni($id, $utente);
+
       }
 
 }

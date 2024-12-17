@@ -214,7 +214,9 @@ footer{
     height: 2em;
 
     margin: auto;
-    margin-top: 1.2em;
+    margin-bottom: 1em;
+    
+    
 }
 
 label:after {
@@ -267,7 +269,7 @@ label:after {
 
 .descrizionePercorso {
     
-    margin: 0em 1em 1em 1.3em;
+    margin: 1em;
 }
 
 h2 {
@@ -304,4 +306,12 @@ hr{
     margin-bottom: 0.4em;
     padding-top: 0.4em;
     
+}
+
+.inputRecensione{
+    display: flex;
+    align-self: flex-start;
+    
+    height: 3em;
+    width: 80%;
 }

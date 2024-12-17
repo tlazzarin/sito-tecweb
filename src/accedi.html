@@ -16,24 +16,24 @@
     <script src="./Js/registrati_accedi.js"></script>
 </head>
 <body>
-    </alert>
+    [alert]
     <div id="formcontent">
-        <h2 tabindex="1">Accedi</h2>
+        <h2>Accedi</h2>
         <form class="formInput" id="form" action="controlloAccedi.php" method="post">
             <fieldset>
 
             <label for="username">Username</label>
-            <span><input tabindex="2" type="text" id="username" name="username" class="styleInput"/></span>
-
+            <input type="text" aria-label="Inesrisci il tuo Username" id="username" name="username" class="styleInput" required/>
+            <p id="aiutoUsername" ></p>
             <!--<label for="email">Email</label>
             <span><input tabindex="2" type="text" id="email" name="email" class="styleInput"/></span>-->
 
             <label for="password">Password</label>
-            <span><input tabindex="3" type="password" id="password" name="password" class="styleInput"/></span>
+            <input type="password" aria-label="Inesrisci la tua Password" id="password" name="password" class="styleInput" minlength="8" required/>
+            <p id="aiutoPassword" ></p>
 
 
-
-            <input tabindex="4" type="submit" class="button" name="bottoneAccedi" value="Accedi">
+            <input aria-label="Pulsante Accedi" type="submit" class="button" name="bottoneAccedi" value="Accedi">
             </fieldset>
         </form>
     </div>
