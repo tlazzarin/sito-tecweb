@@ -15,7 +15,7 @@ if(isset($_SESSION["id"])){
     $id=$_SESSION["id"];
 
     if(isset($_SESSION['Username'])){
-        if(isset($_SESSION['isAdmin']))
+        if(!isset($_SESSION['isAdmin']))
         {
             $prima_opzione="<a href=\"pannelloAmministrazione.php\">Pannello Amministrazione</a>";
             $seconda_opzione="<a href=\"logout.php\">Logout</a>";
