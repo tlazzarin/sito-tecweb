@@ -153,6 +153,7 @@ class Functions extends Constant{
         return $res;
       }
 
+      //funzione che aggiunge recensione dell'utente al database e restituisce tutte le recensioni per quel percorso(inclusa quella nuova)
       public function aggiungi_recensione($utente,$id,$voto,$testo):response_manager{
 
         $query = "INSERT INTO `RECENSIONE` (`utente`, `percorso`, `voto`, `testo`, `ultima_modifica`) VALUES (?, ?, ?, ?, current_timestamp());";
@@ -176,6 +177,41 @@ class Functions extends Constant{
 
       }
 
+      //prende dal database le foto di un determinato percorso
+      public function get_immagini($id):response_manager{
+
+        $query = "SELECT * FROM `IMMAGINI` WHERE id_immagine LIKE ?";
+        $stmt = $this->connection->prepare($query);
+    
+        $result = array();
+    
+        if ($stmt === false) {
+          return new response_manager($result, $this->connection, "Qualcosa sembra essere andato storto");
+        } else if ($stmt->bind_param('s', $id) === false) {
+          $stmt->close();
+          return new response_manager($result, $this->connection, "Qualcosa sembra essere andato storto");
+        }
+    
+        $stmt->execute();
+        $tmp = $stmt->get_result();
+    
+        $result = array();
+    
+        while ($row = $tmp->fetch_assoc()) {
+          array_push($result, $row);
+        }
+    
+        $res = new response_manager($result, $this->connection, "");
+    
+        if (!$res->ok()) {
+          $res->set_error_message("Nessuna Immagine Trovata con questo id");
+        }
+    
+        $stmt->close();
+        return $res;
+      }
+
 }
 
 ?>
+

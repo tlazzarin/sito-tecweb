@@ -32,10 +32,32 @@ if(isset($_SESSION["id"])){
             $titolo=$percorso[0]['titolo'];
             $descrizione=$percorso[0]['descrizione'];
             $indicazioni=$percorso[0]['indicazioni'];
-            $filegpx="/src/assets/gpx/".strtolower($percorso[0]['file_gpx']);
+            $filegpx="./assets/gpx/".strtolower($percorso[0]['file_gpx']);
+            
 
             
         }
+
+        $Immagini="";
+        $navImmagini="";
+        $countimg=0;
+        $stringId=strval($id)."%";
+
+        $queryImg=$connessione->get_immagini($stringId);
+
+        if($queryImg->ok() && !$queryImg->is_empty())
+        {
+            foreach($queryImg->get_result() as $immagine){
+                $countimg++;
+                $Immagini.="<img src=\"./assets/img/percorsi/".$immagine['id_immagine']."\" 
+                            alt=\"".$immagine['alt']."\" 
+                            id=\"slide".$countimg."\">";
+                $navImmagini.="<a href=\"#slide".$countimg."\"></a>";
+            }
+            
+        }
+
+        
 
         if(!isset($_SESSION['Username'])){
             $paginaHTML=str_replace("[miaRecensione]"," <section class=\"recensione\"><p>Fai <a href=\"accedi.php\">login</a> per scrivere la tua Recensione!</p></section>",$paginaHTML);
@@ -109,7 +131,8 @@ if(isset($_SESSION["id"])){
     $paginaHTML = str_replace("[sottotitolo]", $sottotitolo, $paginaHTML);
     $paginaHTML = str_replace("[recensioni]",$Recensioni,$paginaHTML);
     $paginaHTML =str_replace("[file_gpx]",$filegpx,$paginaHTML);
-
+    $paginaHTML =str_replace("[immagini]",$Immagini,$paginaHTML);
+    $paginaHTML =str_replace("[nav_immagini]",$navImmagini,$paginaHTML);
     
     
     echo $paginaHTML;
