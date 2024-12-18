@@ -29,7 +29,14 @@ if(isset($_SESSION["id"])){
     else
     {
         $prima_opzione="<a href=\"registrati.php\">Registrati</a>";
-        $seconda_opzione="<a href=\"accedi.php\">Accedi</a>";
+        $seconda_opzione = "
+        <section class=\"Login\">
+            <a href=\"accedi.php\" class=\"login-button\">
+                Login <img src=\"./assets/right-from-bracket-solid.svg\" alt=\"Icona Login\" class=\"icon-login\">
+            </a>
+        </section>";
+
+
     }
     
     $errore=false;
