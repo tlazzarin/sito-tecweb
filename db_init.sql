@@ -7,7 +7,7 @@ FLUSH PRIVILEGES;
 -- https://www.phpmyadmin.net/
 --
 -- Host: db
--- Creato il: Dic 07, 2024 alle 11:32
+-- Creato il: Dic 17, 2024 alle 15:06
 -- Versione del server: 10.6.7-MariaDB-1:10.6.7+maria~focal
 -- Versione PHP: 8.2.25
 
@@ -36,6 +36,18 @@ CREATE TABLE `CARATTERISTICA` (
   `descrizione` varchar(100) COLLATE utf8mb3_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
 
+--
+-- Dump dei dati per la tabella `CARATTERISTICA`
+--
+
+INSERT INTO `CARATTERISTICA` (`nome`, `descrizione`) VALUES
+('bambini', 'Il percorso è facilmente percorribile da bambini.'),
+('escursionisti', 'Il percorso è adatto esclusivamente ad escursionisti esperti.'),
+('ipovedente_cieco', 'Il percorso è percorribile da persone ipovedenti o cieche.'),
+('mobilita_ridotta', 'Il percorso è accessibile da persone con mobilità ridotta.'),
+('passeggini', 'Il percorso è percorribile con un passeggino.'),
+('sedia_a_rotelle', 'Il percorso è accessibile da persone in sedia a rotelle.');
+
 -- --------------------------------------------------------
 
 --
@@ -47,6 +59,29 @@ CREATE TABLE `CARATTERISTICA_PERCORSO` (
   `percorso` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
 
+--
+-- Dump dei dati per la tabella `CARATTERISTICA_PERCORSO`
+--
+
+INSERT INTO `CARATTERISTICA_PERCORSO` (`caratteristica`, `percorso`) VALUES
+('bambini', 1),
+('bambini', 2),
+('bambini', 4),
+('bambini', 5),
+('escursionisti', 3),
+('escursionisti', 6),
+('escursionisti', 7),
+('escursionisti', 8),
+('ipovedente_cieco', 2),
+('ipovedente_cieco', 5),
+('mobilita_ridotta', 2),
+('mobilita_ridotta', 5),
+('passeggini', 2),
+('passeggini', 4),
+('passeggini', 5),
+('sedia_a_rotelle', 2),
+('sedia_a_rotelle', 5);
+
 -- --------------------------------------------------------
 
 --
@@ -54,9 +89,51 @@ CREATE TABLE `CARATTERISTICA_PERCORSO` (
 --
 
 CREATE TABLE `IMMAGINI` (
-  `id_immagine` varchar(50) COLLATE utf8mb3_unicode_ci NOT NULL,
+  `id_immagine` varchar(100) COLLATE utf8mb3_unicode_ci NOT NULL,
   `alt` varchar(200) COLLATE utf8mb3_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
+
+--
+-- Dump dei dati per la tabella `IMMAGINI`
+--
+
+INSERT INTO `IMMAGINI` (`id_immagine`, `alt`) VALUES
+('1_valledellesfingi/1.jpg', 'La Valle delle Sfingi, sullo sfondo le caratteristiche formazioni rocciose'),
+('1_valledellesfingi/2.jpg', 'Il foliage lungo il sentiero'),
+('1_valledellesfingi/3.jpg', 'Paesaggio collinare con una vecchia malga in pietra e montagne sullo sfondo'),
+('1_valledellesfingi/4.jpg', 'Paesaggio con la Croce del Gal e il bosco di latifoglie autunnale'),
+('2_corvaralavilla/1.jpg', 'La strada sterrata e sullo sfondo le montagne di Sas dla Crusc'),
+('2_corvaralavilla/2.jpg', 'Panchina in legno con cuore intagliato e tavolino d''appoggio centrale'),
+('2_corvaralavilla/3.jpg', 'Recinto con alpaca al pascolo '),
+('2_corvaralavilla/4.jpg', 'Partenza dell''impianto di risalita della pista Gran Risa'),
+('3_cascatefanes/1.jpg', 'Cascata su tre livelli circondata dal bosco'),
+('3_cascatefanes/2.jpg', 'Cascata Sbarco di Fanes circondata da rocce marroni e vegetazione'),
+('3_cascatefanes/3.jpg', 'Canyon scavato dal torrente visto dal punto panoramico'),
+('3_cascatefanes/4.jpg', 'Cascata su più livelli e ponte che l''attraversa'),
+('4_lagosompunt/1.jpg', 'Il Lago Sompunt con un piccolo albergo di montagna e le montagne di sfondo'),
+('4_lagosompunt/2.jpg', 'Cornice con scritto \"Carpe diem\" che mostra il lago, l''hotel e le montagne'),
+('4_lagosompunt/3.jpg', 'Due cervi nel prato: uno seduto e uno sdraiato'),
+('4_lagosompunt/4.jpg', 'Due asini che mangiano l''erba'),
+('4_lagosompunt/5.jpg', 'Il panorama collinare e roccioso sul massiccio di Sas dla Crusc'),
+('5_cascatepisciadu/1.jpg', 'Le montagne del gruppo Sella e la Cascata del Pisciadù'),
+('5_cascatepisciadu/2.jpg', 'La vallata di Colfosco con l''impianto di risalita e le montagne di sfondo'),
+('5_cascatepisciadu/3.jpg', 'Ponte che attraversa il torrente e nello sfondo il massiccio del Sassongher'),
+('5_cascatepisciadu/4.jpg', 'La cascata vista da vicino'),
+('5_cascatepisciadu/5.jpg', 'Torrente che scende circondato da boschi e roccia'),
+('6_rifugioaltissimo/1.jpg', 'Il Rifugio Damiano Chiesa caratterizzato dagli scuri azzurri'),
+('6_rifugioaltissimo/2.jpg', 'Il paesaggio che mostra quasi interamente il Lago di Garda visto dall''alto'),
+('6_rifugioaltissimo/3.jpg', 'Il sentiero con vista verso Sud del lago di Garda e delle montagne'),
+('6_rifugioaltissimo/4.jpg', 'La strada da percorrere vista dall''alto, caratterizzata da molti tornanti'),
+('6_rifugioaltissimo/5.jpg', 'Il sentiero con vista sulle montagne e sullo sfondo il cielo nuvoloso'),
+('7_seceda/1.jpg', 'La vetta del Monte Seceda caratterizzata dalla sua inclinazione di 45°'),
+('7_seceda/2.jpg', 'Un dettaglio sulla vetta del monte a strapiombo sulla vallata'),
+('7_seceda/3.jpg', 'Una vetta secondaria nella quale termina il sentiero con dietro le montagne'),
+('7_seceda/4.jpg', 'In primo piano una fontana, poi una malga e dietro una chiesetta in pietra'),
+('7_seceda/5.jpg', 'Un tratto del sentiero degli Scoiattoli nel bosco'),
+('8_geislerarm/1.jpg', 'La Malga Geisleralm con dietro il massiccio delle Odle'),
+('8_geislerarm/2.jpg', 'La Malga Geisleralm con davanti la statua di un''aquila in legno'),
+('8_geislerarm/3.jpg', 'Il prato con pochi pini, sullo sfondo il massiccio delle Odle'),
+('8_geislerarm/8.jpg', 'La Chiesetta di San Giovanni circondata da prato e da bosco, dietro le Odle');
 
 -- --------------------------------------------------------
 
@@ -103,9 +180,25 @@ CREATE TABLE `RECENSIONE` (
   `utente` varchar(30) COLLATE utf8mb3_unicode_ci NOT NULL,
   `percorso` int(6) NOT NULL,
   `voto` int(1) NOT NULL CHECK (`voto` between 0 and 5),
-  `testo` longtext COLLATE utf8mb3_unicode_ci NOT NULL,
+  `testo` longtext CHARACTER SET utf32 COLLATE utf32_unicode_ci NOT NULL,
   `ultima_modifica` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
+
+--
+-- Dump dei dati per la tabella `RECENSIONE`
+--
+
+INSERT INTO `RECENSIONE` (`utente`, `percorso`, `voto`, `testo`, `ultima_modifica`) VALUES
+('user', 1, 5, 'Bellissimo percorso!!! 👍👍', '2024-12-17 14:17:22'),
+('user', 3, 5, 'Partiamo col dire che l’Escursione tra le Cascate di Fanes è perfetta per chi ama il brivido... e non parlo solo della natura. Prima sfida: trovare parcheggio.\r\nE poi arrivano loro, le cascate. Splendide, eh, nulla da dire, ma per arrivarci devi attraversare un ponticello traballante. Ma tranquilli, una volta arrivato vicino alle cascate sei ricompensato con una doccia gelata a tradimento. Rinfrescante? Sicuramente. Voluta? Non proprio.\r\nE il bello è che mentre ero lì, a contemplare il perché avessi deciso di torturarmi in questo modo, arriva la notizia: la Ferrari ha vinto a Monza! No, dico, LA FERRARI! Non succedeva da così tanto tempo che, per un attimo, ho pensato di aver perso la testa per la stanchezza. Un evento talmente raro che avrebbe meritato un brindisi.\r\nLa prossima volta mi porto una bandiera della Ferrari, così se non ce la faccio posso almeno sventolarla come segno di resa.', '2024-09-01 19:46:49'),
+('user', 4, 3, 'Percorso stupendo peccato per i cervi che mi hanno morso una mano', '2024-12-13 15:15:30'),
+('user', 5, 1, 'Devo argomentare?? No mi dispiace non c’è tempo da perdere qui arrivederci', '2024-12-17 14:58:28'),
+('user', 7, 5, 'Non so esattamente cosa sia successo sul Monte Seceda, ma so che non sono tornato la stessa persona. Sarà stato il panorama mozzafiato, con quelle vette che sembrano dipinte a mano, o il silenzio quasi mistico che ti avvolge a 2.500 metri, ma qualcosa dentro di me è cambiato.', '2024-09-03 16:02:37'),
+('user', 8, 4, 'Bello ma in malga mi hanno fatto pagare la polenta 25 euro.', '2024-12-12 16:24:05'),
+('user2', 1, 3, 'Percorso carino, peccato per la spazzatura lasciata in giro da alcuni incivili. Non penso ci tornerò.', '2024-12-17 14:35:10'),
+('user2', 3, 5, 'Questo percorso mi ha cambiato la vita 🏞', '2024-12-09 10:24:12'),
+('user2', 4, 5, 'Un parco veramente bello dove puoi trovarti con cervi con un mindset importante.\r\nNon pensavo esistessero luoghi di tale bellezza, ma come al solito la metropoli de La Villa non delude mai.\r\nConsigliatissimo.', '2024-12-05 15:51:16'),
+('user2', 6, 3, 'Meh, mediocre.', '2024-12-17 15:02:29');
 
 -- --------------------------------------------------------
 
@@ -120,6 +213,15 @@ CREATE TABLE `UTENTE` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
 
 --
+-- Dump dei dati per la tabella `UTENTE`
+--
+
+INSERT INTO `UTENTE` (`username`, `password`, `isAdmin`) VALUES
+('admin', 'c7ad44cbad762a5da0a452f9e854fdc1e0e7a52a38015f23f3eab1d80b931dd472634dfac71cd34ebc35d16ab7fb8a90c81f975113d6c7538dc69dd8de9077ec', 1),
+('user', 'b14361404c078ffd549c03db443c3fede2f3e534d73f78f77301ed97d4a436a9fd9db05ee8b325c0ad36438b43fec8510c204fc1c1edb21d0941c00e9e2c1ce2', 0),
+('user2', '291116775902b38dd09587ad6235cec503fc14dbf9c09cad761f2e5a5755102eaceb54b95ffd179c22652c3910dbc6ed85ddde7e09eef1ecf3ad219225f509f5', 0);
+
+--
 -- Indici per le tabelle scaricate
 --
 
@@ -127,7 +229,8 @@ CREATE TABLE `UTENTE` (
 -- Indici per le tabelle `CARATTERISTICA`
 --
 ALTER TABLE `CARATTERISTICA`
-  ADD PRIMARY KEY (`nome`);
+  ADD PRIMARY KEY (`nome`),
+  ADD UNIQUE KEY `nome` (`nome`);
 
 --
 -- Indici per le tabelle `CARATTERISTICA_PERCORSO`
