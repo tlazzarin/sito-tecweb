@@ -15,8 +15,36 @@
 </head>
 <body>
     <header>
-        HEADER
-    </header>
+        <img src="./assets/logo.svg" alt="Descrizione Logo" class="logo">
+        <h1>Nome del Sito</h1>
+    </header> 
+
+    <!-- Navigation -->
+    <nav id="menu">
+        <ul>
+            <li id="currentLink" aria-current="page">
+                <a href="#" class="active">Home</a>
+            </li>
+            <li>
+                <a href="test.html">Percorsi</a>
+            </li>
+            <li>
+                <a href="navigatore.html">Usare il navigatore</a>
+            </li>
+            <li>
+                <a href="signup.html">{Registrati}</a>
+            </li>
+            <li>
+                <a href="signin.html">{Login/Profilo}</a>
+            </li>
+        </ul>
+        <div class="menu-underline"></div>
+    </nav>
+
+    <!-- Breadcrumb -->
+    <nav id="breadcrumb">
+        <p>Ti trovi in: <span lang="en">Home</span></p>
+    </nav>
     <h2 class="nomePercorso">[titolo]</h2>
     <h3 class="descrizionePercorso">[sottotitolo]</h3>
 
@@ -36,7 +64,7 @@
             </div>
             <div class="wrapper">
                 <div class="mapContainer">
-                    <img src="https://images.unsplash.com/photo-1516568697180-7193f2f0012a?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Foto 3 del Percorso" id="mappa">
+                
                 </div>
             </div>
 
@@ -90,8 +118,8 @@
     
 
 
-    <footer>
-        FOOTER
+    <!-- Footer -->
+    <footer id="footer">
     </footer>
 </body>
 </html>
