@@ -10,12 +10,16 @@ $paginaHTML=grafica::getPage("percorso.html");
 $_SESSION["id"]=1;
 if(isset($_SESSION["id"])){
 
+    //per breadcrumb
+    $url=explode("/", $_SERVER['REQUEST_URI']);
+    $paginaCorrente= end($url);
+
+
+
     
 
-    $id=$_SESSION["id"];
-
     if(isset($_SESSION['Username'])){
-        if(isset($_SESSION['isAdmin']))
+        if(!isset($_SESSION['isAdmin']))
         {
             $prima_opzione="<a href=\"pannelloAmministrazione.php\">Pannello Amministrazione</a>";
             $seconda_opzione="<a href=\"logout.php\">Logout</a>";
@@ -38,6 +42,8 @@ if(isset($_SESSION["id"])){
 
 
     }
+
+    $id=$_SESSION["id"];
     
     $errore=false;
     $connessione=new Functions();
@@ -147,7 +153,7 @@ if(isset($_SESSION["id"])){
 
         }
 
-        
+        $connessione->closeConnection();
     }
 
     
@@ -163,7 +169,7 @@ if(isset($_SESSION["id"])){
     $paginaHTML =str_replace("[prima_opzione]",$prima_opzione,$paginaHTML);
     $paginaHTML =str_replace("[seconda_opzione]",$seconda_opzione,$paginaHTML);
 
-    $connessione->closeConnection();
+    
     
     
     echo $paginaHTML;
