@@ -48,7 +48,7 @@ if(isset($_SESSION["id"])){
         $seconda_opzione = "
         <section class=\"Login\">
             <a href=\"accedi.php\" class=\"login-button\">
-                Login <img src=\"./assets/right-from-bracket-solid.svg\" alt=\"Icona Login\" class=\"icon-login\">
+                Accedi <img src=\"./assets/right-from-bracket-solid.svg\" alt=\"Icona Login\" class=\"icon-login\">
             </a>
         </section>";
 
