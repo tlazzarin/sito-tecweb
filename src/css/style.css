@@ -1,7 +1,7 @@
 * {
     padding: 0;
-    margin: 0;
-    
+    margin: 0; 
+    box-sizing: border-box;
 }
 
 /* Colori */
@@ -16,20 +16,13 @@
     --percorsibgcolor: #E6E6E6;
 }
 
-html,
 body {
-    height: 100vh;
-    
-    font-size: 100%;
     font-family: "Varela Round", sans-serif;
     font-weight: 400;
-    font-style: normal;
-    color: var(--textcolor);
     background-color: var(--defaultbgcolor);
     text-align: center;
     display: flex;
     flex-direction: column;
-    height: 100%;
 }
 
 /* Header */
@@ -50,14 +43,14 @@ header .logo {
 }
 
 header h1 {
-    font-size: 2em;
+    font-size: 2.5em;
     margin: 0;
 }
 
 /* Menu */
 #menu {
-    margin-top: 0.5em; /* Spazio sopra il menu */
-    padding-bottom: 0.5em; /* Spazio sotto il menu */
+    margin-top: 0em; /* Spazio sopra il menu */
+    padding-bottom: 0em; /* Spazio sotto il menu */
     position: relative;
 }
 
@@ -68,6 +61,9 @@ header h1 {
     max-width: 1200px;
     margin: 0 auto;
     padding: 1em;
+    align-items: center; /* Serve per far rimanere il bottone logine e logout allineati al resto delle voci */
+    max-width: 95%;
+
 }
 
 .menu-underline {
@@ -79,27 +75,38 @@ header h1 {
     bottom: 0;
     left: 0;
     right: 0;
-    border-radius: 5px;
+    border-radius: 10px;
+
+}
+
+
+
+.login-button {
+    display: inline-flex; 
+    align-items: center; 
+    justify-content: center;
+    padding: 0.5em 2em; 
+    font-size: 1em;
+    font-weight: bold;
+    background-color: var(--unvisitedlinkcolor);
+    border-radius: 20px;
+    min-width: 14em; 
+}
+
+.login-button .icon-login {
+    margin-left: 0.5em;
+    width: 1.4em;
+    height: 1.4em;
 }
 
 #menu a {
-    color: var(--unvisitedlinkcolor);
-    text-decoration: none;
-    padding: 0.5em 1em;
-}
-
-#menu a:hover {
-    color: var(--visitedlinkcolor);
+    padding: 0.5em 3em;
 }
 
 #menu a:visited {
     color: var(--visitedlinkcolor);
 }
 
-#currentLink {
-    color: var(--visitedlinkcolor);
-    border-bottom: none;
-}
 
 /* Breadcrumb */
 #breadcrumb {
@@ -395,3 +402,5 @@ hr{
     height: 3em;
     width: 80%;
 }
+
+
