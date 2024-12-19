@@ -6,7 +6,18 @@ if(isset($_SESSION["Username"])){
 else{
     require_once "grafica.php";
 
+    $breadcrumb="";
+    if(isset($_SESSION['paginaPrecedente']))
+    {
+        $breadcrumb=$_SESSION['paginaPrecedente'];
+
+    }
+
+    $breadcrumb.=" &gt;&gt; Registrati";
+
     $paginaHTML=grafica::getPage("registrati.html");
+
+    $paginaHTML = str_replace("[breadcrumb]", $breadcrumb, $paginaHTML);
 
     if(isset($_SESSION['Username'])){
         if(!isset($_SESSION['isAdmin']))

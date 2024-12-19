@@ -6,16 +6,28 @@ use DB\Functions;
 require_once("DB/database.php");
 require_once "grafica.php";
 
+//per breadcrumb
+//$url=explode("/", $_SERVER['REQUEST_URI']);
+//$paginaCorrente= end($url);
+
+$breadcrumb="";
+if(isset($_SESSION['paginaPrecedente']))
+{
+    $breadcrumb=$_SESSION['paginaPrecedente'];
+
+}
+
+$breadcrumb.=" &gt;&gt; Percorso";
+
+
 $paginaHTML=grafica::getPage("percorso.html");
+
+$paginaHTML = str_replace("[breadcrumb]", $breadcrumb, $paginaHTML);
+
 $_SESSION["id"]=1;
 if(isset($_SESSION["id"])){
 
-    //per breadcrumb
-    $url=explode("/", $_SERVER['REQUEST_URI']);
-    $paginaCorrente= end($url);
-
-
-
+    
     
 
     if(isset($_SESSION['Username'])){
