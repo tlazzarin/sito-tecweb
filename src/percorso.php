@@ -112,10 +112,11 @@ if(isset($_SESSION["id"])){
             if($queryRecensioneUtente->ok())
             {
                 $paginaHTML=str_replace("[miaRecensione]"," <section class=\"recensione\">
-                <h4>".$queryRecensioneUtente->get_result()[0]['utente']."</h4>
-                <p>".$queryRecensioneUtente->get_result()[0]['testo']."
-                </p>
-                </section>",$paginaHTML);
+                        <h4>".$queryRecensioneUtente->get_result()[0]['utente']."</h4>
+                        <p>".$queryRecensioneUtente->get_result()[0]['testo']."
+                        <br>Voto:".$queryRecensioneUtente->get_result()[0]['voto']."
+                        </p>
+                        </section>",$paginaHTML);
             }
             else if(!isset($_POST["aggiungiRecensione"]))
             {
@@ -149,6 +150,7 @@ if(isset($_SESSION["id"])){
                         $paginaHTML=str_replace("[miaRecensione]"," <section class=\"recensione\">
                         <h4>".$queryRecensioneUtente->get_result()[0]['utente']."</h4>
                         <p>".$queryRecensioneUtente->get_result()[0]['testo']."
+                        <br>Voto:".$queryRecensioneUtente->get_result()[0]['voto']."
                         </p>
                         </section>",$paginaHTML);
                     }
@@ -164,18 +166,6 @@ if(isset($_SESSION["id"])){
                 }
             }
 
-
-            
-            
-            
-        
-        
-            
-        
-
-
-        
- 
         }
         
 
@@ -192,7 +182,7 @@ if(isset($_SESSION["id"])){
                 $Recensioni.="<section class=\"recensione\">
                 <h4>".$recensione['utente']."</h4>
                 <p>".$recensione['testo']."
-                </p>
+                <br>Voto:".$recensione['voto']."</p>
                 </section>";
             }
 
