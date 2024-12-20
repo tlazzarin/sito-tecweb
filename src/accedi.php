@@ -6,25 +6,19 @@ if(isset($_SESSION["Username"])){
 else{
     require_once "grafica.php";
 
-    $paginaHTML=grafica::getPage("accedi.html");
-    
-    if(isset($_SESSION['Username'])){
-        if(!isset($_SESSION['isAdmin']))
-        {
-            $prima_opzione="<a href=\"pannelloAmministrazione.php\">Pannello Amministrazione</a>";
-            $seconda_opzione="<a href=\"logout.php\">Logout</a>";
-        }
-        else{
-            $prima_opzione="<a href=\"profilo.php\">Profilo</a>";
-            $seconda_opzione="<a href=\"logout.php\">Logout</a>";
-        }
-       
-    }
-    else
+    $breadcrumb="";
+    if(isset($_SESSION['paginaPrecedente']))
     {
-        $prima_opzione="<a href=\"registrati.php\">Registrati</a>";
-        $seconda_opzione="<a href=\"accedi.php\">Accedi</a>";
+        $breadcrumb=$_SESSION['paginaPrecedente'];
+
     }
+
+    $breadcrumb.=" &gt;&gt; Accedi";
+
+    $paginaHTML=grafica::getPage("accedi.html");
+
+    $paginaHTML = str_replace("[breadcrumb]", $breadcrumb, $paginaHTML);
+    
 
     if (isset($_SESSION["error"])) {
         $paginaHTML = str_replace("[alert]", grafica::createAlert("error", $_SESSION["error"]), $paginaHTML);
@@ -41,8 +35,7 @@ else{
         $paginaHTML = str_replace("[alert]", "", $paginaHTML);
     }
 
-    $paginaHTML =str_replace("[prima_opzione]",$prima_opzione,$paginaHTML);
-    $paginaHTML =str_replace("[seconda_opzione]",$seconda_opzione,$paginaHTML);
+    
 
     echo $paginaHTML;
 }

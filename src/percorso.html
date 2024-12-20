@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Percorso</title>
+    <title>[titolo]</title>
     <meta name="keywords" content="" />
-    <meta name="description" content="Pagina contenente il Percorso scelto." />
+    <meta name="description" content="Pagina che contiene la descrizione del percorso: [titolo]." />
     <meta name="author" content="TecWeb" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -15,9 +15,10 @@
 </head>
 <body>
     <header>
-        <img src="./assets/logo.svg" alt="Descrizione Logo" class="logo">
+        <img src="./assets/logo.svg" alt="Logo del Sito" class="logo">
         <h1>Nome del Sito</h1>
     </header> 
+    
 
     <!-- Navigation -->
     <nav id="menu">
@@ -38,85 +39,84 @@
                 [seconda_opzione]
             </li>
         </ul>
-        <div class="menu-underline"></div>
+        <hr class="menu-underline">
     </nav>
 
     <!-- Breadcrumb -->
     <nav id="breadcrumb">
-        <p>Ti trovi in: <a href="index.php" lang="en">Home</a>&gt;&gt;<a href="percorso.php">Percorso</a></p>
+        <p>Ti trovi in: <a href="index.php" lang="en">Home</a>[breadcrumb]</p>
     </nav>
     <h2 class="nomePercorso">[titolo]</h2>
     <h3 class="descrizionePercorso">[sottotitolo]</h3>
 
     
-    <div class="mainPercorso">
-        
-        <aside class="left">
+    <main>
+        <section class="percorso">
+            <section class="left">
             
             
-            <div class="wrapper">
-                <div class="slider">
-                    [immagini]
+                <div class="wrapper">
+                    <div class="slider">
+                        [immagini]
+                    </div>
+                    <div class="slider-nav">
+                        [nav_immagini]
+                    </div>
                 </div>
-                <div class="slider-nav">
-                    [nav_immagini]
+                <div class="wrapper">
+                    <div class="mapContainer">
+                    
+                    </div>
                 </div>
-            </div>
-            <div class="wrapper">
-                <div class="mapContainer">
-                
-                </div>
-            </div>
-
-            
-        </aside>
-        
-        <main>
-            <section class="descrizione">
-                <h4>Descrizione</h4>
-                <p>[descrizione]
-                </p>
-                
-                
-            </section>
-
-            <section class="indicazioni">
-                <h4>Indicazioni del percorso</h4>
-                <p>[indicazioni]
-                </p>
-                
-                
-            </section>
-
-            <section class="gpx">
-                <button aria-label="Pulsante Scarica Traccia gpx" type="button" class="button"><a href=[file_gpx] download>Scarica Traccia</a></button>
-
-                <details>
-                    <summary>cos'e' una traccia .gpx?</summary>
-                    <p>Un file GPX è un formato che permette la memorizzazione e l'elaborazione di dati GPS (geodati). Puoi usare la nostra applicazione per registrare i tuoi dati GPS e caricare le tracce che hai creato sulla nostra piattaforma per poi condividere i tuoi percorsi con altri utenti. È anche possibile scaricare i dati per i percorsi già esistenti.</p>
-                </details>
-                
-            </section>
-        </main>
-        
-        
-    </div>
-
-    <div class="recensioni">
-
-        <h3>Recensioni Medie:</h3>
-
-        <p class="valutazione">Valutazione media: </valutazione></p>
-
-        [miaRecensione]
-
-        <hr>
-
-        [recensioni]
-
-    </div>
     
+                
+            </section>
+            
+            <section class="mainPercorso">
+                <section class="descrizione">
+                    <h4>Descrizione</h4>
+                    <p>[descrizione]
+                    </p>
+                    
+                    
+                </section>
+    
+                <section class="indicazioni">
+                    <h4>Indicazioni del percorso</h4>
+                    <p>[indicazioni]
+                    </p>
+                    
+                    
+                </section>
+    
+                <section class="gpx">
+                    <button aria-label="Pulsante Scarica Traccia gpx" type="button" class="button"><a href=[file_gpx] download>Scarica Traccia</a></button>
+    
+                    <details>
+                        <summary>cos'e' una traccia .gpx?</summary>
+                        <p>Un file GPX è un formato che permette la memorizzazione e l'elaborazione di dati GPS (geodati). Puoi usare la nostra applicazione per registrare i tuoi dati GPS e caricare le tracce che hai creato sulla nostra piattaforma per poi condividere i tuoi percorsi con altri utenti. È anche possibile scaricare i dati per i percorsi già esistenti.</p>
+                    </details>
+                    
+                </section>
+            </section>
+        </section>
+        
+        [alert]
+        <section class="recensioni">
 
+            <h3>Recensioni Medie:</h3>
+    
+            <p class="valutazione">Valutazione media: </valutazione></p>
+    
+            [miaRecensione]
+    
+            <hr>
+    
+            [recensioni]
+    
+        </section>
+        
+    </main>
 
     <!-- Footer -->
     <footer id="footer">

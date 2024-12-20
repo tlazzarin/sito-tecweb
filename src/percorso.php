@@ -6,16 +6,28 @@ use DB\Functions;
 require_once("DB/database.php");
 require_once "grafica.php";
 
+//per breadcrumb
+//$url=explode("/", $_SERVER['REQUEST_URI']);
+//$paginaCorrente= end($url);
+
+$breadcrumb="";
+if(isset($_SESSION['paginaPrecedente']))
+{
+    $breadcrumb=$_SESSION['paginaPrecedente'];
+
+}
+
+$breadcrumb.=" &gt;&gt; Percorso";
+
+
 $paginaHTML=grafica::getPage("percorso.html");
+
+$paginaHTML = str_replace("[breadcrumb]", $breadcrumb, $paginaHTML);
+
 $_SESSION["id"]=1;
 if(isset($_SESSION["id"])){
 
-    //per breadcrumb
-    $url=explode("/", $_SERVER['REQUEST_URI']);
-    $paginaCorrente= end($url);
-
-
-
+    
     
 
     if(isset($_SESSION['Username'])){
@@ -36,7 +48,7 @@ if(isset($_SESSION["id"])){
         $seconda_opzione = "
         <section class=\"Login\">
             <a href=\"accedi.php\" class=\"login-button\">
-                Login <img src=\"./assets/right-from-bracket-solid.svg\" alt=\"Icona Login\" class=\"icon-login\">
+                Accedi <img src=\"./assets/right-from-bracket-solid.svg\" alt=\"Icona Login\" class=\"icon-login\">
             </a>
         </section>";
 
@@ -94,43 +106,66 @@ if(isset($_SESSION["id"])){
             $paginaHTML=str_replace("[miaRecensione]"," <section class=\"recensione\"><p>Fai <a href=\"accedi.php\">login</a> per scrivere la tua Recensione!</p></section>",$paginaHTML);
              
         }else{
-            if(isset($_POST['aggiungiRecensione']))
+
+
+            $queryRecensioneUtente=$connessione->get_recensioni($id,$_SESSION['Username']);
+            if($queryRecensioneUtente->ok())
             {
-                
-                //per test
-                $voto=4;
+                $paginaHTML=str_replace("[miaRecensione]"," <section class=\"recensione\">
+                        <h4>".$queryRecensioneUtente->get_result()[0]['utente']."</h4>
+                        <p>".$queryRecensioneUtente->get_result()[0]['testo']."
+                        <br>Voto:".$queryRecensioneUtente->get_result()[0]['voto']."
+                        </p>
+                        </section>",$paginaHTML);
+            }
+            else if(!isset($_POST["aggiungiRecensione"]))
+            {
+                $paginaHTML=str_replace("[miaRecensione]"," <section class=\"recensione\">
+                <h4>".$_SESSION['Username']."</h4>
+                <form method=\"post\">
+                    <textarea name=\"testoRecensione\" class=\"inputRecensione\" type=\"text\"></textarea>
+                    <select class=\"\" id=\"voto\" name=\"voto\">
+                      <option value=\"5\">5</option>
+                      <option value=\"4\">4</option>
+                      <option value=\"3\">3</option>
+                      <option value=\"2\">2</option>
+                      <option value=\"1\">1</option>
+                    </select>
+                    <button aria-label=\"Pulsante per Inserire Recensione\" name=\"aggiungiRecensione\" type=\"submit\" class=\"button\">Inserisci Recensione</button>
+                    
+                </form>
+                </section>",$paginaHTML);
+            }
+            else
+            {
+                $voto=$_POST["voto"];
                 $testo=$_POST["testoRecensione"];
                 $queryAggiungiRecensione=$connessione->aggiungi_recensione($_SESSION['Username'],$id,$voto,$testo);
                 if($queryAggiungiRecensione->ok())
                 {
-                    unset($_SESSION['aggiungiRecensione']);
+                    unset($_POST['aggiungiRecensione']);
+                    $queryRecensioneUtente=$connessione->get_recensioni($id,$_SESSION['Username']);
+                    if($queryRecensioneUtente->ok())
+                    {
+                        $paginaHTML=str_replace("[miaRecensione]"," <section class=\"recensione\">
+                        <h4>".$queryRecensioneUtente->get_result()[0]['utente']."</h4>
+                        <p>".$queryRecensioneUtente->get_result()[0]['testo']."
+                        <br>Voto:".$queryRecensioneUtente->get_result()[0]['voto']."
+                        </p>
+                        </section>",$paginaHTML);
+                    }
+                    else
+                    {
+                        $_SESSION["error"] = "Impossibile connettersi al sistema";
+                    }
+
+                }
+                else
+                {
+                    $_SESSION["error"] = "Impossibile connettersi al sistema per aggiungere la tua recensione";
                 }
             }
-            
-            $queryRecensioneUtente=$connessione->get_recensioni($id,$_SESSION['Username']);
-            if($queryRecensioneUtente->ok()){
-                
-                $paginaHTML=str_replace("[miaRecensione]"," <section class=\"recensione\">
-                    <h4>".$queryRecensioneUtente->get_result()[0]['utente']."</h4>
-                    <p>".$queryRecensioneUtente->get_result()[0]['testo']."
-                    </p>
-                    </section>",$paginaHTML);
-                $_SESSION['aggiungiRecensione']=true;
-            }
-            else if(!isset($_SESSION['aggiungiRecensione']))
-            {
-                $paginaHTML=str_replace("[miaRecensione]"," <section class=\"recensione\">
-                    <h4>".$_SESSION['Username']."</h4>
-                    <form method=\"post\">
-                        <textarea name=\"testoRecensione\" class=\"inputRecensione\" type=\"text\"></textarea>
-                        <button aria-label=\"Pulsante per Inserire Recensione\" name=\"aggiungiRecensione\" type=\"submit\" class=\"button\">Inserisci Recensione</button>
-                    </form>
-                    </section>",$paginaHTML);
-            }
-            
 
-
-            
         }
         
 
@@ -147,7 +182,7 @@ if(isset($_SESSION["id"])){
                 $Recensioni.="<section class=\"recensione\">
                 <h4>".$recensione['utente']."</h4>
                 <p>".$recensione['testo']."
-                </p>
+                <br>Voto:".$recensione['voto']."</p>
                 </section>";
             }
 
@@ -170,7 +205,20 @@ if(isset($_SESSION["id"])){
     $paginaHTML =str_replace("[seconda_opzione]",$seconda_opzione,$paginaHTML);
 
     
-    
+    if (isset($_SESSION["error"])) {
+        $paginaHTML = str_replace("[alert]", grafica::createAlert("error", $_SESSION["error"]), $paginaHTML);
+        unset($_SESSION["error"]);
+    }
+    if (isset($_SESSION["info"])) {
+        $paginaHTML = str_replace("[alert]", grafica::createAlert("info", $_SESSION["info"]), $paginaHTML);
+        unset($_SESSION["info"]);
+    }
+    if (isset($_SESSION["success"])) {
+        $paginaHTML = str_replace("[alert]", grafica::createAlert("success", $_SESSION["success"]), $paginaHTML);
+        unset($_SESSION["success"]);
+    } else {
+        $paginaHTML = str_replace("[alert]", "", $paginaHTML);
+    }
     
     echo $paginaHTML;
 }
