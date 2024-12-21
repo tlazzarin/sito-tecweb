@@ -189,7 +189,7 @@ CREATE TABLE `RECENSIONE` (
 --
 
 INSERT INTO `RECENSIONE` (`utente`, `percorso`, `voto`, `testo`, `ultima_modifica`) VALUES
-('user', 1, 5, 'Bellissimo percorso!!! 👍👍', '2024-12-17 14:17:22'),
+('user', 1, 5, 'Bellissimo percorso!!!', '2024-12-17 14:17:22'),
 ('user', 3, 5, 'Partiamo col dire che l’Escursione tra le Cascate di Fanes è perfetta per chi ama il brivido... e non parlo solo della natura. Prima sfida: trovare parcheggio.\r\nE poi arrivano loro, le cascate. Splendide, eh, nulla da dire, ma per arrivarci devi attraversare un ponticello traballante. Ma tranquilli, una volta arrivato vicino alle cascate sei ricompensato con una doccia gelata a tradimento. Rinfrescante? Sicuramente. Voluta? Non proprio.\r\nE il bello è che mentre ero lì, a contemplare il perché avessi deciso di torturarmi in questo modo, arriva la notizia: la Ferrari ha vinto a Monza! No, dico, LA FERRARI! Non succedeva da così tanto tempo che, per un attimo, ho pensato di aver perso la testa per la stanchezza. Un evento talmente raro che avrebbe meritato un brindisi.\r\nLa prossima volta mi porto una bandiera della Ferrari, così se non ce la faccio posso almeno sventolarla come segno di resa.', '2024-09-01 19:46:49'),
 ('user', 4, 3, 'Percorso stupendo peccato per i cervi che mi hanno morso una mano', '2024-12-13 15:15:30'),
 ('user', 5, 1, 'Devo argomentare?? No mi dispiace non c’è tempo da perdere qui arrivederci', '2024-12-17 14:58:28'),

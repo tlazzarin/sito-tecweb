@@ -1,103 +1,88 @@
 let restrizioni = {
-  "username": [
+  username: [
     "Username",
     /^[A-Za-z\s]\w{2,30}$/,
-    "Inserire un username di lunghezza tra i 2 e 30 caratteri\n"
+    "Inserire un username di lunghezza tra i 2 e 30 caratteri\n",
   ],
-  "email": [
+  email: [
     "Indirizzo mail",
     /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
-    "Inserire un indirizzo mail corretto\n"
+    "Inserire un indirizzo mail corretto\n",
   ],
-  "password": [
+  password: [
     "Password",
-    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$.,-;:<>!%*?&_=])[A-Za-z\d@$.,-;:<>!%*?&_=]{8,}$/,
-    "Inserire una password di almeno 8 caratteri, di cui: uno minuscolo, uno maiuscolo, un numero ed un carattere speciale\n"
+    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d@$.,-;:<>!%*?&_=]{4,}$/,
+    "Inserire una password di almeno 4 caratteri\n",
   ],
-  "confirm": [
+  confirm: [
     "ConfermaPassword",
-    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$.,-;:<>!%*?&_=])[A-Za-z\d@$.,-;:<>!%*?&_=]{8,}$/,
-    "Le due password non coincidono\n"
-  ]
+    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d@$.,-;:<>!%*?&_=]{4,}$/,
+    "Le due password non coincidono\n",
+  ],
 };
 
-
-
 //controllo che tutti i campi siano pieni e validi per poter premere il tasto registrati
-function load()
-{
-  let form =document.getElementById("form");
+function load() {
+  let form = document.getElementById("form");
 
-  form.addEventListener("submit",function (event){
-      if(!validazioneForm())
-      {
-          event.preventDefault();
-      }
-  })
+  form.addEventListener("submit", function (event) {
+    if (!validazioneForm()) {
+      event.preventDefault();
+    }
+  });
 
   for (var key in restrizioni) {
-      var input = document.getElementById(key);
-      
-      
-      if(input!=null){
-          validazioneCampo(input);
-        
-      }
-        
-    }
-}
+    var input = document.getElementById(key);
 
+    if (input != null) {
+      validazioneCampo(input);
+    }
+  }
+}
 
 //controllo validazione campo e aggiunta consiglio su come riempire campo
 function validazioneCampo(input) {
-  
-  var parent = document.getElementById("aiuto"+restrizioni[input.id][0]);
+  var parent = document.getElementById("aiuto" + restrizioni[input.id][0]);
   mostraErrore(input);
-  
-  if (parent.children.length == 2) {
-    
-    parent.removeChild(parent.children[1]);
-    
-  }
-  
 
-  if (input.value.search(restrizioni[input.id][1]) != 0 || input.value == restrizioni[input.id][0]) {
-    
+  if (parent.children.length == 2) {
+    parent.removeChild(parent.children[1]);
+  }
+
+  if (
+    input.value.search(restrizioni[input.id][1]) != 0 ||
+    input.value == restrizioni[input.id][0]
+  ) {
     return false;
   }
 
   if (input.id == "conferma" && !confirmPass()) {
-    
     return false;
   }
-
-  
 
   return true;
 }
 
-
 //controllo che password e conferma siano ugali
 function confirmPass() {
-  const password = document.querySelector('input[name=password]');
-  const confirm = document.querySelector('input[name=conferma]');
+  const password = document.querySelector("input[name=password]");
+  const confirm = document.querySelector("input[name=conferma]");
 
   if (confirm.value === password.value) {
-    return true
+    return true;
   }
   return false;
 }
 
 //aggiunta dell' error suggestion
 function mostraErrore(input) {
-  var parent = document.getElementById("aiuto"+restrizioni[input.id][0]);
+  var parent = document.getElementById("aiuto" + restrizioni[input.id][0]);
   var errore = document.createElement("strong");
   errore.className = "errorSuggestion";
-  errore.id="error"+restrizioni[input.id];
+  errore.id = "error" + restrizioni[input.id];
   errore.appendChild(document.createTextNode(restrizioni[input.id][2]));
   parent.appendChild(errore);
 }
-
 
 //controllo di tutti gli input nella form
 function validazioneForm() {
@@ -114,6 +99,6 @@ function validazioneForm() {
   return true;
 }
 
-window.addEventListener('load', function(){
+window.addEventListener("load", function () {
   load();
-})
+});
