@@ -1,4 +1,6 @@
 <?php
+header('Cache-Control: no cache'); 
+session_cache_limiter('private_no_expire');
 session_start();
 
 use DB\Functions;
@@ -6,23 +8,9 @@ use DB\Functions;
 require_once("DB/database.php");
 require_once "grafica.php";
 
-//per breadcrumb
-//$url=explode("/", $_SERVER['REQUEST_URI']);
-//$paginaCorrente= end($url);
-
-$breadcrumb="";
-if(isset($_SESSION['paginaPrecedente']))
-{
-    $breadcrumb=$_SESSION['paginaPrecedente'];
-
-}
-
-$breadcrumb.=" &gt;&gt; Percorso";
-
-
 $paginaHTML=grafica::getPage("percorso.html");
 
-$paginaHTML = str_replace("[breadcrumb]", $breadcrumb, $paginaHTML);
+
 
 $_SESSION["id"]=1;
 if(isset($_SESSION["id"])){
@@ -109,32 +97,81 @@ if(isset($_SESSION["id"])){
 
 
             $queryRecensioneUtente=$connessione->get_recensioni($id,$_SESSION['Username']);
-            if($queryRecensioneUtente->ok())
+            if($queryRecensioneUtente->ok()&&!isset($_POST["modificaRecensione"]))
             {
                 $paginaHTML=str_replace("[miaRecensione]"," <section class=\"recensione\">
                         <h4>".$queryRecensioneUtente->get_result()[0]['utente']."</h4>
                         <p>".$queryRecensioneUtente->get_result()[0]['testo']."
                         <br>Voto:".$queryRecensioneUtente->get_result()[0]['voto']."
                         </p>
+                        <form method=\"post\">
+                            <button aria-label=\"Pulsante per Modificare Recensione\" name=\"modificaRecensione\" type=\"submit\" class=\"button\">Modifica Recensione</button>
+                        </form>
                         </section>",$paginaHTML);
             }
             else if(!isset($_POST["aggiungiRecensione"]))
             {
-                $paginaHTML=str_replace("[miaRecensione]"," <section class=\"recensione\">
-                <h4>".$_SESSION['Username']."</h4>
-                <form method=\"post\">
-                    <textarea name=\"testoRecensione\" class=\"inputRecensione\" type=\"text\"></textarea>
-                    <select class=\"\" id=\"voto\" name=\"voto\">
-                      <option value=\"5\">5</option>
-                      <option value=\"4\">4</option>
-                      <option value=\"3\">3</option>
-                      <option value=\"2\">2</option>
-                      <option value=\"1\">1</option>
-                    </select>
-                    <button aria-label=\"Pulsante per Inserire Recensione\" name=\"aggiungiRecensione\" type=\"submit\" class=\"button\">Inserisci Recensione</button>
+                if(!isset($_POST["modificaRecensione"]))
+                {
+                    $paginaHTML=str_replace("[miaRecensione]"," <section class=\"recensione\">
+                    <h4>".$_SESSION['Username']."</h4>
+                    <form method=\"post\">
+                        <textarea name=\"testoRecensione\" class=\"inputRecensione\" type=\"text\"></textarea>
+                        <select class=\"\" id=\"voto\" name=\"voto\">
+                          <option value=\"5\">5</option>
+                          <option value=\"4\">4</option>
+                          <option value=\"3\">3</option>
+                          <option value=\"2\">2</option>
+                          <option value=\"1\">1</option>
+                        </select>
+                        <button aria-label=\"Pulsante per Inserire Recensione\" name=\"aggiungiRecensione\" type=\"submit\" class=\"button\">Inserisci Recensione</button>
+
+                    </form>
+                    </section>",$paginaHTML);
+                }
+                else
+                {
+
+                    $tempTest=$queryRecensioneUtente->get_result()[0]['testo'];
+                    $tempVoto=$queryRecensioneUtente->get_result()[0]['voto'];
+                    $queryCancellaRecensione=$connessione->cancella_recensione($id,$_SESSION['Username']);
                     
-                </form>
-                </section>",$paginaHTML);
+                    if($queryCancellaRecensione->get_errno() == 0)
+                    {
+                        $paginaHTML=str_replace("[miaRecensione]"," <section class=\"recensione\">
+                        <h4>".$_SESSION['Username']."</h4>
+                        <form method=\"post\">
+                            <textarea name=\"testoRecensione\" class=\"inputRecensione\" type=\"text\">".$tempTest."</textarea>
+                            <select class=\"\" id=\"voto\" name=\"voto\" value=\"".$tempVoto."\">
+                              <option value=\"5\">5</option>
+                              <option value=\"4\">4</option>
+                              <option value=\"3\">3</option>
+                              <option value=\"2\">2</option>
+                              <option value=\"1\">1</option>
+                            </select>
+                            <button aria-label=\"Pulsante per Inserire Recensione\" name=\"aggiungiRecensione\" type=\"submit\" class=\"button\">Inserisci Recensione</button>
+                        </form>
+                        </section>",$paginaHTML);
+                    }
+                    else
+                    {
+                        $_SESSION["error"] = "Impossibile connettersi al sistema per modificare la tua recensione";
+                        $paginaHTML=str_replace("[miaRecensione]"," <section class=\"recensione\">
+                        <h4>".$_SESSION["Username"]."</h4>
+                        <p>".$tempTest."
+                        <br>Voto:".$tempVoto."
+                        </p>
+                        <form method=\"post\">
+                        <button aria-label=\"Pulsante per Modificare Recensione\" name=\"modificaRecensione\" type=\"submit\" class=\"button\">Modifica Recensione</button>
+                        </form>
+                        </section>",$paginaHTML);
+                    }
+                    
+                    
+                    
+
+                }
+                
             }
             else
             {
@@ -151,6 +188,9 @@ if(isset($_SESSION["id"])){
                         <h4>".$queryRecensioneUtente->get_result()[0]['utente']."</h4>
                         <p>".$queryRecensioneUtente->get_result()[0]['testo']."
                         <br>Voto:".$queryRecensioneUtente->get_result()[0]['voto']."
+                        <form method=\"post\">
+                            <button aria-label=\"Pulsante per Modificare Recensione\" name=\"modificaRecensione\" type=\"submit\" class=\"button\">Modifica Recensione</button>
+                        </form>
                         </p>
                         </section>",$paginaHTML);
                     }

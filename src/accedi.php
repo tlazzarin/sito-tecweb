@@ -6,19 +6,8 @@ if(isset($_SESSION["Username"])){
 else{
     require_once "grafica.php";
 
-    $breadcrumb="";
-    if(isset($_SESSION['paginaPrecedente']))
-    {
-        $breadcrumb=$_SESSION['paginaPrecedente'];
-
-    }
-
-    $breadcrumb.=" &gt;&gt; Accedi";
-
     $paginaHTML=grafica::getPage("accedi.html");
 
-    $paginaHTML = str_replace("[breadcrumb]", $breadcrumb, $paginaHTML);
-    
 
     if (isset($_SESSION["error"])) {
         $paginaHTML = str_replace("[alert]", grafica::createAlert("error", $_SESSION["error"]), $paginaHTML);

@@ -157,7 +157,9 @@ header h1 {
 .slider img{
     flex: 1 0 100%;
     scroll-snap-align: start;
+    
 }
+
 
 .slider-nav{
     display: flex;
@@ -183,6 +185,8 @@ header h1 {
 .slider-nav a:hover{
     opacity: 1;
 }
+
+
 
 .descrizione{
     
