@@ -21,7 +21,7 @@ if($checkConnection){
     
     $usernameCheck = (isset($username) && preg_match('/^[A-Za-z\s]\w{2,30}$/', $username));
     #$emailCheck = (isset($email) && filter_var($email,FILTER_VALIDATE_EMAIL));
-    $passwordCheck = (isset($password) && preg_match('/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$.,-;:<>!%*?&_=])[A-Za-z\d@$.,-;:<>!%*?&_=]{8,16}/', $password));
+    $passwordCheck = (isset($password) && strlen($password) >= 4);
 
     
     if( $usernameCheck && $passwordCheck)

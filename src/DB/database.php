@@ -79,7 +79,7 @@ class Functions extends Constant{
         $res = new response_manager($result, $this->connection, "");
     
         if (!$res->ok()) {
-          $res->set_error_message("Utente non esiste");
+          $res->set_error_message("Errore in username o password");
         }
     
         $stmt->close();
