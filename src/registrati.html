@@ -16,6 +16,7 @@
 
     <script src="./js/registrati_accedi.js"></script>
 </head>
+
 <body>
     <header>
         <img src="./assets/logo.svg" alt="Descrizione Logo" class="logo">
@@ -40,13 +41,12 @@
             <li>
                 <section class="Login">
                     <a href="accedi.php" class="login-button">
-                        Accedi <img src="./assets/right-from-bracket-solid.svg" alt="Icona Login" class="icon-login">
+                        <strong>Login</strong><img src="./assets/right-from-bracket-solid.svg" alt="Icona Login" class="icon-login">
                     </a>
                 </section>
                 
             </li>
-        </ul>
-        <div class="menu-underline"></div>
+        </ul>        
     </nav>
 
     <!-- Breadcrumb -->
@@ -54,6 +54,7 @@
         <p>Ti trovi in: <a href="index.php" lang="en">Home</a>&gt; Registrati</p>
     </nav>
 
+    <!-- Dialogo di registrazione -->
     [alert]
     <div id="formcontent">
         <h2>Registrati</h2>
@@ -63,7 +64,7 @@
             <input type="text" aria-label="Inesrisci il tuo Username" id="username" name="username" class="styleInput" required/>
             <p id="aiutoUsername" ></p>
 
-           <!-- <label for="email">Email</label>
+            <!-- <label for="email">Email</label>
             <input tabindex="3" type="text" id="email" name="email" class="styleInput"/>-->
 
             <label for="password">Password</label>
@@ -75,11 +76,12 @@
             <p id="aiutoConfermaPassword" ></p>
 
             <input aria-label="Pulsante Registrati" type="submit" class="button" name="bottoneRegistrati" value="Registrati">
-
             
             </fieldset>
         </form>
     </div>
-    
+
+    <footer>        
+    </footer>
 </body>
 </html>
