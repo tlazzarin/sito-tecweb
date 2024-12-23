@@ -44,7 +44,12 @@ class Functions extends Constant{
           $stmt->close();
           return new response_manager(array(), $this->connection, "C'è stato un errore");
         }
-        $response = $stmt->execute();
+        try{
+          $response = $stmt->execute();
+        }
+        catch(Exception $e){
+          return new response_manager(array(), $this->connection, "Utente con stesso Username già presente");
+        }
     
         $stmt->close();
     
@@ -113,6 +118,36 @@ class Functions extends Constant{
     
         if (!$res->ok()) {
           $res->set_error_message("Nessun Percorso Trovato con questo Nome");
+        }
+    
+        $stmt->close();
+        return $res;
+      }
+
+      //restituisce tutti i percorsi
+      public function get_tutti_percorsi(): response_manager {
+        $query = "SELECT percorso.*,immagine.* from PERCORSO as percorso inner JOIN IMMAGINI as immagine on immagine.id_immagine=percorso.id where immagine.id_immagine like \"%/1.jpg\"";
+        $stmt = $this->connection->prepare($query);
+    
+        $result = array();
+    
+        if ($stmt === false) {
+          return new response_manager($result, $this->connection, "C'è stato un errore");
+        }
+    
+        $stmt->execute();
+        $tmp = $stmt->get_result();
+    
+        $result = array();
+    
+        while ($row = $tmp->fetch_assoc()) {
+          array_push($result, $row);
+        }
+    
+        $res = new response_manager($result, $this->connection, "");
+    
+        if (!$res->ok()) {
+          $res->set_error_message("Nessun Percorso trovato nel database");
         }
     
         $stmt->close();

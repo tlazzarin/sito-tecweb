@@ -1,6 +1,5 @@
 <?php
-header('Cache-Control: no cache'); 
-session_cache_limiter('private_no_expire');
+
 session_start();
 
 use DB\Functions;
@@ -12,8 +11,8 @@ $paginaHTML=grafica::getPage("percorso.html");
 
 
 
-$_SESSION["id"]=1;
-if(isset($_SESSION["id"])){
+
+if(isset($_GET["id"])){
 
     
     
@@ -43,7 +42,7 @@ if(isset($_SESSION["id"])){
 
     }
 
-    $id=$_SESSION["id"];
+    $id=$_GET["id"];
     
     $errore=false;
     $connessione=new Functions();
@@ -229,6 +228,10 @@ if(isset($_SESSION["id"])){
         }
 
         $connessione->closeConnection();
+    }
+    else
+    {
+        $_SESSION["error"] = "Impossibile connettersi al sistema";
     }
 
     

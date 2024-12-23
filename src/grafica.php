@@ -24,6 +24,6 @@ class grafica{
                 break;
         }
 
-        return "<div class='divAlert'><p class='alert " . $type . "'>" . $message . "</p></div>";
+        return "<section class='contenitore-alert'><p class='alert " . $type . "'>" . $message . "</p></section>";
     }
 }
