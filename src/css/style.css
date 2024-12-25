@@ -10,7 +10,7 @@ body {
     font-weight: 400;
     text-align: center;
     display: flex;
-    flex-direction: column;
+    flex-direction: column;    
 }
 
 
@@ -97,6 +97,10 @@ nav#menu .login-button .icon-login {
     height: 1.4em;
 }
 
+
+.hamburger {
+    display: none; 
+}
 
 
 /* BREADCRUMB */
