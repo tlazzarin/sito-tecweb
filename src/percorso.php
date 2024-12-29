@@ -20,11 +20,11 @@ if(isset($_GET["id"])){
     if(isset($_SESSION['Username'])){
         if(!isset($_SESSION['isAdmin']))
         {
-            $prima_opzione="<a href=\"pannelloAmministrazione.php\">Pannello Amministrazione</a>";
+            $prima_opzione="<a aria-label=\"Vai alla pagina del pannello Amministrazione\" href=\"pannelloAmministrazione.php\">Pannello Amministrazione</a>";
             $seconda_opzione="<a href=\"logout.php\">Logout</a>";
         }
         else{
-            $prima_opzione="<a href=\"profilo.php\">Profilo</a>";
+            $prima_opzione="<a aria-label=\"Vai alla tua pagina personale\" href=\"profilo.php\">Profilo</a>";
             $seconda_opzione="<a href=\"logout.php\">Logout</a>";
         }
        
@@ -116,7 +116,7 @@ if(isset($_GET["id"])){
                     <h4>".$_SESSION['Username']."</h4>
                     <form method=\"post\">
                         <textarea name=\"testoRecensione\" class=\"inputRecensione\" type=\"text\"></textarea>
-                        <select class=\"\" id=\"voto\" name=\"voto\">
+                        <select aria-label=\"Scelta Multipla per il voto della recensione\" class=\"\" id=\"voto\" name=\"voto\">
                           <option value=\"5\">5</option>
                           <option value=\"4\">4</option>
                           <option value=\"3\">3</option>
@@ -141,7 +141,7 @@ if(isset($_GET["id"])){
                         <h4>".$_SESSION['Username']."</h4>
                         <form method=\"post\">
                             <textarea name=\"testoRecensione\" class=\"inputRecensione\" type=\"text\">".$tempTest."</textarea>
-                            <select class=\"\" id=\"voto\" name=\"voto\" value=\"".$tempVoto."\">
+                            <select aria-label=\"Scelta Multipla per il voto della recensione\" class=\"\" id=\"voto\" name=\"voto\" value=\"".$tempVoto."\">
                               <option value=\"5\">5</option>
                               <option value=\"4\">4</option>
                               <option value=\"3\">3</option>
@@ -267,7 +267,7 @@ if(isset($_GET["id"])){
 }
 else{
     
-
+    header('Location: percorsi.php');
     
 }
 ?>
