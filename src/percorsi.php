@@ -13,11 +13,11 @@ $paginaHTML=grafica::getPage("percorsi.html");
 if(isset($_SESSION['Username'])){
     if(!isset($_SESSION['isAdmin']))
     {
-        $prima_opzione="<a href=\"pannelloAmministrazione.php\">Pannello Amministrazione</a>";
+        $prima_opzione="<a aria-label=\"Vai alla pagina del pannello Amministrazione\" href=\"pannelloAmministrazione.php\">Pannello Amministrazione</a>";
         $seconda_opzione="<a href=\"logout.php\">Logout</a>";
     }
     else{
-        $prima_opzione="<a href=\"profilo.php\">Profilo</a>";
+        $prima_opzione="<a aria-label=\"Vai alla tua pagina personale\" href=\"profilo.php\">Profilo</a>";
         $seconda_opzione="<a href=\"logout.php\">Logout</a>";
     }
    
@@ -89,9 +89,3 @@ if (isset($_SESSION["success"])) {
 echo $paginaHTML;
 
 
-/*<section class="carta">
-<img src="\assets\img\percorsi\1_valledellesfingi\1.jpg" alt="">
-<h3 class="link-percorso"><a href="">[TitoloPercorso]</a></h3>
-
-
-</section>*/

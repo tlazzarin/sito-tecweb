@@ -199,23 +199,23 @@ nav#menu .login-button .icon-login {
 
 
 
-/* PAGINA PERCORSO */
-.left {
+/* PAGINA PERCORSI / PERCORSO */
+.descrizioneSopra {
     background-color: var(--defaultbgcolor);
     padding: 3em 0 3em 0;
-    flex: 2 2 100px;
+    display: flex;
 }
 
 .percorso {
     display: flex;
+    flex-direction: column;
 }
 
-.mainPercorso {
+.indicazioniSotto {
     background: var(--defaultbgcolor);
     padding: 3em 0 3em 0;
-    flex: 4 4 150px;
     display: flex;
-    flex-direction: column;
+    
 }
 
 .wrapper {
@@ -275,20 +275,22 @@ nav#menu .login-button .icon-login {
 .descrizione {
     padding: 1em;
     background-color: var(--percorsibgcolor);
-    max-width: 80%;
+    max-width: 50%;
     flex: 2;
     align-self: center;
     border-radius: 0.5rem;
+    margin-left: 15em;
 }
 
 .indicazioni {
     margin-top: 4rem;
     padding: 1em;
     background-color: var(--percorsibgcolor);
-    max-width: 80%;
+    max-width: 50%;
     flex: 1;
     align-self: center;
     border-radius: 0.5rem;
+    margin-left: 15em;
 }
 
 .recensioni {
@@ -314,9 +316,8 @@ nav#menu .login-button .icon-login {
 
 .gpx {
     display: flex;
-    flex-direction: row;
-    flex: 1;
     justify-content: space-around;
+    padding: 1em;
     align-items: center;
 }
 
@@ -353,17 +354,28 @@ h4 {
     padding: 16px;
 }
 
-/* Footer */
-footer {
-    background-color: var(--footerbgcolor);
-    height: 50px;
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
-    margin-top: auto; 
+
+.carta{
+    width: 325px;
+    background-color: var(--percorsibgcolor);
+    border-radius: 8px;
+    overflow: hidden;
+    margin: 20px;
 }
 
-.button[type=button] {
+.carta img{
+    width: 100%;
+    height: auto;
+
+}
+
+.formInput *:not(.ultimoInput):not(option) {
+    margin-bottom: 1em;
+}
+
+.formInput input[type=submit] {
     display: block;
+
     padding-left: 0.5em;
     padding-right: 0.5em;
 
@@ -387,12 +399,16 @@ label:after {
 }
 
 .button[type=button]
+.link-percorso
 {
-    display: block;
+    padding: 16px;
+}
 
+
+.button[type=button] {
+    display: block;
     padding-left: 0.5em;
     padding-right: 0.5em;
-
     height: 2em;
     text-decoration: underline;
     margin-top: 1.2em;
@@ -426,9 +442,9 @@ p {
     text-align: start;
 }
 
-hr{
-    height:8px;
-    background-color: var(--textcolor);
+hr {
+    height: 8px;
+    background-color: black;
     border-radius: 0.3em;
 }
 
@@ -458,12 +474,13 @@ hr{
     font-weight: bold;
 }
 
+
 /* Footer */
 footer {
     background-color: var(--footerbgcolor);
-    height: 50px;
+    height: 2em;
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
-    margin-top: auto;    
+    margin-top: auto;
 } 
     
