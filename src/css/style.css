@@ -1,19 +1,8 @@
+/* GENERALI */
 * {
     padding: 0;
     margin: 0; 
     box-sizing: border-box;
-}
-
-/* Colori */
-:root {
-    --headerbgcolor: #C2471F; /* Colore di sfondo dell'header */
-    --footerbgcolor: #C2471F; /* Colore di sfondo del footer */
-    --visitedlinkcolor: #DD723C; /* Colore dei link visitati */
-    --breadcrumbtextcolor: #C2471F; /* Colore del testo del breadcrumb */
-    --unvisitedlinkcolor: #004a66; /* Colore dei link non visitati */
-    --textcolor: #290E00; /* Colore del testo */
-    --defaultbgcolor: #FFFFFF; /* Colore di sfondo predefinito */
-    --percorsibgcolor: #E6E6E6;
 }
 
 body {
@@ -22,11 +11,25 @@ body {
     background-color: var(--defaultbgcolor);
     text-align: center;
     display: flex;
-    flex-direction: column;
-    height: 100vh;
+    flex-direction: column; 
+    min-height: 100vh; 
 }
 
-/* Header */
+
+/* COLORI GLOBALI */
+:root {
+    --headerbgcolor: #C2471F;
+    --footerbgcolor: #C2471F;
+    --visitedlinkcolor: #DD723C;
+    --breadcrumbtextcolor: #C2471F;
+    --unvisitedlinkcolor: #004a66;
+    --textcolor: #290E00;
+    --defaultbgcolor: #FFFFFF;
+    --percorsibgcolor: #E6E6E6;
+}
+
+
+/* HEADER */
 header {
     display: flex; 
     align-items: center; 
@@ -38,9 +41,9 @@ header {
 }
 
 header .logo { 
-    width: 60px; /* Dimensione del logo */ 
+    width: 60px;
     height: auto; 
-    margin-right: 1em; /* Spazio tra il logo e il titolo */
+    margin-right: 1em;
 }
 
 header h1 {
@@ -48,11 +51,11 @@ header h1 {
     margin: 0;
 }
 
-/* Menu */
+
+/* MENU */
 #menu {
-    margin-top: 0em; /* Spazio sopra il menu */
-    padding-bottom: 0em; /* Spazio sotto il menu */
-    position: relative;
+    margin-top: 0em;
+    padding-bottom: 0em;
     border-bottom: var(--headerbgcolor) 4px solid;  
 }
 
@@ -63,29 +66,8 @@ header h1 {
     max-width: 1200px;
     margin: 0 auto;
     padding: 1em;
-    align-items: center; /* Serve per far rimanere il bottone logine e logout allineati al resto delle voci */
+    align-items: center;
     max-width: 95%;
-
-}
-
-
-
-.login-button {
-    display: inline-flex; 
-    align-items: center; 
-    justify-content: center;
-    padding: 0.5em 2em; 
-    font-size: 1em;
-    font-weight: bold;
-    background-color: var(--unvisitedlinkcolor);
-    border-radius: 20px;
-    min-width: 14em; 
-}
-
-.login-button .icon-login {
-    margin-left: 0.5em;
-    width: 1.4em;
-    height: 1.4em;
 }
 
 #menu a {
@@ -96,73 +78,179 @@ header h1 {
     color: var(--visitedlinkcolor);
 }
 
+/* Bottone accedi/registrati */
+nav#menu .login-button {
+    display: inline-flex; 
+    align-items: center; 
+    justify-content: center;
+    padding: 0.5em 2em; 
+    font-size: 1em;
+    font-weight: bold;
+    background-color: var(--unvisitedlinkcolor);
+    border-radius: 20px;
+    min-width: 14em; 
+    color: white;
+    text-decoration: none;
+}
 
-/* Breadcrumb */
+nav#menu .login-button .icon-login {
+    margin-left: 0.5em;
+    width: 1.4em;
+    height: 1.4em;
+}
+
+
+.hamburger {
+    display: none; 
+}
+
+
+/* BREADCRUMB */
 #breadcrumb {
-    width: 95%; /* Larghezza del breadcrumb */
+    width: 95%;
     margin: 1em auto; 
     padding: 0.5em 1em; 
     border: 3px solid var(--headerbgcolor); 
     border-radius: 17px; 
     color: var(--breadcrumbtextcolor); 
+    text-align: left;
+}
+
+
+/* REGISTRATI E ACCEDI */
+#formcontent {
+    text-align: left;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    border: 1px solid #cccccc;
+    width: 100%;
+    max-width: 400px;
+    margin: 3em auto;
+    box-sizing: border-box;
+    transition: box-shadow 0.3s ease;
+}
+
+#formcontent:hover {
+    box-shadow: 0px 2px 15px var(--headerbgcolor);
+}
+
+#formcontent fieldset {
+    border: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Input stili */
+#formcontent .styleInput {
+    width: 100%;
+    padding: 0.8rem;
+    margin-bottom: 1rem;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 1rem;
+}
+
+#formcontent .styleInput:focus {
+    border-color: #ff6a38;
+    outline: none;
+}
+
+/* Bottone Registrati */
+#formcontent .button {
+    background: var(--headerbgcolor);
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    width: 100%;
+    transition: transform 0.3s ease;
+    margin-top: 1em;
+}
+
+#formcontent .button:hover {
+    background: #a83d1a;
+}
+
+/* Errori */
+#formcontent .errorSuggestion {
+    display: block;
+    color: var(--unvisitedlinkcolor);
+    font-size: 0.8rem;
+    margin-bottom: 2em;
+}
+
+/* Etichette */
+/* Username, Password */
+#formcontent label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+    color: black;
+}
+
+/* Titolo */
+#formcontent h2 {
+    text-align: center;
+    color: black;
+    margin-bottom: 1rem; 
+    margin-top: 0.1em;  
 }
 
 
 
-
-.left{
+/* PAGINA PERCORSI ANCORA DA SISTEMARE */
+.descrizioneSopra {
     background-color: var(--defaultbgcolor);
     padding: 3em 0 3em 0;
-    flex: 2 2 100px;
-    
-}
-.percorso{
     display: flex;
 }
 
-.mainPercorso{
-    background: var(--defaultbgcolor);
-    padding: 3em 0 3em 0;
-    flex: 4 4 150px;
-    display:flex;
+.percorso {
+    display: flex;
     flex-direction: column;
 }
 
+.indicazioniSotto {
+    background: var(--defaultbgcolor);
+    padding: 3em 0 3em 0;
+    display: flex;
+    
+}
 
-.wrapper{
+.wrapper {
     position: relative;
     max-width: 25rem;
     margin-left: 5em;
 }
 
-.mapContainer{
-    padding-top:2rem;
+.mapContainer {
+    padding-top: 2rem;
     display: flex;
     aspect-ratio: 4/3;
 }
 
-.mapContainer img{
+.mapContainer img {
     border-radius: 0.5rem;
     flex: 1 0 100%;
 }
 
-.slider{
+.slider {
     display: flex;
     aspect-ratio: 4/3;
     overflow-x: hidden;
     scroll-snap-type: x mandatory;
-    scroll-behavior: smooth ;
+    scroll-behavior: smooth;
     border-radius: 0.5rem;
 }
 
-.slider img{
+.slider img {
     flex: 1 0 100%;
     scroll-snap-align: start;
-    
 }
 
-
-.slider-nav{
+.slider-nav {
     display: flex;
     column-gap: 1rem;
     position: absolute;
@@ -170,66 +258,56 @@ header h1 {
     left: 50%;
     transform: translateX(-50%);
     z-index: 1;
-    
 }
 
-.slider-nav a{
+.slider-nav a {
     width: 0.5rem;
     height: 0.5rem;
     border-radius: 50%;
     background-color: var(--defaultbgcolor);
     opacity: 0.75;
-
     transition: opacity ease 250ms;
 }
 
-.slider-nav a:hover{
+.slider-nav a:hover {
     opacity: 1;
 }
 
-
-
-.descrizione{
-    
+.descrizione {
     padding: 1em;
     background-color: var(--percorsibgcolor);
-    
-    max-width: 80%;
-    flex:2;
+    max-width: 50%;
+    flex: 2;
     align-self: center;
     border-radius: 0.5rem;
+    margin-left: 15em;
 }
 
-.indicazioni{
+.indicazioni {
     margin-top: 4rem;
     padding: 1em;
     background-color: var(--percorsibgcolor);
-    
-    max-width: 80%;
-    flex:1;
+    max-width: 50%;
+    flex: 1;
     align-self: center;
     border-radius: 0.5rem;
-    
+    margin-left: 15em;
 }
 
-.recensioni{
+.recensioni {
     display: flex;
     flex-direction: column;
-    
     padding: 1em;
     background-color: var(--percorsibgcolor);
-    
     width: 85%;
-    flex:1;
+    flex: 1;
     align-self: center;
     border-radius: 0.5rem;
-
     margin-bottom: 2em;
     margin-left: 7%;
-    
 }
 
-.recensione{
+.recensione {
     padding: 0.7em;
     background-color: var(--defaultbgcolor);
     margin-top: 2em;
@@ -237,15 +315,14 @@ header h1 {
     border-radius: 0.5rem;
 }
 
-.gpx{
+.gpx {
     display: flex;
-    flex-direction: row;
-    flex: 1;
     justify-content: space-around;
+    padding: 1em;
     align-items: center;
 }
 
-h4{
+h4 {
     display: flex;
     align-self: flex-start;
     flex-direction: row;
@@ -278,33 +355,19 @@ h4{
     padding: 16px;
 }
 
-/* Footer */
-footer {
-    background-color: var(--footerbgcolor);
-    height: 50px;
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
-    margin-top: auto; 
-}
 
-.formInput {
-    width: 25em;
+.carta{
+    width: 325px;
     background-color: var(--percorsibgcolor);
-    margin: auto;
-    border-radius: 30px;
+    border-radius: 8px;
+    overflow: hidden;
+    margin: 20px;
 }
 
-.formInput fieldset {
-    padding: 2em 3em 2em 3em;
-    border: 2px solid var(--headerbgcolor);
-    border-radius: 30px;
-}
-
-.styleInput {
+.carta img{
     width: 100%;
-    height: 2em;
-    font-size: larger;
-    text-indent: 0.5em;
+    height: auto;
+
 }
 
 .formInput *:not(.ultimoInput):not(option) {
@@ -337,36 +400,20 @@ label:after {
 }
 
 .button[type=button]
+.link-percorso
 {
-    display: block;
+    padding: 16px;
+}
 
+
+.button[type=button] {
+    display: block;
     padding-left: 0.5em;
     padding-right: 0.5em;
-
     height: 2em;
     text-decoration: underline;
-
     margin-top: 1.2em;
-
 }
-
-.button {
-    background-color: var(--unvisitedlinkcolor);
-    color: white;
-    border-radius: 3px;
-    border: none;
-    font-size: large;
-    cursor: pointer;
-
-    width: fit-content;
-}
-
-.button:hover {
-    background-color: rgba(5, 111, 129, 0.993);
-    border: 2px solid rgb(0, 75, 102);
-    color: white;
-}
-
 
 .nomePercorso {
     align-self: flex-start;
@@ -374,7 +421,6 @@ label:after {
 }
 
 .descrizionePercorso {
-    
     margin: 1em;
 }
 
@@ -389,35 +435,27 @@ h2 {
     unicode-bidi: isolate;
 }
 
-h3{
+h3 {
     align-self: flex-start;
 }
 
-p{
+p {
     text-align: start;
 }
 
-hr{
-    height:8px;
-    background-color: var(--textcolor);
+hr {
+    height: 8px;
+    background-color: black;
     border-radius: 0.3em;
 }
 
-.valutazione{
+.valutazione {
     margin-top: 1em;
 }
 
-#formcontent h2 {
-    text-align: center;
-    margin-bottom: 0.4em;
-    padding-top: 0.4em;
-    
-}
-
-.inputRecensione{
+.inputRecensione {
     display: flex;
     align-self: flex-start;
-    
     height: 3em;
     width: 80%;
 }
@@ -436,3 +474,13 @@ hr{
     margin-right: auto;
     font-weight: bold;
 }
+
+/* Footer */
+footer {
+    background-color: var(--footerbgcolor);
+    height: 2em;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    margin-top: auto;
+} 
+    

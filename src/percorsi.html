@@ -12,6 +12,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/mobile.css" media="screen and (max-width: 768px)">
+
+    <script src="./js/mobile.js"></script> 
 </head>
 <body>
     <header>
@@ -22,22 +25,29 @@
 
     <!-- Navigation -->
     <nav id="menu">
-        <ul>
-            <li id="currentLink" aria-current="page">
+
+        <div class="hamburger">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+
+        <ul class="nav-menu" >
+            <li class="nav-item">
                 <a href="index.php" class="active">Home</a>
             </li>
-            <li>
+            <li class="nav-item" aria-current="page">
                 <a><strong>Percorsi</strong></a>
             </li>
-            <li>
+            <li class="nav-item">
                 <a href="#">Usare il navigatore</a>
             </li>
-            <li>
+            <li class="nav-item">
                 [prima_opzione]
             </li>
-            <li>
+            <li class="nav-item">
                 [seconda_opzione]
-            </li>
+            </li class="nav-item">
         </ul>
     </nav>
 

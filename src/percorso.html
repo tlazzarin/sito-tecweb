@@ -8,38 +8,49 @@
     <meta name="description" content="Pagina che contiene la descrizione del percorso selezionato" />
     <meta name="author" content="TecWeb" />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./css/style.css">
-</head>
-<body>
-    <header>
-        <img src="./assets/logo.svg" alt="Logo del Sito" class="logo">
-        <h1>Nome del Sito</h1>
-    </header> 
-    
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="./css/style.css">
+        <link rel="stylesheet" href="./css/mobile.css" media="screen and (max-width: 768px)">
 
-    <!-- Navigation -->
-    <nav id="menu">
-        <ul>
-            <li id="currentLink" aria-current="page">
-                <a href="index.php" class="active">Home</a>
-            </li>
-            <li>
-                <a href="percorsi.php">Percorsi</a>
-            </li>
-            <li>
-                <a href="navigatore.html">Usare il navigatore</a>
-            </li>
-            <li>
-                [prima_opzione]
-            </li>
-            <li>
-                [seconda_opzione]
-            </li>
-        </ul>
-    </nav>
+        <script src="./js/mobile.js"></script> 
+    </head>
+    <body>
+        <!-- Header -->
+        <header>
+            <img src="./assets/logo.svg" alt="Logo del Sito" class="logo">
+            <h1>Nome del Sito</h1>
+        </header> 
+        
+
+        <!-- Navigation -->
+        <nav id="menu">
+
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+    
+            <ul class="nav-menu" >
+                <li class="nav-item">
+                    <a href="index.php" class="active">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a><strong>Percorsi</strong></a>
+                </li>
+                <li class="nav-item">
+                    <a href="#">Usare il navigatore</a>
+                </li>
+                <li class="nav-item">
+                    [prima_opzione]
+                </li>
+                <li class="nav-item">
+                    [seconda_opzione]
+                </li class="nav-item">
+            </ul>
+        </nav>
 
     <!-- Breadcrumb -->
     <nav id="breadcrumb">
@@ -51,7 +62,7 @@
     
     <main>
         <section class="percorso">
-            <section class="left">
+            <section class="descrizioneSopra">
             
             
                 <div class="wrapper">
@@ -62,16 +73,7 @@
                         [nav_immagini]
                     </div>
                 </div>
-                <div class="wrapper">
-                    <div class="mapContainer">
-                    
-                    </div>
-                </div>
-    
-                
-            </section>
-            
-            <section class="mainPercorso">
+
                 <section class="descrizione">
                     <h4>Descrizione</h4>
                     <p>[descrizione]
@@ -79,6 +81,18 @@
                     
                     
                 </section>
+                
+    
+                
+            </section>
+            
+            <section class="indicazioniSotto">
+                
+                <div class="wrapper">
+                    <div class="mapContainer">
+                    
+                    </div>
+                </div>
     
                 <section class="indicazioni">
                     <h4>Indicazioni del percorso</h4>
@@ -88,15 +102,15 @@
                     
                 </section>
     
-                <section class="gpx">
-                    <button aria-label="Pulsante Scarica Traccia gpx" type="button" class="button"><a href=[file_gpx] download>Scarica Traccia</a></button>
-    
-                    <details>
-                        <summary>cos'e' una traccia .gpx?</summary>
-                        <p>Un file GPX è un formato che permette la memorizzazione e l'elaborazione di dati GPS (geodati). Puoi usare la nostra applicazione per registrare i tuoi dati GPS e caricare le tracce che hai creato sulla nostra piattaforma per poi condividere i tuoi percorsi con altri utenti. È anche possibile scaricare i dati per i percorsi già esistenti.</p>
-                    </details>
-                    
-                </section>
+            </section>
+            <section class="gpx">
+                <button aria-label="Pulsante Scarica Traccia gpx" type="button" class="button"><a href=[file_gpx] download>Scarica Traccia</a></button>
+
+                <details>
+                    <summary>cos'e' una traccia .gpx?</summary>
+                    <p>Un file GPX è un formato che permette la memorizzazione e l'elaborazione di dati GPS (geodati). Puoi usare la nostra applicazione per registrare i tuoi dati GPS e caricare le tracce che hai creato sulla nostra piattaforma per poi condividere i tuoi percorsi con altri utenti. È anche possibile scaricare i dati per i percorsi già esistenti.</p>
+                </details>
+                
             </section>
         </section>
         
@@ -120,5 +134,6 @@
     <!-- Footer -->
     <footer>
     </footer>
+    
 </body>
 </html>
