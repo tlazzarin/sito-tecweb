@@ -109,4 +109,56 @@
         padding: 0.3em 0.8em;
     }
 
+    /* PAGINA PERCORSO */
+    .nomePercorso,
+    .descrizionePercorso {
+        width: 90%;
+        margin: 0 auto;
+        padding: 0;
+        text-align: left;
+    }
+
+    .nomePercorso {
+        margin-bottom: 0.6em;
+    }
+
+    .percorso,
+    .descrizioneSopra,
+    .indicazioniSotto {
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .indicazioniSotto {
+        padding: 0;
+    }
+
+    .wrapper {
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    .descrizione,
+    .indicazioni {
+        max-width: 90%;
+        margin: 1em auto;
+    }
+
+    .mapContainer {
+        width: 100%;
+    }
+
+    .gpx {
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
+        margin-top: 0;
+        text-align: center;
+    }
+
+    .recensioni {
+        width: 90%;
+        margin: 0 auto;
+    }
 }
