@@ -1,57 +1,67 @@
 <!DOCTYPE html>
 <html lang="it">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Percorsi</title>
-    <meta name="keywords" content="" />
-    <meta name="description" content="Pagina che permette di scegliere il percorso di cui si vuole avere più informazioni." />
-    <meta name="author" content="TecWeb" />
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Percorsi</title>
+        <meta name="keywords" content="" />
+        <meta name="description" content="Pagina che permette di scegliere il percorso di cui si vuole avere più informazioni." />
+        <meta name="author" content="TecWeb" />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./css/style.css">
-</head>
-<body>
-    <header>
-        <img src="./assets/logo.svg" alt="Logo del Sito" class="logo">
-        <h1>Nome del Sito</h1>
-    </header> 
-    
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">    
+        <link rel="stylesheet" href="./css/style.css">
+        <link rel="stylesheet" href="./css/mobile.css" media="screen and (max-width: 1012px)">
 
-    <!-- Navigation -->
-    <nav id="menu">
-        <ul>
-            <li id="currentLink" aria-current="page">
-                <a href="index.php" class="active">Home</a>
-            </li>
-            <li>
-                <a><strong>Percorsi</strong></a>
-            </li>
-            <li>
-                <a href="#">Usare il navigatore</a>
-            </li>
-            <li>
-                [prima_opzione]
-            </li>
-            <li>
-                [seconda_opzione]
-            </li>
-        </ul>
-    </nav>
+        <script src="./js/mobile.js"></script> 
+    </head>
+    <body>
+        <header>
+            <img src="./assets/logo.svg" alt="Logo del Sito" class="logo">
+            <h1>Nome del Sito</h1>
+        </header> 
+        
+        <!-- Navigation -->
+        <nav id="menu">
 
-    <!-- Breadcrumb -->
-    <nav id="breadcrumb">
-        <p>Ti trovi in: <a href="index.php" lang="en">Home</a>&gt;Percorsi</a></p>
-    </nav>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
 
-    <main class="contenitore-carte">
-        [percorsi]
+            <ul class="nav-menu">
+                <li class="nav-item" aria-current="page">
+                    <a href="index.php" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a><strong>Percorsi</strong></a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Usare il navigatore</a>
+                </li>
+                <li class="nav-item">
+                    [prima_opzione]
+                </li>
+                <li class="nav-item">
+                    [seconda_opzione]
+                </li>
+            </ul> 
 
-    </main>
+        </nav>    
 
-    <footer>
-    </footer>
-</body>
+        <!-- Breadcrumb -->
+        <nav id="breadcrumb">
+            <p>Ti trovi in: <a href="index.php" lang="en">Home</a>&gt;Percorsi</a></p>
+        </nav>
+
+        <main class="contenitore-carte">
+            [percorsi]
+
+        </main>
+
+        <footer>
+        </footer>
+    </body>
 </html>

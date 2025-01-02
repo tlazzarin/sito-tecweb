@@ -1,4 +1,4 @@
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1012px) {
     
     /* HEADER */
     header h1 {
@@ -16,7 +16,6 @@
         padding: 1.5rem 1rem;
     }
     
-
 
     /* HAMBURGER */
     .hamburger {
@@ -88,6 +87,8 @@
         background-color: transparent; 
     }
 
+
+    /* ACCEDI E REGISTRATI */
     #formcontent {
         padding: 1.5rem;
         margin: 1.5em auto;
@@ -103,10 +104,5 @@
         padding: 1rem;
         font-size: 1.2rem;
     }
-
-    #breadcrumb {
-        font-size: 0.8rem;
-        padding: 0.3em 0.8em;
-    }
-
+    
 }

@@ -12,7 +12,11 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="./css/style.css">
+        <link rel="stylesheet" href="./css/mobile.css" media="screen and (max-width: 1012px)">
+
+        <script src="./js/mobile.js"></script> 
     </head>
+    
     <body>
         <!-- Header -->
         <header>
@@ -23,29 +27,40 @@
 
         <!-- Navigation -->
         <nav id="menu">
-            <ul>
-                <li id="currentLink" aria-current="page">
-                    <a href="index.php" class="active">Home</a>
+
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+
+            <ul class="nav-menu">
+                <li class="nav-item" aria-current="page">
+                    <a href="index.php" class="nav-link">Home</a>
                 </li>
-                <li>
-                    <a href="percorsi.php">Percorsi</a>
+                <li class="nav-item">
+                    <a href="percorsi.php" class="nav-link">Percorsi</a>
                 </li>
-                <li>
-                    <a href="navigatore.html">Usare il navigatore</a>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Usare il navigatore</a>
                 </li>
-                <li>
+                <li class="nav-item">
                     [prima_opzione]
                 </li>
-                <li>
+                <li class="nav-item">
                     [seconda_opzione]
                 </li>
-            </ul>
-        </nav>
+            </ul> 
+
+        </nav>    
 
         <!-- Breadcrumb -->
         <nav id="breadcrumb">
             <p>Ti trovi in: <a href="index.php" lang="en">Home</a>&gt;<a href="percorsi.php" lang="en">Percorsi</a> &gt; Percorso</p>
         </nav>
+
+
+        <!-- Main -->
         <h2 class="nomePercorso">[titolo]</h2>
         <h3 class="descrizionePercorso">[sottotitolo]</h3>
 

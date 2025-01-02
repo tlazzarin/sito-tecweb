@@ -35,7 +35,7 @@ if(isset($_GET["id"])){
         $seconda_opzione = "
         <section class=\"Login\">
             <a href=\"accedi.php\" class=\"login-button\">
-                Accedi <img src=\"./assets/right-from-bracket-solid.svg\" alt=\"Icona Login\" class=\"icon-login\">
+                Login <img src=\"./assets/right-from-bracket-solid.svg\" alt=\"Icona Login\" class=\"icon-login\">
             </a>
         </section>";
 

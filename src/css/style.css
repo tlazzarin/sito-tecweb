@@ -10,7 +10,7 @@ body {
     font-weight: 400;
     text-align: center;
     display: flex;
-    flex-direction: column;    
+    flex-direction: column;
 }
 
 
@@ -126,7 +126,7 @@ nav#menu .login-button .icon-login {
     max-width: 400px;
     margin: 3em auto;
     box-sizing: border-box;
-    transition: box-shadow 0.3s ease;
+    transition: box-shadow 0.3s ease;    
 }
 
 #formcontent:hover {
@@ -199,7 +199,7 @@ nav#menu .login-button .icon-login {
 
 
 
-/* PAGINA PERCORSI ANCORA DA SISTEMARE */
+/* PAGINA PERCORSO */
 .left {
     background-color: var(--defaultbgcolor);
     padding: 3em 0 3em 0;
@@ -217,9 +217,6 @@ nav#menu .login-button .icon-login {
     display: flex;
     flex-direction: column;
 }
-
-
-
 
 .wrapper {
     position: relative;
@@ -467,6 +464,6 @@ footer {
     height: 50px;
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
-    margin-top: auto;
+    margin-top: auto;    
 } 
     
