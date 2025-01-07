@@ -8,10 +8,14 @@
 body {
     font-family: "Varela Round", sans-serif;
     font-weight: 400;
+    color: var(--textcolor);
     text-align: center;
     display: flex;
     flex-direction: column;
     min-height: 100vh; 
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1800px;
 }
 
 
@@ -73,12 +77,12 @@ header h1 {
     padding: 0.5em 3em;
 }
 
-#menu a:visited {
+a:visited {
     color: var(--visitedlinkcolor);
 }
 
 /* Bottone accedi/registrati */
-nav#menu .login-button {
+nav#menu .accedi-button {
     display: inline-flex; 
     align-items: center; 
     justify-content: center;
@@ -92,7 +96,7 @@ nav#menu .login-button {
     text-decoration: none;
 }
 
-nav#menu .login-button .icon-login {
+nav#menu .accedi-button .icon-accedi {
     margin-left: 0.5em;
     width: 1.4em;
     height: 1.4em;
@@ -110,8 +114,7 @@ nav#menu .login-button .icon-login {
     margin: 1em auto; 
     padding: 0.5em 1em; 
     border: 3px solid var(--headerbgcolor); 
-    border-radius: 17px; 
-    color: var(--breadcrumbtextcolor); 
+    border-radius: 17px;  
     text-align: left;
 }
 
@@ -161,7 +164,6 @@ nav#menu .login-button .icon-login {
     background: var(--headerbgcolor);
     color: #ffffff;
     border: none;
-    padding: 0.8rem;
     border-radius: 5px;
     font-size: 1rem;
     width: 100%;
@@ -313,6 +315,9 @@ nav#menu .login-button .icon-login {
     margin-top: 2em;
     margin-bottom: 2em;
     border-radius: 0.5rem;
+}
+details{
+    max-width: 40em;
 }
 
 .gpx {
@@ -482,6 +487,6 @@ footer {
     height: 2em;
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
-    margin-top: auto;
+    margin-top: 2em;
 } 
     

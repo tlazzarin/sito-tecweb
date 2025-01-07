@@ -26,9 +26,9 @@ else
 {
     $prima_opzione="<a href=\"registrati.php\">Registrati</a>";
     $seconda_opzione = "
-    <section class=\"Login\">
-        <a href=\"accedi.php\" class=\"login-button\">
-            Login <img src=\"./assets/right-from-bracket-solid.svg\" alt=\"Icona Login\" class=\"icon-login\">
+    <section class=\"accedi\">
+        <a href=\"accedi.php\" class=\"accedi-button\">
+            Accedi <img src=\"./assets/right-from-bracket-solid.svg\" alt=\"Icona accedi\" class=\"icon-accedi\">
         </a>
     </section>";
 }
@@ -47,10 +47,10 @@ if($checkConnection){
         {
             foreach($queryPercorsi->get_result() as $percorso){
                 
-                $Percorsi.="<section class=\"carta\">
+                $Percorsi.="<a href=\"percorso.php?id=" . $percorso['id'] . "\"><section class=\"carta\">
                 <img src=\"./assets/img/percorsi/".$percorso['id_immagine']."\"alt=\"".$percorso['alt']."\">
-                <h3 class=\"link-percorso\"><a href=\"percorso.php?id=" . $percorso['id'] . "\">".$percorso['titolo']."</a></h3>
-                </section>";
+                <h3 class=\"link-percorso\">".$percorso['titolo']."</h3>
+                </section></a>";
                 
                 
             }

@@ -124,6 +124,39 @@ class Functions extends Constant{
         return $res;
       }
 
+      //restituisce tutte le caratteristiche
+      public function get_caratteristiche($id): response_manager {
+        $query = "SELECT * FROM `CARATTERISTICA_PERCORSO` WHERE percorso = ?";
+        $stmt = $this->connection->prepare($query);
+    
+        $result = array();
+    
+        if ($stmt === false) {
+          return new response_manager($result, $this->connection, "C'è stato un errore");
+        } else if ($stmt->bind_param('i', $id) === false) {
+          $stmt->close();
+          return new response_manager($result, $this->connection, "C'è stato un errore");
+        }
+    
+        $stmt->execute();
+        $tmp = $stmt->get_result();
+    
+        $result = array();
+    
+        while ($row = $tmp->fetch_assoc()) {
+          array_push($result, $row);
+        }
+    
+        $res = new response_manager($result, $this->connection, "");
+    
+        if (!$res->ok()) {
+          $res->set_error_message("Nessuna Caratteristica Trovata con questo Percorso");
+        }
+    
+        $stmt->close();
+        return $res;
+      }
+
       //restituisce tutti i percorsi
       public function get_tutti_percorsi(): response_manager {
         $query = "SELECT percorso.*,immagine.* from PERCORSO as percorso inner JOIN IMMAGINI as immagine on immagine.id_immagine=percorso.id where immagine.id_immagine like \"%/1.jpg\"";

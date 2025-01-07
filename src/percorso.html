@@ -3,9 +3,9 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>[titolo]</title>
-        <meta name="keywords" content="" />
-        <meta name="description" content="Pagina che contiene la descrizione del percorso selezionato" />
+        <title>[tag_titolo]</title>
+        <meta name="keywords" content="[tag_keyword]" />
+        <meta name="description" content="[tag_descrizione]" />
         <meta name="author" content="TecWeb" />
 
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -20,7 +20,7 @@
     <body>
         <!-- Header -->
         <header>
-            <img src="./assets/logo.svg" alt="Logo del Sito" class="logo">
+            <a href="index.php"><img src="./assets/logo.svg" alt="Logo del sito" class="logo"></a>
             <h1>Nome del Sito</h1>
         </header> 
         
@@ -56,58 +56,56 @@
 
         <!-- Breadcrumb -->
         <nav id="breadcrumb">
-            <p>Ti trovi in: <a href="index.php" lang="en">Home</a>&gt;<a href="percorsi.php" lang="en">Percorsi</a> &gt; Percorso</p>
+            <p>Ti trovi in: <a href="index.php" lang="en">Home</a>&gt;<a href="percorsi.php">Percorsi</a> &gt; Percorso</p>
         </nav>
 
 
         <!-- Main -->
-        <h2 class="nomePercorso">[titolo]</h2>
-        <h3 class="descrizionePercorso">[sottotitolo]</h3>
+        
         <main>
+
+            <h2 class="nomePercorso">[titolo]</h2>
+            <h3 class="descrizionePercorso">[sottotitolo]</h3>
+
             <section class="percorso">
-                <section class="descrizioneSopra">
                 
                 
-                    <div class="wrapper">
-                        <div class="slider">
-                            [immagini]
-                        </div>
-                        <div class="slider-nav">
-                            [nav_immagini]
-                        </div>
-                    </div>
+                
+                <section class="wrapper">
+                    <section class="slider">
+                        [immagini]
+                    </section>
+                    <section class="slider-nav">
+                        [nav_immagini]
+                    </section>
+                </section>
+
+                <section class="descrizione">
+                    <h4>Descrizione</h4>
+                    <p>[descrizione]
+                    </p>
+                    [caratteristiche]
+                    
+                    
+                </section>
+                    
+                <section class="wrapper">
+                    <section class="mapContainer">
+                    
+                    </section>
+                </section>
     
-                    <section class="descrizione">
-                        <h4>Descrizione</h4>
-                        <p>[descrizione]
-                        </p>
-                        
-                        
-                    </section>
+                <section class="indicazioni">
+                    <h4>Indicazioni del percorso</h4>
+                    <p>[indicazioni]
+                    </p>
                     
-        
                     
                 </section>
+        
                 
-                <section class="indicazioniSotto">
-                    
-                    <div class="wrapper">
-                        <div class="mapContainer">
-                        
-                        </div>
-                    </div>
-        
-                    <section class="indicazioni">
-                        <h4>Indicazioni del percorso</h4>
-                        <p>[indicazioni]
-                        </p>
-                        
-                        
-                    </section>
-        
-                </section>
                 <section class="gpx">
-                    <button aria-label="Pulsante Scarica Traccia gpx" type="button" class="button"><a href=[file_gpx] download>Scarica Traccia</a></button>
+                    <button aria-label="Pulsante Scarica Traccia gpx" type="button" class="button"><a href=[file_gpx] download>Scarica Traccia .gpx([peso]MB)</a></button>
     
                     <details>
                         <summary>cos'e' una traccia .gpx?</summary>
@@ -120,9 +118,9 @@
             [alert]
             <section class="recensioni">
     
-                <h3>Recensioni Medie:</h3>
+                <h3>Recensioni:</h3>
         
-                <p class="valutazione">Valutazione media: </valutazione></p>
+                <p class="valutazione">Valutazione media: [media_voti]</valutazione></p>
         
                 [miaRecensione]
         
