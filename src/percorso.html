@@ -15,12 +15,13 @@
         <link rel="stylesheet" href="./css/mobile.css" media="screen and (max-width: 1012px)">
 
         <script src="./js/mobile.js"></script> 
+        <script src="./js/percorso.js" defer></script> 
     </head>
     
     <body>
         <!-- Header -->
         <header>
-            <a href="index.php"><img src="./assets/logo.svg" alt="Logo del sito" class="logo"></a>
+            <a class="linkHome" href="index.php"><img src="./assets/logo.svg" alt="Logo del sito" class="logo"></a>
             <h1>Nome del Sito</h1>
         </header> 
         
@@ -71,13 +72,12 @@
                 
                 
                 
-                <section class="wrapper">
-                    <section class="slider">
+                <section class="container">
+                    <section class="slides">
                         [immagini]
                     </section>
-                    <section class="slider-nav">
-                        [nav_immagini]
-                    </section>
+                    <button class="precedente" onclick="slidePrecedente()">&#10094</button>
+                    <button class="succesiva" onclick="slideSuccesiva()">&#10095</button>
                 </section>
 
                 <section class="descrizione">
@@ -89,7 +89,7 @@
                     
                 </section>
                     
-                <section class="wrapper">
+                <section class="container">
                     <section class="mapContainer">
                     
                     </section>

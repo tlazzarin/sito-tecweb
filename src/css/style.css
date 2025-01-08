@@ -54,6 +54,10 @@ header h1 {
     margin: 0;
 }
 
+.linkHome{
+    z-index: 99;
+}
+
 
 /* MENU */
 #menu {
@@ -71,6 +75,7 @@ header h1 {
     padding: 1em;
     align-items: center;
     max-width: 95%;
+    z-index: 99;
 }
 
 #menu a {
@@ -203,28 +208,11 @@ nav#menu .accedi-button .icon-accedi {
 
 
 /* PAGINA PERCORSI / PERCORSO */
-.descrizioneSopra {
-    background-color: var(--defaultbgcolor);
-    padding: 3em 0 3em 0;
-    display: flex;
-}
+
 
 .percorso {
     display: flex;
     flex-direction: column;
-}
-
-.indicazioniSotto {
-    background: var(--defaultbgcolor);
-    padding: 3em 0 3em 0;
-    display: flex;
-    
-}
-
-.wrapper {
-    position: relative;
-    max-width: 25rem;
-    margin-left: 5em;
 }
 
 .mapContainer {
@@ -238,42 +226,42 @@ nav#menu .accedi-button .icon-accedi {
     flex: 1 0 100%;
 }
 
-.slider {
-    display: flex;
-    aspect-ratio: 4/3;
-    overflow-x: hidden;
-    scroll-snap-type: x mandatory;
-    scroll-behavior: smooth;
+.container {
+    position: relative;
+    max-width: 25rem;
+    margin-left: 5em;
+    overflow: hidden;
     border-radius: 0.5rem;
 }
 
-.slider img {
-    flex: 1 0 100%;
-    scroll-snap-align: start;
+.container img {
+    width: 100%;
+    display: none;
 }
 
-.slider-nav {
-    display: flex;
-    column-gap: 1rem;
-    position: absolute;
-    bottom: 1.25rem;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 1;
+img.slideVisibile{
+    display: block;
 }
 
-.slider-nav a {
-    width: 0.5rem;
-    height: 0.5rem;
-    border-radius: 50%;
-    background-color: var(--defaultbgcolor);
-    opacity: 0.75;
-    transition: opacity ease 250ms;
+.container button{
+    position:absolute;
+    top: 50%;
+    transform:translateY(-50%) ;
+    padding: 1rem;
+    font-size: 2rem;
+    background-color: rgba(0, 0, 0, 0.60);
+    color: white;
+    border: none;
+    cursor: pointer;
+    
+}
+.precedente{
+    left: 0;
+}
+.succesiva{
+    right: 0;
 }
 
-.slider-nav a:hover {
-    opacity: 1;
-}
 
 .descrizione {
     padding: 1em;
@@ -421,12 +409,13 @@ label:after {
 }
 
 .nomePercorso {
-    align-self: flex-start;
     margin: 1em;
+    text-align: start;
 }
 
 .descrizionePercorso {
-    margin: 1em;
+    margin: 1.3em;
+    text-align: start;
 }
 
 h2 {

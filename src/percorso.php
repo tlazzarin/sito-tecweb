@@ -94,8 +94,6 @@ if(isset($_GET["id"])){
         }
 
         $Immagini="";
-        $navImmagini="";
-        $countimg=0;
         $stringId=strval($id)."%";
 
         $queryImg=$connessione->get_immagini($stringId);
@@ -103,11 +101,9 @@ if(isset($_GET["id"])){
         if($queryImg->ok() && !$queryImg->is_empty())
         {
             foreach($queryImg->get_result() as $immagine){
-                $countimg++;
                 $Immagini.="<img src=\"./assets/img/percorsi/".$immagine['id_immagine']."\" 
                             alt=\"".$immagine['alt']."\" 
-                            id=\"slide".$countimg."\">";
-                $navImmagini.="<a href=\"#slide".$countimg."\"></a>";
+                            class=\"slide\">";
             }
             
         }
@@ -287,7 +283,6 @@ if(isset($_GET["id"])){
     $paginaHTML = str_replace("[recensioni]",$Recensioni,$paginaHTML);
     $paginaHTML =str_replace("[file_gpx]",$filegpx,$paginaHTML);
     $paginaHTML =str_replace("[immagini]",$Immagini,$paginaHTML);
-    $paginaHTML =str_replace("[nav_immagini]",$navImmagini,$paginaHTML);
     $paginaHTML =str_replace("[prima_opzione]",$prima_opzione,$paginaHTML);
     $paginaHTML =str_replace("[seconda_opzione]",$seconda_opzione,$paginaHTML);
     $paginaHTML =str_replace("[peso]",$peso,$paginaHTML);
