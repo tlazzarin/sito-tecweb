@@ -209,7 +209,6 @@ nav#menu .accedi-button .icon-accedi {
 
 /* PAGINA PERCORSI / PERCORSO */
 
-
 .percorso {
     display: flex;
     flex-direction: column;
@@ -400,7 +399,20 @@ label:after {
 
 
 .button[type=button] {
-    display: block;
+    background: var(--breadcrumbtextcolor);
+    color: #ffffff;
+    border-radius: 5px;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    height: 2em;
+    text-decoration: underline;
+    margin-top: 1.2em;
+}
+
+.button[type=submit] {
+    background: var(--breadcrumbtextcolor);
+    color: #ffffff;
+    border-radius: 5px;
     padding-left: 0.5em;
     padding-right: 0.5em;
     height: 2em;
@@ -449,9 +461,15 @@ hr {
 
 .inputRecensione {
     display: flex;
-    align-self: flex-start;
-    height: 3em;
+    height: 5em;
     width: 80%;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    font-size: 16px;
+    resize: none;
 }
 
 .contenitore-alert{
