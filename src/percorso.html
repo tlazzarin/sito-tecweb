@@ -65,55 +65,41 @@
         <main>
 
             <h2 class="nomePercorso">[titolo]</h2>
+            
             <h3 class="descrizionePercorso">[sottotitolo]</h3>
 
-            <section class="percorso">
-                
-                
-                
-                <section class="wrapper">
-                    <section class="slider">
-                        [immagini]
-                    </section>
-                    <section class="slider-nav">
-                        [nav_immagini]
-                    </section>
-                </section>
+            <section class="carosello">    
+                <!-- Da fare  -->
+            </section>
 
                 <section class="descrizione">
                     <h4>Descrizione</h4>
                     <p>[descrizione]
                     </p>
                     [caratteristiche]
-                    
-                    
                 </section>
                     
-                <section class="wrapper">
-                    <section class="mapContainer">
-                    
-                    </section>
+                <section class="mappa_gpx">
+                    <!-- Da fare -->
                 </section>
     
                 <section class="indicazioni">
                     <h4>Indicazioni del percorso</h4>
-                    <p>[indicazioni]
-                    </p>
-                    
-                    
+                    <p>[indicazioni]</p>                
                 </section>
         
+                <div class="gpx-section">
+                    <section class="gpx">
+                        <button aria-label="Pulsante Scarica Traccia gpx" type="button" class="button">
+                            <a href=[file_gpx] download>Scarica traccia .gpx ([peso]MB)</a>
+                        </button>
+                    </section>
                 
-                <section class="gpx">
-                    <button aria-label="Pulsante Scarica Traccia gpx" type="button" class="button"><a href=[file_gpx] download>Scarica Traccia .gpx([peso]MB)</a></button>
-    
-                    <details>
-                        <summary>cos'e' una traccia .gpx?</summary>
+                    <details class="details-summary">
+                        <summary class="summary">cos'è una traccia .gpx?</summary>
                         <p>Un file GPX è un formato che permette la memorizzazione e l'elaborazione di dati GPS (geodati). Puoi usare la nostra applicazione per registrare i tuoi dati GPS e caricare le tracce che hai creato sulla nostra piattaforma per poi condividere i tuoi percorsi con altri utenti. È anche possibile scaricare i dati per i percorsi già esistenti.</p>
                     </details>
-                    
-                </section>
-            </section>
+                </div>  
             
             [alert]
             <section class="recensioni">

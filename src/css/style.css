@@ -29,6 +29,7 @@ body {
     --textcolor: #290E00;
     --defaultbgcolor: #FFFFFF;
     --percorsibgcolor: #E6E6E6;
+    --sfondocard: #E6E6E6;
 }
 
 
@@ -203,100 +204,53 @@ nav#menu .accedi-button .icon-accedi {
 
 
 /* PAGINA PERCORSI / PERCORSO */
-.descrizioneSopra {
-    background-color: var(--defaultbgcolor);
-    padding: 3em 0 3em 0;
-    display: flex;
+main {
+    display: grid;
+    grid-template-columns: 1fr 2fr;  
+    gap: 1rem;
+    padding: 2rem;
+    max-width: 1800px;
+    margin: 0 auto;
 }
 
-.percorso {
-    display: flex;
-    flex-direction: column;
-}
-
-.indicazioniSotto {
-    background: var(--defaultbgcolor);
-    padding: 3em 0 3em 0;
-    display: flex;
+.nomePercorso {
+    grid-column: 1 / -1;
+    text-align: left;
     
+    
+    margin-bottom: 0;
 }
 
-.wrapper {
-    position: relative;
-    max-width: 25rem;
-    margin-left: 5em;
+.descrizionePercorso {
+    grid-column: 1 / -1;
+    text-align: left;
+    margin-bottom: 1rem; 
 }
 
-.mapContainer {
-    padding-top: 2rem;
-    display: flex;
-    aspect-ratio: 4/3;
-}
 
-.mapContainer img {
-    border-radius: 0.5rem;
-    flex: 1 0 100%;
-}
-
-.slider {
-    display: flex;
-    aspect-ratio: 4/3;
-    overflow-x: hidden;
-    scroll-snap-type: x mandatory;
-    scroll-behavior: smooth;
+.carosello, .mappa_gpx {
+    background-color: #808080;
+    min-height: 300px;
     border-radius: 0.5rem;
 }
 
-.slider img {
-    flex: 1 0 100%;
-    scroll-snap-align: start;
+.descrizione, .indicazioni {
+    padding: 1.5rem;
+    border-radius: 1.5rem;
+    background-color: var(--sfondocard); 
+    text-align: left;  
 }
 
-.slider-nav {
-    display: flex;
-    column-gap: 1rem;
-    position: absolute;
-    bottom: 1.25rem;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 1;
+.descrizione h4, .indicazioni h4 {
+    font-weight: 900;  
+    text-align: left;
+    margin-bottom: 0.5rem;
 }
 
-.slider-nav a {
-    width: 0.5rem;
-    height: 0.5rem;
-    border-radius: 50%;
-    background-color: var(--defaultbgcolor);
-    opacity: 0.75;
-    transition: opacity ease 250ms;
-}
 
-.slider-nav a:hover {
-    opacity: 1;
-}
-
-.descrizione {
-    padding: 1em;
-    background-color: var(--percorsibgcolor);
-    max-width: 50%;
-    flex: 2;
-    align-self: center;
-    border-radius: 0.5rem;
-    margin-left: 15em;
-}
-
-.indicazioni {
-    margin-top: 4rem;
-    padding: 1em;
-    background-color: var(--percorsibgcolor);
-    max-width: 50%;
-    flex: 1;
-    align-self: center;
-    border-radius: 0.5rem;
-    margin-left: 15em;
-}
 
 .recensioni {
+    grid-column: 1 / -1;
     display: flex;
     flex-direction: column;
     padding: 1em;
@@ -316,23 +270,97 @@ nav#menu .accedi-button .icon-accedi {
     margin-bottom: 2em;
     border-radius: 0.5rem;
 }
-details{
-    max-width: 40em;
+
+.indicazioni {
+    height: fit-content; 
+}
+
+
+.gpx-section {
+    grid-column: 2 / 3;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin-top: 1rem;
 }
 
 .gpx {
-    display: flex;
-    justify-content: space-around;
-    padding: 1em;
-    align-items: center;
+    grid-column: unset;
+    margin: 0;
 }
 
-h4 {
-    display: flex;
-    align-self: flex-start;
-    flex-direction: row;
-    padding-bottom: 1rem;
+details {
+    grid-column: unset;
+    margin: 0;
 }
+
+
+.button {
+    font-size: 100%;
+    padding: 1rem;
+    border-radius: 1rem;   
+    background-color: var(--unvisitedlinkcolor);
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease; 
+}
+
+.button:hover {
+    background-color: #004085; /* DA CAMBIARE */
+}
+
+.button a {
+    color: inherit;     
+}
+
+
+
+
+.summary {
+    color: var(--unvisitedlinkcolor);
+    cursor: pointer;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.details-summary {
+    display: block; 
+    margin-top: 1rem;
+}
+
+.details-summary[open] summary {
+    background-color: var(--unvisitedlinkcolor);
+    color: white;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+}
+
+.details-summary[open] p {
+    margin-top: 1rem; 
+    background-color: var(--unvisitedlinkcolor);
+    color: white;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 .contenitore-carte{
     display: flex;
@@ -404,55 +432,25 @@ label:after {
      margin-top: -1em; 
 }
 
-.button[type=button]
+/* .button[type=button]
 .link-percorso
 {
     padding: 16px;
-}
+} */
 
 
-.button[type=button] {
+/* .button[type=button] {
     display: block;
     padding-left: 0.5em;
     padding-right: 0.5em;
     height: 2em;
     text-decoration: underline;
     margin-top: 1.2em;
-}
+} */
 
-.nomePercorso {
-    align-self: flex-start;
-    margin: 1em;
-}
 
-.descrizionePercorso {
-    margin: 1em;
-}
 
-h2 {
-    display: block;
-    font-size: 1.5em;
-    margin-block-start: 0.83em;
-    margin-block-end: 0.83em;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
-    font-weight: bold;
-    unicode-bidi: isolate;
-}
 
-h3 {
-    align-self: flex-start;
-}
-
-p {
-    text-align: start;
-}
-
-hr {
-    height: 8px;
-    background-color: black;
-    border-radius: 0.3em;
-}
 
 .valutazione {
     margin-top: 1em;
