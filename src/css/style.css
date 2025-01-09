@@ -72,14 +72,10 @@ header h1 {
     z-index: 99;
 }
 
-
-
-
-
-
-
-
-
+.contenutiPrinciplaiIndice:not(:focus){
+    clip: rect(1px, 1px, 1px, 1px);
+    position: absolute;
+}
 
 /* MENU */
 #menu {
@@ -135,13 +131,6 @@ nav#menu .accedi-button .icon-accedi {
 }
 
 
-
-
-
-
-
-
-
 /* BREADCRUMB */
 #breadcrumb {
     width: 95%;
@@ -151,14 +140,6 @@ nav#menu .accedi-button .icon-accedi {
     border-radius: 17px;  
     text-align: left;
 }
-
-
-
-
-
-
-
-
 
 
 
@@ -242,15 +223,6 @@ nav#menu .accedi-button .icon-accedi {
     margin-bottom: 1rem; 
     margin-top: 0.1em;  
 }
-
-
-
-
-
-
-
-
-
 
 
 /* PAGINA PERCORSO */
@@ -343,12 +315,6 @@ img.slideVisibile{
 }
 
 
-
-
-
-
-
-
 /* bottone scarica mappa gpx */
 .indicazioni-wrapper {
     grid-column: 2 / 3; 
@@ -405,7 +371,7 @@ details {
 
 
 details p {
-    display: none; 
+    
     background-color: var(--unvisitedlinkcolor);
     color: white;
     padding: 0.5rem;
@@ -421,7 +387,7 @@ summary {
     font-weight: bold;
     cursor: pointer;
     text-decoration: underline;
-    display: inline-block;
+    
     padding-bottom: 0.5rem;
 }
 
@@ -451,11 +417,6 @@ summary {
     margin-bottom: 2em;
     border-radius: 0.5rem;
 }
-
-
-
-
-
 
 
 .contenitore-carte{
@@ -508,9 +469,6 @@ summary {
 
     padding-left: 0.5em;
     padding-right: 0.5em;
-
-    height: 2em;
-
     margin: auto;
     margin-bottom: 1em;
     
@@ -534,10 +492,16 @@ label:after {
     margin-top: 1em;
 }
 
+select{
+    margin-bottom: 1em;
+    min-width: 4em;
+    text-align: center;
+}
+
 .inputRecensione {
     display: flex;
     height: 5em;
-    width: 80%;
+    width: 100%;
     padding: 12px 20px;
     box-sizing: border-box;
     border: 2px solid #ccc;
@@ -545,6 +509,7 @@ label:after {
     background-color: #f8f8f8;
     font-size: 16px;
     resize: none;
+    margin-bottom: 1em;
 }
 
 .contenitore-alert{
@@ -566,9 +531,16 @@ label:after {
 /* Footer */
 footer {
     background-color: var(--footerbgcolor);
-    height: 2em;
+    min-height: 2em;
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
     margin-top: 2em;
+    display: flex;
+    flex-direction: row-reverse;
 } 
+
+.buttonTornasu
+{
+    margin-right: 3em;
+}
     

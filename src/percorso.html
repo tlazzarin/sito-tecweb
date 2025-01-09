@@ -21,8 +21,9 @@
     <body>
         <!-- Header -->
         <header>
-            <a class="linkHome" href="index.php"><img src="./assets/logo.svg" alt="Logo del sito" class="logo"></a>
-            <h1>Nome del Sito</h1>
+            <a href="#descrizione" class="contenutiPrinciplaiIndice">Vai ai contenuti principali</a>
+            <a class="linkHome" href="index.php" ><img src="./assets/logo.svg" alt="Logo del sito" class="logo"></a>
+            <h1 id="nomeSito">Nome del Sito</h1>
         </header> 
         
 
@@ -77,7 +78,7 @@
                 <button class="succesiva" onclick="slideSuccesiva()">&#10095</button>
             </section>
             
-            <section class="descrizione">
+            <section id="descrizione" class="descrizione">
                 <h4>Descrizione</h4>
                 <p>[descrizione]
                 </p>
@@ -137,6 +138,7 @@
     
         <!-- Footer -->
         <footer>
+            <a href="#nomeSito"><button aria-label="Pulsante per tornare all'inizio della pagina" type="button" class="button buttonTornasu">Torna Su</button></a>
         </footer>
         
     </body>

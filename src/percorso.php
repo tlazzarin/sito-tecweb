@@ -126,7 +126,11 @@ if(isset($_GET["id"])){
             {
                 $queryCancellaRecensione=$connessione->cancella_recensione($id,$_SESSION['Username']);
                 if($queryCancellaRecensione->get_errno() == 0)
+                {
                     unset($_POST["cancellaRecensione"]);
+                    unset($_SESSION['testoRecensione']);
+                    unset($_SESSION['voto']);
+                }
                 else
                     $_SESSION["error"] = "Impossibile connettersi al sistema per cancellare la tua recensione";
             }   
@@ -156,13 +160,14 @@ if(isset($_GET["id"])){
                     <h4>".$_SESSION['Username']."</h4>
                     <form  method=\"post\">
                         <textarea name=\"testoRecensione\" class=\"inputRecensione\" type=\"text\"></textarea>
-                        <select aria-label=\"Scelta Multipla per il voto della recensione\" class=\"\" id=\"voto\" name=\"voto\">
+                        <select aria-label=\"Scelta Multipla per il voto della recensione\" id=\"voto\" name=\"voto\">
                           <option value=\"5\">5</option>
                           <option value=\"4\">4</option>
                           <option value=\"3\">3</option>
                           <option value=\"2\">2</option>
                           <option value=\"1\">1</option>
                         </select>
+                        <br>
                         <button aria-label=\"Pulsante per Inserire Recensione\" name=\"aggiungiRecensione\" type=\"submit\" class=\"button\">Inserisci Recensione</button>
 
                     </form>
@@ -170,13 +175,29 @@ if(isset($_GET["id"])){
                 }
                 else
                 {
+                    $tempTest=null;
 
-                    $tempTest=$queryRecensioneUtente->get_result()[0]['testo'];
-                    $tempVoto=$queryRecensioneUtente->get_result()[0]['voto'];
+                    if(!$queryRecensioneUtente->is_empty())
+                    {
+                        $tempTest=$queryRecensioneUtente->get_result()[0]['testo'];
+                        $tempVoto=$queryRecensioneUtente->get_result()[0]['voto'];
+                    }
+                    
                     $queryCancellaRecensione=$connessione->cancella_recensione($id,$_SESSION['Username']);
                     
                     if($queryCancellaRecensione->get_errno() == 0)
                     {
+                        if($tempTest!=null)
+                        {
+                            $_SESSION['testoRecensione']=$tempTest;
+                            $_SESSION['voto']=$tempVoto;
+                        }
+                        else
+                        {
+                            $tempTest=$_SESSION['testoRecensione'];
+                            $tempVoto=$_SESSION['voto'];
+                        }
+                           
                         $paginaHTML=str_replace("[miaRecensione]"," <section class=\"recensione\">
                         <h4>".$_SESSION['Username']."</h4>
                         <form method=\"post\">
@@ -188,7 +209,8 @@ if(isset($_GET["id"])){
                               <option value=\"2\">2</option>
                               <option value=\"1\">1</option>
                             </select>
-                            <button aria-label=\"Pulsante per Inserire Recensione\" name=\"aggiungiRecensione\" type=\"submit\" class=\"button\">Inserisci Recensione</button>
+                            <br>
+                            <button aria-label=\"Pulsante per Inserire Recensione\" name=\"aggiungiRecensione\" type=\"submit\" class=\"button\">Modifica Recensione</button>
                             <button aria-label=\"Pulsante per tornare indietro e non modificare la recensione\" name=\"annulla\" type=\"submit\" a class=\"button\">Annulla</button>
                         </form>
                         </section>",$paginaHTML);
