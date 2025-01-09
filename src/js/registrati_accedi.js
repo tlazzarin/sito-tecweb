@@ -70,14 +70,20 @@ function confirmPass() {
   return false;
 }
 
-//aggiunta dell' error suggestion
+//aggiunta dell'error/suggestion
 function mostraErrore(input) {
   var parent = document.getElementById("aiuto" + restrizioni[input.id][0]);
-  var errore = document.createElement("strong");
-  errore.className = "errorSuggestion";
-  errore.id = "error" + restrizioni[input.id];
-  errore.appendChild(document.createTextNode(restrizioni[input.id][2]));
-  parent.appendChild(errore);
+  var messaggio = document.createElement("strong");
+  
+  if (input.id === "conferma" && !confirmPass()) {
+      messaggio.className = "errorMessage";
+  } else {
+      messaggio.className = "suggestionMessage";
+  }
+  
+  messaggio.id = "error" + restrizioni[input.id];
+  messaggio.appendChild(document.createTextNode(restrizioni[input.id][2]));
+  parent.appendChild(messaggio);
 }
 
 //controllo di tutti gli input nella form
