@@ -4,19 +4,14 @@ let restrizioni = {
     /^[A-Za-z\s]\w{2,30}$/,
     "Inserire un username di lunghezza tra i 2 e 30 caratteri\n",
   ],
-  email: [
-    "Indirizzo mail",
-    /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
-    "Inserire un indirizzo mail corretto\n",
-  ],
   password: [
     "Password",
-    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d@$.,-;:<>!%*?&_=]{4,}$/,
+    /^[^\s]{4,}$/,
     "Inserire una password di almeno 4 caratteri\n",
   ],
-  confirm: [
+  conferma: [
     "ConfermaPassword",
-    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d@$.,-;:<>!%*?&_=]{4,}$/,
+    /^[^\s]{4,}$/,
     "Le due password non coincidono\n",
   ],
 };
@@ -34,7 +29,7 @@ function load() {
   for (var key in restrizioni) {
     var input = document.getElementById(key);
 
-    if (input != null) {
+    if (input != null&&input != conferma) {
       validazioneCampo(input);
     }
   }
@@ -42,6 +37,7 @@ function load() {
 
 //controllo validazione campo e aggiunta consiglio su come riempire campo
 function validazioneCampo(input) {
+  
   var parent = document.getElementById("aiuto" + restrizioni[input.id][0]);
   mostraErrore(input);
 
