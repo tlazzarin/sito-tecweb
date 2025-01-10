@@ -9,7 +9,6 @@ require_once("DB/database.php");
 $errore = false;
 
 $username = $_POST["username"];
-#$email = $_POST["email"];
 $password = $_POST["password"];
 
 $connessione=new Functions();
@@ -20,8 +19,7 @@ $checkConnection=$connessione->openConnection();
 if($checkConnection){
     
     $usernameCheck = (isset($username) && preg_match('/^[A-Za-z\s]\w{2,30}$/', $username));
-    #$emailCheck = (isset($email) && filter_var($email,FILTER_VALIDATE_EMAIL));
-    $passwordCheck = (isset($password) && strlen($password) >= 4);
+    $passwordCheck = (isset($password) && preg_match('/^[^\s]{4,}$/', $password));
 
     
     if( $usernameCheck && $passwordCheck)
@@ -33,7 +31,6 @@ if($checkConnection){
         {
             $connessione->closeConnection();
             $_SESSION["Username"] = $user->get_result()[0]['username'];
-            #$_SESSION["Email"] = $user->get_result()[0]['email'];
             $_SESSION["isAdmin"] = $user->get_result()[0]['isAdmin'];
             
             header("Location: index.php");

@@ -154,8 +154,8 @@ if(isset($_GET["id"])){
                         <br>Voto: ".$queryRecensioneUtente->get_result()[0]['voto']."
                         </p>
                         <form method=\"post\">
-                            <button aria-label=\"Pulsante per Modificare la Recensione\" name=\"modificaRecensione\" type=\"submit\" class=\"button\">Modifica Recensione</button>
-                            <button aria-label=\"Pulsante per Cancellare la Recensione\" name=\"cancellaRecensione\" type=\"submit\" class=\"button\">Cancella Recensione</button>
+                            <button aria-label=\"Pulsante per Modificare la Recensione\" name=\"modificaRecensione\" type=\"submit\" class=\"fa-solid fa-pen-to-square fa-xl\"></button>
+                            <button aria-label=\"Pulsante per Cancellare la Recensione\" name=\"cancellaRecensione\" type=\"submit\" class=\"fa-solid fa-trash fa-xl\"></button>
                         </form>
                         </section>",$paginaHTML);
             }
@@ -175,7 +175,7 @@ if(isset($_GET["id"])){
                           <option value=\"1\">1</option>
                         </select>
                         <br>
-                        <button aria-label=\"Pulsante per Inserire Recensione\" name=\"aggiungiRecensione\" type=\"submit\" class=\"button\">Inserisci Recensione</button>
+                        <button aria-label=\"Pulsante per Inserire Recensione\" name=\"aggiungiRecensione\" type=\"submit\" class=\"fa-solid fa-pen-to-square fa-xl\"></button>
 
                     </form>
                     </section>",$paginaHTML);
@@ -217,8 +217,8 @@ if(isset($_GET["id"])){
                               <option value=\"1\">1</option>
                             </select>
                             <br>
-                            <button aria-label=\"Pulsante per Inserire Recensione\" name=\"aggiungiRecensione\" type=\"submit\" class=\"button\">Modifica Recensione</button>
-                            <button aria-label=\"Pulsante per tornare indietro e non modificare la recensione\" name=\"annulla\" type=\"submit\" a class=\"button\">Annulla</button>
+                            <button aria-label=\"Pulsante per Inserire Recensione\" name=\"aggiungiRecensione\" type=\"submit\" class=\"fa-solid fa-pen-to-square fa-xl\"></button>
+                            <button aria-label=\"Pulsante per tornare indietro e non modificare la recensione\" name=\"annulla\" type=\"submit\" class=\"fa-solid fa-x fa-xl\"></button>
                         </form>
                         </section>",$paginaHTML);
                     }
@@ -231,8 +231,8 @@ if(isset($_GET["id"])){
                         <br>Voto: ".$tempVoto."
                         </p>
                         <form method=\"post\">
-                        <button aria-label=\"Pulsante per Modificare Recensione\" name=\"modificaRecensione\" type=\"submit\" class=\"button\">Modifica Recensione</button>
-                        <button aria-label=\"Pulsante per Cancellare la Recensione\" name=\"cancellaRecensione\" type=\"submit\" class=\"button\">Cancella Recensione</button>
+                        <button aria-label=\"Pulsante per Modificare Recensione\" name=\"modificaRecensione\" type=\"submit\" class=\"fa-solid fa-pen-to-square fa-xl\"></button>
+                        <button aria-label=\"Pulsante per Cancellare la Recensione\" name=\"cancellaRecensione\" type=\"submit\" class=\"fa-solid fa-trash fa-xl\"></button>
                         </form>
                         </section>",$paginaHTML);
                     }
@@ -259,8 +259,8 @@ if(isset($_GET["id"])){
                         <p>".$queryRecensioneUtente->get_result()[0]['testo']."
                         <br>Voto: ".$queryRecensioneUtente->get_result()[0]['voto']."
                         <form method=\"post\">
-                            <button aria-label=\"Pulsante per Modificare Recensione\" name=\"modificaRecensione\" type=\"submit\" class=\"button\">Modifica Recensione</button>
-                            <button aria-label=\"Pulsante per Cancellare la Recensione\" name=\"cancellaRecensione\" type=\"submit\" class=\"button\">Cancella Recensione</button>
+                            <button aria-label=\"Pulsante per Modificare Recensione\" name=\"modificaRecensione\" type=\"submit\" class=\"fa-solid fa-pen-to-square fa-xl\"></button>
+                            <button aria-label=\"Pulsante per Cancellare la Recensione\" name=\"cancellaRecensione\" type=\"submit\" class=\"fa-solid fa-trash fa-xl\"></button>
                         </form>
                         </p>
                         </section>",$paginaHTML);

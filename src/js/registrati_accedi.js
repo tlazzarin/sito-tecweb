@@ -29,7 +29,7 @@ function load() {
   for (var key in restrizioni) {
     var input = document.getElementById(key);
 
-    if (input != null&&input != conferma) {
+    if (input != null&&input.id != "conferma") {
       validazioneCampo(input);
     }
   }
@@ -75,7 +75,7 @@ function mostraErrore(input) {
   var parent = document.getElementById("aiuto" + restrizioni[input.id][0]);
   var messaggio = document.createElement("strong");
   
-  if (input.id === "conferma" && !confirmPass()) {
+  if (input.id == "conferma" && !confirmPass()) {
       messaggio.className = "errorMessage";
   } else {
       messaggio.className = "suggestionMessage";
