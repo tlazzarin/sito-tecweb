@@ -361,9 +361,7 @@ img.slideVisibile{
     gap: 2rem;
     margin-top: 2rem;
 }
-button{
-    border: none;
-}
+
 
 .button {
     font-size: 100%;
@@ -445,10 +443,12 @@ summary {
 
 .fa-trash, .fa-x{
     color: var(--headerbgcolor);
+    border: none;
 }
 
 .fa-pen-to-square{
     color: var(--unvisitedlinkcolor);
+    border: none;
 }
 
 
