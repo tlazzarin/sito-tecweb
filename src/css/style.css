@@ -249,7 +249,7 @@ nav#menu .accedi-button .icon-accedi, nav#menu .logout-button .icon-logout {
 
 /* PAGINA PERCORSO */
 /* impostazioni grid */
-main {
+#main-Percorso {
     display: grid;
     grid-template-columns: 1fr 2fr;  
     gap: 1rem;
