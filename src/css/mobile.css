@@ -115,28 +115,73 @@
 
 
     /* PAGINA PERCORSO */
-    .main-percorso {
-        grid-template-columns: 1fr;  
+    /* Main */
+    #main-percorso {
+        display: flex;
+        flex-direction: column;
         padding: 1rem;
     }
- 
-    .nomePercorso, .descrizionePercorso {
-        grid-column: 1 / -1;     
+
+    .nomePercorso,
+    .descrizionePercorso {
+        text-align: left;
+        
     }
 
-    .indicazioni-wrapper {
-        grid-column: 1 / -1;
+    .carosello {
+        max-width: 100%;
+        
+    }
+
+    #mappa {
+        width: 100%;
         
     }
 
     .gpx-section {
-        flex-direction: column; 
-        gap: 1rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem; 
+        margin-top: 0; 
+        align-items: center;
     }
 
+    /* Bottone ridotto */
+    .gpx-section .button {
+        width: 75%; 
+        text-align: center;
+    }
+
+
+    .gpx-section details {
+        width: 100%; 
+        text-align: center;
+    }
+
+    summary {
+        margin: 0 auto;
+        font-weight: bold;
+        cursor: pointer;
+        text-decoration: underline;
+    }
+
+    details p {
+        text-align: center; 
+    }
+
+
+    /* Recensioni */
     .recensioni {
-        width: 100%;  
-        margin-left: 0; 
+        margin: auto;
+        justify-content: center;
+        padding: 1rem;
+        margin-top: 0.2rem; 
     }
 
+    .recensione {
+        padding: 1rem;
+        margin: 0.5rem 0;
+    }
+
+    
 }
