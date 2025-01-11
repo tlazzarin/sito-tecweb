@@ -311,6 +311,42 @@ class Functions extends Constant{
         return $res;
       }
 
+
+       //prende dal database i tre percorsi con le migliori reccensioni
+      public function get_percorsi_top(): response_manager {
+        $query = "SELECT p.*, i.*, AVG(r.voto) as media_voti 
+                  FROM PERCORSO p 
+                  LEFT JOIN RECENSIONE r ON p.id = r.percorso 
+                  INNER JOIN IMMAGINI i ON i.id_immagine = p.id 
+                  WHERE i.id_immagine LIKE '%/1.jpg' 
+                  GROUP BY p.id 
+                  ORDER BY media_voti DESC 
+                  LIMIT 3";
+                  
+        $stmt = $this->connection->prepare($query);
+        $result = array();
+    
+        if ($stmt === false) {
+            return new response_manager($result, $this->connection, "C'è stato un errore");
+        }
+    
+        $stmt->execute();
+        $tmp = $stmt->get_result();
+    
+        while ($row = $tmp->fetch_assoc()) {
+            array_push($result, $row);
+        }
+    
+        $res = new response_manager($result, $this->connection, "");
+    
+        if (!$res->ok()) {
+            $res->set_error_message("Nessun percorso trovato");
+        }
+    
+        $stmt->close();
+        return $res;
+    }
+
 }
 
 

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="it">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Homepage</title>
+        <meta name="keywords" content="" />
+        <meta name="description" content="" />
+        <meta name="author" content="TecWeb" />
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">    
+        <link rel="stylesheet" href="./css/style.css">
+        <link rel="stylesheet" href="./css/mobile.css" media="screen and (max-width: 1012px)">
+
+        <script src="./js/mobile.js"></script> 
+    </head>
+
+    <body>
+        <header>
+            <a class="linkHome" href="index.php" id="logo"><img src="./assets/logo.svg" alt="Logo del sito" class="logo"></a>
+            <h1>Nome del Sito</h1>
+        </header> 
+        
+        <!-- Navigation -->
+        <nav id="menu">
+
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+
+            <ul class="nav-menu">
+                <li class="nav-item" aria-current="page">
+                    <a><strong>Home</strong></a>
+                </li>
+                <li class="nav-item">
+                    <a href="percorsi.php" class="nav-link">Percorsi</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Usare il navigatore</a>
+                </li>
+                <li class="nav-item">
+                    [prima_opzione]
+                </li>
+                <li class="nav-item">
+                    [seconda_opzione]
+                </li>
+            </ul> 
+
+        </nav>    
+
+        <!-- Breadcrumb -->
+        <nav id="breadcrumb">
+            <p>Ti trovi in: <span lang="en">Home</span></p>
+        </nav>
+
+        <main id="main-homepage">
+            <body>                
+                    <h2>Buona passeggiata!</h2>
+                    <p>Siamo felici che tu abbia trovato il nostro sito!<br>
+                        Speriamo di riuscire a farti scoprire posti nuovi con la nostra varietà di percorsi e di farti arrivare pronto, anche grazie al parere diretto di chi li ha già visitati.<br>
+                        <strong>Buon divertimento!</strong></p>
+                </section>
+                
+                <section>
+                    <h2>L’orientamento non è il tuo forte?</h2>
+                    <p>Tutti i nostri percorsi sono accompagnati da una mappa interattiva e dalla possibilità di scaricare la traccia per usarla dal tuo telefono. Non sai come fare? Nessun problema, visita la pagina <a href="navigatore.php">Usare il navigatore</a>!</p>
+                </section>
+                
+                <section>
+                    <h2>Hai bisogno di ispirazione?</h2>
+                    <p>Ecco una selezione dei percorsi che sono piaciuti di più dai nostri utenti.</p>
+                    [percorsi_top]
+                </section>
+            </body>
+        </main>
+
+        <footer>
+            <a href="#logo" class="linkTornasu"><button aria-label="Pulsante per tornare all'inizio della pagina" type="button" class="button">Torna Su</button></a>
+        </footer>
+    </body>
+</html>

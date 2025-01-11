@@ -17,6 +17,15 @@ body {
     max-width: 1800px;
 }
 
+a {
+    color: var(--unvisitedlinkcolor);
+  }
+  
+  /* Colore del link visitato */
+  a:visited {
+    color: var(--visitedlinkcolor)
+  }
+
 
 
 
@@ -142,6 +151,54 @@ nav#menu .accedi-button .icon-accedi, nav#menu .logout-button .icon-logout {
 
 
 
+
+
+
+
+/* HOMEPAGE */
+#main-homepage {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    max-width: 1700px;
+}
+
+#main-homepage h2 {
+    margin-bottom: 0.5rem;
+    font-size: 2em;
+}
+
+#main-homepage p {
+    line-height: 1.5; 
+    margin-bottom: 1.5rem;
+}
+
+#main-homepage strong {
+    font-weight: bold;
+}
+
+.percorsi-top-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 2rem; 
+    width: 100%;
+    justify-content: center; 
+}
+
+.percorsi-top-container .carta {
+    background-color: var(--percorsibgcolor);
+    border-radius: 8px;
+    overflow: hidden;
+    width: 100%; 
+}
+
+
+
+
+
+
+
+
 /* REGISTRATI E ACCEDI */
 #formcontent {
     text-align: left;
@@ -249,7 +306,7 @@ nav#menu .accedi-button .icon-accedi, nav#menu .logout-button .icon-logout {
 
 /* PAGINA PERCORSO */
 /* impostazioni grid */
-#main-Percorso {
+#main-percorso {
     display: grid;
     grid-template-columns: 1fr 2fr;  
     gap: 1rem;
@@ -472,47 +529,35 @@ summary {
 }
 
 
-.contenitore-carte{
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    margin-top: 10px;
-}
-
-.carta{
-    width: 325px;
-    background-color: var(--percorsibgcolor);
-    border-radius: 8px;
-    overflow: hidden;
-    margin: 20px;
-    text-align: center;
-}
-
-.carta img{
+.contenitore-carte {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+    gap: 1.5rem; 
+    margin-top: 2em;
     width: 100%;
-    height: auto;
-
+    max-width: 1700px; 
+    box-sizing: border-box;
+    padding: 0 2rem; 
+    margin-bottom: 2em;
 }
 
-.link-percorso
-{
+.link-percorso {
     padding: 16px;
+    min-height: 70px;
 }
 
-
-.carta{
-    width: 325px;
+.carta {
     background-color: var(--percorsibgcolor);
     border-radius: 8px;
     overflow: hidden;
-    margin: 20px;
+    width: 100%;
 }
 
-.carta img{
+.carta img {
     width: 100%;
     height: auto;
-
 }
+
 
 .formInput *:not(.ultimoInput):not(option) {
     margin-bottom: 1em;
@@ -520,7 +565,6 @@ summary {
 
 .formInput input[type=submit] {
     display: block;
-
     padding-left: 0.5em;
     padding-right: 0.5em;
     margin: auto;
