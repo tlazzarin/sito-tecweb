@@ -75,7 +75,7 @@ if(isset($_GET["id"])){
             $tagtitolo=$percorso[0]['tag_title'];
             $filegpx="./assets/gpx/".strtolower($percorso[0]['file_gpx']);
             $peso=round(filesize($filegpx)*pow(10,-6),2,PHP_ROUND_HALF_UP);
-
+            $mappa_embed=$percorso[0]['map_embed'];
             $descrizione.="<br>".$caratteristiche_array['dislivello_salita']." ".$percorso[0]['dislivello_salita']."m   ".$caratteristiche_array['dislivello_discesa']." ".$percorso[0]['dislivello_discesa']."m  ".$caratteristiche_array['lunghezza']." ".$percorso[0]['lunghezza']."km  ";
             
         }
@@ -321,6 +321,7 @@ if(isset($_GET["id"])){
     $paginaHTML =str_replace("[seconda_opzione]",$seconda_opzione,$paginaHTML);
     $paginaHTML =str_replace("[peso]",$peso,$paginaHTML);
     $paginaHTML =str_replace("[media_voti]",$votoMedio,$paginaHTML);
+    $paginaHTML = str_replace("[mappa]", $mappa_embed, $paginaHTML);
     
 
     
