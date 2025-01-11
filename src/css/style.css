@@ -383,6 +383,20 @@ img.slideVisibile{
     flex-shrink: 0; 
 }
 
+.buttonRed {
+    font-size: 100%;
+    padding: 1rem;
+    border-radius: 1rem;
+    background-color: var(--breadcrumbtextcolor);
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    flex-shrink: 0; 
+}
+
 .button:hover {
     background-color: #143e69;
 }
@@ -536,6 +550,7 @@ select{
     margin-bottom: 1em;
     min-width: 4em;
     text-align: center;
+    border-radius: 5px;
 }
 
 .inputRecensione {

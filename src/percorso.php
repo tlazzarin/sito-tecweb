@@ -158,9 +158,11 @@ if(isset($_GET["id"])){
                 if(!isset($_POST["modificaRecensione"]))
                 {
                     $paginaHTML=str_replace("[miaRecensione]"," <section class=\"recensione\">
-                    <h4>".$_SESSION['Username']."</h4>
+                    <h4>La tua Recensione:</h4>
                     <form  method=\"post\">
+                        <p>Testo della recensione:</p>
                         <textarea name=\"testoRecensione\" class=\"inputRecensione\" type=\"text\"></textarea>
+                        <p>Inserire una valutazione da 1 a 5:</p>
                         <select aria-label=\"Scelta Multipla per il voto della recensione\" id=\"voto\" name=\"voto\">
                           <option value=\"5\">5</option>
                           <option value=\"4\">4</option>
@@ -169,7 +171,7 @@ if(isset($_GET["id"])){
                           <option value=\"1\">1</option>
                         </select>
                         <br>
-                        <button aria-label=\"Pulsante per Inserire Recensione\" name=\"aggiungiRecensione\" type=\"submit\" class=\"fa-solid fa-pen-to-square fa-xl\"></button>
+                        <button aria-label=\"Pulsante per Inserire Recensione\" name=\"aggiungiRecensione\" type=\"submit\" class=\"button\">Inserisci</button>
 
                     </form>
                     </section>",$paginaHTML);
@@ -200,9 +202,11 @@ if(isset($_GET["id"])){
                         }
                            
                         $paginaHTML=str_replace("[miaRecensione]"," <section class=\"recensione\">
-                        <h4>".$_SESSION['Username']."</h4>
+                        <h4>La tua Recensione:</h4>
                         <form method=\"post\">
+                            <p>Testo della recensione:</p>
                             <textarea name=\"testoRecensione\" class=\"inputRecensione\" type=\"text\">".$tempTest."</textarea>
+                            <p>Inserire una valutazione da 1 a 5:</p>
                             <select aria-label=\"Scelta Multipla per il voto della recensione\" class=\"\" id=\"voto\" name=\"voto\" value=\"".$tempVoto."\">
                               <option value=\"5\">5</option>
                               <option value=\"4\">4</option>
@@ -211,8 +215,8 @@ if(isset($_GET["id"])){
                               <option value=\"1\">1</option>
                             </select>
                             <br>
-                            <button aria-label=\"Pulsante per Inserire Recensione\" name=\"aggiungiRecensione\" type=\"submit\" class=\"fa-solid fa-pen-to-square fa-xl\"></button>
-                            <button aria-label=\"Pulsante per tornare indietro e non modificare la recensione\" name=\"annulla\" type=\"submit\" class=\"fa-solid fa-x fa-xl\"></button>
+                            <button aria-label=\"Pulsante per Inserire Recensione\" name=\"aggiungiRecensione\" type=\"submit\" class=\"button\">Invia</button>
+                            <button aria-label=\"Pulsante per tornare indietro e non modificare la recensione\" name=\"annulla\" type=\"submit\" class=\"buttonRed\">Annulla</button>
                         </form>
                         </section>",$paginaHTML);
                     }
@@ -220,7 +224,7 @@ if(isset($_GET["id"])){
                     {
                         $_SESSION["error"] = "Impossibile connettersi al sistema per modificare la tua recensione";
                         $paginaHTML=str_replace("[miaRecensione]"," <section class=\"recensione\">
-                        <h4>".$_SESSION["Username"]."</h4>
+                        <h4>La tua Recensione:</h4>
                         <p>".$tempTest."
                         <br>Voto: ".$tempVoto."
                         </p>
@@ -249,7 +253,7 @@ if(isset($_GET["id"])){
                     if($queryRecensioneUtente->ok())
                     {
                         $paginaHTML=str_replace("[miaRecensione]"," <section class=\"recensione\">
-                        <h4>".$queryRecensioneUtente->get_result()[0]['utente']."</h4>
+                        <h4>La tua Recensione:</h4>
                         <p>".$queryRecensioneUtente->get_result()[0]['testo']."
                         <br>Voto: ".$queryRecensioneUtente->get_result()[0]['voto']."
                         <form method=\"post\">

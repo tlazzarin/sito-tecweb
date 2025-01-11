@@ -51,10 +51,10 @@ if($checkConnection){
         {
             foreach($queryPercorsi->get_result() as $percorso){
                 
-                $Percorsi.="<a href=\"percorso.php?id=" . $percorso['id'] . "\"><section class=\"carta\">
+                $Percorsi.="<section class=\"carta\"><a href=\"percorso.php?id=" . $percorso['id'] . "\">
                 <img src=\"./assets/img/percorsi/".$percorso['id_immagine']."\"alt=\"".$percorso['alt']."\">
                 <h3 class=\"link-percorso\">".$percorso['titolo']."</h3>
-                </section></a>";
+                </a></section>";
                 
                 
             }

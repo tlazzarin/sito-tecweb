@@ -106,7 +106,7 @@
 
 
     /* PAGINA PERCORSO */
-    main {
+    #main-Percorso {
         grid-template-columns: 1fr;  
         padding: 1rem;
     }
