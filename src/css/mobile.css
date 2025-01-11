@@ -88,6 +88,15 @@
     }
 
 
+    /* HOMEPAGE */
+    .percorsi-top-container {
+        grid-template-columns: 1fr; 
+        gap: 1.5rem; 
+        width: 100%; 
+        padding: 0 1rem; 
+    }
+
+
     /* ACCEDI E REGISTRATI */
     #formcontent {
         padding: 1.5rem;
@@ -106,7 +115,7 @@
 
 
     /* PAGINA PERCORSO */
-    main {
+    .main-percorso {
         grid-template-columns: 1fr;  
         padding: 1rem;
     }

@@ -160,6 +160,7 @@ nav#menu .accedi-button .icon-accedi, nav#menu .logout-button .icon-logout {
     display: flex;
     flex-direction: column;
     padding: 2rem;
+    max-width: 1700px;
 }
 
 #main-homepage h2 {
@@ -175,6 +176,23 @@ nav#menu .accedi-button .icon-accedi, nav#menu .logout-button .icon-logout {
 #main-homepage strong {
     font-weight: bold;
 }
+
+.percorsi-top-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 2rem; 
+    width: 100%;
+    justify-content: center; 
+}
+
+.percorsi-top-container .carta {
+    background-color: var(--percorsibgcolor);
+    border-radius: 8px;
+    overflow: hidden;
+    width: 100%; 
+}
+
+
 
 
 
@@ -480,47 +498,35 @@ summary {
 }
 
 
-.contenitore-carte{
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    margin-top: 10px;
-}
-
-.carta{
-    width: 325px;
-    background-color: var(--percorsibgcolor);
-    border-radius: 8px;
-    overflow: hidden;
-    margin: 20px;
-    text-align: center;
-}
-
-.carta img{
+.contenitore-carte {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+    gap: 1.5rem; 
+    margin-top: 2em;
     width: 100%;
-    height: auto;
-
+    max-width: 1700px; 
+    box-sizing: border-box;
+    padding: 0 2rem; 
+    margin-bottom: 2em;
 }
 
-.link-percorso
-{
+.link-percorso {
     padding: 16px;
+    min-height: 70px;
 }
 
-
-.carta{
-    width: 325px;
+.carta {
     background-color: var(--percorsibgcolor);
     border-radius: 8px;
     overflow: hidden;
-    margin: 20px;
+    width: 100%;
 }
 
-.carta img{
+.carta img {
     width: 100%;
     height: auto;
-
 }
+
 
 .formInput *:not(.ultimoInput):not(option) {
     margin-bottom: 1em;
@@ -528,7 +534,6 @@ summary {
 
 .formInput input[type=submit] {
     display: block;
-
     padding-left: 0.5em;
     padding-right: 0.5em;
     margin: auto;
