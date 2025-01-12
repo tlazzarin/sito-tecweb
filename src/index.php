@@ -9,29 +9,17 @@ $connessione = new Functions();
 $checkConnection = $connessione->openConnection();
 
 if(isset($_SESSION['Username'])){
-    if(!isset($_SESSION['isAdmin']))
-    {
+    if($_SESSION['isAdmin']==1)
         $prima_opzione="<a aria-label=\"Vai alla pagina del pannello Amministrazione\" href=\"pannelloAmministrazione.php\">Pannello Amministrazione</a>";
-        $seconda_opzione = "
-            <section class=\"logout\">
-                <a href=\"accedi.php\" class=\"logout-button\">
-                    Logout <img src=\"./assets/right-to-bracket-solid.svg\" alt=\"Icona logout\" class=\"icon-logout\">
-                </a>
-            </section>";
-    }
-    else{
+    else
         $prima_opzione="<a aria-label=\"Vai alla tua pagina personale\" href=\"profilo.php\">Profilo</a>";
-        $seconda_opzione = "
-            <section class=\"logout\">
-                <a href=\"accedi.php\" class=\"logout-button\">
-                    Logout <img src=\"./assets/right-to-bracket-solid.svg\" alt=\"Icona logout\" class=\"icon-logout\">
-                </a>
-            </section>";
-    }
-   
-}
-else
-{
+    $seconda_opzione = "
+    <section class=\"logout\">
+        <a href=\"logout.php\" class=\"logout-button\">
+            Logout <img src=\"./assets/right-to-bracket-solid.svg\" alt=\"Icona logout\" class=\"icon-logout\">
+        </a>
+    </section>";
+}else{
     $prima_opzione="<a href=\"registrati.php\">Registrati</a>";
     $seconda_opzione = "
     <section class=\"accedi\">
