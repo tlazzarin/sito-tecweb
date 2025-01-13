@@ -1,0 +1,187 @@
+@media screen and (max-width: 1012px) {
+    
+    /* HEADER */
+    header h1 {
+      display: none;
+    }
+  
+
+    /* MENU */
+    #menu {
+        border-bottom: none;
+        position: absolute;
+        width: 100%; 
+        top: 0;      
+        left: 0;     
+        padding: 1.5rem 1rem;
+    }
+    
+    
+    /* HAMBURGER */
+    .hamburger {
+        margin-left: auto;
+        display: flex;
+        align-items: flex-end;
+        height: 40px;
+        cursor: pointer;
+        flex-direction: column;
+        justify-content: space-evenly;
+    }
+
+    .bar {
+        display: block;
+        width: 30px;
+        height: 5px;
+        transition: all 0.3s ease-in-out;
+        background-color: white;        
+        transform-origin: center;
+        margin: 0; 
+        border-radius: 5px;
+    }
+
+    .hamburger.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.active .bar:nth-child(1) {
+        position: absolute;        
+        transform: translateY(-50%) rotate(45deg);
+    }
+
+    .hamburger.active .bar:nth-child(3) {
+        position: absolute;
+        transform: translateY(-50%) rotate(-45deg);
+    }
+
+    .nav-menu {
+        position: absolute;
+        top: 90px; 
+        left: 0;
+        right: 0;
+        transform: scaleY(0);         
+        
+        transform-origin: top; 
+        opacity: 0;        
+        flex-direction: column;
+        background-color: white;
+        border: 3px solid var(--headerbgcolor);
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+        padding: 1em 0;
+        box-shadow: 0 4px 10px var(--headerbgcolor);         
+        transition: transform 0.3s ease, opacity 0.3s ease;        
+    }
+
+    .nav-menu.active {
+        transform: scaleY(1); 
+        opacity: 1; 
+    }
+
+    .nav-item {
+        margin: 10px 0;        
+        background-color: transparent;        
+    }
+
+    .nav-link {
+        padding: 10px 0;
+        background-color: transparent; 
+    }
+
+
+    /* HOMEPAGE */
+    .percorsi-top-container {
+        grid-template-columns: 1fr; 
+        gap: 1.5rem; 
+        width: 100%; 
+        padding: 0 1rem; 
+    }
+
+
+    /* ACCEDI E REGISTRATI */
+    #formcontent {
+        padding: 1.5rem;
+        margin: 1.5em auto;
+        max-width: 95%;
+    }
+
+    #formcontent .styleInput {
+        padding: 0.6rem;
+        font-size: 0.9rem;
+    }
+
+    #formcontent .button {
+        font-size: 1.2rem;
+    }
+
+
+    /* PAGINA PERCORSO */
+    /* Main */
+    #main-percorso {
+        display: flex;
+        flex-direction: column;
+        padding: 1rem;
+    }
+
+    .nomePercorso,
+    .descrizionePercorso {
+        text-align: left;
+        
+    }
+
+    .carosello {
+        max-width: 100%;
+        
+    }
+
+    #mappa {
+        width: 100%;
+        
+    }
+
+    .gpx-section {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem; 
+        margin-top: 0; 
+        align-items: center;
+    }
+
+    /* Bottone ridotto */
+    .gpx-section .button {
+        width: 75%; 
+        text-align: center;
+    }
+
+
+    .gpx-section details {
+        width: 100%; 
+        text-align: center;
+    }
+
+    summary {
+        margin: 0 auto;
+        font-weight: bold;
+        cursor: pointer;
+        text-decoration: underline;
+    }
+
+    details p {
+        text-align: center; 
+    }
+
+
+    /* Recensioni */
+    .recensioni {
+        margin: auto;
+        justify-content: center;
+        padding: 1rem;
+        margin-top: 0.2rem; 
+    }
+
+    .recensione {
+        padding: 1rem;
+        margin: 0.5rem 0;
+    }
+
+    
+}

@@ -1,0 +1,647 @@
+/* GENERALI */
+* {
+    padding: 0;
+    margin: 0; 
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Varela Round", sans-serif;
+    font-weight: 400;
+    color: var(--textcolor);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; 
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1800px;
+}
+
+a {
+    color: var(--unvisitedlinkcolor);
+  }
+  
+  /* Colore del link visitato */
+  a:visited {
+    color: var(--visitedlinkcolor)
+  }
+
+
+
+
+
+
+
+
+/* COLORI GLOBALI */
+:root {
+    --headerbgcolor: #C2471F;
+    --footerbgcolor: #C2471F;
+    --visitedlinkcolor: #DD723C;
+    --breadcrumbtextcolor: #C2471F;
+    --unvisitedlinkcolor: #004a66;
+    --textcolor: #290E00;
+    --defaultbgcolor: #FFFFFF;
+    --percorsibgcolor: #E6E6E6;
+    --sfondocard: #E6E6E6;
+}
+
+
+
+
+
+
+
+
+
+/* HEADER */
+header {
+    display: flex; 
+    align-items: center; 
+    background-color: var(--headerbgcolor);
+    color: white;
+    padding: 1em 2em;
+    border-bottom-left-radius: 20px; 
+    border-bottom-right-radius: 20px;
+}
+
+header .logo { 
+    width: 60px;
+    height: auto; 
+    margin-right: 1em;
+}
+
+header h1 {
+    font-size: 2.5em;
+    margin: 0;
+}
+
+.linkHome{
+    z-index: 99;
+}
+
+.contenutiPrinciplaiIndice:not(:focus){
+    clip: rect(1px, 1px, 1px, 1px);
+    position: absolute;
+}
+
+/* MENU */
+#menu {
+    margin-top: 0em;
+    padding-bottom: 0em;
+    border-bottom: var(--headerbgcolor) 4px solid;  
+}
+
+#menu ul {
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1em;
+    align-items: center;
+    max-width: 95%;
+    z-index: 99;
+}
+
+#menu a {
+    padding: 0.5em 3em;
+}
+
+a:visited {
+    color: var(--visitedlinkcolor);
+}
+
+/* Bottone accedi/registrati */
+nav#menu .accedi-button, nav#menu .logout-button {
+    display: inline-flex; 
+    align-items: center; 
+    justify-content: center;
+    padding: 0.5em 2em; 
+    font-size: 1em;
+    font-weight: bold;
+    background-color: var(--unvisitedlinkcolor);
+    border-radius: 20px;
+    min-width: 14em; 
+    color: white;
+    text-decoration: none;
+}
+
+nav#menu .accedi-button .icon-accedi, nav#menu .logout-button .icon-logout {
+    margin-left: 0.5em;
+    width: 1.4em;
+    height: 1.4em;
+}
+
+
+.hamburger {
+    display: none; 
+}
+
+
+/* BREADCRUMB */
+#breadcrumb {
+    width: 95%;
+    margin: 1em auto; 
+    padding: 0.5em 1em; 
+    border: 3px solid var(--headerbgcolor); 
+    border-radius: 17px;  
+    text-align: left;
+}
+
+
+
+
+
+
+
+/* HOMEPAGE */
+#main-homepage {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    max-width: 1700px;
+}
+
+#main-homepage h2 {
+    margin-bottom: 0.5rem;
+    font-size: 2em;
+}
+
+#main-homepage p {
+    line-height: 1.5; 
+    margin-bottom: 1.5rem;
+}
+
+#main-homepage strong {
+    font-weight: bold;
+}
+
+.percorsi-top-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 2rem; 
+    width: 100%;
+    justify-content: center; 
+}
+
+.percorsi-top-container .carta {
+    background-color: var(--percorsibgcolor);
+    border-radius: 8px;
+    overflow: hidden;
+    width: 100%; 
+}
+
+
+
+
+
+
+
+
+/* REGISTRATI E ACCEDI */
+#formcontent {
+    text-align: left;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    border: 1px solid #cccccc;
+    width: 92%;
+    margin: 3em auto;
+    box-sizing: border-box;
+    transition: box-shadow 0.3s ease;   
+    margin-top: 2em; 
+}
+
+#formcontent:hover {
+    box-shadow: 0px 2px 15px var(--headerbgcolor);
+}
+
+#formcontent fieldset {
+    border: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Input stili */
+#formcontent .styleInput {
+    width: 100%;
+    padding: 0.8rem;
+    margin-bottom: 1rem;
+    border: 1px solid #cccccc;
+    border-radius: 20px;
+    box-sizing: border-box;
+    font-size: 1rem;
+}
+
+#formcontent .styleInput:focus {
+    border-color: #ff6a38;
+    outline: none;
+}
+
+/* Bottone Registrati */
+#formcontent .button {
+    background:#DD723C;
+    color: #ffffff;
+    border: none;
+    border-radius: 33px;
+    font-size: 20px;
+    padding: 0.6rem 5rem; 
+    width: auto; 
+    display: block;
+    margin: 1em auto 0; 
+    transition: transform 0.3s ease;
+    margin-top: 1em;
+}
+
+#formcontent .button:hover {
+    background: #a83d1a;
+}
+
+/* Errori */
+#formcontent .suggestionMessage {
+    display: block;
+    color: var(--unvisitedlinkcolor);
+    font-size: 0.8rem;
+    margin-bottom: 2em;
+}
+
+#formcontent .errorMessage {
+    display: block;
+    color: var(--headerbgcolor);
+    font-size: 0.8rem;
+    margin-bottom: 2em;
+}
+
+/* Etichette */
+/* Username, Password */
+#formcontent label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+    color: black;
+}
+
+/* Titolo */
+#formcontent h2 {
+    text-align: center;
+    color: black;
+    margin-bottom: 1rem; 
+    margin-top: 0.1em;  
+}
+
+/* Alert */
+.alert-error {
+    color: black;   
+}
+
+.alert-info { /* Messaggio "Errore in username o password" */
+    color: black;
+}
+
+.alert-success {
+    color: black;
+}
+
+
+/* PAGINA PERCORSO */
+/* impostazioni grid */
+#main-percorso {
+    display: grid;
+    grid-template-columns: 1fr 2fr;  
+    gap: 1rem;
+    padding: 2rem;
+    max-width: 1700px;
+    margin: 0 auto;
+}
+
+
+/* carosello */
+.carosello {
+    position: relative;
+    max-width: 40rem;    
+    overflow: hidden;
+    border-radius: 20px;
+}
+
+.carosello img {
+    width: 100%;
+    display: none;
+}
+
+img.slideVisibile{
+    display: block;
+}
+
+.carosello button{
+    position:absolute;
+    top: 50%;
+    transform:translateY(-50%) ;
+    padding: 1rem;
+    font-size: 2rem;
+    background-color: rgba(0, 0, 0, 0.60);
+    color: white;
+    border: none;
+    cursor: pointer;
+    
+}
+.precedente{
+    left: 0;
+}
+.succesiva{
+    right: 0;
+}
+
+
+/* titolo e sottotitolo */
+.nomePercorso {
+    grid-column: 1 / -1;
+    text-align: left;
+    margin-bottom: 0;
+}
+
+.descrizionePercorso {
+    grid-column: 1 / -1;
+    text-align: left;
+    margin-bottom: 1rem; 
+}
+
+
+/* mappa gpx */
+#mappa {
+    background-color: #808080;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+#mappa iframe{
+    border: none;
+    width: 100%;
+    height: 100%;
+}
+
+
+/* descrizione e indicazioni */
+.descrizione, .indicazioni {
+    padding: 1.5rem;
+    border-radius: 1.5rem;
+    background-color: var(--sfondocard); 
+    text-align: left;  
+}
+
+.descrizione h4, .indicazioni h4 {
+    font-weight: 900;  
+    text-align: left;
+    margin-bottom: 0.5rem;
+}
+
+.indicazioni {
+    height: fit-content; 
+}
+
+
+/* bottone scarica mappa gpx */
+.indicazioni-wrapper {
+    grid-column: 2 / 3; 
+    display: flex;
+    flex-direction: column;
+    gap: 5rem; 
+}
+
+
+.indicazioni {
+    background-color: var(--sfondocard);
+    padding: 1.5rem;
+    border-radius: 1.5rem;
+    text-align: left;
+}
+
+
+.gpx-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+
+.button {
+    font-size: 100%;
+    padding: 1rem;
+    border-radius: 1rem;
+    background-color: var(--unvisitedlinkcolor);
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    flex-shrink: 0; 
+}
+
+.buttonRed {
+    font-size: 100%;
+    padding: 1rem;
+    border-radius: 1rem;
+    background-color: var(--breadcrumbtextcolor);
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    flex-shrink: 0; 
+}
+
+.button:hover {
+    background-color: #143e69;
+}
+
+.button a {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* Dettagli */
+details {
+    grid-column: 1 / -1;  
+    margin-top: 1rem;
+}
+
+
+details p {
+    
+    background-color: var(--unvisitedlinkcolor);
+    color: white;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    margin-top: 1rem;
+    text-align: left;
+}
+
+
+
+summary {
+    color: var(--unvisitedlinkcolor);
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: underline;
+    
+    padding-bottom: 0.5rem;
+}
+
+
+
+
+
+/* recensioni */
+.recensioni {
+    grid-column: 1 / -1;
+    display: flex;
+    flex-direction: column;
+    padding: 1em;
+    background-color: var(--percorsibgcolor);
+    width: 85%;
+    flex: 1;
+    align-self: center;
+    border-radius: 0.5rem;
+    margin-bottom: 2em;
+    margin-left: 7%;
+}
+
+.recensione {
+    padding: 0.7em;
+    background-color: var(--defaultbgcolor);
+    margin-top: 2em;
+    margin-bottom: 2em;
+    border-radius: 0.5rem;
+}
+
+.fa-trash, .fa-x{
+    color: var(--headerbgcolor);
+    border: none;
+}
+
+.fa-pen-to-square{
+    color: var(--unvisitedlinkcolor);
+    border: none;
+}
+
+
+.contenitore-carte {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+    gap: 1.5rem; 
+    margin-top: 2em;
+    width: 100%;
+    max-width: 1700px; 
+    box-sizing: border-box;
+    padding: 0 2rem; 
+    margin-bottom: 2em;
+}
+
+.link-percorso {
+    padding: 16px;
+    min-height: 70px;
+}
+
+.carta {
+    background-color: var(--percorsibgcolor);
+    border-radius: 8px;
+    overflow: hidden;
+    width: 100%;
+}
+
+.carta img {
+    width: 100%;
+    height: auto;
+}
+
+
+.formInput *:not(.ultimoInput):not(option) {
+    margin-bottom: 1em;
+}
+
+.formInput input[type=submit] {
+    display: block;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    margin: auto;
+    margin-bottom: 1em;
+    
+    
+}
+
+label:after {
+    content: ": ";
+}
+
+.errorSuggestion {
+    color: var(--textcolor);
+    font-size: 1em;
+    display: block;
+     margin-top: -1em; 
+}
+
+
+
+.valutazione {
+    margin-top: 1em;
+}
+
+select{
+    margin-bottom: 1em;
+    min-width: 4em;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.inputRecensione {
+    display: flex;
+    height: 5em;
+    width: 100%;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    font-size: 16px;
+    resize: none;
+    margin-bottom: 1em;
+}
+
+.contenitore-alert{
+    padding-bottom: 1em;
+    width: 100%;
+}
+
+.alert{
+    width: 25em;
+    text-align: center;
+    color: var(--textcolor);
+    padding: 0.3em;
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: bold;
+}
+
+
+/* Footer */
+footer {
+    background-color: var(--footerbgcolor);
+    min-height: 2em;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    margin-top: auto;
+    display: flex;
+    flex-direction: row-reverse;
+} 
+
+.linkTornasu
+{
+    margin-top: 0.5%;
+    margin-bottom: 0.5%;
+    margin-right: 3em;
+}
+    

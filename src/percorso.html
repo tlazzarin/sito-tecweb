@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="it">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>[tag_titolo]</title>
+        <meta name="keywords" content="[tag_keyword]" />
+        <meta name="description" content="[tag_descrizione]" />
+        <meta name="author" content="TecWeb" />
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="./css/style.css">
+        <link rel="stylesheet" href="./css/mobile.css" media="screen and (max-width: 1012px)">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+        <script src="./js/mobile.js"></script> 
+        <script src="./js/percorso.js" defer></script> 
+    </head>
+    
+    <body>
+        <!-- Header -->
+        <header>
+            <a href="#main-percorso" class="contenutiPrinciplaiIndice">Vai ai contenuti principali</a>
+            <a class="linkHome" href="index.php" id="logo" ><img src="./assets/logo.svg" alt="Logo del sito" class="logo"></a>
+            <h1 id="nomeSito">Nome del Sito</h1>
+        </header> 
+        
+
+        <!-- Navigation -->
+        <nav id="menu">
+
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+
+            <ul class="nav-menu">
+                <li class="nav-item" aria-current="page">
+                    <a href="index.php" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="percorsi.php" class="nav-link">Percorsi</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Usare il navigatore</a>
+                </li>
+                <li class="nav-item">
+                    [prima_opzione]
+                </li>
+                <li class="nav-item">
+                    [seconda_opzione]
+                </li>
+            </ul> 
+
+        </nav>    
+
+        <!-- Breadcrumb -->
+        <nav id="breadcrumb">
+            <p>Ti trovi in: <a href="index.php" lang="en">Home</a> &gt; <a href="percorsi.php">Percorsi</a> &gt; [titolo]</p>
+        </nav>
+
+
+        <!-- Main -->
+        
+        <main id="main-percorso">
+
+            <h2 class="nomePercorso">[titolo]</h2>
+            
+            <h3 class="descrizionePercorso">[sottotitolo]</h3>
+  
+            <section class="carosello">
+                <section class="slides">
+                    [immagini]
+                </section>
+                <button class="precedente" onclick="slidePrecedente()">&#10094</button>
+                <button class="succesiva" onclick="slideSuccesiva()">&#10095</button>
+            </section>
+            
+            <section id="descrizione" class="descrizione">
+                <h4>Descrizione</h4>
+                <p>[descrizione]
+                </p>
+                [caratteristiche]
+                
+                
+            </section>
+                
+            <section id="mappa">
+                [mappa]
+            </section>
+
+            <div class="indicazioni-wrapper">
+                <section class="indicazioni">
+                    <h4>Indicazioni del percorso</h4>
+                    <p>[indicazioni]</p>
+                </section>
+            
+                <section class="gpx-section">
+                    <button aria-label="Pulsante Scarica Traccia gpx" type="button" class="button">
+                        <a href="[file_gpx]" download>Scarica Traccia .gpx ([peso]MB)</a>
+                    </button>
+        
+                    
+                        <details>
+                            <summary>Cos'è una traccia .gpx?</summary>
+                            <p>
+                                Un file GPX è un formato che permette la memorizzazione e l'elaborazione di dati GPS (geodati). 
+                                Puoi usare la nostra applicazione per registrare i tuoi dati GPS e caricare le tracce che hai creato 
+                                sulla nostra piattaforma per poi condividere i tuoi percorsi con altri utenti. È anche possibile 
+                                scaricare i dati per i percorsi già esistenti.
+                            </p>
+                        </details>                    
+                </section>
+            </div>
+            
+            
+            
+            [alert]
+            <section class="recensioni">
+    
+                <h3>Recensioni:</h3>
+        
+                <p class="valutazione">Valutazione media: [media_voti]</valutazione></p>
+        
+                [miaRecensione]
+        
+                <hr>
+        
+                [recensioni]
+        
+            </section>
+            
+        </main>
+    
+        <!-- Footer -->
+        <footer>
+            <a href="#logo" class="linkTornasu"><button aria-label="Pulsante per tornare all'inizio della pagina" type="button" class="button">Torna Su</button></a>
+        </footer>
+        
+    </body>
+    </html>
