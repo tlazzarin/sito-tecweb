@@ -6,6 +6,7 @@ use DB\Functions;
 
 require_once("DB/database.php");
 require_once "grafica.php";
+require_once "generate_navbar.php";
 
 $paginaHTML=grafica::getPage("percorso.html");
 
@@ -24,27 +25,7 @@ $caratteristiche_array=array(
 
 if(!isset($_GET["id"]))
     header('Location: percorsi.php');
-
-if(isset($_SESSION['Username'])){
-    if($_SESSION['isAdmin']==1)
-        $prima_opzione="<a aria-label=\"Vai alla pagina del pannello Amministrazione\" href=\"pannelloAmministrazione.php\">Pannello Amministrazione</a>";
-    else
-        $prima_opzione="<a aria-label=\"Vai alla tua pagina personale\" href=\"profilo.php\">Profilo</a>";
-    $seconda_opzione = "
-    <section class=\"logout\">
-        <a href=\"logout.php\" class=\"logout-button\">
-            Logout <img src=\"./assets/right-to-bracket-solid.svg\" alt=\"Icona logout\" class=\"icon-logout\">
-        </a>
-    </section>";
-}else{
-    $prima_opzione="<a href=\"registrati.php\">Registrati</a>";
-    $seconda_opzione = "
-    <section class=\"accedi\">
-        <a href=\"accedi.php\" class=\"accedi-button\">
-            Accedi <img src=\"./assets/right-from-bracket-solid.svg\" alt=\"Icona accedi\" class=\"icon-accedi\">
-        </a>
-    </section>";
-}
+$tasti_navbar = generateNavbar($_SESSION);
 
 $id=$_GET["id"];
     
@@ -53,9 +34,7 @@ $connessione=new Functions();
 $checkConnection=$connessione->openConnection();
 
 if($checkConnection){
-
     $queryId=$connessione->get_percorso($id);
-
     if($queryId->ok() && !$queryId->is_empty())
     {
         $percorso=$queryId->get_result();
@@ -70,9 +49,7 @@ if($checkConnection){
         $peso=round(filesize($filegpx)*pow(10,-6),2,PHP_ROUND_HALF_UP);
         $mappa_embed=$percorso[0]['map_embed'];
         $descrizione.="<br>".$caratteristiche_array['dislivello_salita']." ".$percorso[0]['dislivello_salita']."m   ".$caratteristiche_array['dislivello_discesa']." ".$percorso[0]['dislivello_discesa']."m  ".$caratteristiche_array['lunghezza']." ".$percorso[0]['lunghezza']."km  ";
-        
     }
-
     $queryCaratteristiche=$connessione->get_caratteristiche($id);
     $Caratteristiche="<p>Accesibile a: ";
     if($queryCaratteristiche->ok() && !$queryCaratteristiche->is_empty())
@@ -81,10 +58,8 @@ if($checkConnection){
         {
             $Caratteristiche.=$caratteristiche_array[$caratteristica['caratteristica']]." ";
         }
-
         $Caratteristiche.="</p>";
 
-        
     }
 
     $Immagini="";
@@ -102,8 +77,6 @@ if($checkConnection){
         
     }
 
-    
-
     if(!isset($_SESSION['Username'])){
         $paginaHTML=str_replace("[miaRecensione]"," <section class=\"recensione\"><p><a href=\"accedi.php\">Accedi</a> per scrivere la tua Recensione!</p></section>",$paginaHTML);
             
@@ -114,7 +87,6 @@ if($checkConnection){
             $voto=$_POST['voto'];
             $testo=$_POST['testoRecensione'];
             unset($_POST["annulla"]);
-
         }
         if(isset($_POST["cancellaRecensione"]))
         {
@@ -128,9 +100,6 @@ if($checkConnection){
             else
                 $_SESSION["error"] = "Impossibile connettersi al sistema per cancellare la tua recensione";
         }   
-            
-
-
 
         $queryRecensioneUtente=$connessione->get_recensioni($id,$_SESSION['Username']);
         if($queryRecensioneUtente->ok()&&!isset($_POST["modificaRecensione"]))
@@ -138,7 +107,7 @@ if($checkConnection){
             $paginaHTML=str_replace("[miaRecensione]"," <section class=\"recensione\">
                     <h4>".$queryRecensioneUtente->get_result()[0]['utente']."</h4>
                     <p>".$queryRecensioneUtente->get_result()[0]['testo']."
-                    <br>Voto: ".$queryRecensioneUtente->get_result()[0]['voto']."
+                    <br>Voto: ".$queryRecensioneUtente->get_result()[0]['voto']." su 5
                     </p>
                     <form method=\"post\">
                         <button aria-label=\"Pulsante per Modificare la Recensione\" name=\"modificaRecensione\" type=\"submit\" class=\"fa-solid fa-pen-to-square fa-xl\"></button>
@@ -219,7 +188,7 @@ if($checkConnection){
                     $paginaHTML=str_replace("[miaRecensione]"," <section class=\"recensione\">
                     <h4>La tua Recensione:</h4>
                     <p>".$tempTest."
-                    <br>Voto: ".$tempVoto."
+                    <br>Voto: ".$tempVoto." su 5
                     </p>
                     <form method=\"post\">
                     <button aria-label=\"Pulsante per Modificare Recensione\" name=\"modificaRecensione\" type=\"submit\" class=\"fa-solid fa-pen-to-square fa-xl\"></button>
@@ -227,12 +196,7 @@ if($checkConnection){
                     </form>
                     </section>",$paginaHTML);
                 }
-                
-                
-                
-
             }
-            
         }
         else
         {
@@ -248,19 +212,18 @@ if($checkConnection){
                     $paginaHTML=str_replace("[miaRecensione]"," <section class=\"recensione\">
                     <h4>La tua Recensione:</h4>
                     <p>".$queryRecensioneUtente->get_result()[0]['testo']."
-                    <br>Voto: ".$queryRecensioneUtente->get_result()[0]['voto']."
+                    <br>Voto: ".$queryRecensioneUtente->get_result()[0]['voto']." su 5 </p>
                     <form method=\"post\">
                         <button aria-label=\"Pulsante per Modificare Recensione\" name=\"modificaRecensione\" type=\"submit\" class=\"fa-solid fa-pen-to-square fa-xl\"></button>
                         <button aria-label=\"Pulsante per Cancellare la Recensione\" name=\"cancellaRecensione\" type=\"submit\" class=\"fa-solid fa-trash fa-xl\"></button>
                     </form>
-                    </p>
+                    
                     </section>",$paginaHTML);
                 }
                 else
                 {
                     $_SESSION["error"] = "Impossibile connettersi al sistema";
                 }
-
             }
             else
             {
@@ -269,32 +232,24 @@ if($checkConnection){
         }
 
     }
-    
 
     $queryRecensioni=$connessione->get_recensioni($id);
-
-
     $Recensioni="";
     $votoMedio=0;
     if($queryRecensioni->ok()){
-        
-        
         foreach($queryRecensioni->get_result() as $recensione){
             if(!isset($_SESSION["Username"])||$recensione['utente']!=$_SESSION["Username"])
             {
                 $Recensioni.="<section class=\"recensione\">
                 <h4>".$recensione['utente']."</h4>
                 <p>".$recensione['testo']."
-                <br>Voto: ".$recensione['voto']."</p>
+                <br>Voto: ".$recensione['voto']." su 5</p>
                 </section>";
-                
             }
             $votoMedio+=$recensione['voto'];
         }
         $votoMedio=round($votoMedio/$queryRecensioni->get_element_count(),1,PHP_ROUND_HALF_UP);
-        
     }
-
     $connessione->closeConnection();
 }
 else
@@ -314,13 +269,13 @@ $paginaHTML = str_replace("[sottotitolo]", $sottotitolo, $paginaHTML);
 $paginaHTML = str_replace("[recensioni]",$Recensioni,$paginaHTML);
 $paginaHTML =str_replace("[file_gpx]",$filegpx,$paginaHTML);
 $paginaHTML =str_replace("[immagini]",$Immagini,$paginaHTML);
-$paginaHTML =str_replace("[prima_opzione]",$prima_opzione,$paginaHTML);
-$paginaHTML =str_replace("[seconda_opzione]",$seconda_opzione,$paginaHTML);
+//$paginaHTML =str_replace("[prima_opzione]",$prima_opzione,$paginaHTML);
+//$paginaHTML =str_replace("[seconda_opzione]",$seconda_opzione,$paginaHTML);
+$paginaHTML =str_replace("[prima_opzione]",$tasti_navbar[0],$paginaHTML);
+$paginaHTML =str_replace("[seconda_opzione]",$tasti_navbar[1],$paginaHTML);
 $paginaHTML =str_replace("[peso]",$peso,$paginaHTML);
 $paginaHTML =str_replace("[media_voti]",$votoMedio,$paginaHTML);
 $paginaHTML = str_replace("[mappa]", $mappa_embed, $paginaHTML);
-
-
 
 if (isset($_SESSION["error"])) {
     $paginaHTML = str_replace("[alert]", grafica::createAlert("error", $_SESSION["error"]), $paginaHTML);

@@ -1,5 +1,6 @@
 <?php
 require_once("DB/database.php");
+require_once "generate_navbar.php";
 use DB\Functions;
 session_start();
 
@@ -7,27 +8,7 @@ $paginaHTML = file_get_contents("index.html");
 
 $connessione = new Functions();
 $checkConnection = $connessione->openConnection();
-
-if(isset($_SESSION['Username'])){
-    if($_SESSION['isAdmin']==1)
-        $prima_opzione="<a aria-label=\"Vai alla pagina del pannello Amministrazione\" href=\"pannelloAmministrazione.php\">Pannello Amministrazione</a>";
-    else
-        $prima_opzione="<a aria-label=\"Vai alla tua pagina personale\" href=\"profilo.php\">Profilo</a>";
-    $seconda_opzione = "
-    <section class=\"logout\">
-        <a href=\"logout.php\" class=\"logout-button\">
-            Logout <img src=\"./assets/right-to-bracket-solid.svg\" alt=\"Icona logout\" class=\"icon-logout\">
-        </a>
-    </section>";
-}else{
-    $prima_opzione="<a href=\"registrati.php\">Registrati</a>";
-    $seconda_opzione = "
-    <section class=\"accedi\">
-        <a href=\"accedi.php\" class=\"accedi-button\">
-            Accedi <img src=\"./assets/right-from-bracket-solid.svg\" alt=\"Icona accedi\" class=\"icon-accedi\">
-        </a>
-    </section>";
-}
+$tasti_navbar = generateNavbar($_SESSION);
 
 
 $PercorsiTop = "";
@@ -59,7 +40,7 @@ if($checkConnection){
 
 
 $paginaHTML = str_replace("[percorsi_top]", $PercorsiTop, $paginaHTML);
-$paginaHTML =str_replace("[prima_opzione]",$prima_opzione,$paginaHTML);
-$paginaHTML =str_replace("[seconda_opzione]",$seconda_opzione,$paginaHTML);
+$paginaHTML =str_replace("[prima_opzione]",$tasti_navbar[0],$paginaHTML);
+$paginaHTML =str_replace("[seconda_opzione]",$tasti_navbar[1],$paginaHTML);
 
 echo $paginaHTML;
