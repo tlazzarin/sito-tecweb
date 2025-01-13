@@ -37,7 +37,7 @@
 
             <ul class="nav-menu">
                 <li class="nav-item" aria-current="page">
-                    <a href="#" class="nav-link">Home</a>
+                    <a href="index.php" class="nav-link">Home</a>
                 </li>
                 <li class="nav-item">
                     <a href="percorsi.php" class="nav-link">Percorsi</a>
@@ -65,11 +65,11 @@
         <!-- Dialogo di registrazione -->
         [alert]
         <div id="formcontent">
-            <h2>Registrati:</h2>
+            <h2>Registrati</h2>
             <form class="formInput" id="form" action="controlloRegistrazione.php" method="post">
                 <fieldset>
                 <label for="username">Username</label>
-                <input type="text" aria-label="Inesrisci il tuo Username" id="username" name="username" class="styleInput" required/>
+                <input type="text" aria-label="Inesrisci il tuo Username" id="username" name="username" class="styleInput" minlength="2" maxlength="30" required/>
                 <p id="aiutoUsername" ></p>
 
                 <label for="password">Password</label>

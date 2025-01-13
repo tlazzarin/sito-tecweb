@@ -197,7 +197,7 @@ INSERT INTO `RECENSIONE` (`utente`, `percorso`, `voto`, `testo`, `ultima_modific
 ('user', 7, 5, 'Non so esattamente cosa sia successo sul Monte Seceda, ma so che non sono tornato la stessa persona. Sarà stato il panorama mozzafiato, con quelle vette che sembrano dipinte a mano, o il silenzio quasi mistico che ti avvolge a 2.500 metri, ma qualcosa dentro di me è cambiato.', '2024-09-03 16:02:37'),
 ('user', 8, 4, 'Bello ma in malga mi hanno fatto pagare la polenta 25 euro.', '2024-12-12 16:24:05'),
 ('user2', 1, 3, 'Percorso carino, peccato per la spazzatura lasciata in giro da alcuni incivili. Non penso ci tornerò.', '2024-12-17 14:35:10'),
-('user2', 3, 5, 'Questo percorso mi ha cambiato la vita 🏞', '2024-12-09 10:24:12'),
+('user2', 3, 5, 'Questo percorso mi ha cambiato la vita', '2024-12-09 10:24:12'),
 ('user2', 4, 5, 'Un parco veramente bello dove puoi trovarti con cervi con un mindset importante.\r\nNon pensavo esistessero luoghi di tale bellezza, ma come al solito la metropoli de La Villa non delude mai.\r\nConsigliatissimo.', '2024-12-05 15:51:16'),
 ('user2', 6, 3, 'Meh, mediocre.', '2024-12-17 15:02:29');
 
