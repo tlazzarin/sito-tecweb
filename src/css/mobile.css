@@ -183,5 +183,15 @@
         margin: 0.5rem 0;
     }
 
+    footer {
+        flex-direction: column;
+        padding-top: 2%;
+        padding-bottom: 2%;
+    }
     
+    footer a{
+        margin: auto;
+        margin-bottom: 3%
+    }
+
 }

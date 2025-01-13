@@ -638,10 +638,15 @@ footer {
     flex-direction: row-reverse;
 } 
 
-.linkTornasu
+footer a
 {
     margin-top: 0.5%;
     margin-bottom: 0.5%;
     margin-right: 3em;
 }
     
+footer p{
+    text-align: center;
+    margin: auto;
+    color: white;
+}
