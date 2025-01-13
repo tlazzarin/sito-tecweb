@@ -133,7 +133,7 @@ INSERT INTO `IMMAGINI` (`id_immagine`, `alt`) VALUES
 ('8_geislerarm/1.jpg', 'La Malga Geisleralm con dietro il massiccio delle Odle'),
 ('8_geislerarm/2.jpg', 'La Malga Geisleralm con davanti la statua di un''aquila in legno'),
 ('8_geislerarm/3.jpg', 'Il prato con pochi pini, sullo sfondo il massiccio delle Odle'),
-('8_geislerarm/8.jpg', 'La Chiesetta di San Giovanni circondata da prato e da bosco, dietro le Odle');
+('8_geislerarm/4.jpg', 'La Chiesetta di San Giovanni circondata da prato e da bosco, dietro le Odle');
 
 -- --------------------------------------------------------
 
