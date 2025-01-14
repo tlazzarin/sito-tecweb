@@ -5,6 +5,27 @@
     box-sizing: border-box;
 }
 
+h2{
+    font-size: 2.1em;
+}
+
+h3{
+    font-size: 1.6em;
+}
+
+h4{
+    font-size: 1.5em;
+}
+
+h5{
+    font-size: 1.4em;
+}
+
+p{
+    font-size: 1.2em;
+}
+
+
 body {
     font-family: "Varela Round", sans-serif;
     font-weight: 400;
@@ -14,22 +35,18 @@ body {
     min-height: 100vh; 
     margin-left: auto;
     margin-right: auto;
-    max-width: 1800px;
+    max-width: 90%;
 }
 
 a {
     color: var(--unvisitedlinkcolor);
-  }
+    font-weight:700
+}
   
-  /* Colore del link visitato */
-  a:visited {
-    color: var(--visitedlinkcolor)
-  }
-
-
-
-
-
+/* Colore del link visitato */
+a:visited {
+  color: var(--visitedlinkcolor)
+}
 
 
 
@@ -45,12 +62,6 @@ a {
     --percorsibgcolor: #E6E6E6;
     --sfondocard: #E6E6E6;
 }
-
-
-
-
-
-
 
 
 
@@ -160,7 +171,6 @@ nav#menu .accedi-button .icon-accedi, nav#menu .logout-button .icon-logout {
     display: flex;
     flex-direction: column;
     padding: 2rem;
-    max-width: 1700px;
 }
 
 #main-homepage h2 {
@@ -184,18 +194,6 @@ nav#menu .accedi-button .icon-accedi, nav#menu .logout-button .icon-logout {
     width: 100%;
     justify-content: center; 
 }
-
-.percorsi-top-container .carta {
-    background-color: var(--percorsibgcolor);
-    border-radius: 8px;
-    overflow: hidden;
-    width: 100%; 
-}
-
-
-
-
-
 
 
 
@@ -292,15 +290,18 @@ nav#menu .accedi-button .icon-accedi, nav#menu .logout-button .icon-logout {
 
 /* Alert */
 .alert-error {
-    color: black;   
+    text-align: center;
+    color: var(--headerbgcolor); 
 }
 
 .alert-info { /* Messaggio "Errore in username o password" */
-    color: black;
+    text-align: center;
+    color: var(--headerbgcolor); 
 }
 
 .alert-success {
-    color: black;
+    text-align: center;
+    color: var(--textcolor); 
 }
 
 
@@ -311,7 +312,6 @@ nav#menu .accedi-button .icon-accedi, nav#menu .logout-button .icon-logout {
     grid-template-columns: 1fr 2fr;  
     gap: 1rem;
     padding: 2rem;
-    max-width: 1700px;
     margin: 0 auto;
 }
 
@@ -502,12 +502,10 @@ summary {
     flex-direction: column;
     padding: 1em;
     background-color: var(--percorsibgcolor);
-    width: 85%;
-    flex: 1;
+    width: 100%;
     align-self: center;
     border-radius: 0.5rem;
     margin-bottom: 2em;
-    margin-left: 7%;
 }
 
 .recensione {
@@ -535,10 +533,13 @@ summary {
     gap: 1.5rem; 
     margin-top: 2em;
     width: 100%;
-    max-width: 1700px; 
     box-sizing: border-box;
     padding: 0 2rem; 
     margin-bottom: 2em;
+}
+
+.contenitore-carte h2{
+    grid-column: 1 / -1;
 }
 
 .link-percorso {
@@ -547,7 +548,8 @@ summary {
 }
 
 .carta {
-    background-color: var(--percorsibgcolor);
+    background-color: var(--defaultbgcolor);
+    box-shadow: 0 5px 8px 0 rgba(0,0,0,0.2),0 3px 10px 0 rgba(0,0,0,0.19);
     border-radius: 8px;
     overflow: hidden;
     width: 100%;
