@@ -1,7 +1,7 @@
 let restrizioni = {
   username: [
     "Username",
-    /^[A-Za-z\s]\w{2,30}$/,
+    /^[A-Za-z\s]\w{1,30}$/,
     "Inserire un username di lunghezza tra i 2 e 30 caratteri\n",
   ],
   password: [
@@ -49,6 +49,7 @@ function validazioneCampo(input) {
     input.value.search(restrizioni[input.id][1]) != 0 ||
     input.value == restrizioni[input.id][0]
   ) {
+    console.log(input.id);
     return false;
   }
 
@@ -81,7 +82,7 @@ function mostraErrore(input) {
       messaggio.className = "suggestionMessage";
   }
   
-  messaggio.id = "error" + restrizioni[input.id];
+  messaggio.id = "error" + restrizioni[input.id][0];
   messaggio.appendChild(document.createTextNode(restrizioni[input.id][2]));
   parent.appendChild(messaggio);
 }

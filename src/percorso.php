@@ -48,7 +48,7 @@ if($checkConnection){
         $filegpx="./assets/gpx/".strtolower($percorso[0]['file_gpx']);
         $peso=round(filesize($filegpx)*pow(10,-6),2,PHP_ROUND_HALF_UP);
         $mappa_embed=$percorso[0]['map_embed'];
-        $descrizione.="<br>".$caratteristiche_array['dislivello_salita']." ".$percorso[0]['dislivello_salita']."m   ".$caratteristiche_array['dislivello_discesa']." ".$percorso[0]['dislivello_discesa']."m  ".$caratteristiche_array['lunghezza']." ".$percorso[0]['lunghezza']."km  ";
+        $descrizione.="<br>".$caratteristiche_array['dislivello_salita']." ".$percorso[0]['dislivello_salita']."<abbr title=\"metri\">m</abbr>   ".$caratteristiche_array['dislivello_discesa']." ".$percorso[0]['dislivello_discesa']."<abbr title=\"metri\">m</abbr>  ".$caratteristiche_array['lunghezza']." ".$percorso[0]['lunghezza']."<abbr title=\"chilometri\">km</abbr>  ";
     }
     $queryCaratteristiche=$connessione->get_caratteristiche($id);
     $Caratteristiche="<p>Accesibile a: ";

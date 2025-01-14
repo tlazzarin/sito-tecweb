@@ -21,12 +21,13 @@ if($checkConnection){
         
         foreach($queryPercorsiTop->get_result() as $percorso){
             
-            $PercorsiTop .= "<a href=\"percorso.php?id=" . $percorso['id'] . "\">
+            $PercorsiTop .= "
                 <section class=\"carta\">
-                    <img src=\"./assets/img/percorsi/".$percorso['id_immagine']."\" alt=\"".$percorso['alt']."\">
-                    <h3 class=\"link-percorso\">".$percorso['titolo']."</h3>                
-                </section>
-            </a>";
+                    <a href=\"percorso.php?id=" . $percorso['id'] . "\">
+                        <img src=\"./assets/img/percorsi/".$percorso['id_immagine']."\" alt=\"".$percorso['alt']."\">
+                        <h3 class=\"link-percorso\">".$percorso['titolo']."</h3> 
+                    </a>               
+                </section>";
         }
         
         $PercorsiTop .= "</div>";  

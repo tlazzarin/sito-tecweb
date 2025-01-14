@@ -18,7 +18,7 @@ $checkConnection=$connessione->openConnection();
 
 if($checkConnection){
     
-    $usernameCheck = (isset($username) && preg_match('/^[A-Za-z\s]\w{2,30}$/', $username));
+    $usernameCheck = (isset($username) && preg_match('/^[A-Za-z\s]\w{1,30}$/', $username));
     $passwordCheck = (isset($password) && preg_match('/^[^\s]{4,}$/', $password));
 
     
