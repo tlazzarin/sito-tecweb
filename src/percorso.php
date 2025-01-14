@@ -105,7 +105,7 @@ if($checkConnection){
         if($queryRecensioneUtente->ok()&&!isset($_POST["modificaRecensione"]))
         {
             $paginaHTML=str_replace("[miaRecensione]"," <section class=\"recensione\">
-                    <h4>".$queryRecensioneUtente->get_result()[0]['utente']."</h4>
+                    <h5>La tua Recensione:</h5>
                     <p>".$queryRecensioneUtente->get_result()[0]['testo']."
                     <br>Voto: ".$queryRecensioneUtente->get_result()[0]['voto']." su 5
                     </p>
@@ -120,7 +120,7 @@ if($checkConnection){
             if(!isset($_POST["modificaRecensione"]))
             {
                 $paginaHTML=str_replace("[miaRecensione]"," <section class=\"recensione\">
-                <h4>La tua Recensione:</h4>
+                <h5>La tua Recensione:</h5>
                 <form  method=\"post\">
                     <p>Testo della recensione:</p>
                     <textarea name=\"testoRecensione\" class=\"inputRecensione\" type=\"text\"></textarea>
@@ -164,7 +164,7 @@ if($checkConnection){
                     }
                         
                     $paginaHTML=str_replace("[miaRecensione]"," <section class=\"recensione\">
-                    <h4>La tua Recensione:</h4>
+                    <h5>La tua Recensione:</h5>
                     <form method=\"post\">
                         <p>Testo della recensione:</p>
                         <textarea name=\"testoRecensione\" class=\"inputRecensione\" type=\"text\">".$tempTest."</textarea>
@@ -186,7 +186,7 @@ if($checkConnection){
                 {
                     $_SESSION["error"] = "Impossibile connettersi al sistema per modificare la tua recensione";
                     $paginaHTML=str_replace("[miaRecensione]"," <section class=\"recensione\">
-                    <h4>La tua Recensione:</h4>
+                    <h5>La tua Recensione:</h5>
                     <p>".$tempTest."
                     <br>Voto: ".$tempVoto." su 5
                     </p>
@@ -210,7 +210,7 @@ if($checkConnection){
                 if($queryRecensioneUtente->ok())
                 {
                     $paginaHTML=str_replace("[miaRecensione]"," <section class=\"recensione\">
-                    <h4>La tua Recensione:</h4>
+                    <h5>La tua Recensione:</h5>
                     <p>".$queryRecensioneUtente->get_result()[0]['testo']."
                     <br>Voto: ".$queryRecensioneUtente->get_result()[0]['voto']." su 5 </p>
                     <form method=\"post\">
@@ -241,7 +241,7 @@ if($checkConnection){
             if(!isset($_SESSION["Username"])||$recensione['utente']!=$_SESSION["Username"])
             {
                 $Recensioni.="<section class=\"recensione\">
-                <h4>".$recensione['utente']."</h4>
+                <h5>".$recensione['utente']."</h5>
                 <p>".$recensione['testo']."
                 <br>Voto: ".$recensione['voto']." su 5</p>
                 </section>";
