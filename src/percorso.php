@@ -11,15 +11,15 @@ require_once "generate_navbar.php";
 $paginaHTML=grafica::getPage("percorso.html");
 
 $caratteristiche_array=array(
-    "bambini"=>"<abbr title=\"Adatto ai bambini\">Bambini</abbr>",
-    "escursionisti"=>"<abbr title=\"Adatto solo ad utenti esperti\">Escursionisti</abbr>",
-    "ipovedente_cieco"=>"<abbr title=\"Adatto alle persone ipovedenti / cieche\">Persone cieche</abbr>",
-    "mobilita_ridotta"=>"<abbr title=\"Adatto alle persone con mobilità ridotta\">Persone con bastone</abbr>",
-    "passeggini"=>"<abbr title=\"Adatto ai passeggini\">Passeggini</abbr>",
-    "sedia_a_rotelle"=>"<abbr title=\"Adatto alle sedie a rotelle\">Sedie a rotelle</abbr>",
-    "dislivello_salita"=>"<abbr title=\"Dislivello in salita\">Freccia in su</abbr>",
-    "dislivello_discesa"=>"<abbr title=\"Dislivello in discesa\">Freccia in giù </abbr>",
-    "lunghezza"=>"<abbr title=\"Lunghezza del percorso\">Percorso</abbr>"
+    "bambini"=>"<abbr title=\"Adatto ai bambini\" class=\"abbr-icon\">Bambini</abbr>",
+    "escursionisti"=>"<abbr title=\"Adatto solo ad utenti esperti\" class=\"abbr-icon\">Escursionisti</abbr>",
+    "ipovedente_cieco"=>"<abbr title=\"Adatto alle persone ipovedenti / cieche\" class=\"abbr-icon\">Persone cieche</abbr>",
+    "mobilita_ridotta"=>"<abbr title=\"Adatto alle persone con mobilità ridotta\" class=\"abbr-icon\">Persone con bastone</abbr>",
+    "passeggini"=>"<abbr title=\"Adatto ai passeggini\" class=\"abbr-icon\">Passeggini</abbr>",
+    "sedia_a_rotelle"=>"<abbr title=\"Adatto alle sedie a rotelle\" class=\"abbr-icon\">Sedie a rotelle</abbr>",
+    "dislivello_salita"=>"<abbr title=\"Dislivello in salita\" class=\"abbr-icon\">Freccia in su</abbr>",
+    "dislivello_discesa"=>"<abbr title=\"Dislivello in discesa\" class=\"abbr-icon\">Freccia in giù </abbr>",
+    "lunghezza"=>"<abbr title=\"Lunghezza del percorso\" class=\"abbr-icon\">Percorso</abbr>"
 ); 
 
 
@@ -46,20 +46,18 @@ if($checkConnection){
         $tagdescrizione=$percorso[0]['tag_description'];
         $tagtitolo=$percorso[0]['tag_title'];
         $filegpx="./assets/gpx/".strtolower($percorso[0]['file_gpx']);
-        $peso=round(filesize($filegpx)*pow(10,-6),2,PHP_ROUND_HALF_UP);
+        $peso=round(filesize(filename: $filegpx)*pow(10,-6),2,PHP_ROUND_HALF_UP);
         $mappa_embed=$percorso[0]['map_embed'];
-        $descrizione.="<br>".$caratteristiche_array['dislivello_salita']." ".$percorso[0]['dislivello_salita']."<abbr title=\"metri\">m</abbr>   ".$caratteristiche_array['dislivello_discesa']." ".$percorso[0]['dislivello_discesa']."<abbr title=\"metri\">m</abbr>  ".$caratteristiche_array['lunghezza']." ".$percorso[0]['lunghezza']."<abbr title=\"chilometri\">km</abbr>  ";
+        $statistiche=$caratteristiche_array['dislivello_salita']." ".$percorso[0]['dislivello_salita']."<abbr title=\"metri\">m</abbr>   ".$caratteristiche_array['dislivello_discesa']." ".$percorso[0]['dislivello_discesa']."<abbr title=\"metri\">m</abbr>  ".$caratteristiche_array['lunghezza']." ".$percorso[0]['lunghezza']."<abbr title=\"chilometri\">km</abbr>  ";
     }
     $queryCaratteristiche=$connessione->get_caratteristiche($id);
-    $Caratteristiche="<p>Accesibile a: ";
+    $Caratteristiche="Accessibile a: ";
     if($queryCaratteristiche->ok() && !$queryCaratteristiche->is_empty())
     {
         foreach($queryCaratteristiche->get_result() as $caratteristica)
         {
             $Caratteristiche.=$caratteristiche_array[$caratteristica['caratteristica']]." ";
         }
-        $Caratteristiche.="</p>";
-
     }
 
     $Immagini="";
@@ -166,10 +164,10 @@ if($checkConnection){
                     $paginaHTML=str_replace("[miaRecensione]"," <section class=\"recensione\">
                     <h5>La tua Recensione:</h5>
                     <form method=\"post\">
-                        <p>Testo della recensione:</p>
-                        <textarea name=\"testoRecensione\" class=\"inputRecensione\" type=\"text\">".$tempTest."</textarea>
+                        <label for=\"testoRecensione\">Testo della recensione:</label>
+                        <textarea id=\"testoRecensione\" name=\"testoRecensione\" class=\"inputRecensione\" type=\"text\">".$tempTest."</textarea>
                         <p>Inserire una valutazione da 1 a 5:</p>
-                        <select aria-label=\"Scelta Multipla per il voto della recensione\" class=\"\" id=\"voto\" name=\"voto\" value=\"".$tempVoto."\">
+                        <select aria-label=\"Scelta del voto della recensione da 1 a 5\" class=\"\" id=\"voto\" name=\"voto\" value=\"".$tempVoto."\">
                             <option value=\"5\">5</option>
                             <option value=\"4\">4</option>
                             <option value=\"3\">3</option>
@@ -263,6 +261,7 @@ $paginaHTML = str_replace("[tag_keyword]", $keyword, $paginaHTML);
 $paginaHTML = str_replace("[tag_descrizione]", $tagdescrizione, $paginaHTML);
 $paginaHTML = str_replace("[titolo]", $titolo, $paginaHTML);
 $paginaHTML = str_replace("[descrizione]", $descrizione, $paginaHTML);
+$paginaHTML = str_replace("[statistiche]", $statistiche, $paginaHTML);
 $paginaHTML = str_replace("[caratteristiche]", $Caratteristiche, $paginaHTML);
 $paginaHTML = str_replace("[indicazioni]", $indicazioni, $paginaHTML);
 $paginaHTML = str_replace("[sottotitolo]", $sottotitolo, $paginaHTML);
