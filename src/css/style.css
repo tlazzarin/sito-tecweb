@@ -1,8 +1,41 @@
+/*
+    .contenutiPrinciplaiIndice:not(:focus){
+    clip: rect(1px, 1px, 1px, 1px);
+    position: absolute;
+} 
+*/
+/*.indicazioni {
+    height: fit-content; 
+}*/
+
+/* bottone scarica mappa gpx */
+.indicazioni-wrapper {
+    /*grid-column: 2 / 3; 
+    display: flex;
+    flex-direction: column;
+    gap: 5em; */
+}
+
+/* COLORI GLOBALI */
+:root {
+    --maincolor: #C2471F;
+    --visitedlinkcolor: #DD723C;
+    --unvisitedlinkcolor: #004a66;
+    --unvisitedlinkcolorhover:#143e69;
+    --textcolor: #290E00;
+    --defaultbgcolor: #FFFFFF;
+    --sfondocard: #E6E6E6;
+}
+
 /* GENERALI */
 * {
     padding: 0;
     margin: 0; 
     box-sizing: border-box;
+}
+h1 {
+    font-size: 2.5em;
+    margin: 0;
 }
 
 h2{
@@ -15,20 +48,29 @@ h3{
 
 h4{
     font-size: 1.5em;
+    margin-bottom: 0.5em;
 }
 
 h5{
     font-size: 1.4em;
+    margin-bottom: 0.3em;
 }
 
 p{
     font-size: 1.2em;
 }
 
+a {
+    color: var(--unvisitedlinkcolor);
+    font-weight:700
+}
+a:visited {
+    color: var(--visitedlinkcolor)
+}
 
 body {
     font-family: "Varela Round", sans-serif;
-    font-weight: 400;
+    /*font-weight: 400;*/
     color: var(--textcolor);
     display: flex;
     flex-direction: column;
@@ -38,60 +80,67 @@ body {
     max-width: 1800px;
 }
 
-a {
-    color: var(--unvisitedlinkcolor);
-    font-weight:700
-}
-  
-/* Colore del link visitato */
-a:visited {
-  color: var(--visitedlinkcolor)
-}
-
-
-
-/* COLORI GLOBALI */
-:root {
-    --headerbgcolor: #C2471F;
-    --footerbgcolor: #C2471F;
-    --visitedlinkcolor: #DD723C;
-    --breadcrumbtextcolor: #C2471F;
-    --unvisitedlinkcolor: #004a66;
-    --textcolor: #290E00;
-    --defaultbgcolor: #FFFFFF;
-    --percorsibgcolor: #E6E6E6;
-    --sfondocard: #E6E6E6;
+/* BOTTONI */
+.button {
+    font-size: 100%;
+    padding: 1em;
+    border-radius: 1em;
+    background-color: var(--unvisitedlinkcolor);
+    color: var(--defaultbgcolor);
+    font-weight: bold;
+    text-align: center;
+    border: none;
+    /*cursor: pointer;*/
+    transition: background-color 0.3s ease;
+    flex-shrink: 0; 
 }
 
+.buttonRed {
+    font-size: 100%;
+    padding: 1em;
+    border-radius: 1em;
+    background-color: var(--maincolor);
+    color: var(--defaultbgcolor);
+    font-weight: bold;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    flex-shrink: 0; 
+}
 
+.button:hover {
+    background-color: var(--unvisitedlinkcolorhover);
+}
+
+.button a {
+    color: inherit;
+    text-decoration: none;
+}
 
 /* HEADER */
 header {
     display: flex; 
     align-items: center; 
-    background-color: var(--headerbgcolor);
-    color: white;
+    background-color: var(--maincolor);
+    color: var(--defaultbgcolor);
     padding: 1em 2em;
     border-bottom-left-radius: 20px; 
     border-bottom-right-radius: 20px;
 }
 
-header .logo { 
-    width: 60px;
+.logo { 
+    width: 3.5em;  /* 60px;*/
     height: auto; 
     margin-right: 1em;
 }
-
-header h1 {
-    font-size: 2.5em;
-    margin: 0;
+a.logo{
+    color: var(--defaultbgcolor);
 }
-
 .linkHome{
     z-index: 99;
 }
-
-.contenutiPrinciplaiIndice:not(:focus){
+.contenutiPrinciplaiIndice:not(:focus){ /* TODO rinominare: è il bottone "vai ai contenuti principalente" */
     clip: rect(1px, 1px, 1px, 1px);
     position: absolute;
 }
@@ -100,31 +149,26 @@ header h1 {
 #menu {
     margin-top: 0em;
     padding-bottom: 0em;
-    border-bottom: var(--headerbgcolor) 4px solid;  
+    border-bottom: var(--maincolor) 4px solid;  
 }
 
 #menu ul {
     display: flex;
     justify-content: space-between;
     list-style: none;
-    max-width: 1200px;
     margin: 0 auto;
     padding: 1em;
     align-items: center;
     max-width: 95%;
-    z-index: 99;
+    /*z-index: 99;*/
 }
 
 #menu a {
-    padding: 0.5em 3em;
-}
-
-a:visited {
-    color: var(--visitedlinkcolor);
+    /*padding: 0.5em 3em;*/
 }
 
 /* Bottone accedi/registrati */
-nav#menu .accedi-button, nav#menu .logout-button {
+nav#menu .action-button {
     display: inline-flex; 
     align-items: center; 
     justify-content: center;
@@ -134,76 +178,60 @@ nav#menu .accedi-button, nav#menu .logout-button {
     background-color: var(--unvisitedlinkcolor);
     border-radius: 20px;
     min-width: 14em; 
-    color: white;
+    color: var(--defaultbgcolor);
     text-decoration: none;
 }
 
-nav#menu .accedi-button .icon-accedi, nav#menu .logout-button .icon-logout {
+nav#menu .action-button .icon-accedi, nav#menu .action-button .icon-logout {
     margin-left: 0.5em;
     width: 1.4em;
     height: 1.4em;
 }
 
-
 .hamburger {
     display: none; 
 }
-
 
 /* BREADCRUMB */
 #breadcrumb {
     width: 95%;
     margin: 1em auto; 
     padding: 0.5em 1em; 
-    border: 3px solid var(--headerbgcolor); 
+    border: 3px solid var(--maincolor); 
     border-radius: 17px;  
     text-align: left;
 }
-
-
-
-
-
-
 
 /* HOMEPAGE */
 #main-homepage {
     display: flex;
     flex-direction: column;
-    padding: 2rem;
+    padding: 2em;
 }
-
 #main-homepage h2 {
-    margin-bottom: 0.5rem;
-    font-size: 2em;
+    margin-bottom: 0.5em;
 }
-
 #main-homepage p {
     line-height: 1.5; 
-    margin-bottom: 1.5rem;
-}
-
-#main-homepage strong {
-    font-weight: bold;
+    margin-bottom: 1.5em;
 }
 
 .percorsi-top-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr); 
-    gap: 2rem; 
+    gap: 2em; 
     width: 100%;
     justify-content: center; 
 }
 
 
-
-/* REGISTRATI E ACCEDI */
+/* FORM */
 #formcontent {
     text-align: left;
-    padding: 2rem;
+    padding: 2em;
     border-radius: 15px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-    border: 1px solid #cccccc;
+    border: 1px solid var(--sfondocard);
     width: 92%;
     margin: 3em auto;
     box-sizing: border-box;
@@ -212,7 +240,7 @@ nav#menu .accedi-button .icon-accedi, nav#menu .logout-button .icon-logout {
 }
 
 #formcontent:hover {
-    box-shadow: 0px 2px 15px var(--headerbgcolor);
+    box-shadow: 0px 2px 15px var(--maincolor);
 }
 
 #formcontent fieldset {
@@ -221,105 +249,150 @@ nav#menu .accedi-button .icon-accedi, nav#menu .logout-button .icon-logout {
     margin: 0;
 }
 
-/* Input stili */
-#formcontent .styleInput {
-    width: 100%;
-    padding: 0.8rem;
-    margin-bottom: 1rem;
-    border: 1px solid #cccccc;
-    border-radius: 20px;
-    box-sizing: border-box;
-    font-size: 1rem;
-}
-
 #formcontent .styleInput:focus {
-    border-color: #ff6a38;
+    border-color: var(--maincolor);
     outline: none;
 }
 
-/* Bottone Registrati */
-#formcontent .button {
-    background:#DD723C;
-    color: #ffffff;
-    border: none;
-    border-radius: 33px;
-    font-size: 20px;
-    padding: 0.6rem 5rem; 
-    width: auto; 
+#formcontent .button:hover {
+    background: var(--maincolor);
+}
+/* Input */
+#formcontent .styleInput {
+    width: 100%;
+    padding: 0.8em;
+    margin-bottom: 1em;
+    border: 1px solid #cccccc;
+    border-radius: 20px;
+    box-sizing: border-box;
+    font-size: 1em;
+}
+
+/* FORM */
+#formcontent h2 {
+    text-align: center;
+    margin: 0.1em 0 1em;
+}
+
+#formcontent label {
     display: block;
-    margin: 1em auto 0; 
-    transition: transform 0.3s ease;
+    margin-bottom: 0.5em;
+    font-weight: bold;
+    color: var(--textcolor);
+}
+
+.formInput *:not(.ultimoInput):not(option) {
+    margin-bottom: 1em;
+}
+
+.formInput input[type=submit] {
+    display: block;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    margin: auto;
+    margin-bottom: 1em; 
+}
+
+label:after {
+    content: ": ";
+}
+
+.errorSuggestion {
+    color: var(--textcolor);
+    font-size: 1em;
+    display: block;
+     margin-top: -1em; 
+}
+
+.valutazione {
     margin-top: 1em;
 }
 
-#formcontent .button:hover {
-    background: #a83d1a;
+select{
+    margin-bottom: 1em;
+    min-width: 4em;
+    text-align: center;
+    border-radius: 5px;
 }
 
-/* Errori */
+.inputRecensione {
+    height: 6em;
+    width: 100%;
+    padding: 0.5em;
+    border-radius: 5px;
+    border:1px solid;
+    font-size: 1.2em;
+    resize: none;
+    margin-bottom: 1em;
+    font-family: inherit;
+}
+
+/* Errori del form */
+.alert-error {
+    text-align: center;
+    color: var(--maincolor); 
+}
+.alert-info { 
+    text-align: center;
+    color: var(--maincolor); 
+    font-size: 0.8em;
+}
+.alert-success {
+    text-align: center;
+    color: var(--textcolor); 
+}
+.contenitore-alert{
+    padding-bottom: 1em;
+    width: 100%;
+}
+.alert{
+    width: 25em;
+    text-align: center;
+    color: var(--textcolor);
+    padding: 0.3em;
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: bold;
+}
+
+/* Errori dei campi in input*/
 #formcontent .suggestionMessage {
     display: block;
     color: var(--unvisitedlinkcolor);
-    font-size: 0.8rem;
+    font-size: 0.8em;
     margin-bottom: 2em;
 }
 
 #formcontent .errorMessage {
     display: block;
-    color: var(--headerbgcolor);
-    font-size: 0.8rem;
+    color: var(--maincolor);
+    font-size: 0.8em;
     margin-bottom: 2em;
 }
 
-/* Etichette */
-/* Username, Password */
-#formcontent label {
-    display: block;
-    margin-bottom: 0.5rem;
-    font-weight: bold;
-    color: black;
-}
-
-/* Titolo */
-#formcontent h2 {
-    text-align: center;
-    color: black;
-    margin-bottom: 1rem; 
-    margin-top: 0.1em;  
-}
-
-/* Alert */
-.alert-error {
-    text-align: center;
-    color: var(--headerbgcolor); 
-}
-
-.alert-info { /* Messaggio "Errore in username o password" */
-    text-align: center;
-    color: var(--headerbgcolor); 
-}
-
-.alert-success {
-    text-align: center;
-    color: var(--textcolor); 
+/* Bottoni conferma form*/
+#formcontent .button {
+    background:var(--visitedlinkcolor);
+    font-size: 1.2em;
+    padding: 0.6rem 5em; 
+    margin: 1em auto 1em;
+    transition: transform 0.3s ease;
 }
 
 
 /* PAGINA PERCORSO */
-/* impostazioni grid */
 #main-percorso {
     display: grid;
     grid-template-columns: 1fr 2fr;  
-    gap: 1rem;
-    padding: 2rem;
+    gap: 1em;
+    padding: 2em;
     margin: 0 auto;
 }
-
 
 /* carosello */
 .carosello {
     position: relative;
-    max-width: 40rem;    
+    max-width: 40em;    
     overflow: hidden;
     border-radius: 20px;
 }
@@ -337,10 +410,10 @@ img.slideVisibile{
     position:absolute;
     top: 50%;
     transform:translateY(-50%) ;
-    padding: 1rem;
-    font-size: 2rem;
+    padding: 1em;
+    font-size: 2em;
     background-color: rgba(0, 0, 0, 0.60);
-    color: white;
+    color: var(--defaultbgcolor);
     border: none;
     cursor: pointer;
     
@@ -352,8 +425,6 @@ img.slideVisibile{
     right: 0;
 }
 
-
-/* titolo e sottotitolo */
 .nomePercorso {
     grid-column: 1 / -1;
     text-align: left;
@@ -363,13 +434,12 @@ img.slideVisibile{
 .descrizionePercorso {
     grid-column: 1 / -1;
     text-align: left;
-    margin-bottom: 1rem; 
+    margin-bottom: 1em; 
 }
-
 
 /* mappa gpx */
 #mappa {
-    background-color: #808080;
+    background-color: var(--sfondocard);
     border-radius: 20px;
     overflow: hidden;
 }
@@ -380,120 +450,86 @@ img.slideVisibile{
     height: 100%;
 }
 
-
-/* descrizione e indicazioni */
 .descrizione, .indicazioni {
-    padding: 1.5rem;
-    border-radius: 1.5rem;
+    padding: 1.5em;
+    border-radius: 20px;
     background-color: var(--sfondocard); 
     text-align: left;  
 }
 
-.descrizione h4, .indicazioni h4 {
-    font-weight: 900;  
-    text-align: left;
-    margin-bottom: 0.5rem;
+/* gestione icone in descrizione */
+.abbr-icon {
+    height: 1.8em;
+    margin: 0 0.2em 0 0.5em;
 }
 
-.indicazioni {
-    height: fit-content; 
-}
-
-
-/* bottone scarica mappa gpx */
-.indicazioni-wrapper {
-    grid-column: 2 / 3; 
+.icon-list {
     display: flex;
-    flex-direction: column;
-    gap: 5rem; 
+    flex-wrap: wrap;
+    align-items: center;
+    margin: 1em 1em;
 }
 
-
-.indicazioni {
-    background-color: var(--sfondocard);
-    padding: 1.5rem;
-    border-radius: 1.5rem;
-    text-align: left;
+abbr[title="Adatto ai bambini"] {
+    content: url('../assets/children-solid.svg');
 }
 
+abbr[title="Adatto solo ad utenti esperti"] {
+    content: url('../assets/person-hiking-solid.svg');
+}
+
+abbr[title="Adatto alle persone ipovedenti / cieche"] {
+    content: url('../assets/person-walking-with-cane-solid.svg');
+}
+
+abbr[title="Adatto alle persone con mobilità ridotta"] {
+    content: url('../assets/person-cane-solid.svg');
+}
+
+abbr[title="Adatto ai passeggini"] {
+    content: url('../assets/baby-carriage-solid.svg');
+}
+
+abbr[title="Adatto alle sedie a rotelle"] {
+    content: url('../assets/wheelchair-move-solid.svg');
+}
+
+abbr[title="Dislivello in salita"] {
+    content: url('../assets/arrow-trend-up-solid.svg');
+}
+
+abbr[title="Dislivello in discesa"] {
+    content: url('../assets/arrow-trend-down-solid.svg');
+}
+
+abbr[title="Lunghezza del percorso"] {
+    content: url('../assets/route-solid.svg');
+}
 
 .gpx-section {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 2rem;
-    margin-top: 2rem;
+    padding-top: 1em;
 }
 
-
-.button {
-    font-size: 100%;
-    padding: 1rem;
-    border-radius: 1rem;
-    background-color: var(--unvisitedlinkcolor);
-    color: white;
-    font-weight: bold;
-    text-align: center;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    flex-shrink: 0; 
-}
-
-.buttonRed {
-    font-size: 100%;
-    padding: 1rem;
-    border-radius: 1rem;
-    background-color: var(--breadcrumbtextcolor);
-    color: white;
-    font-weight: bold;
-    text-align: center;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    flex-shrink: 0; 
-}
-
-.button:hover {
-    background-color: #143e69;
-}
-
-.button a {
-    color: inherit;
-    text-decoration: none;
-}
-
-/* Dettagli */
 details {
-    grid-column: 1 / -1;  
-    margin-top: 1rem;
+    margin-top: 1.5em;
 }
-
 
 details p {
-    
     background-color: var(--unvisitedlinkcolor);
-    color: white;
-    padding: 0.5rem;
-    border-radius: 0.5rem;
-    margin-top: 1rem;
+    color: var(--defaultbgcolor);
+    padding: 0.5em;
+    border-radius: 0.5em;
+    margin: 0.2em;
     text-align: left;
 }
-
-
 
 summary {
     color: var(--unvisitedlinkcolor);
     font-weight: bold;
     cursor: pointer;
     text-decoration: underline;
-    
-    padding-bottom: 0.5rem;
+    padding-bottom: 0.5em;
 }
-
-
-
-
 
 /* recensioni */
 .recensioni {
@@ -501,10 +537,10 @@ summary {
     display: flex;
     flex-direction: column;
     padding: 1em;
-    background-color: var(--percorsibgcolor);
+    background-color: var(--sfondocard);
     width: 100%;
     align-self: center;
-    border-radius: 0.5rem;
+    border-radius: 0.5em;
     margin-bottom: 2em;
 }
 
@@ -513,11 +549,11 @@ summary {
     background-color: var(--defaultbgcolor);
     margin-top: 2em;
     margin-bottom: 2em;
-    border-radius: 0.5rem;
+    border-radius: 0.5em;
 }
 
 .fa-trash, .fa-x{
-    color: var(--headerbgcolor);
+    color: var(--maincolor);
     border: none;
 }
 
@@ -526,15 +562,15 @@ summary {
     border: none;
 }
 
-
+/* PERCORSI */
 .contenitore-carte {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
-    gap: 1.5rem; 
+    gap: 1.5em; 
     margin-top: 2em;
     width: 100%;
     box-sizing: border-box;
-    padding: 0 2rem; 
+    padding: 0 2em; 
     margin-bottom: 2em;
 }
 
@@ -543,98 +579,25 @@ summary {
 }
 
 .link-percorso {
-    padding: 16px;
-    min-height: 70px;
+    padding: 0.7em;
+    margin-bottom:1.15em;
 }
 
 .carta {
     background-color: var(--defaultbgcolor);
-    box-shadow: 0 5px 8px 0 rgba(0,0,0,0.2),0 3px 10px 0 rgba(0,0,0,0.19);
-    border-radius: 8px;
+    box-shadow: 0 5px 10px 0 rgba(0,0,0,0.2),0 3px 10px 0 rgba(0,0,0,0.19);
+    border-radius: 10px;
     overflow: hidden;
-    width: 100%;
 }
 
 .carta img {
     width: 100%;
-    height: auto;
 }
 
-
-.formInput *:not(.ultimoInput):not(option) {
-    margin-bottom: 1em;
-}
-
-.formInput input[type=submit] {
-    display: block;
-    padding-left: 0.5em;
-    padding-right: 0.5em;
-    margin: auto;
-    margin-bottom: 1em;
-    
-    
-}
-
-label:after {
-    content: ": ";
-}
-
-.errorSuggestion {
-    color: var(--textcolor);
-    font-size: 1em;
-    display: block;
-     margin-top: -1em; 
-}
-
-
-
-.valutazione {
-    margin-top: 1em;
-}
-
-select{
-    margin-bottom: 1em;
-    min-width: 4em;
-    text-align: center;
-    border-radius: 5px;
-}
-
-.inputRecensione {
-    display: flex;
-    height: 5em;
-    width: 100%;
-    padding: 12px 20px;
-    box-sizing: border-box;
-    border: 2px solid #ccc;
-    border-radius: 4px;
-    background-color: #f8f8f8;
-    font-size: 16px;
-    resize: none;
-    margin-bottom: 1em;
-}
-
-.contenitore-alert{
-    padding-bottom: 1em;
-    width: 100%;
-}
-
-.alert{
-    width: 25em;
-    text-align: center;
-    color: var(--textcolor);
-    padding: 0.3em;
-    margin-left: auto;
-    margin-right: auto;
-    font-weight: bold;
-}
-
-
-/* Footer */
+/* FOOTER */
 footer {
-    background-color: var(--footerbgcolor);
-    min-height: 2em;
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
+    background-color: var(--maincolor);
+    border-radius: 20px 20px 0 0;
     margin-top: auto;
     display: flex;
     flex-direction: row-reverse;
@@ -642,13 +605,11 @@ footer {
 
 footer a
 {
-    margin-top: 0.5%;
-    margin-bottom: 0.5%;
-    margin-right: 3em;
+    margin: 0.5em 3em 0.5em 0;
 }
     
 footer p{
     text-align: center;
     margin: auto;
-    color: white;
+    color: var(--defaultbgcolor);
 }
