@@ -18,40 +18,27 @@
     
     
     /* HAMBURGER */
-    .hamburger {
+    /* bottone apri - chiudi menu */
+    #hamburger {
         margin-left: auto;
         display: flex;
         align-items: flex-end;
-        height: 40px;
-        cursor: pointer;
+        /*height: 40px; cursor: pointer;*/
+        background-color: transparent;
+        text-decoration: underline;
         flex-direction: column;
         justify-content: space-evenly;
+        padding:0 0.5em 0 0 ;
+        filter: invert(100%); /* inverti i colori dell'immagine rendendola bianca TO-DO*/
+    }
+    #hamburger:hover{
+        background-color: transparent;
+    }
+    #hamburger>img{
+        height: 3em;
+        color: white;
     }
 
-    .bar {
-        display: block;
-        width: 30px;
-        height: 5px;
-        transition: all 0.3s ease-in-out;
-        background-color: white;        
-        transform-origin: center;
-        margin: 0; 
-        border-radius: 5px;
-    }
-
-    .hamburger.active .bar:nth-child(2) {
-        opacity: 0;
-    }
-
-    .hamburger.active .bar:nth-child(1) {
-        position: absolute;        
-        transform: translateY(-50%) rotate(45deg);
-    }
-
-    .hamburger.active .bar:nth-child(3) {
-        position: absolute;
-        transform: translateY(-50%) rotate(-45deg);
-    }
 
     .nav-menu {
         position: absolute;
@@ -136,6 +123,10 @@
     #mappa {
         width: 100%;
         
+    }
+
+    #mappa iframe{
+        min-height: 18em;
     }
 
     .gpx-section {
