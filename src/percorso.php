@@ -104,9 +104,8 @@ if($checkConnection){
         {
             $paginaHTML=str_replace("[miaRecensione]"," <section class=\"recensione\">
                     <h5>La tua Recensione:</h5>
-                    <p>".$queryRecensioneUtente->get_result()[0]['testo']."
-                    <br>Voto: ".$queryRecensioneUtente->get_result()[0]['voto']." su 5
-                    </p>
+                    <p>".$queryRecensioneUtente->get_result()[0]['testo']."</p>
+                    <p>Voto: ".$queryRecensioneUtente->get_result()[0]['voto']." su 5</p>
                     <form method=\"post\">
                         <button aria-label=\"Pulsante per Modificare la Recensione\" name=\"modificaRecensione\" type=\"submit\" class=\"fa-solid fa-pen-to-square fa-xl\"></button>
                         <button aria-label=\"Pulsante per Cancellare la Recensione\" name=\"cancellaRecensione\" type=\"submit\" class=\"fa-solid fa-trash fa-xl\"></button>
@@ -185,9 +184,8 @@ if($checkConnection){
                     $_SESSION["error"] = "Impossibile connettersi al sistema per modificare la tua recensione";
                     $paginaHTML=str_replace("[miaRecensione]"," <section class=\"recensione\">
                     <h5>La tua Recensione:</h5>
-                    <p>".$tempTest."
-                    <br>Voto: ".$tempVoto." su 5
-                    </p>
+                    <p>".$tempTest."</p>
+                    <p>Voto: ".$tempVoto." su 5</p>
                     <form method=\"post\">
                     <button aria-label=\"Pulsante per Modificare Recensione\" name=\"modificaRecensione\" type=\"submit\" class=\"fa-solid fa-pen-to-square fa-xl\"></button>
                     <button aria-label=\"Pulsante per Cancellare la Recensione\" name=\"cancellaRecensione\" type=\"submit\" class=\"fa-solid fa-trash fa-xl\"></button>
@@ -209,8 +207,8 @@ if($checkConnection){
                 {
                     $paginaHTML=str_replace("[miaRecensione]"," <section class=\"recensione\">
                     <h5>La tua Recensione:</h5>
-                    <p>".$queryRecensioneUtente->get_result()[0]['testo']."
-                    <br>Voto: ".$queryRecensioneUtente->get_result()[0]['voto']." su 5 </p>
+                    <p>".$queryRecensioneUtente->get_result()[0]['testo']."</p>
+                    <p>Voto: ".$queryRecensioneUtente->get_result()[0]['voto']." su 5 </p>
                     <form method=\"post\">
                         <button aria-label=\"Pulsante per Modificare Recensione\" name=\"modificaRecensione\" type=\"submit\" class=\"fa-solid fa-pen-to-square fa-xl\"></button>
                         <button aria-label=\"Pulsante per Cancellare la Recensione\" name=\"cancellaRecensione\" type=\"submit\" class=\"fa-solid fa-trash fa-xl\"></button>
@@ -240,8 +238,8 @@ if($checkConnection){
             {
                 $Recensioni.="<section class=\"recensione\">
                 <h5>".$recensione['utente']."</h5>
-                <p>".$recensione['testo']."
-                <br>Voto: ".$recensione['voto']." su 5</p>
+                <p>".$recensione['testo']."</p>
+                <p>Voto: ".$recensione['voto']." su 5</p>
                 </section>";
             }
             $votoMedio+=$recensione['voto'];
