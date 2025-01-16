@@ -32,11 +32,16 @@ if($checkConnection){
         
         $PercorsiTop .= "</div>";  
     }
+    else
+    {
+        header("Location: ./error/404.php");
+    }
     
     
     $connessione->closeConnection();
 } else {
     $_SESSION["error"] = "Impossibile connettersi al sistema";
+    header("Location: ./error/500.html");
 }
 
 

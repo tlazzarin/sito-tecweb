@@ -49,5 +49,5 @@ if($checkConnection){
 }else {
    
     $_SESSION["error"] = "Impossibile connettersi al sistema";
-    header("Location: registrati.php");
+    header("Location: ./error/500.html");
 }

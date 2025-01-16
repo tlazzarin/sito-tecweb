@@ -50,6 +50,10 @@ if($checkConnection){
         $mappa_embed=$percorso[0]['map_embed'];
         $statistiche=$caratteristiche_array['dislivello_salita']." ".$percorso[0]['dislivello_salita']."<abbr title=\"metri\">m</abbr>   ".$caratteristiche_array['dislivello_discesa']." ".$percorso[0]['dislivello_discesa']."<abbr title=\"metri\">m</abbr>  ".$caratteristiche_array['lunghezza']." ".$percorso[0]['lunghezza']."<abbr title=\"chilometri\">km</abbr>  ";
     }
+    else
+    {
+        header("Location: ./error/404.php");
+    }
     $queryCaratteristiche=$connessione->get_caratteristiche($id);
     $Caratteristiche="Accessibile a: ";
     if($queryCaratteristiche->ok() && !$queryCaratteristiche->is_empty())
