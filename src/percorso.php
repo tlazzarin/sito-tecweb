@@ -35,7 +35,7 @@ $checkConnection=$connessione->openConnection();
 
 if($checkConnection){
     $queryId=$connessione->get_percorso($id);
-    if($queryId->ok() && !$queryId->is_empty())
+    if($queryId->ok())
     {
         $percorso=$queryId->get_result();
         $sottotitolo=$percorso[0]['sottotitolo'];
@@ -56,7 +56,7 @@ if($checkConnection){
     }
     $queryCaratteristiche=$connessione->get_caratteristiche($id);
     $Caratteristiche="Accessibile a: ";
-    if($queryCaratteristiche->ok() && !$queryCaratteristiche->is_empty())
+    if($queryCaratteristiche->ok())
     {
         foreach($queryCaratteristiche->get_result() as $caratteristica)
         {
@@ -69,7 +69,7 @@ if($checkConnection){
 
     $queryImg=$connessione->get_immagini($stringId);
 
-    if($queryImg->ok() && !$queryImg->is_empty())
+    if($queryImg->ok())
     {
         foreach($queryImg->get_result() as $immagine){
             $Immagini.="<img src=\"./assets/img/percorsi/".$immagine['id_immagine']."\" 
@@ -80,16 +80,16 @@ if($checkConnection){
     }
 
     if(!isset($_SESSION['Username'])){
-        $paginaHTML=str_replace("[miaRecensione]"," <section class=\"recensione\"><p><a href=\"accedi.php\">Accedi</a> per scrivere la tua Recensione!</p></section>",$paginaHTML);
+        $paginaHTML=str_replace("[miaRecensione]"," <section id=\"recensioneUtente\" class=\"recensione\"><p><a href=\"accedi.php\">Accedi</a> per scrivere la tua Recensione!</p></section>",$paginaHTML);
             
     }else{
 
         $queryRecensioneUtente=$connessione->get_recensioni($id,$_SESSION['Username']);
-        if($queryRecensioneUtente->ok())
+        if($queryRecensioneUtente->get_errno()==0)
         {
-            if(!$queryRecensioneUtente->is_empty())
+            if($queryRecensioneUtente->ok())
             {
-                $paginaHTML=str_replace("[miaRecensione]"," <section class=\"recensione\">
+                $paginaHTML=str_replace("[miaRecensione]"," <section id=\"recensioneUtente\" class=\"recensione\">
                     <h5>La tua Recensione:</h5>
                     <p>Testo della recensione:</p>
                     <textarea name=\"testoRecensione\" class=\"inputRecensione\" type=\"text\" aria-label=\"Zona dove inserire il testo della propria recensione\" disabled>".$queryRecensioneUtente->get_result()[0]['testo']."</textarea>
@@ -103,7 +103,7 @@ if($checkConnection){
             }
             else
             {
-                $paginaHTML=str_replace("[miaRecensione]"," <section class=\"recensione\">
+                $paginaHTML=str_replace("[miaRecensione]"," <section id=\"recensioneUtente\" class=\"recensione\">
                     <h5>La tua Recensione:</h5>
                     <p>Testo della recensione:</p>
                     <textarea name=\"testoRecensione\" class=\"inputRecensione\" type=\"text\"></textarea>
@@ -279,7 +279,7 @@ if($checkConnection){
     $queryRecensioni=$connessione->get_recensioni($id);
     $Recensioni="";
     $votoMedio=0;
-    if($queryRecensioni->ok()){
+    if($queryRecensioni->get_errno()==0){
         foreach($queryRecensioni->get_result() as $recensione){
             if(!isset($_SESSION["Username"])||$recensione['utente']!=$_SESSION["Username"])
             {
@@ -291,7 +291,8 @@ if($checkConnection){
             }
             $votoMedio+=$recensione['voto'];
         }
-        $votoMedio=round($votoMedio/$queryRecensioni->get_element_count(),1,PHP_ROUND_HALF_UP);
+        if($votoMedio!=0)
+            $votoMedio=round($votoMedio/$queryRecensioni->get_element_count(),1,PHP_ROUND_HALF_UP);
     }
     else
     {
