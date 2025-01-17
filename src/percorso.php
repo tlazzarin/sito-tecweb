@@ -1,5 +1,5 @@
 <?php
-
+ob_start();
 session_start();
 
 use DB\Functions;
