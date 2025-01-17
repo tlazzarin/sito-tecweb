@@ -107,8 +107,8 @@ if($checkConnection){
                     <p>".$queryRecensioneUtente->get_result()[0]['testo']."</p>
                     <p>Voto: ".$queryRecensioneUtente->get_result()[0]['voto']." su 5</p>
                     <form method=\"post\">
-                        <button name=\"modificaRecensione\" type=\"submit\" id=\"modifica\">Modifica</button>
-                        <button name=\"cancellaRecensione\" type=\"submit\" id=\"elimina\">Elimina</button>
+                        <button name=\"modificaRecensione\" type=\"submit\" id=\"modifica\" aria-label=\"Modifica recensione\"><img src=\"./assets/pen-to-square-solid.svg\" alt=\"Modifica\"></button>
+                        <button name=\"cancellaRecensione\" type=\"submit\" id=\"elimina\" aria-label=\"Elimina recensione\"><img src=\"./assets/trash-solid.svg\" alt=\"Elimina\"></button>
                     </form>
                     </section>",$paginaHTML);
         }
@@ -187,8 +187,8 @@ if($checkConnection){
                     <p>".$tempTest."</p>
                     <p>Voto: ".$tempVoto." su 5</p>
                     <form method=\"post\">
-                    <button name=\"modificaRecensione\" type=\"submit\" id=\"modifica\">Modifica</button>
-                    <button name=\"cancellaRecensione\" type=\"submit\" id=\"elimina\">Elimina</button>
+                    <button name=\"modificaRecensione\" type=\"submit\" id=\"modifica\" aria-label=\"Modifica recensione\"><img src=\"./assets/pen-to-square-solid.svg\" alt=\"Modifica\"></button>
+                    <button name=\"cancellaRecensione\" type=\"submit\" id=\"elimina\" aria-label=\"Elimina recensione\"><img src=\"./assets/trash-solid.svg\" alt=\"Elimina\"></button>
                     </form>
                     </section>",$paginaHTML);
                 }
@@ -210,8 +210,8 @@ if($checkConnection){
                     <p>".$queryRecensioneUtente->get_result()[0]['testo']."</p>
                     <p>Voto: ".$queryRecensioneUtente->get_result()[0]['voto']." su 5 </p>
                     <form method=\"post\">
-                        <button name=\"modificaRecensione\" type=\"submit\" id=\"modifica\">Modifica</button>
-                        <button name=\"cancellaRecensione\" type=\"submit\" id=\"elimina\">Elimina</button>
+                        <button name=\"modificaRecensione\" type=\"submit\" id=\"modifica\" aria-label=\"Modifica recensione\"><img src=\"./assets/pen-to-square-solid.svg\" alt=\"Modifica\"></button>
+                        <button name=\"cancellaRecensione\" type=\"submit\" id=\"elimina\" aria-label=\"Elimina recensione\"><img src=\"./assets/trash-solid.svg\" alt=\"Elimina\"></button>
                     </form>
                     
                     </section>",$paginaHTML);
