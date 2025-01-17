@@ -17,7 +17,14 @@ class Functions extends Constant{
     private $connection;
 
     public function openConnection():bool{
+      try{
         $this->connection=new mysqli(parent::DB_ADDR,parent::USERNAME,parent::PASSWORD,parent::DB_NAME);
+      }
+      catch(Exception $e){
+        return false;
+      }
+        
+        
         $this->connection->set_charset("utf8");
 
         if($this->connection->connect_errno)

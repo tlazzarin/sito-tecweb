@@ -189,6 +189,26 @@ a.logo{
     text-align: left;
 }
 
+/*PAGINE ERRORI*/
+.mainErrore{
+    display: flex;
+    flex-direction: row;
+}
+
+.mainErrore img{
+
+    max-width: 30em;
+    border-radius: 0.5em;
+}
+
+.testoErrore{
+    margin-left:  10em;
+}
+
+.testoErrore p{
+    margin-top: 2em;
+}
+
 /* HOMEPAGE */
 #main-homepage {
     display: flex;

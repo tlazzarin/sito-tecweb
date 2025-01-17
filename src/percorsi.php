@@ -1,5 +1,5 @@
 <?php
-
+ob_start();
 session_start();
 
 use DB\Functions;
@@ -34,8 +34,13 @@ if ($checkConnection) {
         }
 
     }
+    else
+    {
+        header("Location: ./error/404.php");
+    }
 } else {
     $_SESSION["error"] = "Impossibile connettersi al sistema";
+    header("Location: ./error/500.html");
 }
 
 
