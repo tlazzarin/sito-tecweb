@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Pannello amministratore</title>
-        <meta name="keywords" content="Amministrazione, elimina, commenti, moderazione" />
+        <meta name="keywords" content="Amministrazione, commenti" />
         <meta name="description" content="Il pannello amministrazione permette di vedere tutti i commenti lasciati dagli utenti con la possibilità di cancellarli." />
         <meta name="author" content="TecWeb" />
 
@@ -55,6 +55,10 @@
         <main id="main-homepage">
             <body>
                 <h2>Pannello amministrazione di [username]</h2>
+                <p id="desc-tabella">Nella seguente tabella puoi trovare i <strong>commenti</strong> lasciati dagli utenti sui percorsi, con la possibilità di eliminarli. Per ogni riga è presente un commento.</p>
+                <table aria-describedby="desc-tabella">
+                    [corpo-tabella]
+                </table>
             </body>
         </main>
 
