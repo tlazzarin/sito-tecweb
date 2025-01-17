@@ -26,8 +26,7 @@
     }
     else
     {
-        $connessione->closeConnection();
-        header("Location:./error/500.html");
+        echo "Errore";
     }
         
 ?>
