@@ -1,21 +1,3 @@
-/*
-    .contenutiPrinciplaiIndice:not(:focus){
-    clip: rect(1px, 1px, 1px, 1px);
-    position: absolute;
-} 
-*/
-/*.indicazioni {
-    height: fit-content; 
-}*/
-
-/* bottone scarica mappa gpx */
-.indicazioni-wrapper {
-    /*grid-column: 2 / 3; 
-    display: flex;
-    flex-direction: column;
-    gap: 5em; */
-}
-
 /* COLORI GLOBALI */
 :root {
     --maincolor: #C2471F;
@@ -48,7 +30,7 @@ h3{
 
 h4{
     font-size: 1.5em;
-    margin-bottom: 0.5em;
+    margin-bottom: 0.6em;
 }
 
 h5{
@@ -56,8 +38,10 @@ h5{
     margin-bottom: 0.3em;
 }
 
-p{
+p {
     font-size: 1.2em;
+    line-height: 1.5; 
+
 }
 
 a {
@@ -81,7 +65,7 @@ body {
 }
 
 /* BOTTONI */
-.button {
+button, .button{
     font-size: 100%;
     padding: 1em;
     border-radius: 1em;
@@ -90,9 +74,9 @@ body {
     font-weight: bold;
     text-align: center;
     border: none;
-    /*cursor: pointer;*/
     transition: background-color 0.3s ease;
-    flex-shrink: 0; 
+    flex-shrink: 0;
+    cursor: pointer;
 }
 
 .buttonRed {
@@ -109,7 +93,7 @@ body {
     flex-shrink: 0; 
 }
 
-.button:hover {
+.button:hover , button:hover{
     background-color: var(--unvisitedlinkcolorhover);
 }
 
@@ -160,35 +144,38 @@ a.logo{
     padding: 1em;
     align-items: center;
     max-width: 95%;
+    font-size: 1.3em;
     /*z-index: 99;*/
 }
 
-#menu a {
-    /*padding: 0.5em 3em;*/
+#menu li{
+    color:var(--visitedlinkcolor);
 }
 
 /* Bottone accedi/registrati */
-nav#menu .action-button {
-    display: inline-flex; 
-    align-items: center; 
+#menu .action-button {
+    display: inline-flex;
+    align-items: center;
     justify-content: center;
-    padding: 0.5em 2em; 
-    font-size: 1em;
     font-weight: bold;
+    padding: 0.3em 2.6em;
     background-color: var(--unvisitedlinkcolor);
     border-radius: 20px;
-    min-width: 14em; 
+    min-width: 10em;
     color: var(--defaultbgcolor);
     text-decoration: none;
 }
+#menu .action-button:visited {
+    background-color: var(--visitedlinkcolor);
+}
 
-nav#menu .action-button .icon-accedi, nav#menu .action-button .icon-logout {
+#menu .action-button .icon-accedi, nav#menu .action-button .icon-logout {
     margin-left: 0.5em;
     width: 1.4em;
     height: 1.4em;
 }
 
-.hamburger {
+#hamburger {
     display: none; 
 }
 
@@ -232,7 +219,6 @@ nav#menu .action-button .icon-accedi, nav#menu .action-button .icon-logout {
     margin-bottom: 0.5em;
 }
 #main-homepage p {
-    line-height: 1.5; 
     margin-bottom: 1.5em;
 }
 
@@ -390,7 +376,7 @@ select{
     margin-bottom: 2em;
 }
 
-/* Bottoni conferma form*/
+/* Bottoni form*/
 #formcontent .button {
     background:var(--visitedlinkcolor);
     font-size: 1.2em;
@@ -399,6 +385,14 @@ select{
     transition: transform 0.3s ease;
 }
 
+button#modifica img, button#elimina img{
+    height: 1.5em;
+    padding:0;
+}
+button#modifica, button#elimina{
+    background-color: transparent;
+    padding: 0.5em;
+}
 
 /* PAGINA PERCORSO */
 #main-percorso {
@@ -415,6 +409,7 @@ select{
     max-width: 40em;    
     overflow: hidden;
     border-radius: 20px;
+    height: max-content;
 }
 
 .carosello img {
@@ -436,7 +431,7 @@ img.slideVisibile{
     color: var(--defaultbgcolor);
     border: none;
     cursor: pointer;
-    
+    border-radius:0;
 }
 .precedente{
     left: 0;
@@ -477,7 +472,7 @@ img.slideVisibile{
     text-align: left;  
 }
 
-/* gestione icone in descrizione */
+/* gestione icone in descrizione*/
 .abbr-icon {
     height: 1.8em;
     margin: 0 0.2em 0 0.5em;
@@ -487,7 +482,7 @@ img.slideVisibile{
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    margin: 1em 1em;
+    margin: 1.4em 0em;
 }
 
 abbr[title="Adatto ai bambini"] {
@@ -571,16 +566,27 @@ summary {
     margin-bottom: 2em;
     border-radius: 0.5em;
 }
-
-.fa-trash, .fa-x{
-    color: var(--maincolor);
-    border: none;
+/* stelline valutazioni 
+.valutazione-1{
+    content: '★☆☆☆☆';
+}
+.valutazione-2{
+    content: "★★☆☆☆";
+}
+.valutazione-3{
+    content: "★★★☆☆";
+}
+.valutazione-4{
+    content: "★★★★☆";
+}
+.valutazione-5{
+    content: "test";
 }
 
-.fa-pen-to-square{
-    color: var(--unvisitedlinkcolor);
-    border: none;
-}
+.valutazione-1, .valutazione-2,.valutazione-3,.valutazione-4,.valutazione-5 {
+    height: 1.5em;
+    margin: 0 0.2em 0 0.5em;
+}*/
 
 /* PERCORSI */
 .contenitore-carte {
