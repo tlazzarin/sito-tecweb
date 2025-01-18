@@ -1,5 +1,4 @@
 <?php
-ob_start();
 session_start();
 
 if(!isset($_SESSION["Username"]))
@@ -23,13 +22,14 @@ $tabella="
             <th scope=\"col\">Testo</th>
             <th scope=\"col\">Autore</th>
             <th scope=\"col\">Valutazione</th>
-            <th scope=\"col\">Elimina</th>
+            <th scope=\"col\" abbr=\"\">Elimina</th>
         </tr>
     </thead>
     <tbody>
 ";
 
 $query=$connessione->get_all_recensioni();
+$connessione->closeConnection();
 if(!$query->is_empty()){
     $result = $query->get_result();
     foreach($result as $recensione){
@@ -39,7 +39,7 @@ if(!$query->is_empty()){
             <td>".$recensione["testo"]."</td>
             <td>".$recensione["utente"]."</td>
             <td>".$recensione["voto"]."/5</td>
-            <td><input type=\"button\" aria-label=\"Elimina recensione\" value=\"Elimina\"></td>
+            <td><a href=\"adminCancellaRecensione.php?user=".$recensione["utente"]."&percorso=".$recensione["id"]."\">Elimina</a></td>
         </tr>
         ";
     }
