@@ -354,33 +354,6 @@ class Functions extends Constant{
         return $res;
     }
 
-    public function get_recensioni_utente($utente='%'):response_manager{
-
-      $query = "SELECT id, titolo, testo, voto FROM RECENSIONE, PERCORSO WHERE RECENSIONE.percorso=PERCORSO.id AND utente =?";
-      $stmt = $this->connection->prepare($query);
-  
-      $result = array();
-  
-      if ($stmt === false) {
-        return new response_manager($result, $this->connection, "C'è stato un errore");
-      } else if ($stmt->bind_param('s',$utente) === false) {
-        $stmt->close();
-        return new response_manager($result, $this->connection, "C'è stato un errore");
-      }
-      $stmt->execute();
-      $tmp = $stmt->get_result();
-      $result = array();
-      while ($row = $tmp->fetch_assoc()) {
-        array_push($result, $row);
-      }
-      $res = new response_manager($result, $this->connection, "");
-      if (!$res->ok()) {
-        $res->set_error_message("Nessuna Recensione Trovata con questo nome");
-      }
-  
-      $stmt->close();
-      return $res;
-    }
     public function get_all_recensioni(): response_manager{
       $query = "SELECT id, titolo, testo, utente, voto FROM RECENSIONE, PERCORSO WHERE RECENSIONE.percorso=PERCORSO.id";
 
