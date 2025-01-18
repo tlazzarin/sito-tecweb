@@ -319,6 +319,7 @@ select{
     min-width: 4em;
     text-align: center;
     border-radius: 5px;
+    display: block;
 }
 
 .inputRecensione {
