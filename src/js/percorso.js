@@ -37,6 +37,8 @@ function slideSuccesiva() {
 let testo = "";
 let voto = "";
 let testModifica = "";
+let parametri = new URLSearchParams(window.location.search);
+let id = parametri.get('id');
 
 //controlla quando un bottone viene premuto e ritorna la funzione apposita oppure non fa nulla in caso di nessun bottone premuto
 document.getElementById("recensioneUtente").addEventListener("click", function (e) {
@@ -156,8 +158,7 @@ document.getElementById("recensioneUtente").addEventListener("click", function (
         }
         document.getElementsByName("testoRecensione")[0].focus();
       };
-
-      let dataElimina = "id=" + document.URL.slice(-1);
+      let dataElimina = "id=" + id;
 
       xhr.send(dataElimina);
       break;
@@ -219,7 +220,6 @@ document.getElementById("recensioneUtente").addEventListener("click", function (
             document.getElementById("recensioneUtente").append(bottoneCancella);
           }
           if (document.querySelector("#annulla")) {
-            console.log("hello");
             document.getElementById("annulla").remove();
           }
         } else {
@@ -233,7 +233,7 @@ document.getElementById("recensioneUtente").addEventListener("click", function (
       };
       let dataAggiungi =
         "id=" +
-        document.URL.slice(-1) +
+        id +
         "&voto=" +
         document.getElementsByName("voto")[0].value +
         "&testo=" +
@@ -242,7 +242,6 @@ document.getElementById("recensioneUtente").addEventListener("click", function (
       xhr.send(dataAggiungi);
       break;
     case "annulla":
-      console.log(testo);
       document.getElementsByName("testoRecensione")[0].value = testo;
       document.getElementsByName("testoRecensione")[0].disabled = true;
       document.getElementById("testoOption").remove();
