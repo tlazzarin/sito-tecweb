@@ -35,7 +35,7 @@ $checkConnection=$connessione->openConnection();
 
 if($checkConnection){
     $queryId=$connessione->get_percorso($id);
-    if($queryId->ok() && !$queryId->is_empty())
+    if($queryId->ok())
     {
         $percorso=$queryId->get_result();
         $sottotitolo=$percorso[0]['sottotitolo'];
@@ -56,7 +56,7 @@ if($checkConnection){
     }
     $queryCaratteristiche=$connessione->get_caratteristiche($id);
     $Caratteristiche="Accessibile a: ";
-    if($queryCaratteristiche->ok() && !$queryCaratteristiche->is_empty())
+    if($queryCaratteristiche->ok())
     {
         foreach($queryCaratteristiche->get_result() as $caratteristica)
         {
@@ -69,7 +69,7 @@ if($checkConnection){
 
     $queryImg=$connessione->get_immagini($stringId);
 
-    if($queryImg->ok() && !$queryImg->is_empty())
+    if($queryImg->ok())
     {
         foreach($queryImg->get_result() as $immagine){
             $Immagini.="<img src=\"./assets/img/percorsi/".$immagine['id_immagine']."\" 
@@ -80,10 +80,53 @@ if($checkConnection){
     }
 
     if(!isset($_SESSION['Username'])){
-        $paginaHTML=str_replace("[miaRecensione]"," <section class=\"recensione\"><p><a href=\"accedi.php\">Accedi</a> per scrivere la tua Recensione!</p></section>",$paginaHTML);
+        $paginaHTML=str_replace("[miaRecensione]"," <section id=\"recensioneUtente\" class=\"recensione\"><p><a href=\"accedi.php\">Accedi</a> per scrivere la tua Recensione!</p></section>",$paginaHTML);
             
     }else{
-        if(isset($_POST["annulla"]))
+
+        $queryRecensioneUtente=$connessione->get_recensioni($id,$_SESSION['Username']);
+        if($queryRecensioneUtente->get_errno()==0)
+        {
+            if($queryRecensioneUtente->ok())
+            {
+                $paginaHTML=str_replace("[miaRecensione]"," <section id=\"recensioneUtente\" class=\"recensione\">
+                    <h5>La tua Recensione</h5>
+                    <p>Testo della recensione:</p>
+                    <textarea name=\"testoRecensione\" class=\"inputRecensione\" type=\"text\" aria-label=\"Zona dove inserire il testo della propria recensione\" disabled>".$queryRecensioneUtente->get_result()[0]['testo']."</textarea>
+                    <p name=\"voto\" class=\"valutazione-".$queryRecensioneUtente->get_result()[0]['voto']."\">Voto: ".$queryRecensioneUtente->get_result()[0]['voto']." su 5</p>
+
+
+                    <button name=\"modificaRecensione\" type=\"button\" id=\"modifica\" aria-label=\"Modifica recensione\"><img src=\"./assets/pen-to-square-solid.svg\" alt=\"Modifica\"></button>
+                    <button name=\"cancellaRecensione\" type=\"button\" id=\"elimina\" aria-label=\"Elimina recensione\"><img src=\"./assets/trash-solid.svg\" alt=\"Elimina\"></button>
+
+                    </section>",$paginaHTML);
+            }
+            else
+            {
+                $paginaHTML=str_replace("[miaRecensione]"," <section id=\"recensioneUtente\" class=\"recensione\">
+                    <h5>La tua Recensione</h5>
+                    <p>Testo della recensione:</p>
+                    <textarea name=\"testoRecensione\" class=\"inputRecensione\" type=\"text\"></textarea>
+                    <p id=\"testoOption\">Inserire una valutazione da 1 a 5:</p>
+                    <select aria-label=\"Scelta Multipla per il voto della recensione\" id=\"voto\" name=\"voto\">
+                        <option value=\"5\">5</option>
+                        <option value=\"4\">4</option>
+                        <option value=\"3\">3</option>
+                        <option value=\"2\">2</option>
+                        <option value=\"1\">1</option>
+                    </select>
+                    <button id=aggiungi name=\"aggiungiRecensione\" type=\"button\" class=\"button\">Inserisci</button>
+
+                    </section>",$paginaHTML);
+            }
+        }
+        else
+        {
+            header("Location: /error/404.php");
+        }
+
+
+        /*if(isset($_POST["annulla"]))
         {
             $_POST['aggiungiRecensione']=true;
             $voto=$_POST['voto'];
@@ -229,14 +272,14 @@ if($checkConnection){
             {
                 $_SESSION["error"] = "Impossibile connettersi al sistema per aggiungere la tua recensione";
             }
-        }
+        }*/
 
     }
 
     $queryRecensioni=$connessione->get_recensioni($id);
     $Recensioni="";
     $votoMedio=0;
-    if($queryRecensioni->ok()){
+    if($queryRecensioni->get_errno()==0){
         foreach($queryRecensioni->get_result() as $recensione){
             if(!isset($_SESSION["Username"])||$recensione['utente']!=$_SESSION["Username"])
             {
@@ -248,13 +291,19 @@ if($checkConnection){
             }
             $votoMedio+=$recensione['voto'];
         }
-        $votoMedio=round($votoMedio/$queryRecensioni->get_element_count(),1,PHP_ROUND_HALF_UP);
+        if($votoMedio!=0)
+            $votoMedio=round($votoMedio/$queryRecensioni->get_element_count(),1,PHP_ROUND_HALF_UP);
+    }
+    else
+    {
+        header("Location: /error/404.php");
     }
     $connessione->closeConnection();
 }
 else
 {
     $_SESSION["error"] = "Impossibile connettersi al sistema";
+    header("Location: /error/500.html");
 }
 
 
