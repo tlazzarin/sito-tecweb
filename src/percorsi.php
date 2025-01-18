@@ -5,10 +5,9 @@ session_start();
 use DB\Functions;
 
 require_once("DB/database.php");
-require_once "grafica.php";
 require_once "generate_navbar.php";
 
-$paginaHTML = grafica::getPage("percorsi.html");
+$paginaHTML = file_get_contents("percorsi.html");
 $tasti_navbar = generateNavbar($_SESSION);
 
 
@@ -39,7 +38,7 @@ if ($checkConnection) {
         header("Location: ./error/404.php");
     }
 } else {
-    $_SESSION["error"] = "Impossibile connettersi al sistema";
+    
     header("Location: ./error/500.html");
 }
 
@@ -52,20 +51,6 @@ $paginaHTML = str_replace("[prima_opzione]", $tasti_navbar[0], $paginaHTML);
 $paginaHTML = str_replace("[seconda_opzione]", $tasti_navbar[1], $paginaHTML);
 $paginaHTML = str_replace("[percorsi]", $Percorsi, $paginaHTML);
 
-if (isset($_SESSION["error"])) {
-    $paginaHTML = str_replace("[alert]", grafica::createAlert("error", $_SESSION["error"]), $paginaHTML);
-    unset($_SESSION["error"]);
-}
-if (isset($_SESSION["info"])) {
-    $paginaHTML = str_replace("[alert]", grafica::createAlert("info", $_SESSION["info"]), $paginaHTML);
-    unset($_SESSION["info"]);
-}
-if (isset($_SESSION["success"])) {
-    $paginaHTML = str_replace("[alert]", grafica::createAlert("success", $_SESSION["success"]), $paginaHTML);
-    unset($_SESSION["success"]);
-} else {
-    $paginaHTML = str_replace("[alert]", "", $paginaHTML);
-}
 
 echo $paginaHTML;
 

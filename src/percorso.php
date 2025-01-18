@@ -5,10 +5,9 @@ session_start();
 use DB\Functions;
 
 require_once("DB/database.php");
-require_once "grafica.php";
 require_once "generate_navbar.php";
 
-$paginaHTML=grafica::getPage("percorso.html");
+$paginaHTML=file_get_contents("percorso.html");
 
 $caratteristiche_array=array(
     "bambini"=>"<abbr title=\"Adatto ai bambini\" class=\"abbr-icon\">Bambini</abbr>",
@@ -302,7 +301,7 @@ if($checkConnection){
 }
 else
 {
-    $_SESSION["error"] = "Impossibile connettersi al sistema";
+    
     header("Location: /error/500.html");
 }
 
@@ -327,20 +326,6 @@ $paginaHTML =str_replace("[peso]",$peso,$paginaHTML);
 $paginaHTML =str_replace("[media_voti]",$votoMedio,$paginaHTML);
 $paginaHTML = str_replace("[mappa]", $mappa_embed, $paginaHTML);
 
-if (isset($_SESSION["error"])) {
-    $paginaHTML = str_replace("[alert]", grafica::createAlert("error", $_SESSION["error"]), $paginaHTML);
-    unset($_SESSION["error"]);
-}
-if (isset($_SESSION["info"])) {
-    $paginaHTML = str_replace("[alert]", grafica::createAlert("info", $_SESSION["info"]), $paginaHTML);
-    unset($_SESSION["info"]);
-}
-if (isset($_SESSION["success"])) {
-    $paginaHTML = str_replace("[alert]", grafica::createAlert("success", $_SESSION["success"]), $paginaHTML);
-    unset($_SESSION["success"]);
-} else {
-    $paginaHTML = str_replace("[alert]", "", $paginaHTML);
-}
 
 echo $paginaHTML;
 ?>

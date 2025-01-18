@@ -42,7 +42,7 @@ if($checkConnection){
     
     $connessione->closeConnection();
 } else {
-    $_SESSION["error"] = "Impossibile connettersi al sistema";
+    
     header("Location: ./error/500.html");
 }
 

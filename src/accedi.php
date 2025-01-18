@@ -5,23 +5,21 @@ if(isset($_SESSION["Username"])){
     header('Location: index.php');
 }
 else{
-    require_once "grafica.php";
 
-    $paginaHTML=grafica::getPage("accedi.html");
+    $paginaHTML=file_get_contents("accedi.html");
 
-
-    if (isset($_SESSION["error"])) {
-        $paginaHTML = str_replace("[alert]", grafica::createAlert("error", $_SESSION["error"]), $paginaHTML);
-        unset($_SESSION["error"]);
+    unset($_SESSION['paginaPrecedente']);
+    if(str_contains($_SERVER['HTTP_REFERER'],"percorso"))
+    {
+        $_SESSION['paginaPrecedente']=$_SERVER['HTTP_REFERER'];
     }
+
+
     if (isset($_SESSION["info"])) {
-        $paginaHTML = str_replace("[alert]", grafica::createAlert("info", $_SESSION["info"]), $paginaHTML);
+        $paginaHTML = str_replace("[alert]", "<section class='contenitore-alert'><p class='alert-info'>" . $_SESSION["info"] . "</p></section>", $paginaHTML);
         unset($_SESSION["info"]);
     }
-    if (isset($_SESSION["success"])) {
-        $paginaHTML = str_replace("[alert]", grafica::createAlert("success", $_SESSION["success"]), $paginaHTML);
-        unset($_SESSION["success"]);
-    } else {
+    else {
         $paginaHTML = str_replace("[alert]", "", $paginaHTML);
     }
 

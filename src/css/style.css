@@ -335,31 +335,14 @@ select{
 }
 
 /* Errori del form */
-.alert-error {
-    text-align: center;
-    color: var(--maincolor); 
-}
 .alert-info { 
     text-align: center;
     color: var(--maincolor); 
     font-size: 0.8em;
 }
-.alert-success {
-    text-align: center;
-    color: var(--textcolor); 
-}
 .contenitore-alert{
     padding-bottom: 1em;
     width: 100%;
-}
-.alert{
-    width: 25em;
-    text-align: center;
-    color: var(--textcolor);
-    padding: 0.3em;
-    margin-left: auto;
-    margin-right: auto;
-    font-weight: bold;
 }
 
 /* Errori dei campi in input*/
