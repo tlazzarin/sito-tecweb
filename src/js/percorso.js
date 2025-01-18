@@ -39,7 +39,7 @@ let voto = "";
 let testModifica = "";
 
 //controlla quando un bottone viene premuto e ritorna la funzione apposita oppure non fa nulla in caso di nessun bottone premuto
-document.addEventListener("click", function (e) {
+document.getElementById("recensioneUtente").addEventListener("click", function (e) {
   const target = e.target.closest("button");
   if (!target) return;
   //per chiamate ai file php per creare e cancellare le recensioni
