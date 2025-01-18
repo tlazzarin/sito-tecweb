@@ -21,11 +21,11 @@ $tabella="
             <th scope=\"col\">Percorso</th>
             <th scope=\"col\">Testo</th>
             <th scope=\"col\">Voto</th>
-            <th scope=\"col\">Elimina</th>
         </tr>
     </thead>
     <tbody>
 ";
+            #<th scope=\"col\">Elimina</th>
 $query = $connessione->get_recensioni_utente($_SESSION["Username"]);
 if(!$query->is_empty()){
     $result = $query->get_result();
@@ -35,10 +35,10 @@ if(!$query->is_empty()){
             <td><a href=\"percorso.php?id=".$recensione["id"]."\">".$recensione["titolo"]."</a></td>
             <td>".$recensione["testo"]."</td>
             <td>".$recensione["voto"]."/5</td>
-            <td><input type=\"button\" aria-label=\"Elimina recensione\" value=\"Elimina\"></td>
-        </tr>
-        ";
-    }
+            </tr>
+            ";
+            }
+            #<td><form action=\"profilo.php\", method=\"POST\"><input type=\"submit\" aria-label=\"Elimina recensione\" value=\"Elimina\" name=\"EliminaName\"></form></td>
 }else
     $tabella.="<tr><td colspan=\"4\">Nessuna recensione trovata.</tr>";
 
