@@ -18,7 +18,7 @@ $PercorsiTop = "";
 if($checkConnection){
     $queryPercorsiTop = $connessione->get_percorsi_top();
     
-    if($queryPercorsiTop->ok() && !$queryPercorsiTop->is_empty()) {
+    if($queryPercorsiTop->ok()) {
         $PercorsiTop = "<div class=\"percorsi-top-container\">"; 
         
         foreach($queryPercorsiTop->get_result() as $percorso){

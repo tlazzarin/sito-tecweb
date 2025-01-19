@@ -7,7 +7,6 @@ class response_manager {
   private $empty = false;
   private $result = array();
   private $errno = 0;
-  private $error_message_mysqli = "";
   private $error_message = "";
 
   //costrutto che viene usato come risposta alle funzioni col database
@@ -18,8 +17,6 @@ class response_manager {
     $this->empty = count($res) != 0 ? false : true;
 
     if ($conn) {
-      $this->error_message_mysqli = $conn->error;
-
       $this->errno = $conn->errno;
     }
   }
@@ -50,16 +47,11 @@ class response_manager {
   }
 
   //restituisce messaggio errore
-  public function get_error_message_mysqli(): string {
-    return $this->error_message_mysqli;
-  }
-
-  //restituisce messaggio errore
   public function get_errno(): int {
     return $this->errno;
   }
 
-  //restituisce messaggio errore
+  //imposta messaggio errore
   public function set_error_message($mes): void {
     $this->error_message = $mes;
   }

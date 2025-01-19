@@ -21,7 +21,7 @@ if ($checkConnection) {
 
     $Percorsi = "";
 
-    if ($queryPercorsi->ok() && !$queryPercorsi->is_empty()) {
+    if ($queryPercorsi->ok()) {
         foreach ($queryPercorsi->get_result() as $percorso) {
 
             $Percorsi .= "<section class=\"carta\"><a href=\"percorso.php?id=" . $percorso['id'] . "\">
