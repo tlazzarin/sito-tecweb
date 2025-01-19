@@ -33,7 +33,22 @@ if($checkConnection){
             $_SESSION["Username"] = $user->get_result()[0]['username'];
             $_SESSION["isAdmin"] = $user->get_result()[0]['isAdmin'];
             
-            header("Location: index.php");
+            if(isset($_SESSION['paginaPrecedente']))//caso in cui si provenga da una pagina percorso
+            {
+                header("Location: ".$_SESSION['paginaPrecedente']);
+            }
+            else//caso in cui non sia in una pagina percorso quindi direzionato in pagina profilo
+            {
+                if($_SESSION["isAdmin"]!=true)//controllo se utente e' amministratore o no per direzionarlo nella pagina "profilo" corretta
+                {
+                    header("Location: profilo.php");
+                }
+                else
+                {
+                    header("Location: pannelloAmministrazione.php");
+                }
+            }
+
         } else {
             $connessione->closeConnection();
             $_SESSION["info"] = $user->get_error_message();
@@ -48,6 +63,5 @@ if($checkConnection){
 
 }else {
    
-    $_SESSION["error"] = "Impossibile connettersi al sistema";
     header("Location: ./error/500.html");
 }

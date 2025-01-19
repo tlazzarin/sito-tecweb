@@ -5,10 +5,9 @@ session_start();
 use DB\Functions;
 
 require_once("DB/database.php");
-require_once "grafica.php";
 require_once "generate_navbar.php";
 
-$paginaHTML=grafica::getPage("percorso.html");
+$paginaHTML=file_get_contents("percorso.html");
 
 $caratteristiche_array=array(
     "bambini"=>"<abbr title=\"Adatto ai bambini\" class=\"abbr-icon\">Bambini</abbr>",
@@ -28,14 +27,13 @@ if(!isset($_GET["id"]))
 $tasti_navbar = generateNavbar($_SESSION);
 
 $id=$_GET["id"];
-    
-$errore=false;
+
 $connessione=new Functions();
 $checkConnection=$connessione->openConnection();
 
 if($checkConnection){
     $queryId=$connessione->get_percorso($id);
-    if($queryId->ok())
+    if($queryId->ok())//informazioni del percorso
     {
         $percorso=$queryId->get_result();
         $sottotitolo=$percorso[0]['sottotitolo'];
@@ -56,7 +54,7 @@ if($checkConnection){
     }
     $queryCaratteristiche=$connessione->get_caratteristiche($id);
     $Caratteristiche="Accessibile a: ";
-    if($queryCaratteristiche->ok())
+    if($queryCaratteristiche->ok())//aggiunta delle caratteristiche del percroso usando l'array di abbr creato sopra
     {
         foreach($queryCaratteristiche->get_result() as $caratteristica)
         {
@@ -69,7 +67,7 @@ if($checkConnection){
 
     $queryImg=$connessione->get_immagini($stringId);
 
-    if($queryImg->ok())
+    if($queryImg->ok())//inserimento immagini del percorso
     {
         foreach($queryImg->get_result() as $immagine){
             $Immagini.="<img src=\"./assets/img/percorsi/".$immagine['id_immagine']."\" 
@@ -79,7 +77,7 @@ if($checkConnection){
         
     }
 
-    if(!isset($_SESSION['Username'])){
+    if(!isset($_SESSION['Username'])){//controllo che l'utente sia loggato
         $paginaHTML=str_replace("[miaRecensione]"," <section id=\"recensioneUtente\" class=\"recensione\"><p><a href=\"accedi.php\">Accedi</a> per scrivere la tua Recensione!</p></section>",$paginaHTML);
             
     }else{
@@ -87,7 +85,7 @@ if($checkConnection){
         $queryRecensioneUtente=$connessione->get_recensioni($id,$_SESSION['Username']);
         if($queryRecensioneUtente->get_errno()==0)
         {
-            if($queryRecensioneUtente->ok())
+            if($queryRecensioneUtente->ok())//controllo se utente ha una recensione scritta in questo percorso
             {
                 $paginaHTML=str_replace("[miaRecensione]"," <section id=\"recensioneUtente\" class=\"recensione\">
                     <h5>La tua Recensione</h5>
@@ -280,7 +278,7 @@ if($checkConnection){
     $Recensioni="";
     $votoMedio=0;
     if($queryRecensioni->get_errno()==0){
-        foreach($queryRecensioni->get_result() as $recensione){
+        foreach($queryRecensioni->get_result() as $recensione){//stampa recensioni di tutti gli utenti di questo percorso
             if(!isset($_SESSION["Username"])||$recensione['utente']!=$_SESSION["Username"])
             {
                 $Recensioni.="<section class=\"recensione\">
@@ -302,7 +300,7 @@ if($checkConnection){
 }
 else
 {
-    $_SESSION["error"] = "Impossibile connettersi al sistema";
+    
     header("Location: /error/500.html");
 }
 
@@ -319,28 +317,12 @@ $paginaHTML = str_replace("[sottotitolo]", $sottotitolo, $paginaHTML);
 $paginaHTML = str_replace("[recensioni]",$Recensioni,$paginaHTML);
 $paginaHTML =str_replace("[file_gpx]",$filegpx,$paginaHTML);
 $paginaHTML =str_replace("[immagini]",$Immagini,$paginaHTML);
-//$paginaHTML =str_replace("[prima_opzione]",$prima_opzione,$paginaHTML);
-//$paginaHTML =str_replace("[seconda_opzione]",$seconda_opzione,$paginaHTML);
 $paginaHTML =str_replace("[prima_opzione]",$tasti_navbar[0],$paginaHTML);
 $paginaHTML =str_replace("[seconda_opzione]",$tasti_navbar[1],$paginaHTML);
 $paginaHTML =str_replace("[peso]",$peso,$paginaHTML);
 $paginaHTML =str_replace("[media_voti]",$votoMedio,$paginaHTML);
 $paginaHTML = str_replace("[mappa]", $mappa_embed, $paginaHTML);
 
-if (isset($_SESSION["error"])) {
-    $paginaHTML = str_replace("[alert]", grafica::createAlert("error", $_SESSION["error"]), $paginaHTML);
-    unset($_SESSION["error"]);
-}
-if (isset($_SESSION["info"])) {
-    $paginaHTML = str_replace("[alert]", grafica::createAlert("info", $_SESSION["info"]), $paginaHTML);
-    unset($_SESSION["info"]);
-}
-if (isset($_SESSION["success"])) {
-    $paginaHTML = str_replace("[alert]", grafica::createAlert("success", $_SESSION["success"]), $paginaHTML);
-    unset($_SESSION["success"]);
-} else {
-    $paginaHTML = str_replace("[alert]", "", $paginaHTML);
-}
 
 echo $paginaHTML;
 ?>

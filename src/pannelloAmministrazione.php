@@ -12,7 +12,7 @@ require_once("DB/database.php");
 $connessione=new Functions();
 
 if(!$connessione->openConnection())
-    header("Location: error/500.php");
+    header("Location: error/500.html");
 
 $tabella="
     <caption>Tabella recensioni</caption>

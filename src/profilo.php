@@ -13,7 +13,7 @@ $paginaHtml = file_get_contents("profilo.html");
 $connessione = new Functions();
 $checkConnection = $connessione->openConnection();
 if(!$checkConnection)
-    header("Location: /error/500.php");
+    header("Location: /error/500.html");
 
 $tabella="
     <thead>
