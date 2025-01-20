@@ -2,7 +2,7 @@ let restrizioni = {
   username: [
     "Username",
     /^[A-Za-z\s]\w{1,30}$/,
-    "Inserire un username di lunghezza tra i 2 e 30 caratteri\n",
+    "Inserire un username di lunghezza tra i 2 e 30 caratteri che non inizi con un numero\n",
   ],
   password: [
     "Password",

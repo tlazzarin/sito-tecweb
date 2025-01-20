@@ -1,6 +1,10 @@
 <?php
     ob_start();
     session_start();
+    if(!isset($_SESSION["username"]))
+        header("Location: error/401.php");
+    if(!isset($_POST['id']))
+        header("Location: error/404.php");
     require_once("DB/database.php");
     use DB\Functions;
 
