@@ -1,7 +1,7 @@
 <?php
     ob_start();
     session_start();
-    if(!isset($_SESSION["username"]))
+    if(!isset($_SESSION["Username"]))
         header("Location: error/401.php");
     if(!isset($_POST['id']) || !isset($_POST['voto'])|| !isset($_POST['testo']))
         header("Location: error/404.php");
@@ -18,12 +18,6 @@
         $queryRecensione=$connessione->get_recensioni($id,$_SESSION['Username']);
         if($queryRecensione->ok()){
             $queryCancellaRecensione=$connessione->cancella_recensione($id,$_SESSION['Username']);
-        }
-        else
-        {
-            $connessione->closeConnection();
-            echo "Errore";
-            return;
         }
         
         

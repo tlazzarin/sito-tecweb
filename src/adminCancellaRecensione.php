@@ -1,6 +1,6 @@
 <?php
 session_start();
-if(!isset($_SESSION["username"]))
+if(!isset($_SESSION["Username"]))
     header("Location: error/401.php");
 if($_SESSION["isAdmin"]!=1)
     header("Location: error/403.php");
