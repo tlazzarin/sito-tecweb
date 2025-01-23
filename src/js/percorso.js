@@ -46,7 +46,6 @@ document.getElementById("recensioneUtente").addEventListener("click", function (
   if (!target) return;
   //per chiamate ai file php per creare e cancellare le recensioni
   let xhr = new XMLHttpRequest();
-
   //switch per decidere funzionalita' pulsante
   switch (target.id) {
     case "modifica":
@@ -76,10 +75,12 @@ document.getElementById("recensioneUtente").addEventListener("click", function (
         "aria-label",
         "Scelta Multipla per il voto della recensione"
       );
-      for (let i = 1; i <= 5; i++) {
+      for (let i = 5; i > 0; i--) {
         let opt = document.createElement("option");
         opt.value = i;
         opt.innerHTML = i;
+        if(i==voto)
+          opt.selected=true;
         select.appendChild(opt);
       }
       document
@@ -104,14 +105,15 @@ document.getElementById("recensioneUtente").addEventListener("click", function (
     case "elimina":
       xhr.open("POST", "../cancellaRecensione.php");
       xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-      xhr.onload = function (data) {
-        if(xhr.responseText==="Errore") window.location.pathname="error/500.html"
-        if (xhr.responseText == "Recensione cancellata con successo") {
+      xhr.onload = function () {
+        const response=JSON.parse(xhr.responseText);
+        if(response[0]==="Errore") window.location.pathname="error/500.html";
+        if (response[0] == "Recensione cancellata con successo") {
           document
             .getElementById("risultatoModifiche")
             .setAttribute("aria-live", "polite");
           document.getElementById("risultatoModifiche").textContent =
-            xhr.responseText;
+          response[0];
           document.getElementsByName("testoRecensione")[0].disabled = false;
           document.getElementsByName("testoRecensione")[0].value = "";
           let pOption = document.createElement("p");
@@ -126,7 +128,7 @@ document.getElementById("recensioneUtente").addEventListener("click", function (
             "aria-label",
             "Scelta Multipla per il voto della recensione"
           );
-          for (let i = 1; i <= 5; i++) {
+          for (let i = 5; i >0; i--) {
             let opt = document.createElement("option");
             opt.value = i;
             opt.innerHTML = i;
@@ -149,12 +151,15 @@ document.getElementById("recensioneUtente").addEventListener("click", function (
             .getElementsByName("modificaRecensione")[0]
             .replaceWith(bottoneAggiungi);
           document.getElementsByName("cancellaRecensione")[0].remove();
+          
+          document.getElementsByClassName("valutazione")[0].innerHTML="Valutazione media: "+response[1]+" su 5";
+          
         } else {
           document
             .getElementById("risultatoModifiche")
             .setAttribute("aria-live", "polite");
           document.getElementById("risultatoModifiche").textContent =
-            xhr.responseText;
+          response[0];
         }
         document.getElementsByName("testoRecensione")[0].focus();
       };
@@ -163,17 +168,19 @@ document.getElementById("recensioneUtente").addEventListener("click", function (
       xhr.send(dataElimina);
       break;
     case "aggiungi":
+      
       xhr.open("POST", "../aggiungiRecensione.php");
       xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-      xhr.onload = function (data) {
-        if(xhr.responseText==="Errore") window.location.pathname="error/500.html"
-        if (xhr.responseText == "Recensione aggiunta con successo") {
+      xhr.onload = function () {
+        const response=JSON.parse(xhr.responseText);
+        if(response[0]==="Errore") window.location.pathname="error/500.html";
+        if (response[0] == "Recensione aggiunta con successo") {
           document
             .getElementById("risultatoModifiche")
             .setAttribute("aria-live", "polite");
           if (testModifica == "") {
             document.getElementById("risultatoModifiche").textContent =
-              xhr.responseText;
+            response[0];
           } else {
             document.getElementById("risultatoModifiche").textContent =
               testModifica;
@@ -222,12 +229,16 @@ document.getElementById("recensioneUtente").addEventListener("click", function (
           if (document.querySelector("#annulla")) {
             document.getElementById("annulla").remove();
           }
+          if(response[1]!=null)
+          {
+            document.getElementsByClassName("valutazione")[0].innerHTML="Valutazione media: "+response[1]+" su 5";
+          }
         } else {
           document
             .getElementById("risultatoModifiche")
             .setAttribute("aria-live", "polite");
           document.getElementById("risultatoModifiche").textContent =
-            xhr.responseText;
+            response[0];
         }
         document.getElementsByName("testoRecensione")[0].focus();
       };
@@ -239,7 +250,17 @@ document.getElementById("recensioneUtente").addEventListener("click", function (
         "&testo=" +
         document.getElementsByName("testoRecensione")[0].value;
 
-      xhr.send(dataAggiungi);
+      if(document.getElementsByName('testoRecensione')[0].value.trim()!="")
+      {
+        xhr.send(dataAggiungi);
+      }
+      else
+      {
+        document.getElementsByName('testoRecensione')[0].placeholder="La recensione deve avere contenuto";
+        document.getElementsByName("testoRecensione")[0].focus();
+      }
+      
+        
       break;
     case "annulla":
       document.getElementsByName("testoRecensione")[0].value = testo;
