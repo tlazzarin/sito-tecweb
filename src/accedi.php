@@ -9,9 +9,12 @@ else{
     $paginaHTML=file_get_contents("accedi.html");
 
     unset($_SESSION['paginaPrecedente']);
-    if(str_contains($_SERVER['HTTP_REFERER'],"percorso"))//verifica se si proviene da pagina percorso per reindirizzamento in seguito
+    if(isset($_SERVER['HTTP_REFERER']))
     {
-        $_SESSION['paginaPrecedente']=$_SERVER['HTTP_REFERER'];
+        if(str_contains($_SERVER['HTTP_REFERER'],"percorso"))//verifica se si proviene da pagina percorso per reindirizzamento in seguito
+        {
+            $_SESSION['paginaPrecedente']=$_SERVER['HTTP_REFERER'];
+        }
     }
 
 
