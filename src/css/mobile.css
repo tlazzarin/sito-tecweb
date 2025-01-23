@@ -209,15 +209,22 @@
     }
     tr, th, td{
         display: block;
-        padding: 0;
+        text-align: center;
+        border-collapse: collapse;
     }
     table, tbody, tr{
         border: none;
+        border-collapse: collapse;
     }
-    tr.first-child{
-        border: 1px solid #000;
+
+    th{
+        border-style: 2px;
     }
-    td[data-title]:before{
+    td{
+        border-style: 1px;
+    }
+    
+    td:before{
         content: attr(data-title) ": ";
     }
 }

@@ -31,9 +31,9 @@ if(!$query->is_empty()){
     foreach($result as $recensione){
         $tabella.="
         <tr>
-            <td><a href=\"percorso.php?id=".$recensione["id"]."\">".$recensione["titolo"]."</a></td>
-            <td>".$recensione["testo"]."</td>
-            <td class=\"cella-voto\">".$recensione["voto"]."/5</td>
+            <td data-title=\"Percorso\"><a href=\"percorso.php?id=".$recensione["id"]."\">".$recensione["titolo"]."</a></td>
+            <td data-title=\"Testo\">".$recensione["testo"]."</td>
+            <td data-title=\"Voto\" class=\"cella-voto\">".$recensione["voto"]."/5</td>
             </tr>
             ";
             }
