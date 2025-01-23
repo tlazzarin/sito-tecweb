@@ -41,7 +41,7 @@ function calcoloMedia()
   for (let i = 0; i < voti.length; ++i) {
     valutazione+=parseInt(voti[i].className.slice(-1));
   }
-  document.getElementsByClassName("valutazione")[0].innerHTML="Valutazione media: "+(valutazione/voti.length).toFixed(1)+" su 5";
+  document.getElementsByClassName("valutazione")[0].innerHTML="Valutazione media: "+Math.round((valutazione/voti.length)*10)/10+" su 5";
 }
 
 //variabili per non perdere dati in caso di annulamento della modifica
@@ -259,6 +259,7 @@ document.getElementById("recensioneUtente").addEventListener("click", function (
       else
       {
         document.getElementsByName('testoRecensione')[0].placeholder="La recensione deve avere contenuto";
+        document.getElementsByName("testoRecensione")[0].focus();
       }
       
         
