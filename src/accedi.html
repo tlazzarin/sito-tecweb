@@ -55,26 +55,22 @@
         </nav>
         <!-- Dialogo di accesso -->
         <main id="main-accedi">
-            <body>
-                <div id="formcontent">
-                    <h2>Accedi</h2>
-                    <form class="formInput" id="form" action="controlloAccedi.php" method="post">
-                        <fieldset>
-                            
-                            <label for="username">Username</label>
-                            <input type="text" aria-label="Inesrisci il tuo Username" id="username" name="username" class="styleInput" required/>
-                            <p id="aiutoUsername" ></p>
-                            
-                            <label for="password">Password</label>
-                            <input type="password" aria-label="Inesrisci la tua Password" id="password" name="password" class="styleInput" minlength="4" required/>
-                            <p id="aiutoPassword" ></p>
-                            [alert]
-                            <input aria-label="Pulsante Accedi" type="submit" class="button" name="bottoneAccedi" value="Accedi">
-                        </fieldset>
-                    </form>
-                    <p>Non hai un profilo? <a href="registrati.php">Registrati</a></p>
-                </div>
-            </body>
+            <div id="formcontent">
+                <h2>Accedi</h2>
+                <form class="formInput" id="form" action="controlloAccedi.php" method="post">
+                    <fieldset>
+                        <label for="username">Username</label>
+                        <input type="text" aria-label="Inesrisci il tuo Username" id="username" name="username" class="styleInput" required/>
+                        <p id="aiutoUsername" ></p>
+                        <label for="password">Password</label>
+                        <input type="password" aria-label="Inesrisci la tua Password" id="password" name="password" class="styleInput" minlength="4" required/>
+                        <p id="aiutoPassword" ></p>
+                        [alert]
+                        <input aria-label="Pulsante Accedi" type="submit" class="button" name="bottoneAccedi" value="Accedi">
+                    </fieldset>
+                </form>
+                <p>Non hai un profilo? <a href="registrati.php">Registrati</a></p>
+            </div>
         </main>
             <!-- Footer -->
         <footer>
