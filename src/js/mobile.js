@@ -3,6 +3,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const img = document.querySelector('#hamburger>img');
     const navMenu = document.querySelector('.nav-menu');
     const navItem = document.querySelectorAll('.nav-item>a');
+    hamburger.classList.remove('active');
+    navMenu.classList.remove('active');
 
     // invocata per aprire - chiudere il menu
     hamburger.addEventListener("click", () => {
