@@ -125,7 +125,7 @@ a.logo{
 .linkHome{
     z-index: 99;
 }
-.contenutiPrinciplaiIndice:not(:focus){ /* TODO rinominare: è il bottone "vai ai contenuti principalente" */
+.contenutiPrincipaliIndice:not(:focus){ /* TODO rinominare: è il bottone "vai ai contenuti principalente" */
     clip: rect(1px, 1px, 1px, 1px);
     position: absolute;
 }
@@ -391,7 +391,7 @@ button#modifica, button#elimina{
     max-width: 40em;    
     overflow: hidden;
     border-radius: 20px;
-    height: max-content;
+    height: auto;
 }
 
 .carosello img {
@@ -654,4 +654,19 @@ footer p{
     text-align: center;
     margin: auto;
     color: var(--defaultbgcolor);
+}
+
+noscript{
+    display: block;
+    text-align: center;
+    align-content: center;
+    height: 100%;
+}
+
+.recensione noscript{
+    text-align: left;
+}
+
+.slides{
+    height: 100%;
 }

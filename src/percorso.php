@@ -89,6 +89,7 @@ if($checkConnection){
             {
                 $paginaHTML=str_replace("[miaRecensione]"," <section id=\"recensioneUtente\" class=\"recensione\">
                     <h5>La tua Recensione</h5>
+                    <noscript>Abilita <span lang=\"en\">Javascript</span> per poter interagire con la tua recensione.</noscript>
                     <p>Testo della recensione:</p>
                     <textarea name=\"testoRecensione\" class=\"inputRecensione\" type=\"text\" aria-label=\"Zona dove inserire il testo della propria recensione, non può essere lasciata vuota\" disabled>".$queryRecensioneUtente->get_result()[0]['testo']."</textarea>
                     <p name=\"voto\" class=\"valutazione-".$queryRecensioneUtente->get_result()[0]['voto']."\">Voto: ".$queryRecensioneUtente->get_result()[0]['voto']." su 5</p>
@@ -103,6 +104,7 @@ if($checkConnection){
             {
                 $paginaHTML=str_replace("[miaRecensione]"," <section id=\"recensioneUtente\" class=\"recensione\">
                     <h5>La tua Recensione</h5>
+                    <noscript>Abilita <span lang=\"en\">Javascript</span> per poter interagire con la tua recensione.</noscript>
                     <p>Testo della recensione:</p>
                     <textarea name=\"testoRecensione\" class=\"inputRecensione\" type=\"text\" aria-label=\"Zona dove inserire il testo della propria recensione, non può essere lasciata vuota\"></textarea>
                     <p id=\"testoOption\">Inserire una valutazione da 1 a 5:</p>
