@@ -31,7 +31,7 @@ if(!$query->is_empty()){
     foreach($result as $recensione){
         $tabella.="
         <tr>
-            <td data-title=\"Percorso\"><a href=\"percorso.php?id=".$recensione["id"]."\">".$recensione["titolo"]."</a></td>
+            <th scope=\"row\" data-title=\"Percorso\"><a href=\"percorso.php?id=".$recensione["id"]."\">".$recensione["titolo"]."</a></th>
             <td data-title=\"Testo\">".$recensione["testo"]."</td>
             <td data-title=\"Voto\" class=\"cella-voto\">".$recensione["voto"]."/5</td>
             </tr>

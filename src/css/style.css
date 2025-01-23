@@ -679,18 +679,13 @@ table{
 
 th, td{
     border: 2px var(--unvisitedlinkcolor) solid;
+    padding: 1em;
 }
 
 thead th{
     background-color: var(--sfondocard);
-    padding: 1em;
 }
 
-td{
-    padding: 1em;
-    
-}
-  
 .cella-voto {
   text-align: center;
   padding:0;

@@ -210,21 +210,19 @@
     tr, th, td{
         display: block;
         text-align: center;
-        border-collapse: collapse;
-    }
-    table, tbody, tr{
-        border: none;
-        border-collapse: collapse;
     }
 
-    th{
-        border-style: 2px;
+    th, td{
+        border: 1px var(--unvisitedlinkcolor) solid;
     }
-    td{
-        border-style: 1px;
+    th{
+        background-color: var(--sfondocard);
     }
     
     td:before{
         content: attr(data-title) ": ";
+    }
+    .cella-voto{
+        padding: 1em;
     }
 }
