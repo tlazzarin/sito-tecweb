@@ -22,6 +22,7 @@ h1 {
 
 h2{
     font-size: 2.1em;
+    margin-bottom: 0.5em;
 }
 
 h3{
@@ -210,13 +211,10 @@ a.logo{
 }
 
 /* HOMEPAGE */
-#main-homepage {
+#main-homepage, #main-navigatore {
     display: flex;
     flex-direction: column;
     padding: 2em;
-}
-#main-homepage h2 {
-    margin-bottom: 0.5em;
 }
 #main-homepage p {
     margin-bottom: 1.5em;
@@ -449,7 +447,7 @@ img.slideVisibile{
     height: 100%;
 }
 
-.descrizione, .indicazioni {
+.descrizione, .indicazioni, .trascrizioni {
     padding: 1.5em;
     border-radius: 20px;
     background-color: var(--sfondocard); 
@@ -602,6 +600,40 @@ summary {
 
 .carta img {
     width: 100%;
+}
+
+/* USARE IL NAVIGATORE */
+.area-dispositivo{
+    display: grid;
+    margin-top: 1.5em;
+    grid-template-columns: 1fr 3fr;
+    gap: 1em;
+    margin: 2em auto;
+}
+.area-dispositivo video{
+    width: 100%;
+}
+.area-dispositivo p{
+    grid-column: 1 / -1;
+}  
+
+.trascrizioni p{
+    margin-bottom:0;
+}
+.trascrizioni .trascrizione-screen-reader{
+    font-style: italic;
+    font-size: 1.1em;
+    margin-top:0.5em;
+    margin-bottom:0.5em;
+}
+
+.link-esterno::after {
+    display: inline-block;
+    content: url('../assets/arrow-up-right-from-square-solid.svg');
+    height: inherit;
+    width: 1em;
+    margin: 0 0.3em;
+    color: var(--textcolor);
 }
 
 /* FOOTER */
