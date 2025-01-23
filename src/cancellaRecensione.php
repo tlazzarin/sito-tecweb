@@ -9,6 +9,7 @@
     use DB\Functions;
 
     $id=$_POST["id"];
+    $response=array();
     $connessione=new Functions();
     $checkConnection=$connessione->openConnection();
     if($checkConnection){
@@ -17,20 +18,37 @@
         if($queryCancellaRecensione->get_errno() == 0)
         {
             
-            echo "Recensione cancellata con successo";
+            $response[0]= "Recensione cancellata con successo";
+            $votoMedio=0;
+            $queryMediaVoti=$connessione->get_recensioni($id);
+            if($queryMediaVoti->ok())
+            {
+                foreach($queryMediaVoti->get_result() as $recensione){
+                    $votoMedio+=$recensione['voto'];
+                }
+                $votoMedio=round($votoMedio/$queryMediaVoti->get_element_count(),1,PHP_ROUND_HALF_UP);
+
+                
+                $response[1] = $votoMedio;
+            }
+            else
+            {
+                $response[1] = 0;
+            }
         }
         else
         {
-            echo "Impossibile cancellare la recensione";
+            $response[0]= "Impossibile cancellare la recensione";
         }
 
         
-
+        echo json_encode($response);
         $connessione->closeConnection();
     }
     else
     {
-        echo "Errore";
+        $response[0]= "Errore";
+        echo json_encode($response);
     }
         
 ?>

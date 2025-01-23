@@ -33,17 +33,6 @@ function slideSuccesiva() {
   mostraSlide(indiceSlide);
 }
 
-//calcola la media dei voti delle recensioni cosi da aggiornalra dinamicamente
-function calcoloMedia()
-{
-  let valutazione=0;
-  let voti=document.querySelectorAll('p[class^="valutazione-"]');
-  for (let i = 0; i < voti.length; ++i) {
-    valutazione+=parseInt(voti[i].className.slice(-1));
-  }
-  document.getElementsByClassName("valutazione")[0].innerHTML="Valutazione media: "+Math.round((valutazione/voti.length)*10)/10+" su 5";
-}
-
 //variabili per non perdere dati in caso di annulamento della modifica
 let testo = "";
 let voto = "";
@@ -114,14 +103,15 @@ document.getElementById("recensioneUtente").addEventListener("click", function (
     case "elimina":
       xhr.open("POST", "../cancellaRecensione.php");
       xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-      xhr.onload = function (data) {
-        if(xhr.responseText==="Errore") window.location.pathname="error/500.html";
-        if (xhr.responseText == "Recensione cancellata con successo") {
+      xhr.onload = function () {
+        const response=JSON.parse(xhr.responseText);
+        if(response[0]==="Errore") window.location.pathname="error/500.html";
+        if (response[0] == "Recensione cancellata con successo") {
           document
             .getElementById("risultatoModifiche")
             .setAttribute("aria-live", "polite");
           document.getElementById("risultatoModifiche").textContent =
-            xhr.responseText;
+          response[0];
           document.getElementsByName("testoRecensione")[0].disabled = false;
           document.getElementsByName("testoRecensione")[0].value = "";
           let pOption = document.createElement("p");
@@ -159,13 +149,15 @@ document.getElementById("recensioneUtente").addEventListener("click", function (
             .getElementsByName("modificaRecensione")[0]
             .replaceWith(bottoneAggiungi);
           document.getElementsByName("cancellaRecensione")[0].remove();
-          calcoloMedia();
+          
+          document.getElementsByClassName("valutazione")[0].innerHTML="Valutazione media: "+response[1]+" su 5";
+          
         } else {
           document
             .getElementById("risultatoModifiche")
             .setAttribute("aria-live", "polite");
           document.getElementById("risultatoModifiche").textContent =
-            xhr.responseText;
+          response[0];
         }
         document.getElementsByName("testoRecensione")[0].focus();
       };
@@ -177,15 +169,16 @@ document.getElementById("recensioneUtente").addEventListener("click", function (
       
       xhr.open("POST", "../aggiungiRecensione.php");
       xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-      xhr.onload = function (data) {
-        if(xhr.responseText==="Errore") window.location.pathname="error/500.html";
-        if (xhr.responseText == "Recensione aggiunta con successo") {
+      xhr.onload = function () {
+        const response=JSON.parse(xhr.responseText);
+        if(response[0]==="Errore") window.location.pathname="error/500.html";
+        if (response[0] == "Recensione aggiunta con successo") {
           document
             .getElementById("risultatoModifiche")
             .setAttribute("aria-live", "polite");
           if (testModifica == "") {
             document.getElementById("risultatoModifiche").textContent =
-              xhr.responseText;
+            response[0];
           } else {
             document.getElementById("risultatoModifiche").textContent =
               testModifica;
@@ -234,13 +227,16 @@ document.getElementById("recensioneUtente").addEventListener("click", function (
           if (document.querySelector("#annulla")) {
             document.getElementById("annulla").remove();
           }
-          calcoloMedia();
+          if(response[1]!=null)
+          {
+            document.getElementsByClassName("valutazione")[0].innerHTML="Valutazione media: "+response[1]+" su 5";
+          }
         } else {
           document
             .getElementById("risultatoModifiche")
             .setAttribute("aria-live", "polite");
           document.getElementById("risultatoModifiche").textContent =
-            xhr.responseText;
+            response[0];
         }
         document.getElementsByName("testoRecensione")[0].focus();
       };
