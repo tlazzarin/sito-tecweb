@@ -38,7 +38,7 @@ if(!$query->is_empty()){
             <td><a href=\"percorso.php?id=".$recensione["id"]."\">".$recensione["titolo"]."</a></td>
             <td>".$recensione["testo"]."</td>
             <td>".$recensione["utente"]."</td>
-            <td>".$recensione["voto"]."/5</td>
+            <td class=\"cella-voto\">".$recensione["voto"]."/5</td>
             <td><a href=\"adminCancellaRecensione.php?user=".$recensione["utente"]."&percorso=".$recensione["id"]."\">Elimina</a></td>
         </tr>
         ";

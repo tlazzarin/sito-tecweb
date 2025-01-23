@@ -211,7 +211,7 @@ a.logo{
 }
 
 /* HOMEPAGE */
-#main-homepage, #main-navigatore {
+#main-homepage, #main-navigatore, #main-profilo {
     display: flex;
     flex-direction: column;
     padding: 2em;
@@ -669,4 +669,34 @@ noscript{
 
 .slides{
     height: 100%;
+}
+
+table{
+    border-collapse: collapse;
+    table-layout: fixed;
+    margin-top: 1em;
+}
+
+th, td{
+    border: 2px var(--unvisitedlinkcolor) solid;
+}
+
+thead th{
+    background-color: var(--sfondocard);
+    padding: 1em;
+}
+
+td{
+    padding: 1em;
+    
+}
+  
+.cella-voto {
+  text-align: center;
+  padding:0;
+}
+
+/* Caso in cui il profilo non abbia recensioni*/
+td[colspan="4"]{
+    text-align: center;
 }

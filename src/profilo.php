@@ -33,7 +33,7 @@ if(!$query->is_empty()){
         <tr>
             <td><a href=\"percorso.php?id=".$recensione["id"]."\">".$recensione["titolo"]."</a></td>
             <td>".$recensione["testo"]."</td>
-            <td>".$recensione["voto"]."/5</td>
+            <td class=\"cella-voto\">".$recensione["voto"]."/5</td>
             </tr>
             ";
             }
