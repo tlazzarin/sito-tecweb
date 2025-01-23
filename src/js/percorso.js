@@ -75,10 +75,12 @@ document.getElementById("recensioneUtente").addEventListener("click", function (
         "aria-label",
         "Scelta Multipla per il voto della recensione"
       );
-      for (let i = 1; i <= 5; i++) {
+      for (let i = 5; i > 0; i--) {
         let opt = document.createElement("option");
         opt.value = i;
         opt.innerHTML = i;
+        if(i==voto)
+          opt.selected=true;
         select.appendChild(opt);
       }
       document
@@ -126,7 +128,7 @@ document.getElementById("recensioneUtente").addEventListener("click", function (
             "aria-label",
             "Scelta Multipla per il voto della recensione"
           );
-          for (let i = 1; i <= 5; i++) {
+          for (let i = 5; i >0; i--) {
             let opt = document.createElement("option");
             opt.value = i;
             opt.innerHTML = i;
