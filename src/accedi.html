@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Accedi</title>
-        <meta name="keywords" content="" />
+        <meta name="keywords" content="accedi" />
         <meta name="description" content="In questa pagina l'utente può accedere al profilo." />
         <meta name="author" content="Tommaso Lazzarin, Yuri Lunardon, Patrick Mzoughi e Gaia Pistori" />
 
@@ -22,6 +22,7 @@
     <body>
         <!-- Header -->    
         <header>
+            <a href="#main-accedi" class="contenutiPrincipaliIndice">Vai ai contenuti principali</a>
             <a class="linkHome" href="index.php" id="logo"><img src="./assets/logo.svg" alt="Logo del sito" class="logo"></a>
             <h1>Montagna per tutti</h1>
         </header> 
@@ -53,26 +54,25 @@
             <p>Ti trovi in: <a href="index.php" lang="en">Home</a> &gt; Accedi</p>
         </nav>
         <!-- Dialogo di accesso -->
-        
-        <div id="formcontent">
-            <h2>Accedi</h2>
-            <form class="formInput" id="form" action="controlloAccedi.php" method="post">
-                <fieldset>
-
-                <label for="username">Username</label>
-                <input type="text" aria-label="Inesrisci il tuo Username" id="username" name="username" class="styleInput" required/>
-                <p id="aiutoUsername" ></p>
-
-                <label for="password">Password</label>
-                <input type="password" aria-label="Inesrisci la tua Password" id="password" name="password" class="styleInput" minlength="4" required/>
-                <p id="aiutoPassword" ></p>
-                [alert]
-                <input aria-label="Pulsante Accedi" type="submit" class="button" name="bottoneAccedi" value="Accedi">
-                </fieldset>
-            </form>
+        <main id="main-accedi">
+            <div id="formcontent">
+                <h2>Accedi</h2>
+                <form class="formInput" id="form" action="controlloAccedi.php" method="post">
+                    <fieldset>
+                        <label for="username">Username</label>
+                        <input type="text" aria-label="Inesrisci il tuo Username" id="username" name="username" class="styleInput" required/>
+                        <p id="aiutoUsername" ></p>
+                        <label for="password">Password</label>
+                        <input type="password" aria-label="Inesrisci la tua Password" id="password" name="password" class="styleInput" minlength="4" required/>
+                        <p id="aiutoPassword" ></p>
+                        [alert]
+                        <input aria-label="Pulsante Accedi" type="submit" class="button" name="bottoneAccedi" value="Accedi">
+                    </fieldset>
+                </form>
                 <p>Non hai un profilo? <a href="registrati.php">Registrati</a></p>
-        </div>
-        <!-- Footer -->
+            </div>
+        </main>
+            <!-- Footer -->
         <footer>
             <a href="#formcontent"><button aria-label="Pulsante per tornare all'inizio della pagina" type="button" class="button">Torna Su</button></a>
             <p>Sito realizzato da Tommaso Lazzarin, Yuri Lunardon, Patrick Mzoughi e Gaia Pistori per il progetto di Tecnologie Web (anno accademico 2024-25).</p>
