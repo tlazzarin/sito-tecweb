@@ -1,6 +1,6 @@
 <?php
 session_start();
-if(!isset($_SESSION["username"]))
+if(!isset($_SESSION["Username"]))
     header("Location: error/401.php");
 if($_SESSION["isAdmin"]!=1)
     header("Location: error/403.php");
@@ -17,7 +17,7 @@ try{
     $query = $connessione->cancella_recensione($_GET["percorso"], $_GET["user"]);
     $connessione->closeConnection();
 }catch(Exception $e){
-    header("Location: error/500.php");
+    header("Location: error/500.html");
 }
 
 header("Location: pannelloAmministrazione.php");
