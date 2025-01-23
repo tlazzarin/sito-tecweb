@@ -125,7 +125,7 @@ a.logo{
 .linkHome{
     z-index: 99;
 }
-.contenutiPrinciplaiIndice:not(:focus){ /* TODO rinominare: è il bottone "vai ai contenuti principalente" */
+.contenutiPrincipaliIndice:not(:focus){ /* TODO rinominare: è il bottone "vai ai contenuti principalente" */
     clip: rect(1px, 1px, 1px, 1px);
     position: absolute;
 }
