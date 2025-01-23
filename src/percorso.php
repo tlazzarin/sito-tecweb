@@ -90,7 +90,7 @@ if($checkConnection){
                 $paginaHTML=str_replace("[miaRecensione]"," <section id=\"recensioneUtente\" class=\"recensione\">
                     <h5>La tua Recensione</h5>
                     <p>Testo della recensione:</p>
-                    <textarea name=\"testoRecensione\" class=\"inputRecensione\" type=\"text\" aria-label=\"Zona dove inserire il testo della propria recensione\" disabled>".$queryRecensioneUtente->get_result()[0]['testo']."</textarea>
+                    <textarea name=\"testoRecensione\" class=\"inputRecensione\" type=\"text\" aria-label=\"Zona dove inserire il testo della propria recensione, non può essere lasciata vuota\" disabled>".$queryRecensioneUtente->get_result()[0]['testo']."</textarea>
                     <p name=\"voto\" class=\"valutazione-".$queryRecensioneUtente->get_result()[0]['voto']."\">Voto: ".$queryRecensioneUtente->get_result()[0]['voto']." su 5</p>
 
 
@@ -104,7 +104,7 @@ if($checkConnection){
                 $paginaHTML=str_replace("[miaRecensione]"," <section id=\"recensioneUtente\" class=\"recensione\">
                     <h5>La tua Recensione</h5>
                     <p>Testo della recensione:</p>
-                    <textarea name=\"testoRecensione\" class=\"inputRecensione\" type=\"text\"></textarea>
+                    <textarea name=\"testoRecensione\" class=\"inputRecensione\" type=\"text\" aria-label=\"Zona dove inserire il testo della propria recensione, non può essere lasciata vuota\"></textarea>
                     <p id=\"testoOption\">Inserire una valutazione da 1 a 5:</p>
                     <select aria-label=\"Scelta Multipla per il voto della recensione\" id=\"voto\" name=\"voto\">
                         <option value=\"5\">5</option>

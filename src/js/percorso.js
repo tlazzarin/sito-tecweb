@@ -33,6 +33,7 @@ function slideSuccesiva() {
   mostraSlide(indiceSlide);
 }
 
+//calcola la media dei voti delle recensioni cosi da aggiornalra dinamicamente
 function calcoloMedia()
 {
   let valutazione=0;

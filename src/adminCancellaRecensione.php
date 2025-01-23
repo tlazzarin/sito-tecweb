@@ -17,7 +17,7 @@ try{
     $query = $connessione->cancella_recensione($_GET["percorso"], $_GET["user"]);
     $connessione->closeConnection();
 }catch(Exception $e){
-    header("Location: error/500.php");
+    header("Location: error/500.html");
 }
 
 header("Location: pannelloAmministrazione.php");
