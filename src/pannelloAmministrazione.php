@@ -39,7 +39,7 @@ if(!$query->is_empty()){
             <td data-title=\"Testo\">".$recensione["testo"]."</td>
             <td data-title=\"Utente\">".$recensione["utente"]."</td>
             <td data-title=\"Voto\"class=\"cella-voto\">".$recensione["voto"]."/5</td>
-            <td><a href=\"adminCancellaRecensione.php?user=".$recensione["utente"]."&percorso=".$recensione["id"]."\">Elimina</a></td>
+            <td class=\"rimuovi-intestazione-mobile\"><a class=\"icona-elimina\"href=\"adminCancellaRecensione.php?user=".$recensione["utente"]."&percorso=".$recensione["id"]."\">Elimina</a></td>
         </tr>
         ";
     }

@@ -671,6 +671,7 @@ noscript{
     height: 100%;
 }
 
+/*Tabella profilo e amministratore*/
 table{
     border-collapse: collapse;
     table-layout: fixed;
@@ -694,4 +695,10 @@ thead th{
 /* Caso in cui il profilo non abbia recensioni*/
 td[colspan="4"]{
     text-align: center;
+}
+
+td a.icona-elimina {
+    content: url('../assets/trash-solid.svg');
+    height: 2em;
+    display: inline-block
 }
