@@ -35,11 +35,11 @@ if(!$query->is_empty()){
     foreach($result as $recensione){
         $tabella.="
         <tr>
-            <td><a href=\"percorso.php?id=".$recensione["id"]."\">".$recensione["titolo"]."</a></td>
-            <td>".$recensione["testo"]."</td>
-            <td>".$recensione["utente"]."</td>
-            <td>".$recensione["voto"]."/5</td>
-            <td><a href=\"adminCancellaRecensione.php?user=".$recensione["utente"]."&percorso=".$recensione["id"]."\">Elimina</a></td>
+            <th data-title=\"Percorso\" scope=\"row\"><a href=\"percorso.php?id=".$recensione["id"]."\">".$recensione["titolo"]."</a></th>
+            <td data-title=\"Testo\">".$recensione["testo"]."</td>
+            <td data-title=\"Utente\">".$recensione["utente"]."</td>
+            <td data-title=\"Voto\"class=\"cella-voto\">".$recensione["voto"]."/5</td>
+            <td class=\"rimuovi-intestazione-mobile\"><a class=\"icona-elimina\"href=\"adminCancellaRecensione.php?user=".$recensione["utente"]."&percorso=".$recensione["id"]."\">Elimina</a></td>
         </tr>
         ";
     }

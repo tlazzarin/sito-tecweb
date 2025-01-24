@@ -202,4 +202,29 @@
         margin-top: 2em;
         margin-bottom: 2em;
     }
+
+    /*Tabella profilo e amministratore*/
+    thead{
+        display: none;
+    }
+    tr, th, td{
+        display: block;
+        text-align: center;
+    }
+    th, td{
+        border: 1px var(--unvisitedlinkcolor) solid;
+    }
+    th{
+        background-color: var(--sfondocard);
+    }
+    
+    td:not(.rimuovi-intestazione-mobile):before{
+        content: attr(data-title) ": ";
+    }
+    th:before{
+        content: attr(data-title) ": ";
+    }
+    .cella-voto{
+        padding: 1em;
+    }
 }
