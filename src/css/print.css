@@ -1,0 +1,214 @@
+@media print {
+
+    /* GENERALI */
+    body {
+        font-family: "Hepta Slab", serif;
+    }
+
+    #menu, footer a button {
+        display: none;
+    }
+
+
+    /* ERRORI */
+    .mainErrore img{
+        width: 50%;
+    }
+
+
+    /* PERCORSI E HOMEPAGE */
+    .contenitore-carte {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
+        gap: 1em; 
+        padding: 0; 
+        margin-top: 1em;
+        margin-bottom: 1em;
+    }
+
+    .carta {
+        box-shadow: none; /* Rimuove l'ombra per risparmiare inchiostro */
+        border: 1px solid #ccc; 
+    }
+
+    .carta img {
+        height: auto;
+        object-fit: cover; 
+    }
+
+    .link-percorso {
+        padding: 0.3em;
+        margin-bottom: 0.5em;
+        font-size: 1em;
+    }
+
+    #main-homepage {
+        font-size: 12px;
+    }
+
+
+
+
+    /* ACCEDI E REGISTRATI */
+    #formcontent {
+        padding: 1.5rem;
+        margin: 1.5em auto;
+        max-width: 95%;
+    }
+
+    #formcontent .styleInput {
+        padding: 0.6rem;
+        font-size: 0.9rem;
+    }
+
+    #formcontent .button {
+        font-size: 1.2rem;
+    }
+
+
+    /* PAGINA PERCORSO */
+    /* Main */
+    #main-percorso {
+        display: flex;
+        flex-direction: column;
+        padding: 1rem;
+    }
+
+    .nomePercorso,
+    .descrizionePercorso {
+        text-align: left;
+    }
+
+    .descrizione, .indicazioni {
+        background-color: transparent; /* inchiostro */
+    }
+
+
+    /* carosello */
+    .carosello {
+        max-width: 100%;
+    }
+
+    .slides {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1em; 
+    } 
+
+    .carosello img {
+        width: 100%;
+        display: block; 
+        border-radius: 20px; 
+    }
+
+    .carosello button {
+        display: none; 
+    }
+
+    #mappa {
+        width: 100%;
+        
+    }
+
+    #mappa iframe{
+        min-height: 18em;
+    }
+
+    .gpx-section {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem; 
+        margin-top: 0; 
+        align-items: center;
+    }
+
+    /* Bottone ridotto */
+    .gpx-section .button {
+        width: 75%; 
+        text-align: center;
+    }
+
+
+    .gpx-section details {
+        width: 100%; 
+        text-align: center;
+    }
+
+    /* Recensioni */
+    .recensioni {
+        margin: auto;
+        justify-content: center;
+        padding: 1rem;
+        margin-top: 0.2rem; 
+    }
+
+    .recensione {
+        padding: 1rem;
+        margin: 0.5rem 0;
+    }
+
+    /* textarea estesa */
+
+    footer {
+        flex-direction: column;
+        padding-top: 2%;
+        padding-bottom: 2%;
+    }
+    
+    footer a{
+        margin: auto;
+        margin-bottom: 3%
+    }
+
+    #main-percorso a:link::after, 
+    #main-percorso a:visited::after,
+    #main-homepage a:link::after, 
+    #main-homepage a:visited::after,
+    #breadcrumb a:link::after, 
+    #breadcrumb a:visited::after  {
+    content: " [https://www.montagnapertutti.it/" attr(href) "]";
+    }
+
+
+    #main-percorso .gpx-section a:link::after,
+    #main-percorso .gpx-section a:link::after {
+        content: none;
+    }
+
+    #main-percorso #recensioneUtente button img {
+        display: none;
+    }
+
+
+/*  PER LINK ULTIMO ELEMENTO BREADCRUMB
+    document.addEventListener("DOMContentLoaded", function () {
+        const breadcrumb = document.querySelector("#breadcrumb p");
+    
+        if (breadcrumb) {
+            const lastTextNode = breadcrumb.lastChild;
+    
+            if (lastTextNode && lastTextNode.nodeType === Node.TEXT_NODE) {
+                const text = lastTextNode.textContent.trim();
+    
+                if (text !== "") {
+                    const span = document.createElement("span");
+                    span.textContent = text;
+
+                    const fakeDomain = "https://www.montagnapertutti.it";
+                    const path = window.location.pathname;
+                    const fullFakeUrl = fakeDomain + path;
+    
+                    span.setAttribute("data-url", fullFakeUrl); 
+                    breadcrumb.replaceChild(span, lastTextNode);
+                }
+            }
+        }
+    });
+
+    #breadcrumb span::after {
+        content: " [" attr(data-url) "]";
+    } */
+
+}
+
+
+
