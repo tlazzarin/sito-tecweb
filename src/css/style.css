@@ -191,12 +191,12 @@ a.logo{
 }
 
 /*PAGINE ERRORI*/
-.mainErrore{
+#mainErrore{
     display: flex;
     flex-direction: row;
 }
 
-.mainErrore img{
+#mainErrore img{
 
     max-width: 30em;
     border-radius: 0.5em;

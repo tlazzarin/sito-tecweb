@@ -189,11 +189,11 @@
     }
 
     /*PAGINE ERRORI*/
-    .mainErrore{
+    #mainErrore{
         margin: 1em;
         flex-direction: column;
     }
-    .mainErrore img{
+    #mainErrore img{
         align-self: center;
     }
     .testoErrore{
