@@ -544,8 +544,8 @@ summary {
 .recensione {
     padding: 0.7em;
     background-color: var(--defaultbgcolor);
-    margin-top: 2em;
-    margin-bottom: 2em;
+    margin-top: 1em;
+    margin-bottom: 1.5em;
     border-radius: 0.5em;
 }
 /* stelline valutazioni 
@@ -675,7 +675,6 @@ noscript{
 
 .slides{
     height: 100%;
-    background-color: var(--sfondocard);
 }
 
 /*Tabella profilo e amministratore*/
@@ -708,4 +707,9 @@ td a.icona-elimina {
     content: url('../assets/trash-solid.svg');
     height: 2em;
     display: inline-block
+}
+
+#risultatoModifiche{
+    color: var(--maincolor);
+    font-weight: bold;
 }
