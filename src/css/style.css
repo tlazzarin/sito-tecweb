@@ -211,7 +211,7 @@ a.logo{
 }
 
 /* HOMEPAGE */
-#main-homepage, #main-navigatore, #main-profilo {
+#main-homepage, #main-navigatore, #main-profilo, #main-amministratore {
     display: flex;
     flex-direction: column;
     padding: 2em;
