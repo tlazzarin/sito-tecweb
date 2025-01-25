@@ -75,7 +75,6 @@
         grid-template-columns: 1fr; 
         gap: 1.5rem; 
         width: 100%; 
-        padding: 0 1rem; 
     }
 
 
@@ -228,7 +227,7 @@
         padding: 1em;
     }
 
-    #main-profilo, #main-amministratore{
+    #main-profilo, #main-amministratore, #main-homepage{
         padding-left: 1em;
         padding-right: 1em;
     }
