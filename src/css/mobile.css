@@ -227,7 +227,7 @@
         padding: 1em;
     }
 
-    #main-profilo, #main-amministratore, #main-homepage{
+    #main-profilo, #main-amministratore, #main-homepage, .contenitore-carte{
         padding-left: 1em;
         padding-right: 1em;
     }
