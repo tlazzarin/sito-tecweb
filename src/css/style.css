@@ -661,6 +661,12 @@ noscript{
     text-align: center;
     align-content: center;
     height: 100%;
+    color: var(--maincolor);
+    font-weight: bold;
+}
+
+.slides noscript{
+    height: 60%;
 }
 
 .recensione noscript{
@@ -669,6 +675,7 @@ noscript{
 
 .slides{
     height: 100%;
+    background-color: var(--sfondocard);
 }
 
 /*Tabella profilo e amministratore*/
