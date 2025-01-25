@@ -191,12 +191,12 @@ a.logo{
 }
 
 /*PAGINE ERRORI*/
-.mainErrore{
+#mainErrore{
     display: flex;
     flex-direction: row;
 }
 
-.mainErrore img{
+#mainErrore img{
 
     max-width: 30em;
     border-radius: 0.5em;
@@ -211,7 +211,7 @@ a.logo{
 }
 
 /* HOMEPAGE */
-#main-homepage, #main-navigatore, #main-profilo {
+#main-homepage, #main-navigatore, #main-profilo, #main-amministratore {
     display: flex;
     flex-direction: column;
     padding: 2em;
@@ -544,8 +544,8 @@ summary {
 .recensione {
     padding: 0.7em;
     background-color: var(--defaultbgcolor);
-    margin-top: 2em;
-    margin-bottom: 2em;
+    margin-top: 1em;
+    margin-bottom: 1.5em;
     border-radius: 0.5em;
 }
 /* stelline valutazioni 
@@ -661,6 +661,12 @@ noscript{
     text-align: center;
     align-content: center;
     height: 100%;
+    color: var(--maincolor);
+    font-weight: bold;
+}
+
+.slides noscript{
+    height: 60%;
 }
 
 .recensione noscript{
@@ -701,4 +707,9 @@ td a.icona-elimina {
     content: url('../assets/trash-solid.svg');
     height: 2em;
     display: inline-block
+}
+
+#risultatoModifiche{
+    color: var(--maincolor);
+    font-weight: bold;
 }

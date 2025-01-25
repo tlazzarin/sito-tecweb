@@ -75,7 +75,6 @@
         grid-template-columns: 1fr; 
         gap: 1.5rem; 
         width: 100%; 
-        padding: 0 1rem; 
     }
 
 
@@ -190,11 +189,11 @@
     }
 
     /*PAGINE ERRORI*/
-    .mainErrore{
+    #mainErrore{
         margin: 1em;
         flex-direction: column;
     }
-    .mainErrore img{
+    #mainErrore img{
         align-self: center;
     }
     .testoErrore{
@@ -226,5 +225,10 @@
     }
     .cella-voto{
         padding: 1em;
+    }
+
+    #main-profilo, #main-amministratore, #main-homepage, .contenitore-carte{
+        padding-left: 1em;
+        padding-right: 1em;
     }
 }
