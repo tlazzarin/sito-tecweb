@@ -172,7 +172,7 @@ document.getElementById("recensioneUtente").addEventListener("click", function (
       }
       else
       {
-        document.getElementsByName('testoRecensione')[0].placeholder="La recensione deve avere contenuto";
+        document.getElementsByName('testoRecensione')[0].placeholder="Scrivi qua la tua recensione";
         document.getElementsByName("testoRecensione")[0].focus();
       }
       
