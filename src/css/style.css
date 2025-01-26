@@ -289,6 +289,7 @@ a.logo{
     display: block;
     margin-bottom: 0.5em;
     font-weight: bold;
+    font-size:1.3em;
     color: var(--textcolor);
 }
 
@@ -343,7 +344,7 @@ select{
 .alert-info { 
     text-align: center;
     color: var(--maincolor); 
-    font-size: 0.8em;
+    font-size: 1.4em;
 }
 .contenitore-alert{
     padding-bottom: 1em;
@@ -354,14 +355,14 @@ select{
 #formcontent .suggestionMessage {
     display: block;
     color: var(--unvisitedlinkcolor);
-    font-size: 0.8em;
+    font-size: 0.9em;
     margin-bottom: 2em;
 }
 
 #formcontent .errorMessage {
     display: block;
     color: var(--maincolor);
-    font-size: 0.8em;
+    font-size: 0.9em;
     margin-bottom: 2em;
 }
 
