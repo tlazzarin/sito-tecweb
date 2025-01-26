@@ -398,7 +398,7 @@ button#modifica, button#elimina{
     max-width: 40em;    
     overflow: hidden;
     border-radius: 20px;
-    height: auto;
+    height: max-content;
 }
 
 .carosello img {
