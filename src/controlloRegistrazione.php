@@ -8,7 +8,7 @@ require_once("DB/database.php");
 
 $errore = false;
 
-$username = $_POST["username"];
+$username = strip_tags($_POST["username"]);
 $password = $_POST["password"];
 
 $connessione=new Functions();
