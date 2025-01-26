@@ -90,7 +90,7 @@ if($checkConnection){
                 $paginaHTML=str_replace("[miaRecensione]"," <section id=\"recensioneUtente\" class=\"recensione\">
                     <h5>La tua Recensione</h5>
                     <noscript>Abilita <span lang=\"en\">Javascript</span> per poter interagire con la tua recensione.</noscript>
-                    <p>Testo della recensione:</p>
+                    <p>Testo della recensione<abbr title=\"Obbligatorio\">*</abbr></p>
                     <textarea name=\"testoRecensione\" class=\"inputRecensione\" type=\"text\" aria-label=\"Zona dove inserire il testo della propria recensione, non può essere lasciata vuota\" disabled>".$queryRecensioneUtente->get_result()[0]['testo']."</textarea>
                     <p name=\"voto\" class=\"valutazione-".$queryRecensioneUtente->get_result()[0]['voto']."\">Voto: ".$queryRecensioneUtente->get_result()[0]['voto']." su 5</p>
 
@@ -105,9 +105,9 @@ if($checkConnection){
                 $paginaHTML=str_replace("[miaRecensione]"," <section id=\"recensioneUtente\" class=\"recensione\">
                     <h5>La tua Recensione</h5>
                     <noscript>Abilita <span lang=\"en\">Javascript</span> per poter interagire con la tua recensione.</noscript>
-                    <p>Testo della recensione:</p>
+                    <p>Testo della recensione<abbr title=\"Obbligatorio\">*</abbr></p>
                     <textarea name=\"testoRecensione\" class=\"inputRecensione\" type=\"text\" aria-label=\"Zona dove inserire il testo della propria recensione, non può essere lasciata vuota\"></textarea>
-                    <p id=\"testoOption\">Inserire una valutazione da 1 a 5:</p>
+                    <p id=\"testoOption\">Inserire una valutazione da 1 a 5<abbr title=\"Obbligatorio\">*</abbr></p>
                     <select aria-label=\"Scelta Multipla per il voto della recensione\" id=\"voto\" name=\"voto\">
                         <option value=\"5\">5</option>
                         <option value=\"4\">4</option>
@@ -124,155 +124,6 @@ if($checkConnection){
         {
             header("Location: /error/404.php");
         }
-
-
-        /*if(isset($_POST["annulla"]))
-        {
-            $_POST['aggiungiRecensione']=true;
-            $voto=$_POST['voto'];
-            $testo=$_POST['testoRecensione'];
-            unset($_POST["annulla"]);
-        }
-        if(isset($_POST["cancellaRecensione"]))
-        {
-            $queryCancellaRecensione=$connessione->cancella_recensione($id,$_SESSION['Username']);
-            if($queryCancellaRecensione->get_errno() == 0)
-            {
-                unset($_POST["cancellaRecensione"]);
-                unset($_SESSION['testoRecensione']);
-                unset($_SESSION['voto']);
-            }
-            else
-                $_SESSION["error"] = "Impossibile connettersi al sistema per cancellare la tua recensione";
-        }   
-
-        $queryRecensioneUtente=$connessione->get_recensioni($id,$_SESSION['Username']);
-        if($queryRecensioneUtente->ok()&&!isset($_POST["modificaRecensione"]))
-        {
-            $paginaHTML=str_replace("[miaRecensione]"," <section class=\"recensione\">
-                    <h5>La tua Recensione:</h5>
-                    <p>".$queryRecensioneUtente->get_result()[0]['testo']."</p>
-                    <p>Voto: ".$queryRecensioneUtente->get_result()[0]['voto']." su 5</p>
-                    <form method=\"post\">
-                        <button name=\"modificaRecensione\" type=\"submit\" id=\"modifica\" aria-label=\"Modifica recensione\"><img src=\"./assets/pen-to-square-solid.svg\" alt=\"Modifica\"></button>
-                        <button name=\"cancellaRecensione\" type=\"submit\" id=\"elimina\" aria-label=\"Elimina recensione\"><img src=\"./assets/trash-solid.svg\" alt=\"Elimina\"></button>
-                    </form>
-                    </section>",$paginaHTML);
-        }
-        else if(!isset($_POST["aggiungiRecensione"]))
-        {
-            if(!isset($_POST["modificaRecensione"]))
-            {
-                $paginaHTML=str_replace("[miaRecensione]"," <section class=\"recensione\">
-                <h5>La tua Recensione:</h5>
-                <form  method=\"post\">
-                    <p>Testo della recensione:</p>
-                    <textarea name=\"testoRecensione\" class=\"inputRecensione\" type=\"text\"></textarea>
-                    <p>Inserire una valutazione da 1 a 5:</p>
-                    <select aria-label=\"Scelta Multipla per il voto della recensione\" id=\"voto\" name=\"voto\">
-                        <option value=\"5\">5</option>
-                        <option value=\"4\">4</option>
-                        <option value=\"3\">3</option>
-                        <option value=\"2\">2</option>
-                        <option value=\"1\">1</option>
-                    </select>
-                    <br>
-                    <button name=\"aggiungiRecensione\" type=\"submit\" class=\"button\">Inserisci</button>
-
-                </form>
-                </section>",$paginaHTML);
-            }
-            else
-            {
-                $tempTest=null;
-
-                if(!$queryRecensioneUtente->is_empty())
-                {
-                    $tempTest=$queryRecensioneUtente->get_result()[0]['testo'];
-                    $tempVoto=$queryRecensioneUtente->get_result()[0]['voto'];
-                }
-                
-                $queryCancellaRecensione=$connessione->cancella_recensione($id,$_SESSION['Username']);
-                
-                if($queryCancellaRecensione->get_errno() == 0)
-                {
-                    if($tempTest!=null)
-                    {
-                        $_SESSION['testoRecensione']=$tempTest;
-                        $_SESSION['voto']=$tempVoto;
-                    }
-                    else
-                    {
-                        $tempTest=$_SESSION['testoRecensione'];
-                        $tempVoto=$_SESSION['voto'];
-                    }
-                        
-                    $paginaHTML=str_replace("[miaRecensione]"," <section class=\"recensione\">
-                    <h5>La tua Recensione:</h5>
-                    <form method=\"post\">
-                        <label for=\"testoRecensione\">Testo della recensione:</label>
-                        <textarea id=\"testoRecensione\" name=\"testoRecensione\" class=\"inputRecensione\" type=\"text\">".$tempTest."</textarea>
-                        <p>Inserire una valutazione da 1 a 5:</p>
-                        <select aria-label=\"Scelta del voto della recensione da 1 a 5\" class=\"\" id=\"voto\" name=\"voto\" value=\"".$tempVoto."\">
-                            <option value=\"5\">5</option>
-                            <option value=\"4\">4</option>
-                            <option value=\"3\">3</option>
-                            <option value=\"2\">2</option>
-                            <option value=\"1\">1</option>
-                        </select>
-                        <br>
-                        <button name=\"aggiungiRecensione\" type=\"submit\" class=\"button\">Invia</button>
-                        <button name=\"annulla\" type=\"submit\" class=\"buttonRed\">Annulla</button>
-                    </form>
-                    </section>",$paginaHTML);
-                }
-                else
-                {
-                    $_SESSION["error"] = "Impossibile connettersi al sistema per modificare la tua recensione";
-                    $paginaHTML=str_replace("[miaRecensione]"," <section class=\"recensione\">
-                    <h5>La tua Recensione:</h5>
-                    <p>".$tempTest."</p>
-                    <p>Voto: ".$tempVoto." su 5</p>
-                    <form method=\"post\">
-                    <button name=\"modificaRecensione\" type=\"submit\" id=\"modifica\" aria-label=\"Modifica recensione\"><img src=\"./assets/pen-to-square-solid.svg\" alt=\"Modifica\"></button>
-                    <button name=\"cancellaRecensione\" type=\"submit\" id=\"elimina\" aria-label=\"Elimina recensione\"><img src=\"./assets/trash-solid.svg\" alt=\"Elimina\"></button>
-                    </form>
-                    </section>",$paginaHTML);
-                }
-            }
-        }
-        else
-        {
-            $voto=$_POST["voto"];
-            $testo=$_POST["testoRecensione"];
-            $queryAggiungiRecensione=$connessione->aggiungi_recensione($_SESSION['Username'],$id,$voto,$testo);
-            if($queryAggiungiRecensione->ok())
-            {
-                unset($_POST['aggiungiRecensione']);
-                $queryRecensioneUtente=$connessione->get_recensioni($id,$_SESSION['Username']);
-                if($queryRecensioneUtente->ok())
-                {
-                    $paginaHTML=str_replace("[miaRecensione]"," <section class=\"recensione\">
-                    <h5>La tua Recensione:</h5>
-                    <p>".$queryRecensioneUtente->get_result()[0]['testo']."</p>
-                    <p>Voto: ".$queryRecensioneUtente->get_result()[0]['voto']." su 5 </p>
-                    <form method=\"post\">
-                        <button name=\"modificaRecensione\" type=\"submit\" id=\"modifica\" aria-label=\"Modifica recensione\"><img src=\"./assets/pen-to-square-solid.svg\" alt=\"Modifica\"></button>
-                        <button name=\"cancellaRecensione\" type=\"submit\" id=\"elimina\" aria-label=\"Elimina recensione\"><img src=\"./assets/trash-solid.svg\" alt=\"Elimina\"></button>
-                    </form>
-                    
-                    </section>",$paginaHTML);
-                }
-                else
-                {
-                    $_SESSION["error"] = "Impossibile connettersi al sistema";
-                }
-            }
-            else
-            {
-                $_SESSION["error"] = "Impossibile connettersi al sistema per aggiungere la tua recensione";
-            }
-        }*/
 
     }
 

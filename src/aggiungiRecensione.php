@@ -11,7 +11,7 @@
 
     $id=$_POST['id'];
     $voto=$_POST['voto'];
-    $testo=$_POST['testo'];
+    $testo=strip_tags($_POST['testo']);
     $response=array();
     $connessione=new Functions();
     $checkConnection=$connessione->openConnection();

@@ -713,3 +713,7 @@ td a.icona-elimina {
     color: var(--maincolor);
     font-weight: bold;
 }
+
+abbr[title="Obbligatorio"]{
+    color: var(--maincolor)
+}

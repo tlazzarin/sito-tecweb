@@ -1,8 +1,8 @@
 let restrizioni = {
   username: [
     "Username",
-    /^[A-Za-z\s]\w{1,30}$/,
-    "Inserire un username di lunghezza tra i 2 e 30 caratteri che non inizi con un numero\n",
+    /^[A-Za-z0-9\s]\w{1,30}$/,
+    "Inserire un username di lunghezza tra i 2 e 30 caratteri alfanumerici che non inizi con un numero\n",
   ],
   password: [
     "Password",
@@ -49,7 +49,6 @@ function validazioneCampo(input) {
     input.value.search(restrizioni[input.id][1]) != 0 ||
     input.value == restrizioni[input.id][0]
   ) {
-    console.log(input.id);
     return false;
   }
 
