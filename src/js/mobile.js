@@ -1,8 +1,10 @@
 document.addEventListener("DOMContentLoaded", () => {
+    const bread = document.querySelector('#breadcrumb.aperto');
     const hamburger = document.querySelector('#hamburger');
     const img = document.querySelector('#hamburger>img');
     const navMenu = document.querySelector('.nav-menu');
     const navItem = document.querySelectorAll('.nav-item>a');
+    bread.classList.remove('aperto');
     hamburger.classList.remove('active');
     navMenu.classList.remove('active');
 

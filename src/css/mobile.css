@@ -55,6 +55,11 @@
         transition: transform 0.3s ease, opacity 0.3s ease;        
     }
 
+    .nav-menu{
+        border: 0.2em solid var(--maincolor);
+        z-index: 99;
+    }
+
     .nav-menu.active {
         transform: scaleY(1); 
         opacity: 1; 
@@ -68,6 +73,11 @@
     .nav-link {
         padding: 10px 0;
         background-color: transparent; 
+    }
+
+    /*necessario per visualizzare il contenuto con menu aperto e js disabilitato*/
+    #breadcrumb.aperto{
+        margin-top: 20em; 
     }
 
     /* HOMEPAGE */
