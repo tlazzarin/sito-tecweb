@@ -42,16 +42,17 @@
         top: 90px; 
         left: 0;
         right: 0;
-        transform: scaleY(0);         
+        transform: scaleY(0);      
+        z-index: 100;   
         transform-origin: top; 
         opacity: 0;        
         flex-direction: column;
         background-color: white;
-        border: 3px solid var(--headerbgcolor);
+        border: 3px solid var(--maincolor);
         border-bottom-left-radius: 20px;
         border-bottom-right-radius: 20px;
         padding: 1em 0;
-        box-shadow: 0 4px 10px var(--headerbgcolor);         
+        box-shadow: 0 4px 10px var(--maincolor);         
         transition: transform 0.3s ease, opacity 0.3s ease;        
     }
 

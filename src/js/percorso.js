@@ -199,3 +199,17 @@ document.getElementById("recensioneUtente").addEventListener("click", function (
       break;
   }
 });
+
+  // Apre il summary in caso di stampa
+  window.addEventListener('beforeprint', () => {
+    document.querySelectorAll('details').forEach((detail) => {
+      detail.setAttribute('open', true);
+    });
+  });
+
+  // Chiude il summary dopo la stampa
+  window.addEventListener('afterprint', () => {
+    document.querySelectorAll('details').forEach((detail) => {
+      detail.removeAttribute('open');
+    });
+  });
