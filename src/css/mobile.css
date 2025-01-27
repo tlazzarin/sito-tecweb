@@ -223,7 +223,7 @@
         border: 1px var(--unvisitedlinkcolor) solid;
     }
     th{
-        background-color: var(--sfondocard);
+        background-color: var(--sfondoTabelle);
     }
     
     td:not(.rimuovi-intestazione-mobile):before{
