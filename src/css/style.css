@@ -667,6 +667,10 @@ table{
     table-layout: fixed;
     margin-top: 1em;
 }
+caption {
+    font-size: 1.4em;
+    margin-bottom: 0.5em;
+}
 
 th, td{
     border: 2px var(--unvisitedlinkcolor) solid;
@@ -677,9 +681,6 @@ td{
 }
 th{
     font-size: 1.4em;
-}
-th a{
-
 }
 
 thead th{
