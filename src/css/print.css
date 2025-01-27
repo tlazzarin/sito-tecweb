@@ -17,14 +17,6 @@
 
 
     /* PERCORSI E HOMEPAGE */
-    .contenitore-carte {
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
-        gap: 1em; 
-        padding: 0; 
-        margin-top: 1em;
-        margin-bottom: 1em;
-    }
-
     .carta {
         box-shadow: none; 
         border: 1px solid #ccc; 
@@ -44,8 +36,6 @@
     #main-homepage {
         font-size: 12px;
     }
-
-
 
 
     /* ACCEDI E REGISTRATI */
@@ -150,6 +140,7 @@
         flex-direction: column;
         padding-top: 2%;
         padding-bottom: 2%;
+        border-radius: 20px;
     }
     
     footer a{
@@ -162,26 +153,33 @@
     #main-homepage a:link::after, 
     #main-homepage a:visited::after,
     #breadcrumb a:link::after, 
-    #breadcrumb a:visited::after  {
-    content: " [https://www.montagnapertutti.it/" attr(href) "]";
+    #breadcrumb a:visited::after,
+    .carta a:link::after, 
+    .carta a:visited::after  {
+        content: " [https://www.montagnapertutti.it/" attr(href) "]"; /* dominio fittizzio */
+    }
+
+    .carta a::after {
+        word-wrap: break-word;
+    }
+
+    #main-navigatore a:link::after, 
+    #main-navigatore a:visited::after {
+        content: " [" attr(href) "]";
     }
 
 
     #main-percorso .gpx-section a:link::after,
     #main-percorso .gpx-section a:visited::after,
     #main-percorso .recensione a:link::after,
-    #main-percorso .recensione a:visited::after,
-    #main-homepage .carta a:link::after,
-    #main-homepage .carta a:visited::after {
+    #main-percorso .recensione a:visited::after {
         content: none;
     }
 
-    #main-percorso #recensioneUtente button img {
+    #main-percorso #recensioneUtente button img,
+    .button.navigazione  {
         display: none;
     }
-
-
-
 
 }
 
