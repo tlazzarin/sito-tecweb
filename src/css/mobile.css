@@ -56,6 +56,11 @@
         transition: transform 0.3s ease, opacity 0.3s ease;        
     }
 
+    .nav-menu{
+        border: 0.2em solid var(--maincolor);
+        z-index: 99;
+    }
+
     .nav-menu.active {
         transform: scaleY(1); 
         opacity: 1; 
@@ -69,6 +74,11 @@
     .nav-link {
         padding: 10px 0;
         background-color: transparent; 
+    }
+
+    /*necessario per visualizzare il contenuto con menu aperto e js disabilitato*/
+    #breadcrumb.aperto{
+        margin-top: 20em; 
     }
 
     /* HOMEPAGE */
@@ -127,7 +137,7 @@
         display: flex;
         flex-direction: column;
         gap: 0.5rem; 
-        margin-top: 0; 
+        margin-top: 1em; 
         align-items: center;
     }
 
@@ -169,8 +179,7 @@
 
     footer {
         flex-direction: column;
-        padding-top: 2%;
-        padding-bottom: 2%;
+        padding: 2%;
     }
     
     footer a{
@@ -215,7 +224,7 @@
         border: 1px var(--unvisitedlinkcolor) solid;
     }
     th{
-        background-color: var(--sfondocard);
+        background-color: var(--sfondoTabelle);
     }
     
     td:not(.rimuovi-intestazione-mobile):before{

@@ -67,7 +67,7 @@ document.getElementById("recensioneUtente").addEventListener("click", function (
           document.getElementById("voto").innerHTML+='<option value="'+i+'">'+i+'</option>';
       }
       document.getElementById("recensioneUtente").innerHTML+="<button id=\"aggiungi\" name=\"aggiungiRecensione\" type=\"button\" class=\"button\">Invia</button>";
-      document.getElementById("recensioneUtente").innerHTML+="<button id=\"annulla\" name=\"annullaRecensione\" type=\"button\" class=\"buttonRed\">Annulla</button>";
+      document.getElementById("recensioneUtente").innerHTML+="<button id=\"annulla\" name=\"annullaRecensione\" type=\"button\" class=\"button danger\">Annulla</button>";
       document.getElementsByName("testoRecensione")[0].focus();
       break;
     case "elimina":

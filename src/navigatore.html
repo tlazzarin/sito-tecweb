@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Usare il navigatore</title>
-        <meta name="keywords" content="GPX, Outdooractive, navigatore, android, ios" />
+        <meta name="keywords" content="GPX, Outdooractive, navigatore, android, ios, mappa, indicazioni" />
         <meta name="description" content="Impara ad utilizzare le tracce GPX per avere il navigatore con l'app Outdooractive." />
         <meta name="author" content="Tommaso Lazzarin, Yuri Lunardon, Patrick Mzoughi e Gaia Pistori" />
 
@@ -20,25 +20,17 @@
     </head>
     <body>
         <header>
-            <a href="#main-navigatore" class="contenutiPrincipaliIndice">Vai ai contenuti principali</a>
+            <a href="#main-navigatore" class="VaiAiContenutiPrincipali">Vai ai contenuti principali</a>
             <a class="linkHome" href="index.php" id="logo"><img src="./assets/logo.svg" alt="Logo del sito" class="logo"></a>
             <h1>Montagna per tutti</h1>
         </header> 
-        <style>
-            abbr{
-                color: red
-            }
-            span{
-                color: green
-            }
-        </style>
         
         <!-- Navigation -->
         <nav id="menu">
             <button type="button" id="hamburger" aria-label="Apri menu" class="active" class="active"><img src="./assets/bars-solid.svg" alt="Menu"></button>
             <ul class="nav-menu active">
                 <li class="nav-item">
-                    <a href="index.php" class="nav-link">Home</a>
+                    <a href="index.php" class="nav-link"><span lang="en">Home</span></a>
                 </li>
                 <li class="nav-item">
                     <a href="percorsi.php" class="nav-link">Percorsi</a>
@@ -56,14 +48,14 @@
         </nav>
 
         <!-- Breadcrumb -->
-        <nav id="breadcrumb">
+        <nav id="breadcrumb" class="aperto">
             <p>Ti trovi in: <a href="index.php" lang="en">Home</a> &gt; Usare il navigatore</p>
         </nav>
 
         <main id="main-navigatore">
             <body>
                 <h2>Come usare il navigatore</h2>
-                <p>Una delle applicazioni migliori per poter avere il navigatore durante le escursioni è <span lang="en">Outdooractive</span>. Una delle funzionalità è quella di poter importare una traccia <abbr title="GPS eXchange Format">GPX</abbr> (che potrai scaricare dal nostro sito) e vedere la mappa e ottenere le indicazioni vocali. Nella mappa sono presenti dettagli importanti come le fontanelle di acqua potabile, i rifugi e i parcheggi. Le indicazioni vocali sono molto dettagliate e rispondono bene anche alle variazioni di percorso.</p>
+                <p>Una delle applicazioni migliori per poter avere il navigatore durante le escursioni è <strong><span lang="en">Outdooractive</span></strong>. Una delle funzionalità è quella di poter importare una traccia <abbr title="GPS eXchange Format">GPX</abbr> (che potrai scaricare dal nostro sito) e vedere la <strong>mappa</strong> e ottenere le <strong>indicazioni vocali</strong>. Nella mappa sono presenti dettagli importanti come le fontanelle di acqua potabile, i rifugi e i parcheggi. Le indicazioni vocali sono molto dettagliate e rispondono bene anche alle variazioni di percorso.</p>
                 <div class="area-dispositivo">
                     <h3>Android</h3>
                     <p>Scarica <span lang="en">Outdooractive</span> dal <a class="link-esterno" href="https://play.google.com/store/apps/details?id=com.outdooractive.Outdooractive&pcampaignid=web_share">Play Store</a>!</p>
@@ -106,7 +98,7 @@
         </main>
 
         <footer>
-            <a href="#"><button aria-label="Pulsante per tornare all'inizio della pagina" type="button" class="button">Torna Su</button></a>
+            <a href="#main-navigatore" class="button navigazione">Torna Su</a>
             <p>Sito realizzato da Tommaso Lazzarin, Yuri Lunardon, Patrick Mzoughi e Gaia Pistori per il progetto di Tecnologie Web (anno accademico 2024-25).</p>
         </footer>
     </body>

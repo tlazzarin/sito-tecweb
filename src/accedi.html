@@ -24,7 +24,7 @@
     <body>
         <!-- Header -->    
         <header>
-            <a href="#main-accedi" class="contenutiPrincipaliIndice">Vai ai contenuti principali</a>
+            <a href="#main-accedi" class="VaiAiContenutiPrincipali">Vai ai contenuti principali</a>
             <a class="linkHome" href="index.php" id="logo"><img src="./assets/logo.svg" alt="Logo del sito" class="logo"></a>
             <h1>Montagna per tutti</h1>
         </header> 
@@ -52,7 +52,7 @@
 
         </nav>
         <!-- Breadcrumb -->
-        <nav id="breadcrumb">
+        <nav id="breadcrumb" class="aperto">
             <p>Ti trovi in: <a href="index.php" lang="en">Home</a> &gt; Accedi</p>
         </nav>
         <!-- Dialogo di accesso -->
@@ -62,7 +62,7 @@
                 <form class="formInput" id="form" action="controlloAccedi.php" method="post">
                     <fieldset>
                         <label for="username">Username</label>
-                        <input type="text" aria-label="Inesrisci il tuo Username" id="username" name="username" class="styleInput" required/>
+                        <input type="text" aria-label="Inesrisci il tuo Username" id="username" name="username" class="styleInput" minlength="2" maxlength="30" required/>
                         <p id="aiutoUsername" ></p>
                         <label for="password">Password</label>
                         <input type="password" aria-label="Inesrisci la tua Password" id="password" name="password" class="styleInput" minlength="4" required/>
@@ -76,7 +76,7 @@
         </main>
             <!-- Footer -->
         <footer>
-            <a href="#formcontent"><button aria-label="Pulsante per tornare all'inizio della pagina" type="button" class="button">Torna Su</button></a>
+            <a href="#formcontent" class="button navigazione">Torna Su</a>
             <p>Sito realizzato da Tommaso Lazzarin, Yuri Lunardon, Patrick Mzoughi e Gaia Pistori per il progetto di Tecnologie Web (anno accademico 2024-25).</p>
         </footer>
     </body>

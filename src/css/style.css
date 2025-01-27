@@ -7,6 +7,7 @@
     --textcolor: #290E00;
     --defaultbgcolor: #FFFFFF;
     --sfondocard: #E6E6E6;
+    --sfondoTabelle: #F8F8F8;
 }
 
 /* GENERALI */
@@ -39,10 +40,9 @@ h5{
     margin-bottom: 0.3em;
 }
 
-p {
+p{
     font-size: 1.2em;
     line-height: 1.5; 
-
 }
 
 a {
@@ -55,7 +55,6 @@ a:visited {
 
 body {
     font-family: "Varela Round", sans-serif;
-    /*font-weight: 400;*/
     color: var(--textcolor);
     display: flex;
     flex-direction: column;
@@ -80,24 +79,25 @@ button, .button{
     cursor: pointer;
 }
 
-.buttonRed {
-    font-size: 100%;
-    padding: 1em;
-    border-radius: 1em;
+/* bottoni per navigazione */
+.button.navigazione , .button.navigazione:visited{
+    color: var(--defaultbgcolor)
+}
+
+.button.danger {
     background-color: var(--maincolor);
-    color: var(--defaultbgcolor);
-    font-weight: bold;
-    text-align: center;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    flex-shrink: 0; 
+    color: var(--defaultbgcolor); 
+    margin-left:0.5em;
+}
+.button.danger:hover {
+    background-color: var(--maincolor);
 }
 
 .button:hover , button:hover{
     background-color: var(--unvisitedlinkcolorhover);
 }
 
+/* INUTILE */
 .button a {
     color: inherit;
     text-decoration: none;
@@ -124,8 +124,12 @@ a.logo{
 }
 .linkHome{
     z-index: 99;
+    color:var(--defaultbgcolor);
 }
-.contenutiPrincipaliIndice:not(:focus){ /* TODO rinominare: è il bottone "vai ai contenuti principalente" */
+.VaiAiContenutiPrincipali, .VaiAiContenutiPrincipali:visited{
+    color:var(--defaultbgcolor);
+}
+.VaiAiContenutiPrincipali:not(:focus){
     clip: rect(1px, 1px, 1px, 1px);
     position: absolute;
 }
@@ -146,7 +150,6 @@ a.logo{
     align-items: center;
     max-width: 95%;
     font-size: 1.3em;
-    /*z-index: 99;*/
 }
 
 #menu li{
@@ -210,7 +213,6 @@ a.logo{
     margin-top: 2em;
 }
 
-/* HOMEPAGE */
 #main-homepage, #main-navigatore, #main-profilo, #main-amministratore {
     display: flex;
     flex-direction: column;
@@ -282,6 +284,7 @@ a.logo{
     display: block;
     margin-bottom: 0.5em;
     font-weight: bold;
+    font-size:1.3em;
     color: var(--textcolor);
 }
 
@@ -336,7 +339,7 @@ select{
 .alert-info { 
     text-align: center;
     color: var(--maincolor); 
-    font-size: 0.8em;
+    font-size: 1.4em;
 }
 .contenitore-alert{
     padding-bottom: 1em;
@@ -347,14 +350,14 @@ select{
 #formcontent .suggestionMessage {
     display: block;
     color: var(--unvisitedlinkcolor);
-    font-size: 0.8em;
+    font-size: 0.9em;
     margin-bottom: 2em;
 }
 
 #formcontent .errorMessage {
     display: block;
     color: var(--maincolor);
-    font-size: 0.8em;
+    font-size: 0.9em;
     margin-bottom: 2em;
 }
 
@@ -368,12 +371,13 @@ select{
 }
 
 button#modifica img, button#elimina img{
-    height: 1.5em;
+    height: 1.6em;
     padding:0;
 }
 button#modifica, button#elimina{
     background-color: transparent;
     padding: 0.5em;
+    font-size: 1.4em;
 }
 
 /* PAGINA PERCORSO */
@@ -391,7 +395,7 @@ button#modifica, button#elimina{
     max-width: 40em;    
     overflow: hidden;
     border-radius: 20px;
-    height: auto;
+    height: max-content;
 }
 
 .carosello img {
@@ -504,7 +508,7 @@ abbr[title="Lunghezza del percorso"] {
 }
 
 .gpx-section {
-    padding-top: 1em;
+    margin-top: 2em;
 }
 
 details {
@@ -529,6 +533,7 @@ summary {
 }
 
 /* recensioni */
+
 .recensioni {
     grid-column: 1 / -1;
     display: flex;
@@ -548,27 +553,6 @@ summary {
     margin-bottom: 1.5em;
     border-radius: 0.5em;
 }
-/* stelline valutazioni 
-.valutazione-1{
-    content: '★☆☆☆☆';
-}
-.valutazione-2{
-    content: "★★☆☆☆";
-}
-.valutazione-3{
-    content: "★★★☆☆";
-}
-.valutazione-4{
-    content: "★★★★☆";
-}
-.valutazione-5{
-    content: "test";
-}
-
-.valutazione-1, .valutazione-2,.valutazione-3,.valutazione-4,.valutazione-5 {
-    height: 1.5em;
-    margin: 0 0.2em 0 0.5em;
-}*/
 
 /* PERCORSI */
 .contenitore-carte {
@@ -683,14 +667,24 @@ table{
     table-layout: fixed;
     margin-top: 1em;
 }
+caption {
+    font-size: 1.4em;
+    margin-bottom: 0.5em;
+}
 
 th, td{
     border: 2px var(--unvisitedlinkcolor) solid;
     padding: 1em;
 }
+td{
+    font-size: 1.2em;
+}
+th{
+    font-size: 1.4em;
+}
 
 thead th{
-    background-color: var(--sfondocard);
+    background-color: var(--sfondoTabelle);
 }
 
 .cella-voto {
@@ -703,10 +697,14 @@ td[colspan="4"]{
     text-align: center;
 }
 
+td.rimuovi-intestazione-mobile{
+    text-align:center;
+}
+
 td a.icona-elimina {
     content: url('../assets/trash-solid.svg');
     height: 2em;
-    display: inline-block
+    display: inline-block;
 }
 
 #risultatoModifiche{
