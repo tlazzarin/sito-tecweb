@@ -68,7 +68,7 @@ class Functions extends Constant{
 
       //funzione che controlla che un utente sia presente nel database e permette di accedere
       public function accedi($username, $pass): response_manager {
-        $query = "SELECT username, isAdmin FROM UTENTE WHERE username = ? AND password = ?";
+        $query = "SELECT username, isAdmin FROM UTENTE WHERE BINARY username = ? AND password = ?";
         $stmt = $this->connection->prepare($query);
         $result = array();
     
