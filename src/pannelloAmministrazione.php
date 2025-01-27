@@ -15,7 +15,6 @@ if(!$connessione->openConnection())
     header("Location: error/500.html");
 
 $tabella="
-    <caption>Tabella recensioni</caption>
     <thead>
         <tr>
             <th scope=\"col\">Percorso</th>

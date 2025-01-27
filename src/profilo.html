@@ -19,7 +19,7 @@
 
     <body>
         <header>
-            <a href="#main-profilo" class="contenutiPrincipaliIndice">Vai ai contenuti principali</a>
+            <a href="#main-profilo" class="VaiAiContenutiPrincipali">Vai ai contenuti principali</a>
             <a class="linkHome" href="index.php" id="logo"><img src="./assets/logo.svg" alt="Logo del sito" class="logo"></a>
             <h1>Montagna per tutti</h1>
         </header> 
@@ -29,7 +29,7 @@
             <button type="button" id="hamburger" aria-label="Apri menu" class="active"><img src="./assets/bars-solid.svg" alt="Menu"></button>
             <ul class="nav-menu active">
                 <li class="nav-item">
-                    <a href="index.php" class="nav-link">Home</a>
+                    <a href="index.php" class="nav-link"><span lang="en">Home</span></a>
                 </li>
                 <li class="nav-item">
                     <a href="percorsi.php" class="nav-link">Percorsi</a>
@@ -50,7 +50,7 @@
         </nav>    
 
         <!-- Breadcrumb -->
-        <nav id="breadcrumb">
+        <nav id="breadcrumb" class="aperto">
             <p>Ti trovi in: <a href="index.php" lang="en">Home</a> &gt; Profilo</p>
         </nav>
 
@@ -60,13 +60,14 @@
                 <p>Questa è la tua <strong>area personale</strong>.</p>
                 <p id="desc-tabella">Nella tabella puoi trovare tutti i <strong>commenti</strong> che hai lasciato nel nostro sito.</p>
                 <table aria-describedby="desc-tabella">
+                    <caption>Tabella recensioni</caption>
                     [corpo-tabella]
                 </table>
             </body>
         </main>
 
         <footer>
-            <a href="#"><button aria-label="Pulsante per tornare all'inizio della pagina" type="button" class="button">Torna Su</button></a>
+            <a href="#main-profilo" class="button navigazione">Torna Su</a>
             <p>Sito realizzato da Tommaso Lazzarin, Yuri Lunardon, Patrick Mzoughi e Gaia Pistori per il progetto di Tecnologie Web (anno accademico 2024-25).</p>
         </footer>
     </body>

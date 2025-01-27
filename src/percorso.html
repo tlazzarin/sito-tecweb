@@ -23,7 +23,7 @@
     <body>
         <!-- Header -->
         <header>
-            <a href="#main-percorso" class="contenutiPrincipaliIndice">Vai ai contenuti principali</a>
+            <a href="#main-percorso" class="VaiAiContenutiPrincipali">Vai ai contenuti principali</a>
             <a class="linkHome" href="index.php" id="logo" ><img src="./assets/logo.svg" alt="Logo del sito" class="logo"></a>
             <h1 id="nomeSito">Montagna per tutti</h1>
         </header> 
@@ -34,7 +34,7 @@
             <button type="button" id="hamburger" aria-label="Apri menu" class="active"><img src="./assets/bars-solid.svg" alt="Menu"></button>
             <ul class="nav-menu active">
                 <li class="nav-item" aria-current="page">
-                    <a href="index.php" class="nav-link">Home</a>
+                    <a href="index.php" class="nav-link"><span lang="en">Home</span></a>
                 </li>
                 <li class="nav-item">
                     <a href="percorsi.php" class="nav-link">Percorsi</a>
@@ -53,7 +53,7 @@
         </nav>    
 
         <!-- Breadcrumb -->
-        <nav id="breadcrumb">
+        <nav id="breadcrumb" class="aperto">
             <p>Ti trovi in: <a href="index.php" lang="en">Home</a> &gt; <a href="percorsi.php">Percorsi</a> &gt; [titolo]</p>
         </nav>
 
@@ -94,9 +94,7 @@
                 </section>
             
                 <section class="gpx-section">
-                    <button aria-label="Pulsante Scarica Traccia gpx" type="button" class="button">
-                        <a href="[file_gpx]" download>Scarica Traccia .gpx ([peso]MB)</a>
-                    </button>
+                        <a class="button" href="[file_gpx]" download>Scarica Traccia .gpx ([peso]MB)</a>
         
                     
                         <details>
@@ -120,9 +118,7 @@
                 <p id="risultatoModifiche"></p>
         
                 [miaRecensione]
-        
-                <hr>
-        
+            
                 [recensioni]
         
             </section>
@@ -131,7 +127,7 @@
     
         <!-- Footer -->
         <footer>
-            <a href="#main-percorso"><button aria-label="Pulsante per tornare all'inizio della pagina" type="button" class="button">Torna Su</button></a>
+            <a href="#main-percorso" class="button navigazione">Torna Su</a>
             <p>Sito realizzato da Tommaso Lazzarin, Yuri Lunardon, Patrick Mzoughi e Gaia Pistori per il progetto di Tecnologie Web (anno accademico 2024-25).</p>
         </footer>
         
