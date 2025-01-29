@@ -213,3 +213,26 @@ document.getElementById("recensioneUtente").addEventListener("click", function (
       detail.removeAttribute('open');
     });
   });
+
+
+let originalTextarea = null;
+window.addEventListener('beforeprint', () => {
+    const textarea = document.querySelector('textarea[name="testoRecensione"]');
+    if (textarea) {        
+        originalTextarea = textarea.cloneNode(true);
+
+        const text = textarea.value;
+        const p = document.createElement('p');
+        p.textContent = text;
+        p.classList.add('printable-text');
+        textarea.replaceWith(p);
+    }
+});
+
+window.addEventListener('afterprint', () => {
+    const p = document.querySelector('.printable-text');
+    if (p && originalTextarea) {
+        p.replaceWith(originalTextarea);
+        originalTextarea = null;
+    }
+});
