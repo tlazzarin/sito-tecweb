@@ -57,7 +57,7 @@ document.getElementById("recensioneUtente").addEventListener("click", function (
       document.getElementsByName("voto")[0].remove();
       document.getElementsByName("cancellaRecensione")[0].remove();
       
-      document.getElementById("recensioneUtente").innerHTML+='<p id="testoOption">Inserire una valutazione da 1 a 5:</p>';
+      document.getElementById("recensioneUtente").innerHTML +='<p id="testoOption">Inserire una valutazione da 1 a 5 <abbr title=\"Obbligatorio\">*</abbr></p>';
       document.getElementById("recensioneUtente").innerHTML+='<select id="voto" name="voto" aria-label="Scelta Multipla per il voto della recensione"></select>';
       for (let i = 5; i > 0; i--) {
         
@@ -89,7 +89,7 @@ document.getElementById("recensioneUtente").addEventListener("click", function (
           document.getElementById("modifica").remove();
           document.getElementById("elimina").remove();
 
-          document.getElementById("recensioneUtente").innerHTML+='<p id="testoOption">Inserire una valutazione da 1 a 5:</p>';
+          document.getElementById("recensioneUtente").innerHTML +='<p id="testoOption">Inserire una valutazione da 1 a 5 <abbr title=\"Obbligatorio\">*</abbr></p>';
           document.getElementById("recensioneUtente").innerHTML+='<select id="voto" name="voto" aria-label="Scelta Multipla per il voto della recensione"></select>';
           for (let i = 5; i > 0; i--) {
             document.getElementById("voto").innerHTML+='<option value="'+i+'">'+i+'</option>';

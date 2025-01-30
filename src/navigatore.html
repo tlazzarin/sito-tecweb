@@ -26,8 +26,8 @@
         </header> 
         
         <!-- Navigation -->
-        <nav id="menu">
-            <button type="button" id="hamburger" aria-label="Apri menu" class="active" class="active"><img src="./assets/bars-solid.svg" alt="Menu"></button>
+        <nav id="menu" aria-label="menu di navigazione">
+            <button type="button" id="hamburger" aria-label="Apri menu" class="active"><img src="./assets/bars-solid.svg" alt="Menu"></button>
             <ul class="nav-menu active">
                 <li class="nav-item">
                     <a href="index.php" class="nav-link"><span lang="en">Home</span></a>
@@ -48,53 +48,51 @@
         </nav>
 
         <!-- Breadcrumb -->
-        <nav id="breadcrumb" class="aperto">
+        <nav id="breadcrumb" aria-label="breadcrumb" class="aperto">
             <p>Ti trovi in: <a href="index.php" lang="en">Home</a> &gt; Usare il navigatore</p>
         </nav>
 
         <main id="main-navigatore">
-            <body>
-                <h2>Come usare il navigatore</h2>
-                <p>Una delle applicazioni migliori per poter avere il navigatore durante le escursioni è <strong><span lang="en">Outdooractive</span></strong>. Una delle funzionalità è quella di poter importare una traccia <abbr title="GPS eXchange Format">GPX</abbr> (che potrai scaricare dal nostro sito) e vedere la <strong>mappa</strong> e ottenere le <strong>indicazioni vocali</strong>. Nella mappa sono presenti dettagli importanti come le fontanelle di acqua potabile, i rifugi e i parcheggi. Le indicazioni vocali sono molto dettagliate e rispondono bene anche alle variazioni di percorso.</p>
+            <h2>Come usare il navigatore</h2>
+            <p>Una delle applicazioni migliori per poter avere il navigatore durante le escursioni è <strong><span lang="en">Outdooractive</span></strong>. Una delle funzionalità è quella di poter importare una traccia <abbr title="GPS eXchange Format">GPX</abbr> (che potrai scaricare dal nostro sito) e vedere la <strong>mappa</strong> e ottenere le <strong>indicazioni vocali</strong>. Nella mappa sono presenti dettagli importanti come le fontanelle di acqua potabile, i rifugi e i parcheggi. Le indicazioni vocali sono molto dettagliate e rispondono bene anche alle variazioni di percorso.</p>
+            <div class="area-dispositivo">
+                <h3>Android</h3>
+                <p>Scarica <span lang="en">Outdooractive</span> dal <a class="link-esterno" href="https://play.google.com/store/apps/details?id=com.outdooractive.Outdooractive">Play Store</a>.</p>
+                <video controls title="Video tutorial su come usare il navigatore di Outdooractive su Android" poster="./assets/video/NavigatoreAndroid.png" preload="none">
+                    <source src="./assets/video/NavigatoreAndroid.mp4" type="video/mp4">
+                    Il tuo browser non supporta il tag video.
+                </video>
+                <section class="trascrizioni">
+                    <h4>Trascrizione per Android:</h4>
+                    <p>In questo video ti mostrerò come importare un <span lang="en">file</span> <abbr title="GPS eXchange Format">GPX</abbr> nell’Applicazione <strong><span lang="en">Outdooractive</span></strong> per poter avere un navigatore che ti accompagnerà durante le passeggiate! Nel video, il telefono ha attivo <span lang="en">TalkBack</span> la cui trascrizione sarà indicata tra parentesi quadre. Per iniziare è necessario installare dal <span lang="en">Google Play Store</span> l’applicazione <span lang="en">Outdooractive</span>, fare <span lang="en">login</span> e aver salvato nel telefono almeno una traccia <abbr title="GPS eXchange Format">GPX</abbr>.</p>
+                    <p>L’applicazione è strutturata a schede con il menu di navigazione posizionato in orizzontale e fissato in basso. All’apertura la scheda selezionata è "Mappa". Muoversi alla scheda successiva, selezionando la seconda voce del menu, oppure avanzando tra gli elementi interattivi fino ad arrivare alla scheda "Pianifica".</p>                
+                    <p class="trascrizione-screen-reader">[<span lang="en">Outdooractive</span>; <span lang="en">Showing a map created with MapLibre. Scroll by dragging two fingers. Zoom by pinching two fingers.</span> ; -5<abbr title="metri">m</abbr> <abbr title="sul livello del mare">s.l.m.</abbr> ; <span lang="en">©OpenStreetMap</span>; Bussola; Alla posizione attuale; Consigli e raccomandazioni aggiuntive; Senza etichetta; Mappe & sentieri; Mappa; Menu; <span lang="en">Download</span> Mappa; Cerca; Mostra contenuto; Rilevato: testo pro; Selezionata: mappa; Pianifica; Pianifica: selezionata]</p>
+                    <p>Una volta raggiunti qui, avanzare tra gli elementi interattivi fino ad arrivare alla sezione "altro: finestra <span lang="en">popup</span>" posizionata in alto a destra e visualizzata con l’icona dei tre pallini.</p>
+                    <p class="trascrizione-screen-reader">[Registra; Esplora; Profilo; <span lang="en">Showing a map created with MapLibre. Scroll by dragging two fingers. Zoom by pinching two fingers.</span>; Finestra <span lang="en">Outdooractive</span>; <span lang="en">©OpenStreetMap</span>; Bussola; Alla posizione attuale; Consigli e raccomandazioni aggiuntive; Senza etichetta; Mappe e sentieri; Distanza 0<abbr title="metri">m</abbr>, Durata 0 minuti, Salita 0<abbr title="metri">m</abbr>, Discesa 0<abbr title="metri">m</abbr>; Rilevata: icona verso il basso; Percorso; Crea il tuo percorso; Menu; Altro: disattivato; Altro disattivato; Altro: Finestra a <span lang="en">popup</span>]</p>
+                    <p>Selezionare la seconda voce del menu a tendina con scritto "importa un <span lang="en">file</span> <abbr title="GPS eXchange Format">GPX</abbr>". Questo aprirà i <span lang="en">file</span> presenti all’interno del dispositivo. Navigare e selezionare il <span lang="en">file</span> <abbr title="GPS eXchange Format">GPX</abbr> interessato. Una volta effettuato il caricamento, verrà mostrata la mappa con la traccia inserita e le statistiche del percorso. Per far partire la navigazione avanzare fino al pulsante "Navigatore". </p>
+                    <p class="trascrizione-screen-reader">[Opzioni di percorso, Importa un <span lang="en">file</span> <abbr title="GPS eXchange Format">GPX</abbr>, Il <span lang="en">file</span> <abbr title="GPS eXchange Format">GPX</abbr> viene importato, In corso <span lang="en">Outdooractive</span>, Percorso; Crea il tuo percorso; Menu; Altro; Altro; Altro; Navigatore]</p>
+                    <p>Buona passeggiata!</p>
+                </section>
+            </div>
                 <div class="area-dispositivo">
-                    <h3>Android</h3>
-                    <p>Scarica <span lang="en">Outdooractive</span> dal <a class="link-esterno" href="https://play.google.com/store/apps/details?id=com.outdooractive.Outdooractive">Play Store</a>!</p>
-                    <video controls aria-label="Video tutorial su come usare il navigatore di Outdooractive su Android" poster="./assets/video/NavigatoreAndroid.png" preload="none">
-                        <source src="./assets/video/NavigatoreAndroid.mp4" type="video/mp4">
-                        Il tuo browser non supporta il tag video.
-                    </video>
-                    <section class="trascrizioni">
-                        <h4>Trascrizione:</h4>
-                        <p>In questo video ti mostrerò come importare un <span lang="en">file</span> <abbr title="GPS eXchange Format">GPX</abbr> nell’Applicazione <strong><span lang="en">Outdooractive</span></strong> per poter avere un navigatore che ti accompagnerà durante le passeggiate! Nel video, il telefono ha attivo <span lang="en">TalkBack</span> la cui trascrizione sarà indicata tra parentesi quadre. Per iniziare è necessario installare dal <span lang="en">Google Play Store</span> l’applicazione <span lang="en">Outdooractive</span>, fare <span lang="en">login</span> e aver salvato nel telefono almeno una traccia <abbr title="GPS eXchange Format">GPX</abbr>.</p>
-                        <p>L’applicazione è strutturata a schede con il menu di navigazione posizionato in orizzontale e fissato in basso. All’apertura la scheda selezionata è "Mappa". Muoversi alla scheda successiva, selezionando la seconda voce del menu, oppure avanzando tra gli elementi interattivi fino ad arrivare alla scheda "Pianifica".</p>                
-                        <p class="trascrizione-screen-reader">[<span lang="en">Outdooractive</span>; <span lang="en">Showing a map created with MapLibre. Scroll by dragging two fingers. Zoom by pinching two fingers.</span> ; -5<abbr title="metri">m</abbr> <abbr title="sul livello del mare">s.l.m.</abbr> ; <span lang="en">©OpenStreetMap</span>; Bussola; Alla posizione attuale; Consigli e raccomandazioni aggiuntive; Senza etichetta; Mappe & sentieri; Mappa; Menu; <span lang="en">Download</span> Mappa; Cerca; Mostra contenuto; Rilevato: testo pro; Selezionata: mappa; Pianifica; Pianifica: selezionata]</p>
-                        <p>Una volta raggiunti qui, avanzare tra gli elementi interattivi fino ad arrivare alla sezione "altro: finestra <span lang="en">popup</span>" posizionata in alto a destra e visualizzata con l’icona dei tre pallini.</p>
-                        <p class="trascrizione-screen-reader">[Registra; Esplora; Profilo; <span lang="en">Showing a map created with MapLibre. Scroll by dragging two fingers. Zoom by pinching two fingers.</span>; Finestra <span lang="en">Outdooractive</span>; <span lang="en">©OpenStreetMap</span>; Bussola; Alla posizione attuale; Consigli e raccomandazioni aggiuntive; Senza etichetta; Mappe e sentieri; Distanza 0<abbr title="metri">m</abbr>, Durata 0 minuti, Salita 0<abbr title="metri">m</abbr>, Discesa 0<abbr title="metri">m</abbr>; Rilevata: icona verso il basso; Percorso; Crea il tuo percorso; Menu; Altro: disattivato; Altro disattivato; Altro: Finestra a <span lang="en">popup</span>]</p>
-                        <p>Selezionare la seconda voce del menu a tendina con scritto "importa un <span lang="en">file</span> <abbr title="GPS eXchange Format">GPX</abbr>". Questo aprirà i <span lang="en">file</span> presenti all’interno del dispositivo. Navigare e selezionare il <span lang="en">file</span> <abbr title="GPS eXchange Format">GPX</abbr> interessato. Una volta effettuato il caricamento, verrà mostrata la mappa con la traccia inserita e le statistiche del percorso. Per far partire la navigazione avanzare fino al pulsante "Navigatore". </p>
-                        <p class="trascrizione-screen-reader">[Opzioni di percorso, Importa un <span lang="en">file</span> <abbr title="GPS eXchange Format">GPX</abbr>, Il <span lang="en">file</span> <abbr title="GPS eXchange Format">GPX</abbr> viene importato, In corso <span lang="en">Outdooractive</span>, Percorso; Crea il tuo percorso; Menu; Altro; Altro; Altro; Navigatore]</p>
-                        <p>Buona passeggiata!</p>
-                    </section>
-                </div>
-                    <div class="area-dispositivo">
-                    <h3>iOS</h3>
-                    <p>Scarica <span lang="en">Outdooractive</span> dal <a class="link-esterno" href="https://apps.apple.com/it/app/outdooractive-escursioni-bici/id1364846172">App Store</a>!</p>
-                    <video controls aria-label="Video tutorial su come usare il navigatore di Outdooracrive su iOS" poster="./assets/video/NavigatoreiOS.png" preload="none">
-                        <source src="./assets/video/NavigatoreiOS.mp4" type="video/mp4">
-                        Il tuo browser non supporta il tag video.
-                    </video>
-                    <section class="trascrizioni">
-                        <h4>Trascrizione:</h4>
-                        <p>In questo video ti mostrerò come importare un <span  lang="en">file</span> <abbr title="GPS eXchange Format">GPX</abbr> nell’Applicazione <span lang="en">Outdooractive</span> per poter avere un navigatore che ti accompagnerà durante le passeggiate! Nel video, il telefono ha attivo <span lang="en">VoiceOver</span> la cui trascrizione sarà indicata tra parentesi quadre. Per iniziare è necessario installare dall’<span  lang="en">App Store</span> l’applicazione <span lang="en">Outdooractive</span>, fare <span  lang="en">login</span> e aver salvato nel telefono almeno una traccia <abbr title="GPS eXchange Format">GPX</abbr>.</p>
-                        <p>L’applicazione è strutturata a schede con il menu di navigazione posizionato in orizzontale e fissato in basso. All’apertura la scheda selezionata è "Pianifica". Muoversi alla scheda successiva, selezionando la seconda voce del menu, oppure avanzando tra gli elementi interattivi fino ad arrivare alla scheda "Mappa".</p>                
-                        <p class="trascrizione-screen-reader">[Menu: pulsante; Cerca ellissi: campo di ricerca, <span  lang="en">download</span> mappa: pulsante; <span lang="en">You are here</span>; Mostra contenuto: pulsante; Bussola nord-est: pulsante; Pulsante; Pulsante altro; Alla posizione attuale: pulsante; Seleziona mappa e stile: pulsante; <span  lang="en">©OpenStreetMap</span>: pulsante; Barra pannelli: è selezionato Mappa, pannello 1 di 5; Pianifica: pannello 2 di 5;  è selezionato Pianifica, pannello 2 di 5]</p>
-                        <p>Una volta raggiunti qui, scorrere indietro tra gli elementi interattivi fino ad arrivare alla sezione "altro: pulsante" posizionata in alto a destra e visualizzata con l’icona dei tre pallini.</p>
-                        <p class="trascrizione-screen-reader">[Libero: pulsante; Attività: pulsante; Pulsante altro; Bussola nord-est: pulsante; Punti di interesse: pulsante; <span lang= "em">You are here</span>; Altro: pulsante; Resetta: pulsante; Opzioni di percorso: pulsante; Inverti percorso: pulsante; Importa un <span  lang="en">file</span> <abbr title="GPS eXchange Format">GPX</abbr>: pulsante]</p>
-                        <p>Selezionare la quarta voce del menu a tendina con scritto "importa un <span  lang="en">file</span> <abbr title="GPS eXchange Format">GPX</abbr>". Questo aprirà i <span  lang="en">file</span> presenti all’interno del dispositivo. Navigare e selezionare il <span  lang="en">file</span> <abbr title="GPS eXchange Format">GPX</abbr> interessato. Una volta effettuato il caricamento, verrà mostrata la mappa con la traccia inserita e le statistiche del percorso. Per far partire la navigazione avanzare fino al pulsante "Navigatore" e avviare la navigazione con il pulsante "Partenza".</p>
-                        <p class="trascrizione-screen-reader">[Pianifica: intestazione; Annulla: pulsante; Ripristina: oscurato pulsante; altro: pulsante; Punti di interesse: pulsante; Bussola nord-est: pulsante; pulsante altro; attività: pulsante; Percorso libero: pulsante; Alla posizione attuale: pulsante; Seleziona mappa e stile: pulsante; <span  lang="en">©OpenStreetMap</span>: pulsante; Navigatore: pulsante; Navigatore; Partenza: pulsante]</p>
-                        <p>Buona passeggiata!</p>
-                    </section>
-                </div>
-            </body>
+                <h3>iOS</h3>
+                <p>Scarica <span lang="en">Outdooractive</span> dal <a class="link-esterno" href="https://apps.apple.com/it/app/outdooractive-escursioni-bici/id1364846172">App Store</a>.</p>
+                <video controls title="Video tutorial su come usare il navigatore di Outdooracrive su iOS" poster="./assets/video/NavigatoreiOS.png" preload="none">
+                    <source src="./assets/video/NavigatoreiOS.mp4" type="video/mp4">
+                    Il tuo browser non supporta il tag video.
+                </video>
+                <section class="trascrizioni">
+                    <h4>Trascrizione per iOS:</h4>
+                    <p>In questo video ti mostrerò come importare un <span  lang="en">file</span> <abbr title="GPS eXchange Format">GPX</abbr> nell’Applicazione <span lang="en">Outdooractive</span> per poter avere un navigatore che ti accompagnerà durante le passeggiate! Nel video, il telefono ha attivo <span lang="en">VoiceOver</span> la cui trascrizione sarà indicata tra parentesi quadre. Per iniziare è necessario installare dall’<span  lang="en">App Store</span> l’applicazione <span lang="en">Outdooractive</span>, fare <span  lang="en">login</span> e aver salvato nel telefono almeno una traccia <abbr title="GPS eXchange Format">GPX</abbr>.</p>
+                    <p>L’applicazione è strutturata a schede con il menu di navigazione posizionato in orizzontale e fissato in basso. All’apertura la scheda selezionata è "Pianifica". Muoversi alla scheda successiva, selezionando la seconda voce del menu, oppure avanzando tra gli elementi interattivi fino ad arrivare alla scheda "Mappa".</p>                
+                    <p class="trascrizione-screen-reader">[Menu: pulsante; Cerca ellissi: campo di ricerca, <span  lang="en">download</span> mappa: pulsante; <span lang="en">You are here</span>; Mostra contenuto: pulsante; Bussola nord-est: pulsante; Pulsante; Pulsante altro; Alla posizione attuale: pulsante; Seleziona mappa e stile: pulsante; <span  lang="en">©OpenStreetMap</span>: pulsante; Barra pannelli: è selezionato Mappa, pannello 1 di 5; Pianifica: pannello 2 di 5;  è selezionato Pianifica, pannello 2 di 5]</p>
+                    <p>Una volta raggiunti qui, scorrere indietro tra gli elementi interattivi fino ad arrivare alla sezione "altro: pulsante" posizionata in alto a destra e visualizzata con l’icona dei tre pallini.</p>
+                    <p class="trascrizione-screen-reader">[Libero: pulsante; Attività: pulsante; Pulsante altro; Bussola nord-est: pulsante; Punti di interesse: pulsante; <span lang= "en">You are here</span>; Altro: pulsante; Resetta: pulsante; Opzioni di percorso: pulsante; Inverti percorso: pulsante; Importa un <span  lang="en">file</span> <abbr title="GPS eXchange Format">GPX</abbr>: pulsante]</p>
+                    <p>Selezionare la quarta voce del menu a tendina con scritto "importa un <span  lang="en">file</span> <abbr title="GPS eXchange Format">GPX</abbr>". Questo aprirà i <span  lang="en">file</span> presenti all’interno del dispositivo. Navigare e selezionare il <span  lang="en">file</span> <abbr title="GPS eXchange Format">GPX</abbr> interessato. Una volta effettuato il caricamento, verrà mostrata la mappa con la traccia inserita e le statistiche del percorso. Per far partire la navigazione avanzare fino al pulsante "Navigatore" e avviare la navigazione con il pulsante "Partenza".</p>
+                    <p class="trascrizione-screen-reader">[Pianifica: intestazione; Annulla: pulsante; Ripristina: oscurato pulsante; altro: pulsante; Punti di interesse: pulsante; Bussola nord-est: pulsante; pulsante altro; attività: pulsante; Percorso libero: pulsante; Alla posizione attuale: pulsante; Seleziona mappa e stile: pulsante; <span  lang="en">©OpenStreetMap</span>: pulsante; Navigatore: pulsante; Navigatore; Partenza: pulsante]</p>
+                    <p>Buona passeggiata!</p>
+                </section>
+            </div>
         </main>
 
         <footer>
