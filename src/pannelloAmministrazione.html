@@ -49,19 +49,17 @@
         </nav>
 
         <!-- Breadcrumb -->
-        <nav id="breadcrumb" class="aperto">
+        <nav id="breadcrumb" aria-label="breadcrumb" class="aperto">
             <p>Ti trovi in: <a href="index.php" lang="en">Home</a> &gt; Pannello amministrazione</p>
         </nav>
 
         <main id="main-amministratore">
-            <body>
-                <h2>Pannello amministrazione di [username]</h2>
-                <p id="desc-tabella">Nella seguente tabella puoi trovare i <strong>commenti</strong> lasciati dagli utenti sui percorsi, con la possibilità di eliminarli. Per ogni riga è presente un commento.</p>
-                <table aria-describedby="desc-tabella">
-                    <caption>Tabella recensioni</caption>
-                    [corpo-tabella]
-                </table>
-            </body>
+            <h2>Pannello amministrazione di [username]</h2>
+            <p id="desc-tabella">Nella seguente tabella puoi trovare i <strong>commenti</strong> lasciati dagli utenti sui percorsi, con la possibilità di eliminarli. Per ogni riga è presente un commento.</p>
+            <table aria-describedby="desc-tabella">
+                <caption>Tabella recensioni</caption>
+                [corpo-tabella]
+            </table>
         </main>
 
         <footer>
