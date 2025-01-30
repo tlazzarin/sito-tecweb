@@ -77,6 +77,7 @@ function mostraErrore(input) {
   
   if (input.id == "conferma" && !confirmPass()) {
       messaggio.className = "errorMessage";
+      parent.setAttribute("aria-live","polite");
   } else {
       messaggio.className = "suggestionMessage";
   }

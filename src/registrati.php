@@ -19,7 +19,7 @@ else{
     
 
     if (isset($_SESSION["info"])) {
-        $paginaHTML = str_replace("[alert]", "<section class='contenitore-alert'><p role=\"alert\" class='alert-info'>" . $_SESSION["info"] . "</p></section>", $paginaHTML);
+        $paginaHTML = str_replace("[alert]", "<section class='contenitore-alert'><p aria-live=\"polite\" class='alert-info'>" . $_SESSION["info"] . "</p></section>", $paginaHTML);
         unset($_SESSION["info"]);
     }
     else {
