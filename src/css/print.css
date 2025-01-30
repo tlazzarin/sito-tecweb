@@ -184,6 +184,10 @@
     header{
         border-radius: 20px;
     }
+
+    th{
+        font-size: 1em;
+    }
 }
 
 
