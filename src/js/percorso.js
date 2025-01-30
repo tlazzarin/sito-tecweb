@@ -39,17 +39,15 @@ let voto = "";
 let testoModifica = "";
 let parametri = new URLSearchParams(window.location.search);
 let id = parametri.get('id');
-
 //controlla quando un bottone viene premuto e ritorna la funzione apposita oppure non fa nulla in caso di nessun bottone premuto
-document.getElementById("recensioneUtente").addEventListener("click", function (e) {
-  const target = e.target.closest("button");
-  if (!target) return;
-  //per chiamate ai file php per creare e cancellare le recensioni
-  let xhr = new XMLHttpRequest();
-  //switch per decidere funzionalita' pulsante
-  switch (target.id) {
-    case "modifica":
-      testo = document.getElementsByName("testoRecensione")[0].value;
+document.getElementById("recensioneUtente").addEventListener("click", function (event) {
+  const target=event.target.closest("button");
+  if (!target) 
+    return;
+
+  if(target.id=="modifica")
+  {
+    testo = document.getElementsByName("testoRecensione")[0].value;
       voto = document.getElementsByName("voto")[0].textContent.substring(6, 7);
       testoModifica = "Recensione modificata con successo";
       document.getElementsByName("testoRecensione")[0].disabled = false;
@@ -57,7 +55,7 @@ document.getElementById("recensioneUtente").addEventListener("click", function (
       document.getElementsByName("voto")[0].remove();
       document.getElementsByName("cancellaRecensione")[0].remove();
       
-      document.getElementById("recensioneUtente").innerHTML +='<p id="testoOption">Inserire una valutazione da 1 a 5 <abbr title=\"Obbligatorio\">*</abbr></p>';
+      document.getElementById("recensioneUtente").innerHTML+='<label for="voto" id="testoOption">Inserire una valutazione da 1 a 5<abbr title=\"Obbligatorio\">*</abbr></label>';
       document.getElementById("recensioneUtente").innerHTML+='<select id="voto" name="voto" aria-label="Scelta Multipla per il voto della recensione"></select>';
       for (let i = 5; i > 0; i--) {
         
@@ -66,11 +64,42 @@ document.getElementById("recensioneUtente").addEventListener("click", function (
         else
           document.getElementById("voto").innerHTML+='<option value="'+i+'">'+i+'</option>';
       }
-      document.getElementById("recensioneUtente").innerHTML+="<button id=\"aggiungi\" name=\"aggiungiRecensione\" type=\"button\" class=\"button\">Invia</button>";
+      document.getElementById("recensioneUtente").innerHTML+="<button id=\"aggiungi\" name=\"aggiungiRecensione\" type=\"submit\" class=\"button\">Invia</button>";
       document.getElementById("recensioneUtente").innerHTML+="<button id=\"annulla\" name=\"annullaRecensione\" type=\"button\" class=\"button danger\">Annulla</button>";
       document.getElementsByName("testoRecensione")[0].focus();
-      break;
-    case "elimina":
+  }
+  else if(target.id=="annulla")
+  {
+    document.getElementsByName("testoRecensione")[0].value = testo;
+      document.getElementsByName("testoRecensione")[0].disabled = true;
+      document.getElementById("testoOption").remove();
+      document.getElementById("voto").remove();
+      document.getElementById("aggiungi").remove();
+      document.getElementById("annulla").remove();
+
+      document.getElementById("recensioneUtente").innerHTML+='<label for="voto" class="valutazione-"' + voto+' name="voto">Voto: ' + voto + ' su 5</label>';
+      document.getElementById("recensioneUtente").innerHTML+=
+      "<button name=\"modificaRecensione\" type=\"button\" id=\"modifica\" aria-label=\"Modifica recensione\"><img src=\"./assets/pen-to-square-solid.svg\" alt=\"Modifica\"></button>";
+      document.getElementById("recensioneUtente").innerHTML+=
+      "<button name=\"cancellaRecensione\" type=\"submit\" id=\"elimina\" aria-label=\"Elimina recensione\"><img src=\"./assets/trash-solid.svg\" alt=\"Elimina\"></button>";
+      testo = "";
+      voto = "";
+      testoModifica = "";
+
+      document.getElementsByName("testoRecensione")[0].focus();
+  }
+});
+
+
+//controlla quando la form viene inviata
+document.getElementById("recensioneUtente").addEventListener("submit", function (event) {
+  const target = document.querySelector("button[type=submit]");
+  event.preventDefault();
+  //per chiamate ai file php per creare e cancellare le recensioni
+  let xhr = new XMLHttpRequest();
+  
+  //switch per decidere funzionalita' pulsante
+  if(target.id=="elimina") {
       xhr.open("POST", "../cancellaRecensione.php");
       xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
       xhr.onload = function () {
@@ -89,12 +118,12 @@ document.getElementById("recensioneUtente").addEventListener("click", function (
           document.getElementById("modifica").remove();
           document.getElementById("elimina").remove();
 
-          document.getElementById("recensioneUtente").innerHTML +='<p id="testoOption">Inserire una valutazione da 1 a 5 <abbr title=\"Obbligatorio\">*</abbr></p>';
+          document.getElementById("recensioneUtente").innerHTML+='<label for="voto" id="testoOption">Inserire una valutazione da 1 a 5<abbr title=\"Obbligatorio\">*</abbr></label>';
           document.getElementById("recensioneUtente").innerHTML+='<select id="voto" name="voto" aria-label="Scelta Multipla per il voto della recensione"></select>';
           for (let i = 5; i > 0; i--) {
             document.getElementById("voto").innerHTML+='<option value="'+i+'">'+i+'</option>';
           }
-          document.getElementById("recensioneUtente").innerHTML+="<button id=\"aggiungi\" name=\"aggiungiRecensione\" type=\"button\" class=\"button\">Inserisci</button>";
+          document.getElementById("recensioneUtente").innerHTML+="<button id=\"aggiungi\" name=\"aggiungiRecensione\" type=\"submit\" class=\"button\">Inserisci</button>";
           document.getElementsByClassName("valutazione")[0].innerHTML="Valutazione media: "+response[1]+" su 5";
         } else {
           document
@@ -108,8 +137,9 @@ document.getElementById("recensioneUtente").addEventListener("click", function (
       let dataElimina = "id=" + id;
 
       xhr.send(dataElimina);
-      break;
-    case "aggiungi":
+    }
+    else
+    {
       xhr.open("POST", "../aggiungiRecensione.php");
       xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
       xhr.onload = function () {
@@ -132,13 +162,13 @@ document.getElementById("recensioneUtente").addEventListener("click", function (
           document.getElementById("voto").remove();
           document.getElementById("aggiungi").remove();
 
-          document.getElementById("recensioneUtente").innerHTML+='<p class="valutazione-"' + valutazione+' name="voto">Voto: ' + valutazione + ' su 5</p>';
+          document.getElementById("recensioneUtente").innerHTML+='<label for="voto" class="valutazione-"' + valutazione+' name="voto">Voto: ' + valutazione + ' su 5</label>';
           document.getElementById("recensioneUtente").innerHTML+=
           "<button name=\"modificaRecensione\" type=\"button\" id=\"modifica\" aria-label=\"Modifica recensione\"><img src=\"./assets/pen-to-square-solid.svg\" alt=\"Modifica\"></button>";
 
           if (!document.querySelector("#elimina")) {
             document.getElementById("recensioneUtente").innerHTML+=
-            "<button name=\"cancellaRecensione\" type=\"button\" id=\"elimina\" aria-label=\"Elimina recensione\"><img src=\"./assets/trash-solid.svg\" alt=\"Elimina\"></button>";
+            "<button name=\"cancellaRecensione\" type=\"submit\" id=\"elimina\" aria-label=\"Elimina recensione\"><img src=\"./assets/trash-solid.svg\" alt=\"Elimina\"></button>";
           }
           if (document.querySelector("#annulla")) {
             document.getElementById("annulla").remove();
@@ -156,46 +186,19 @@ document.getElementById("recensioneUtente").addEventListener("click", function (
         }
         document.getElementsByName("testoRecensione")[0].focus();
       };
-      let dataAggiungi =
-        "id=" +
-        id +
-        "&voto=" +
-        document.getElementsByName("voto")[0].value +
-        "&testo=" +
-        document.getElementsByName("testoRecensione")[0].value;
-
-      if(document.getElementsByName('testoRecensione')[0].value.trim()!="")
-      {
-        xhr.send(dataAggiungi);
-        let text=document.getElementsByName("testoRecensione")[0].value;
-        document.getElementsByName("testoRecensione")[0].textContent=text;
-      }
-      else
-      {
-        document.getElementsByName('testoRecensione')[0].placeholder="Scrivi qua la tua recensione";
-        document.getElementsByName("testoRecensione")[0].focus();
-      }
-      
+      let dataAggiungi ="id=" +id +"&voto=" +document.getElementsByName("voto")[0].value +"&testo=" +document.getElementsByName("testoRecensione")[0].value;
         
-      break;
-    case "annulla":
-      document.getElementsByName("testoRecensione")[0].value = testo;
-      document.getElementsByName("testoRecensione")[0].disabled = true;
-      document.getElementById("testoOption").remove();
-      document.getElementById("voto").remove();
-      document.getElementById("aggiungi").remove();
-      document.getElementById("annulla").remove();
+      if(document.getElementsByName('testoRecensione')[0].value.trim()!="")
+        {
+          xhr.send(dataAggiungi);
+          let text=document.getElementsByName("testoRecensione")[0].value;
+          document.getElementsByName("testoRecensione")[0].textContent=text;
+        }
+        else
+        {
+          
+          document.getElementsByName("testoRecensione")[0].focus();
+        }
+    }
 
-      document.getElementById("recensioneUtente").innerHTML+='<p class="valutazione-"' + voto+' name="voto">Voto: ' + voto + ' su 5</p>';
-      document.getElementById("recensioneUtente").innerHTML+=
-      "<button name=\"modificaRecensione\" type=\"button\" id=\"modifica\" aria-label=\"Modifica recensione\"><img src=\"./assets/pen-to-square-solid.svg\" alt=\"Modifica\"></button>";
-      document.getElementById("recensioneUtente").innerHTML+=
-      "<button name=\"cancellaRecensione\" type=\"button\" id=\"elimina\" aria-label=\"Elimina recensione\"><img src=\"./assets/trash-solid.svg\" alt=\"Elimina\"></button>";
-      testo = "";
-      voto = "";
-      testoModifica = "";
-
-      document.getElementsByName("testoRecensione")[0].focus();
-      break;
-  }
 });
