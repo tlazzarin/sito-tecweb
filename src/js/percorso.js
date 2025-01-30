@@ -47,6 +47,7 @@ document.getElementById("recensioneUtente").addEventListener("click", function (
 
   if(target.id=="modifica")
   {
+    document.getElementById("textArea-errore").classList.add("hidden");
     testo = document.getElementsByName("testoRecensione")[0].value;
       voto = document.getElementsByName("voto")[0].textContent.substring(6, 7);
       testoModifica = "Recensione modificata con successo";
@@ -70,6 +71,7 @@ document.getElementById("recensioneUtente").addEventListener("click", function (
   }
   else if(target.id=="annulla")
   {
+    document.getElementById("textArea-errore").classList.add("hidden");
     document.getElementsByName("testoRecensione")[0].value = testo;
       document.getElementsByName("testoRecensione")[0].disabled = true;
       document.getElementById("testoOption").remove();
@@ -77,7 +79,7 @@ document.getElementById("recensioneUtente").addEventListener("click", function (
       document.getElementById("aggiungi").remove();
       document.getElementById("annulla").remove();
 
-      document.getElementById("recensioneUtente").innerHTML+='<label for="voto" class="valutazione-"' + voto+' name="voto">Voto: ' + voto + ' su 5</label>';
+      document.getElementById("recensioneUtente").innerHTML+='<label for="voto" class="valutazione-' + voto+'" name="voto">Voto: ' + voto + ' su 5</label>';
       document.getElementById("recensioneUtente").innerHTML+=
       "<button name=\"modificaRecensione\" type=\"button\" id=\"modifica\" aria-label=\"Modifica recensione\"><img src=\"./assets/pen-to-square-solid.svg\" alt=\"Modifica\"></button>";
       document.getElementById("recensioneUtente").innerHTML+=
@@ -113,6 +115,7 @@ document.getElementById("recensioneUtente").addEventListener("submit", function 
           document.getElementsByName("testoRecensione")[0].disabled = false;
           document.getElementsByName("testoRecensione")[0].value = "";
           document.getElementsByName("testoRecensione")[0].textContent = "";
+          document.getElementById("textArea-errore").classList.add("hidden");
 
           document.getElementsByName("voto")[0].remove();
           document.getElementById("modifica").remove();
@@ -156,13 +159,14 @@ document.getElementById("recensioneUtente").addEventListener("submit", function 
             document.getElementById("risultatoModifiche").textContent =
               testoModifica;
           }
+          document.getElementById("textArea-errore").classList.add("hidden");
           document.getElementsByName("testoRecensione")[0].disabled = true;
           document.getElementById("testoOption").remove();
           let valutazione=document.getElementsByName("voto")[0].value;
           document.getElementById("voto").remove();
           document.getElementById("aggiungi").remove();
 
-          document.getElementById("recensioneUtente").innerHTML+='<label for="voto" class="valutazione-"' + valutazione+' name="voto">Voto: ' + valutazione + ' su 5</label>';
+          document.getElementById("recensioneUtente").innerHTML+='<label for="voto" class="valutazione-' + valutazione+'" name="voto">Voto: ' + valutazione + ' su 5</label>';
           document.getElementById("recensioneUtente").innerHTML+=
           "<button name=\"modificaRecensione\" type=\"button\" id=\"modifica\" aria-label=\"Modifica recensione\"><img src=\"./assets/pen-to-square-solid.svg\" alt=\"Modifica\"></button>";
 
@@ -196,7 +200,7 @@ document.getElementById("recensioneUtente").addEventListener("submit", function 
         }
         else
         {
-          
+          document.getElementById("textArea-errore").classList.remove("hidden");
           document.getElementsByName("testoRecensione")[0].focus();
         }
     }
