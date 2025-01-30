@@ -181,6 +181,9 @@
         display: none;
     }
 
+    header{
+        border-radius: 20px;
+    }
 }
 
 
