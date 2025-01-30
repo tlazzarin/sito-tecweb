@@ -2,17 +2,17 @@ let restrizioni = {
   username: [
     "Username",
     /^[A-Za-z0-9\s]\w{1,30}$/,
-    "Inserire un username di lunghezza tra i 2 e 30 caratteri alfanumerici che non inizi con un numero\n",
+    "Inserire un <span lang=\"en\">username</span> di lunghezza tra i 2 e 30 caratteri alfanumerici che non inizi con un numero",
   ],
   password: [
     "Password",
     /^[^\s]{4,}$/,
-    "Inserire una password di almeno 4 caratteri\n",
+    "Inserire una <span lang=\"en\">password</span> di almeno 4 caratteri",
   ],
   conferma: [
     "ConfermaPassword",
     /^[^\s]{4,}$/,
-    "Le due password non coincidono\n",
+    "Le due <span lang=\"en\">password</span> non coincidono",
   ],
 };
 
@@ -64,10 +64,7 @@ function confirmPass() {
   const password = document.querySelector("input[name=password]");
   const confirm = document.querySelector("input[name=conferma]");
 
-  if (confirm.value === password.value) {
-    return true;
-  }
-  return false;
+  return (confirm.value === password.value);
 }
 
 //aggiunta dell'error/suggestion
@@ -77,13 +74,15 @@ function mostraErrore(input) {
   
   if (input.id == "conferma" && !confirmPass()) {
       messaggio.className = "errorMessage";
+      
   } else {
       messaggio.className = "suggestionMessage";
   }
   
   messaggio.id = "error" + restrizioni[input.id][0];
-  messaggio.appendChild(document.createTextNode(restrizioni[input.id][2]));
+  messaggio.innerHTML=restrizioni[input.id][2];
   parent.appendChild(messaggio);
+  
 }
 
 //controllo di tutti gli input nella form

@@ -300,8 +300,19 @@ a.logo{
     margin-bottom: 1em; 
 }
 
+.recensione label{
+    font-size: 1.2em;
+    line-height: 1.5; 
+    display: block;
+}
+
 label:after {
     content: ": ";
+}
+
+#textArea-errore{
+    color: var(--maincolor);
+    font-weight: bold;
 }
 
 .errorSuggestion {
@@ -344,6 +355,11 @@ select{
 .contenitore-alert{
     padding-bottom: 1em;
     width: 100%;
+}
+
+.hidden{
+    display: none;
+
 }
 
 /* Errori dei campi in input*/
