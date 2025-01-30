@@ -24,7 +24,7 @@
     <body>
         <!-- Header -->    
         <header>
-            <a href="#main-accedi" class="VaiAiContenutiPrincipali">Vai ai contenuti principali</a>
+            <a href="#formcontent" class="VaiAiContenutiPrincipali">Vai ai contenuti principali</a>
             <a class="linkHome" href="index.php" id="logo"><img src="./assets/logo.svg" alt="Logo del sito" class="logo"></a>
             <h1>Montagna per tutti</h1>
         </header> 
@@ -56,23 +56,20 @@
             <p>Ti trovi in: <a href="index.php" lang="en">Home</a> &gt; Accedi</p>
         </nav>
         <!-- Dialogo di accesso -->
-        <main id="main-accedi">
-            <div id="formcontent">
-                <h2>Accedi</h2>
-                <form class="formInput" id="form" action="controlloAccedi.php" method="post">
-                    
-                    <label for="username" lang="en">Username</label>
-                    <input type="text" id="username" name="username" class="styleInput" minlength="2" maxlength="30" required/>
-                    <p id="aiutoUsername" ></p>
-                    <label for="password" lang="en">Password</label>
-                    <input type="password" id="password" name="password" class="styleInput" minlength="4" required/>
-                    <p id="aiutoPassword" ></p>
-                    <p aria-live="polite" class='alert-info'>[alert]</p>
-                    <input type="submit" class="button" name="bottoneAccedi" value="Accedi">
-                    
-                </form>
-                <p>Non hai un profilo? <a href="registrati.php">Registrati</a></p>
-            </div>
+        <main id="formcontent">
+            <h2>Accedi</h2>
+            <form class="formInput" id="form" action="controlloAccedi.php" method="post">
+                <label for="username" lang="en">Username</label>
+                <input type="text" id="username" name="username" class="styleInput" minlength="2" maxlength="30" required/>
+                <p id="aiutoUsername" ></p>
+                <label for="password" lang="en">Password</label>
+                <input type="password" id="password" name="password" class="styleInput" minlength="4" required/>
+                <p id="aiutoPassword" ></p>
+                <p aria-live="polite" class='alert-info'>[alert]</p>
+                <input type="submit" class="button" name="bottoneAccedi" value="Accedi">
+                
+            </form>
+            <p>Non hai un profilo? <a href="registrati.php">Registrati</a></p>
         </main>
             <!-- Footer -->
         <footer>

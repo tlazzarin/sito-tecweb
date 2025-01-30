@@ -90,7 +90,7 @@ if($checkConnection){
                 $paginaHTML=str_replace("[miaRecensione]"," <form id=\"recensioneUtente\" class=\"recensione\">
                     <h5>La tua Recensione</h5>
                     <noscript>Abilita <span lang=\"en\">Javascript</span> per poter interagire con la tua recensione.</noscript>
-                    <label for=\"testoRecensione\">Testo della recensione<abbr title=\"Obbligatorio\">*</abbr></label>
+                    <label for=\"testoRecensione\">Testo della recensione <abbr title=\"Obbligatorio\">*</abbr></label>
                     <textarea name=\"testoRecensione\" id=\"testoRecensione\" class=\"inputRecensione\" type=\"text\" onblur=\"focusOut()\" required disabled>".$queryRecensioneUtente->get_result()[0]['testo']."</textarea>
                     <p class=\"hidden\" id=\"textArea-errore\" role=\"alert\">La recensione non può essere vuota</p>
                     <p for=\"voto\" name=\"voto\" class=\"valutazione-".$queryRecensioneUtente->get_result()[0]['voto']."\">Voto: ".$queryRecensioneUtente->get_result()[0]['voto']." su 5</p>
@@ -104,11 +104,11 @@ if($checkConnection){
                 $paginaHTML=str_replace("[miaRecensione]"," <form id=\"recensioneUtente\" class=\"recensione\">
                     <h5>La tua Recensione</h5>
                     <noscript>Abilita <span lang=\"en\">Javascript</span> per poter interagire con la tua recensione.</noscript>
-                    <label for=\"testoRecensione\">Testo della recensione<abbr title=\"Obbligatorio\">*</abbr></label>
+                    <label for=\"testoRecensione\">Testo della recensione <abbr title=\"Obbligatorio\">*</abbr></label>
                     <textarea name=\"testoRecensione\" id=\"testoRecensione\" class=\"inputRecensione\" type=\"text\" placeholder=\"Scrivi qua la tua recensione\" onblur=\"focusOut()\" required></textarea>
                     <p class=\"hidden\" id=\"textArea-errore\" role=\"alert\">La recensione non può essere vuota</p>
-                    <label for=\"voto\" id=\"testoOption\">Inserire una valutazione da 1 a 5<abbr title=\"Obbligatorio\">*</abbr></label>
-                    <select aria-label=\"Scelta Multipla per il voto della recensione\" id=\"voto\" name=\"voto\">
+                    <label for=\"voto\" id=\"testoOption\">Inserire una valutazione da 1 a 5 <abbr title=\"Obbligatorio\">*</abbr></label>
+                    <select id=\"voto\" name=\"voto\" required>
                         <option value=\"5\">5</option>
                         <option value=\"4\">4</option>
                         <option value=\"3\">3</option>
