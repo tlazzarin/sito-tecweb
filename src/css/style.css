@@ -379,6 +379,7 @@ button#modifica, button#elimina{
     background-color: transparent;
     padding: 0.5em;
     font-size: 1.4em;
+    color:var(--textcolor);
 }
 
 /* PAGINA PERCORSO */
