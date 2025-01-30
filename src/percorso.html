@@ -10,9 +10,11 @@
 
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" >
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap">
+        <link href="https://fonts.googleapis.com/css2?family=Hepta+Slab:wght@1..900&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="./css/style.css">
         <link rel="stylesheet" href="./css/mobile.css" media="screen and (max-width: 1012px)">
+        <link rel="stylesheet" href="./css/print.css" media="print">
         <link rel="icon" type="image/x-icon" href="./assets/logo.svg">
         <script src="./js/mobile.js"></script> 
         <script src="./js/percorso.js" defer></script> 
@@ -30,7 +32,7 @@
         
 
         <!-- Navigation -->
-        <nav id="menu">
+        <nav id="menu" aria-label="menu di navigazione">
             <button type="button" id="hamburger" aria-label="Apri menu" class="active"><img src="./assets/bars-solid.svg" alt="Menu"></button>
             <ul class="nav-menu active">
                 <li class="nav-item" aria-current="page">
@@ -53,7 +55,7 @@
         </nav>    
 
         <!-- Breadcrumb -->
-        <nav id="breadcrumb" class="aperto">
+        <nav id="breadcrumb" aria-label="breadcrumb" class="aperto">
             <p>Ti trovi in: <a href="index.php" lang="en">Home</a> &gt; <a href="percorsi.php">Percorsi</a> &gt; [titolo]</p>
         </nav>
 

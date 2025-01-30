@@ -10,9 +10,11 @@
 
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">    
+        <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">   
+        <link href="https://fonts.googleapis.com/css2?family=Hepta+Slab:wght@1..900&display=swap" rel="stylesheet"> 
         <link rel="stylesheet" href="/css/style.css">
         <link rel="stylesheet" href="/css/mobile.css" media="screen and (max-width: 1012px)">
+        <link rel="stylesheet" href="./css/print.css" media="print">
 
         <script src="/js/mobile.js"></script> 
     </head>
@@ -24,9 +26,9 @@
         </header> 
         
         <!-- Navigation -->
-        <nav id="menu">
+        <nav id="menu" aria-label="menu di navigazione">
 
-            <button type="button" id="hamburger" aria-label="Apri menu" class="active"><img src="./assets/bars-solid.svg" alt="Menu"></button>
+            <button type="button" id="hamburger" aria-label="Apri menu" class="active"><img src="../assets/bars-solid.svg" alt="Menu"></button>
 
             <ul class="nav-menu active">
                 <li class="nav-item" aria-current="page">
@@ -49,8 +51,8 @@
         </nav>    
 
         <!-- Breadcrumb -->
-        <nav id="breadcrumb" class="aperto">
-            <p>Ti trovi in: Errore 403</span></p>
+        <nav id="breadcrumb" aria-label="breadcrumb" class="aperto">
+            <p>Ti trovi in: Errore 403</p>
         </nav>
         
         <main id="mainErrore">
