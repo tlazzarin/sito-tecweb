@@ -64,18 +64,18 @@
             <h2>Registrati</h2>
             <form class="formInput" id="form" action="controlloRegistrazione.php" method="post">
                 
-                <label for="username">Username</label>
+                <label for="username" lang="en">Username</label>
                 <input type="text" id="username" name="username" class="styleInput" minlength="2" maxlength="30" required/>
                 <p id="aiutoUsername" ></p>
 
-                <label for="password">Password</label>
+                <label for="password" lang="en">Password</label>
                 <input type="password" id="password" name="password" class="styleInput" minlength="4" required/>
                 <p id="aiutoPassword" ></p>
 
-                <label for="conferma">Conferma Password</label>
+                <label for="conferma">Conferma <span lang="en">Password</span></label>
                 <input type="password" id="conferma" name="conferma" class="styleInput" minlength="4" required/>
-                <p id="aiutoConfermaPassword" ></p>
-                [alert]
+                <p aria-live="polite" id="aiutoConfermaPassword" ></p>
+                <p aria-live="polite" class='alert-info'>[alert]</p>
                 <input type="submit" class="button" name="bottoneRegistrati" value="Registrati">
                 
                 

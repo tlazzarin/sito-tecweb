@@ -77,7 +77,7 @@ function mostraErrore(input) {
   
   if (input.id == "conferma" && !confirmPass()) {
       messaggio.className = "errorMessage";
-      parent.setAttribute("aria-live","polite");
+      
   } else {
       messaggio.className = "suggestionMessage";
   }
@@ -85,6 +85,7 @@ function mostraErrore(input) {
   messaggio.id = "error" + restrizioni[input.id][0];
   messaggio.appendChild(document.createTextNode(restrizioni[input.id][2]));
   parent.appendChild(messaggio);
+  
 }
 
 //controllo di tutti gli input nella form
