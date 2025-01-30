@@ -91,7 +91,7 @@ if($checkConnection){
                     <h5>La tua Recensione</h5>
                     <noscript>Abilita <span lang=\"en\">Javascript</span> per poter interagire con la tua recensione.</noscript>
                     <label for=\"testoRecensione\">Testo della recensione<abbr title=\"Obbligatorio\">*</abbr></label>
-                    <textarea name=\"testoRecensione\" id=\"testoRecensione\" class=\"inputRecensione\" type=\"text\" aria-label=\"Zona dove inserire il testo della propria recensione, non può essere lasciata vuota\" required disabled>".$queryRecensioneUtente->get_result()[0]['testo']."</textarea>
+                    <textarea name=\"testoRecensione\" id=\"testoRecensione\" class=\"inputRecensione\" type=\"text\" required disabled>".$queryRecensioneUtente->get_result()[0]['testo']."</textarea>
                     <p class=\"hidden\" id=\"textArea-errore\" role=\"alert\">La recensione non può essere vuota</p>
                     <label for=\"voto\" name=\"voto\" class=\"valutazione-".$queryRecensioneUtente->get_result()[0]['voto']."\">Voto: ".$queryRecensioneUtente->get_result()[0]['voto']." su 5</label>
                     <button name=\"modificaRecensione\" type=\"button\" id=\"modifica\" aria-label=\"Modifica recensione\"><img src=\"./assets/pen-to-square-solid.svg\" alt=\"Modifica\"></button>
@@ -105,7 +105,7 @@ if($checkConnection){
                     <h5>La tua Recensione</h5>
                     <noscript>Abilita <span lang=\"en\">Javascript</span> per poter interagire con la tua recensione.</noscript>
                     <label for=\"testoRecensione\">Testo della recensione<abbr title=\"Obbligatorio\">*</abbr></label>
-                    <textarea name=\"testoRecensione\" id=\"testoRecensione\" class=\"inputRecensione\" type=\"text\" placeholder=\"Scrivi qua la tua recensione\" aria-label=\"Zona dove inserire il testo della propria recensione, non può essere lasciata vuota\" required></textarea>
+                    <textarea name=\"testoRecensione\" id=\"testoRecensione\" class=\"inputRecensione\" type=\"text\" placeholder=\"Scrivi qua la tua recensione\" required></textarea>
                     <p class=\"hidden\" id=\"textArea-errore\" role=\"alert\">La recensione non può essere vuota</p>
                     <label for=\"voto\" id=\"testoOption\">Inserire una valutazione da 1 a 5<abbr title=\"Obbligatorio\">*</abbr></label>
                     <select aria-label=\"Scelta Multipla per il voto della recensione\" id=\"voto\" name=\"voto\">

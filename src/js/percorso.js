@@ -33,6 +33,13 @@ function slideSuccesiva() {
   mostraSlide(indiceSlide);
 }
 
+document.getElementById("testoRecensione").addEventListener("focusout",function(){
+  if(!document.getElementsByName('testoRecensione')[0].validity.valid)
+      document.getElementById("textArea-errore").classList.remove("hidden");
+    else
+      document.getElementById("textArea-errore").classList.add("hidden");
+});
+
 //variabili per non perdere dati in caso di annulamento della modifica
 let testo = "";
 let voto = "";
