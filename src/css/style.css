@@ -84,6 +84,17 @@ button, .button{
     color: var(--defaultbgcolor)
 }
 
+/* bottone per download */
+a.button.download:visited{
+    color: var(--defaultbgcolor);
+    background-color:var(--visitedlinkcolor);
+}
+a.button.download:visited:hover{
+    color: var(--defaultbgcolor);
+    background-color:var(--maincolor);
+}
+
+/* bottoni form modifica recensione*/
 .button.danger {
     background-color: var(--maincolor);
     color: var(--defaultbgcolor); 
@@ -91,16 +102,6 @@ button, .button{
 }
 .button.danger:hover {
     background-color: var(--maincolor);
-}
-
-.button:hover , button:hover{
-    background-color: var(--unvisitedlinkcolorhover);
-}
-
-/* INUTILE */
-.button a {
-    color: inherit;
-    text-decoration: none;
 }
 
 /* HEADER */
@@ -169,7 +170,7 @@ a.logo{
     color: var(--defaultbgcolor);
     text-decoration: none;
 }
-#menu .action-button:visited {
+#menu .action-button:visited{
     background-color: var(--visitedlinkcolor);
 }
 
