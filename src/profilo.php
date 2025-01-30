@@ -38,7 +38,7 @@ if(!$query->is_empty()){
             ";
             }
 }else
-    $tabella.="<tr><td colspan=\"4\">Nessuna recensione trovata.</tr>";
+    $tabella.="<tr><td colspan=\"3\">Nessuna recensione trovata.</tr>";
 
 
 $tabella.="</tbody>";

@@ -695,7 +695,7 @@ thead th{
 }
 
 /* Caso in cui il profilo non abbia recensioni*/
-td[colspan="4"]{
+td[colspan="3"], td[colspan="5"]{
     text-align: center;
 }
 

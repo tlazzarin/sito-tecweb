@@ -45,7 +45,7 @@ if(!$query->is_empty()){
 }else{
     $tabella.="
     <tr>
-        <th>Non sono presenti recensioni.</th>
+        <td colspan=\"5\">Non sono presenti recensioni.</td>
     </tr>
     ";
 }
