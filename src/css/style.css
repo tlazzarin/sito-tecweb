@@ -307,7 +307,7 @@ a.logo{
     display: block;
 }
 
-label:after {
+#formcontent label:after {
     content: ": ";
 }
 

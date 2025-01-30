@@ -61,8 +61,8 @@ function modificaFunzione()
     document.getElementsByName("voto")[0].remove();
     document.getElementsByName("cancellaRecensione")[0].remove();
     
-    document.getElementById("recensioneUtente").innerHTML+='<label for="voto" id="testoOption">Inserire una valutazione da 1 a 5<abbr title=\"Obbligatorio\">*</abbr></label>';
-    document.getElementById("recensioneUtente").innerHTML+='<select id="voto" name="voto" aria-label="Scelta Multipla per il voto della recensione"></select>';
+    document.getElementById("recensioneUtente").innerHTML+='<label for="voto" id="testoOption">Inserire una valutazione da 1 a 5 <abbr title=\"Obbligatorio\">*</abbr></label>';
+    document.getElementById("recensioneUtente").innerHTML+='<select id="voto" name="voto" required></select>';
     for (let i = 5; i > 0; i--) {
       
       if(voto==i)
@@ -127,8 +127,8 @@ document.getElementById("recensioneUtente").addEventListener("submit", function 
           document.getElementById("modifica").remove();
           document.getElementById("elimina").remove();
 
-          document.getElementById("recensioneUtente").innerHTML+='<label for="voto" id="testoOption">Inserire una valutazione da 1 a 5<abbr title=\"Obbligatorio\">*</abbr></label>';
-          document.getElementById("recensioneUtente").innerHTML+='<select id="voto" name="voto" aria-label="Scelta Multipla per il voto della recensione"></select>';
+          document.getElementById("recensioneUtente").innerHTML+='<label for="voto" id="testoOption">Inserire una valutazione da 1 a 5 <abbr title=\"Obbligatorio\">*</abbr></label>';
+          document.getElementById("recensioneUtente").innerHTML+='<select id="voto" name="voto" required></select>';
           for (let i = 5; i > 0; i--) {
             document.getElementById("voto").innerHTML+='<option value="'+i+'">'+i+'</option>';
           }

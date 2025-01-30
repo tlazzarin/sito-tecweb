@@ -24,7 +24,7 @@
     <body>
         <!-- Header -->
         <header>
-            <a href="#main-registrati" class="VaiAiContenutiPrincipali">Vai ai contenuti principali</a>
+            <a href="#formcontent" class="VaiAiContenutiPrincipali">Vai ai contenuti principali</a>
             <a class="linkHome" href="index.php" id="logo"><img src="./assets/logo.svg" alt="Logo del sito" class="logo"></a>
             <h1>Montagna per tutti</h1>
         </header> 
@@ -59,11 +59,9 @@
         </nav>
 
         <!-- Dialogo di registrazione -->
-        <main id="main-registrati">
-        <div id="formcontent">
+        <main id="formcontent">
             <h2>Registrati</h2>
             <form class="formInput" id="form" action="controlloRegistrazione.php" method="post">
-                
                 <label for="username" lang="en">Username</label>
                 <input type="text" id="username" name="username" class="styleInput" minlength="2" maxlength="30" required/>
                 <p id="aiutoUsername" ></p>
@@ -77,11 +75,8 @@
                 <p aria-live="polite" id="aiutoConfermaPassword" ></p>
                 <p aria-live="polite" class='alert-info'>[alert]</p>
                 <input type="submit" class="button" name="bottoneRegistrati" value="Registrati">
-                
-                
             </form>
             <p>Hai già un profilo? <a href="accedi.php">Accedi</a></p>
-        </div>
         </main>
         <!-- Footer -->
         <footer>
