@@ -18,6 +18,7 @@ function mostraSlide(indice) {
   slides.forEach((slide) => {
     slide.classList.remove("slideVisibile");
   });
+  
   slides[indiceSlide].classList.add("slideVisibile");
   slides[indiceSlide].focus();
 }

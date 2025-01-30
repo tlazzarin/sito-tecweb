@@ -70,7 +70,7 @@ if($checkConnection){
     if($queryImg->ok())//inserimento immagini del percorso
     {
         foreach($queryImg->get_result() as $immagine){
-            $Immagini.="<img src=\"./assets/img/percorsi/".$immagine['id_immagine']."\" 
+            $Immagini.="<img tabindex=\"-1\" src=\"./assets/img/percorsi/".$immagine['id_immagine']."\" 
                         alt=\"".$immagine['alt']."\" 
                         class=\"slide\">";
         }
