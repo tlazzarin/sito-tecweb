@@ -109,7 +109,7 @@ document.getElementById("recensioneUtente").addEventListener("submit", function 
   
   //switch per decidere funzionalita' pulsante
   if(target.id=="elimina") {
-      xhr.open("POST", "../cancellaRecensione.php");
+      xhr.open("POST", "./cancellaRecensione.php");
       xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
       xhr.onload = function () {
         const response=JSON.parse(xhr.responseText);
@@ -149,7 +149,7 @@ document.getElementById("recensioneUtente").addEventListener("submit", function 
     }
     else
     {
-      xhr.open("POST", "../aggiungiRecensione.php");
+      xhr.open("POST", "./aggiungiRecensione.php");
       xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
       xhr.onload = function () {
         const response=JSON.parse(xhr.responseText);
