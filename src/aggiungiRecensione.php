@@ -21,6 +21,10 @@
             $queryCancellaRecensione=$connessione->cancella_recensione($id,$_SESSION['Username']);
         }
         
+        if(mb_strlen($testo)>1000)
+        {
+            $testo=substr($testo,0,1000);
+        }
         
         $queryAggiungiRecensione=$connessione->aggiungi_recensione($_SESSION['Username'],$id,$voto,$testo);
             
