@@ -91,7 +91,7 @@ if($checkConnection){
                     <h5>La tua Recensione</h5>
                     <noscript>Abilita <span lang=\"en\">Javascript</span> per poter interagire con la tua recensione.</noscript>
                     <label for=\"testoRecensione\">Testo della recensione <abbr title=\"Obbligatorio\">*</abbr></label>
-                    <textarea name=\"testoRecensione\" id=\"testoRecensione\" class=\"inputRecensione\" type=\"text\" onblur=\"focusOut()\" required disabled>".$queryRecensioneUtente->get_result()[0]['testo']."</textarea>
+                    <textarea name=\"testoRecensione\" id=\"testoRecensione\" class=\"inputRecensione\" type=\"text\" onblur=\"focusOut()\" maxlength=\"1000\" required disabled>".$queryRecensioneUtente->get_result()[0]['testo']."</textarea>
                     <p class=\"hidden\" id=\"textArea-errore\" role=\"alert\">La recensione non può essere vuota</p>
                     <p for=\"voto\" name=\"voto\" class=\"valutazione-".$queryRecensioneUtente->get_result()[0]['voto']."\">Voto: ".$queryRecensioneUtente->get_result()[0]['voto']." su 5</p>
                     <button name=\"modificaRecensione\" type=\"button\" id=\"modifica\" onclick=\"modificaFunzione()\" aria-label=\"Modifica recensione\"><img src=\"./assets/pen-to-square-solid.svg\" alt=\"Modifica\"></button>
@@ -105,7 +105,7 @@ if($checkConnection){
                     <h5>La tua Recensione</h5>
                     <noscript>Abilita <span lang=\"en\">Javascript</span> per poter interagire con la tua recensione.</noscript>
                     <label for=\"testoRecensione\">Testo della recensione <abbr title=\"Obbligatorio\">*</abbr></label>
-                    <textarea name=\"testoRecensione\" id=\"testoRecensione\" class=\"inputRecensione\" type=\"text\" placeholder=\"Scrivi qua la tua recensione\" onblur=\"focusOut()\" required></textarea>
+                    <textarea name=\"testoRecensione\" id=\"testoRecensione\" class=\"inputRecensione\" type=\"text\" placeholder=\"Scrivi qua la tua recensione\" onblur=\"focusOut()\" maxlength=\"1000\" required></textarea>
                     <p class=\"hidden\" id=\"textArea-errore\" role=\"alert\">La recensione non può essere vuota</p>
                     <label for=\"voto\" id=\"testoOption\">Inserire una valutazione da 1 a 5 <abbr title=\"Obbligatorio\">*</abbr></label>
                     <select id=\"voto\" name=\"voto\" required>
