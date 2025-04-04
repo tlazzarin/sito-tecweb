@@ -18,9 +18,3 @@ Questo comando crea l'ambiente in docker: crea un volume virtuale, inizializza u
 ### Visualizzare il sito
 1. Visitare localhost
 2. Viene aperta la pagina index.html contenuta nella cartella src
-   
-## Progettazione
-- Grafica: [Figma](https://www.figma.com/design/6KxUq1arcfp3onFhO60EWo/tecweb?node-id=0-1&t=YjGYu2cfsg7GCBAe-1)
-- Scelta font e colori: [file "progettazione grafica" in Google Drive](https://drive.google.com/drive/folders/1BpgmUcRiPYRqKeOxpNQBw7X8At__YIGn?usp=sharing)
-- Database: [file "Schema database"in Google Drive](https://drive.google.com/drive/folders/1BpgmUcRiPYRqKeOxpNQBw7X8At__YIGn?usp=sharing)
-
